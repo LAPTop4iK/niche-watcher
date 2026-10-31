@@ -631,6 +631,15 @@ def main():
                 print("\n" + "=" * 50 + "\nTG ALERT (print mode):\n" + msg + "\n" + "=" * 50)
             else:
                 send_telegram(msg)
+        else:
+            # heartbeat: бот молчит = непонятно, жив ли; шлём короткую сводку
+            hb = (f"🔭 Niche Watcher: прогон завершён. Новых зомби нет, "
+                  f"всего в прогоне {len(zombies)}. "
+                  f'<a href="{telegram_dashboard_url()}">дашборд</a>')
+            if args.print_alert:
+                print("\nTG HEARTBEAT:", hb)
+            else:
+                send_telegram(hb)
 
     if con:
         con.close()
