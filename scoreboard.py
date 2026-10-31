@@ -50,7 +50,9 @@ def main():
         revs = {m: rm.model_revenue(geo, mk, defaults, m, 10000, 4.99)
                 for m in ["ads", "paid", "sub", "hybrid"]}
         best = max(revs, key=revs.get)
-        anomaly[geo] = (revs[best] / mk["cpi_usd"], best)
+        # денежность в скоре — по АБСОЛЮТНОЙ organic-выручке (не аномалии/CPI:
+        # деление на дешёвый CPI ложно возводило RU в топ — ре-аудит §24.4)
+        anomaly[geo] = (revs[best], best, revs[best] / mk["cpi_usd"])
     a_max = max(v[0] for v in anomaly.values())
 
     con = sqlite3.connect(args.db)
@@ -121,7 +123,7 @@ def main():
                  + 0.10 * min(100.0, new100 * 5) + 0.20 * demand
                  + 0.20 * 100.0 * anomaly[geo][0] / a_max)
         scored.append((score, cat, geo, a["total"], z, f, a["qg"], a["new"],
-                       f"{demand:.0f}%", anomaly[geo][1], anomaly[geo][0]))
+                       f"{demand:.0f}%", anomaly[geo][1], anomaly[geo][2]))
     scored.sort(reverse=True)
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
