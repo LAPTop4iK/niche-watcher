@@ -393,6 +393,7 @@ def main():
     ap.add_argument("--report", default=os.path.join(here, "report.md"))
     ap.add_argument("--countries", default=None, help="us,de — перекрывает markets.json")
     ap.add_argument("--tier", type=int, default=1, help="1 = ежедневные рынки, 2 = еженедельные (из markets.json)")
+    ap.add_argument("--slot", type=int, default=None, help="недельный слот 1-4 для tier-2 (day-of-week)")
     ap.add_argument("--categories", default=None, help="construction,auto — фильтр категорий")
     ap.add_argument("--limit", type=int, default=50, help="результатов на запрос (max 200)")
     ap.add_argument("--min-rating-count", type=int, default=DEFAULT_MIN_RATINGS)
@@ -407,7 +408,9 @@ def main():
         markets = json.load(f)["markets"]
     countries = (
         [c.strip() for c in args.countries.split(",")] if args.countries
-        else [c for c, v in markets.items() if v.get("tier", 2) == args.tier]
+        else [c for c, v in markets.items()
+              if v.get("tier", 2) == args.tier
+              and (args.slot is None or args.tier != 2 or v.get("week_slot") == args.slot)]
     )
     wanted = set(args.categories.split(",")) if args.categories else None
 
