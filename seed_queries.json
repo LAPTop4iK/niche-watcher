@@ -1,0 +1,267 @@
+{
+  "_comment": "Категории ниш. queries — словарь по языковым группам (см. markets.json: lang). Сканер берёт queries[lang] для гео, при отсутствии — queries.en. enabled=false исключает категорию.",
+  "categories": [
+    {
+      "id": "construction",
+      "enabled": true,
+      "queries": {
+        "en": ["concrete calculator", "construction calculator", "stair calculator", "roofing calculator", "drywall calculator", "rebar calculator", "board foot calculator"],
+        "de": ["betonrechner", "baurechner", "dämmrechner", "fliesenrechner"],
+        "fr": ["calculateur béton", "calcul chantier", "calculateur carrelage", "calcul peinture mur"],
+        "ja": ["コンクリート計算", "建築電卓", "タイル計算", "ペンキ 計算", "屋根 勾配 計算"],
+        "ko": ["콘크리트 계산기", "건축 계산기", "타일 계산기", "페인트 계산기"],
+        "zh-TW": ["混凝土計算機", "建築計算機", "磁磚計算", "油漆計算"],
+        "ru": ["калькулятор бетона", "строительный калькулятор"],
+        "sv": ["betongkalkyl", "byggkalkyl", "trappkalkyl"],
+        "nb": ["betongkalkulator", "byggekalkulator"],
+        "da": ["beton beregner", "bygge beregner"],
+        "fi": ["betonilaskuri", "rakennuslaskuri"],
+        "nl": ["betoncalculator", "bouwkalkulator"],
+        "ar": ["حاسبة الخرسانة", "حاسبة البناء"]
+      }
+    },
+    {
+      "id": "auto",
+      "enabled": true,
+      "queries": {
+        "en": ["obd2 scanner", "fuel log", "car expenses tracker", "tire size calculator", "vin decoder", "mileage tracker", "mileage log", "vin check"],
+        "de": ["krafstoffverbrauch app", "auto kosten", "obd2 scanner"],
+        "fr": ["suivi carburant", "obd2", "entretien voiture"],
+        "ja": ["燃費 記録", "車 費用", "OBD2", "タイヤ サイズ"],
+        "ko": ["연비 기록", "차량 비용", "OBD2 스캐너", "타이어 사이즈"],
+        "zh-TW": ["油耗記錄", "OBD2", "保養紀錄"],
+        "ru": ["расход топлива"],
+        "sv": ["bränsleförbrukning", "bil kostnader", "däckstorlek"],
+        "nb": ["drivstoff forbruk", "bil kostnader", "dekk størrelse"],
+        "da": ["brændstofforbrug", "bil omkostninger"],
+        "fi": ["polttoaine kulutus", "auto kulut", "rengaskoko"],
+        "nl": ["brandstof verbruik", "auto kosten", "bandenmaat"],
+        "ar": ["استهلاك الوقود", "مصاريف السيارة"]
+      }
+    },
+    {
+      "id": "needlework",
+      "enabled": true,
+      "queries": {
+        "en": ["row counter knitting", "crochet pattern app", "cross stitch", "knitting pattern", "embroidery app"],
+        "de": ["maschenzähler", "häkelmuster", "stricken app"],
+        "ja": ["編み物 カウンター", "かぎ針編み 図案", "刺繍 図案"],
+        "ko": ["뜨개 카운터", "코바늘 도안", "자수 도안"],
+        "ru": ["схемы вышивки", "счётчик рядов вязание"],
+        "sv": ["virkmönster", "stickräknare", "korsstygn"],
+        "nb": ["strikketeller", "hekleoppskrift", "korssting"],
+        "da": ["strikketæller", "hæklemønster", "korssting"],
+        "fi": ["neulelaskuri", "virkkaus ohje", "ristipisto"]
+      }
+    },
+    {
+      "id": "hunting_fishing",
+      "enabled": true,
+      "queries": {
+        "en": ["solunar", "fishing times", "best fishing times", "barometer fishing", "moon phase hunting"],
+        "de": ["bisszeiten", "angel app", "solunarr"],
+        "ja": ["釣り 時間", "潮汐 釣り", "気圧 釣り", "月齢 釣り"],
+        "ko": ["낚시 시간", "물때 낚시", "기압 낚시"],
+        "ru": ["прогноз клева", "охота рыбалка календарь"],
+        "nb": ["fisketider", "jakt tider", "fiske app", "månefase jakt"],
+        "da": ["fisketider", "jagt tider", "fiskeri app", "månefase jagt"],
+        "sv": ["fisketider", "fiske app", "jakt tider", "lufttryck fiske"],
+        "fi": ["kalastus ajat", "kalastus sovellus", "metsästys ajat", "ilmanpaine kalastus"],
+        "nl": ["vistijden", "hengelsport app", "luchtdruk vissen"]
+      }
+    },
+    {
+      "id": "music_practice",
+      "enabled": true,
+      "queries": {
+        "en": ["guitar tuner", "metronome", "chord finder", "piano tuner"],
+        "de": ["gitarrenstimmen", "metronom", "akkorde app"],
+        "fr": ["accordeur guitare", "métronome", "accord guitare"],
+        "ja": ["チューナー ギター", "メトロノーム", "コード 検索", "音感"],
+        "ko": ["기타 튜너", "메트로놈", "코드 찾기"],
+        "zh-TW": ["調音器", "節拍器", "吉他和弦"],
+        "ru": ["гитарный тюнер", "метроном"],
+        "sv": ["gitarrstämmare", "metronom", "ackord app"],
+        "nb": ["gitarstemmer", "metronom"],
+        "da": ["guitartuner", "metronom"],
+        "fi": ["kitaraviritin", "metronomi"],
+        "nl": ["gitaar stemmen", "metronoom"]
+      }
+    },
+    {
+      "id": "religious",
+      "enabled": true,
+      "queries": {
+        "en": ["prayer times", "qibla compass", "rosary counter", "daily bible verse"],
+        "de": ["gebetszeiten", "rosenkranz", "tägliches bibelwort"],
+        "ja": ["数珠 カウンター", "聖書 日々の言葉", "お経 アプリ"],
+        "ko": ["기도 시간", "묵주 카운터", "말씀 묵상"],
+        "zh-TW": ["祈禱時間", "誦經計數器"],
+        "ru": ["время намаза", "молитвослов"],
+        "ar": ["مواقيت الصلاة", "اتجاه القبلة", "مسبحة إلكترونية", "الحديث اليومي"],
+        "he": ["זמני תפילה", "ספירת העומר", "פסוק היום"]
+      }
+    },
+    {
+      "id": "finance_tools",
+      "enabled": true,
+      "queries": {
+        "en": ["tip calculator", "loan calculator", "invoice generator", "hourly paycheck calculator", "unit converter", "budget planner", "expense tracker"],
+        "de": ["kreditrechner", "rechnung erstellen", "einheitenrechner", "lohnrechner"],
+        "fr": ["calculateur prêt", "facture devis", "convertisseur unités"],
+        "ja": ["ローン 計算", "請求書 作成", "時給 計算", "単位変換"],
+        "ko": ["대출 계산기", "견적서 작성", "단위 변환"],
+        "zh-TW": ["貸款計算", "單位換算", "發票開立"],
+        "ru": ["калькулятор кредита", "ипотека расчет"],
+        "sv": ["lånekalkyl", "faktura app", "enhetsomvandlare"],
+        "nb": ["lånekalkulator", "faktura app", "enhetskonvertering"],
+        "da": ["lånekalkulator", "faktura app", "enhedsomregner"],
+        "fi": ["lainalaskuri", "laskutus sovellus", "yksikkömuunnin"],
+        "nl": ["hypotheek berekenen", "factuur maken", "eenheden converteren"],
+        "ar": ["حاسبة القروض", "فاتورة", "حاسبة الزكاة", "تحويل الوحدات"],
+        "he": ["מחשבון הלוואה", "חשבונית", "ממיר יחידות"]
+      }
+    },
+    {
+      "id": "garden",
+      "enabled": true,
+      "queries": {
+        "en": ["garden planner", "plant watering reminder", "frost dates", "companion planting", "grass seed calculator"],
+        "de": ["pflanzen gießen", "beetplaner", "düngerrechner"],
+        "fr": ["arrosage plantes", "potager planning", "calendrier lunaire jardin"],
+        "ja": ["植物 水やり", "園芸 カレンダー", "連作 相性"],
+        "ko": ["식물 물주기", "텃밭 계획", "동반 재배"],
+        "ru": ["календарь садовода", "полив растений напоминание"],
+        "sv": ["vattna växter", "odlingsplanering", "trädgårdskalender"],
+        "nb": ["hage planlegger", "vanne planter", "plante kalender"],
+        "da": ["vande planter", "køkkenhave planlægning"],
+        "fi": ["kasvien kastelu", "puutarha kalenteri"],
+        "nl": ["planten water geven", "moestuin plannen"]
+      }
+    },
+    {
+      "id": "parenting",
+      "enabled": true,
+      "queries": {
+        "en": ["baby feeding tracker", "baby sleep tracker", "contractions timer", "diaper tracker", "vaccine schedule"],
+        "de": ["stillprotokoll", "schlafprotokoll baby", "wehen timer"],
+        "fr": ["suivi allaitement", "sommeil bébé", "contractions timer"],
+        "ja": ["授乳 記録", "赤ちゃん 睡眠 記録", "予防接種 記録"],
+        "ko": ["수유 기록", "아기 수면 기록", "진통 타이머"],
+        "zh-TW": ["餵奶記錄", "寶寶睡眠"],
+        "ru": ["кормление грудью трекер", "счетчик схваток"],
+        "sv": ["amning logg", "bebis sömn", "värkar timer"],
+        "nb": ["amming logg", "baby søvn", "rieter timer"],
+        "da": ["amning log", "baby søvn", "veer timer"],
+        "fi": ["imetyskirja", "vauvan uni", "supistukset ajastin"],
+        "nl": ["borstvoeding log", "baby slaap", "weeën timer"],
+        "ar": ["متابعة الرضاعة", "نوم الطفل", "حاسبة الحمل"],
+        "he": ["מעקב הנקה", "שינה תינוק", "שעון צירים"]
+      }
+    },
+    {
+      "id": "photo_video_utils",
+      "enabled": true,
+      "queries": {
+        "en": ["teleprompter", "light meter", "depth of field calculator", "photo date stamp", "time lapse calculator"],
+        "de": ["teleprompter", "belichtungsmesser", "zeitstempel foto"],
+        "ja": ["プロンプター", "露出計", "被写界深度 計算"],
+        "ko": ["텔레프롬프터", "노출계", "날짜 스탬프 사진"],
+        "zh-TW": ["提詞機", "測光表"],
+        "ru": ["телесуфлёр", "дата на фото"]
+      }
+    },
+    {
+      "id": "cooking",
+      "enabled": true,
+      "queries": {
+        "en": ["recipe scaler", "sous vide timer", "bread baking timer", "kitchen conversion", "coffee ratio calculator", "meal planner", "meal prep planner"],
+        "de": ["rezept umrechnen", "bratenthermometer", "brotrheinaufgeher"],
+        "fr": ["minuteur sous vide", "conversion recette", "ratio café"],
+        "ja": ["レシピ 倍率", "低温調理 タイマー", "パン 発酵 タイマー", "コーヒー 比率"],
+        "ko": ["레시피 배율", "수비드 타이머", "빵 발효 타이머"],
+        "zh-TW": ["食譜比例", "舒肥計時"],
+        "ru": ["рецепты по ингредиентам", "таймер хлебопечения"],
+        "sv": ["bröd timer", "surdeg timer", "recept räkna om"],
+        "nb": ["brød timer", "surdeig", "kaffeforhold"],
+        "da": ["brød timer", "surdej", "kaffeforhold"],
+        "fi": ["leipä ajastin", "juurileipä", "kahvin suhde"],
+        "nl": ["brood timer", "koffieverhouding", "recept omrekenen"]
+      }
+    },
+    {
+      "id": "diy_home",
+      "enabled": true,
+      "queries": {
+        "en": ["stud finder", "paint calculator", "level tool", "wallpaper calculator", "tile calculator", "laminate calculator"],
+        "de": ["wandscanner", "farbrechner", "wasserkrepprechner"],
+        "ja": ["壁内 探知", "水平器", "壁紙 計算", "フローリング 計算"],
+        "ko": ["스터드 파인더", "수평계", "페인트 계산기", "벽지 계산기"],
+        "zh-TW": ["水平儀", "壁紙計算", "地板計算"],
+        "ru": ["детектор проводки", "калькулятор обоев", "калькулятор плитки"],
+        "sv": ["vattenpass", "målarfärg beräkna", "tapetkalkyl", "golvkalkyl"],
+        "nb": ["vater", "maling kalkulator", "tapet kalkulator", "gulv kalkulator"],
+        "da": ["vaterpas", "maling beregner", "tapet beregner"],
+        "fi": ["vesivaaka", "maalin laskuri", "tapetti laskuri"],
+        "nl": ["waterpas", "verf calculator", "behang calculator"],
+        "ar": ["حاسبة الطلاء", "حاسبة السيراميك", "ميزان ماء"]
+      }
+    },
+    {
+      "id": "fitness_calc",
+      "enabled": false,
+      "queries": {
+        "en": ["one rep max calculator", "macro calculator", "pace calculator", "water reminder"],
+        "ja": ["筋トレ 記録", "マクロ 計算", "ペース 計算"],
+        "ko": ["운동 기록", "물 마시기 알림"],
+        "ru": ["калькулятор повторений", "напоминание пить воду"]
+      }
+    },
+    {
+      "id": "ai_tools",
+      "enabled": true,
+      "queries": {
+        "en": ["voice transcriber", "ai photo enhancer", "ai scanner", "local ai assistant", "ai summary app", "transcribe voice memo"],
+        "de": ["fotos verbessern ki", "sprache zu text"],
+        "ja": ["文字起こし アプリ", "AI 写真 加工"],
+        "ru": ["голос в текст", "улучшить фото нейросеть"]
+      }
+    },
+    {
+      "id": "widgets_watch",
+      "enabled": true,
+      "queries": {
+        "en": ["home screen widgets", "watch face app", "lock screen widget", "dynamic island app", "widget pack"],
+        "ja": ["ウィジェット 時計", "文字盤 アプリ"],
+        "de": ["widgets startbildschirm", "watch face"]
+      }
+    },
+    {
+      "id": "driving_ed",
+      "enabled": true,
+      "queries": {
+        "en": ["driving theory test", "theory test kit", "road signs quiz", "dmv practice test", "theorieprüfung", "codruta"],
+        "de": ["theorieprüfung app", "führerschein test"],
+        "ru": ["билеты пдд"]
+      }
+    },
+    {
+      "id": "books_media",
+      "enabled": true,
+      "queries": {
+        "en": ["book tracker", "reading tracker", "audiobook player"],
+        "de": ["buch tracker", "hörbücher"],
+        "ru": ["читалка книг", "аудиокниги"]
+      }
+    },
+    {
+      "id": "boardgames",
+      "enabled": false,
+      "queries": {
+        "en": ["score keeper", "board game companion", "life counter"],
+        "ja": ["ボードゲーム スコア", "ライフ カウンター"],
+        "ru": ["счёт очков настольные игры"]
+      }
+    }
+  ]
+}

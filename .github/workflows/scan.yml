@@ -1,0 +1,113 @@
+name: niche-scan
+
+# Tier-1 рынки (us,jp,gb,au,ca,de,tw) — ежедневно 06:17 UTC.
+# Tier-2 (ch,no,dk,se,fi,nl,at,fr,kr,sa,ae,sg,hk,ie,nz,il,ru) + чарты + Google Play — по понедельникам.
+# Секреты: TG_BOT_TOKEN, TG_CHAT_ID (Settings → Secrets → Actions), опционально.
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # ежедневно — tier-1 keyword-скан
+    - cron: "43 5 * * 1"   # понедельник — tier-2 + чарты + Play
+  workflow_dispatch: {}     # ручной запуск
+
+permissions:
+  contents: write
+
+jobs:
+  daily-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run scanner (tier 1 markets)
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 scanner.py --report report.md
+
+      - name: Commit DB & report
+        run: |
+          git config user.name "scan-bot"
+          git config user.email "scan-bot@users.noreply.github.com"
+          git add niches.db report.md
+          git commit -m "daily scan $(date -u +%F)" || echo "nothing to commit"
+          git push
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: [daily-scan]
+    permissions:
+      pages: write
+      id-token: write
+      contents: read
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install matplotlib
+        run: pip3 install matplotlib
+
+      - name: Build dashboard
+        run: python3 dashboard.py --repo ${{ github.repository }}
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dashboard
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  weekly-deep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install play scraper
+        run: pip3 install --user google-play-scraper
+
+      - name: Tier-2 markets keyword scan
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 scanner.py --tier 2 --report report_t2.md
+
+      - name: Chart decay scan (App Store, money geos)
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 charts_scan.py --countries us,jp,gb,au,de,tw,ch,no,se,dk,sa
+
+      - name: Play zombie scan
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 play_scan.py --countries us,de,jp --limit 15
+
+      - name: Similar-graph decay crawl (топ-зомби недели)
+        run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 || true
+
+      - name: Commit DB & reports
+        run: |
+          git config user.name "scan-bot"
+          git config user.email "scan-bot@users.noreply.github.com"
+          git add niches.db report_t2.md charts_report.md clusters_report.md
+          git commit -m "weekly deep $(date -u +%F)" || echo "nothing to commit"
+          git push
