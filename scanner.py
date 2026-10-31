@@ -21,6 +21,7 @@ import html
 import json
 import math
 import os
+import re
 import sqlite3
 import sys
 import time
@@ -106,7 +107,8 @@ CREATE TABLE IF NOT EXISTS snapshots (
     version      TEXT,
     version_date TEXT,
     rating_count INTEGER,
-    avg_rating   REAL
+    avg_rating   REAL,
+    rank         INTEGER
 );
 CREATE INDEX IF NOT EXISTS idx_snap_track_time ON snapshots(track_id, scanned_at);
 """
@@ -115,6 +117,10 @@ CREATE INDEX IF NOT EXISTS idx_snap_track_time ON snapshots(track_id, scanned_at
 def open_db(path):
     con = sqlite3.connect(path, timeout=30)
     con.executescript(SCHEMA)
+    try:  # миграция старых баз
+        con.execute("ALTER TABLE snapshots ADD COLUMN rank INTEGER")
+    except sqlite3.OperationalError:
+        pass
     return con
 
 
@@ -136,12 +142,12 @@ def upsert_app(con, app):
 def insert_snapshot(con, app):
     con.execute(
         """INSERT INTO snapshots (track_id, country, category, query, scanned_at,
-                                  version, version_date, rating_count, avg_rating)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                                  version, version_date, rating_count, avg_rating, rank)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             app["track_id"], app["country"], app["category"], app["query"],
             app["scanned_at"], app["version"], app["version_date"],
-            app["rating_count"], app["avg_rating"],
+            app["rating_count"], app["avg_rating"], app.get("rank"),
         ),
     )
 
@@ -211,6 +217,13 @@ def analyze(con, app, min_stale_months, min_ratings):
         and app["rating_count"] >= min_ratings
     )
     out["is_zombie"] = is_zombie
+
+    # quality gap: спрос доказан (аудитория), продукт плох (низкий рейтинг), лидер жив
+    out["is_quality_gap"] = bool(
+        app["rating_count"] >= 1000
+        and app["avg_rating"] and app["avg_rating"] < 4.0
+        and stale_months is not None and stale_months < 12
+    )
 
     # --- скоринг 0..100
     staleness = 0.0
@@ -311,6 +324,18 @@ NATIVE_RISK_KEYWORDS = (
 )
 
 
+_STOP_TOK = set("""for with and the your app my pro free plus hd lite best simple easy all one new
+timer time""".split())
+
+
+def _relevant(name, query):
+    """Ложные корреляции выдачи: гиганты утекают в длинные запросы (ADP по
+    «hourly paycheck calculator»). Райзер ниши обязан делить токен с запросом."""
+    tn = {w for w in re.split(r"[^a-zа-яёäöüß0-9]+", name.lower()) if len(w) > 2 and w not in _STOP_TOK}
+    tq = {w for w in re.split(r"[^a-zа-яёäöüß0-9]+", query.lower()) if len(w) > 2 and w not in _STOP_TOK}
+    return bool(tn & tq)
+
+
 def is_native_risk(name, query):
     text = f"{name} {query}".lower()
     return any(k in text for k in NATIVE_RISK_KEYWORDS)
@@ -334,7 +359,11 @@ def fetch_recent_reviews(track_id, country="us"):
         if not dates:
             return None
         cutoff = (now_utc() - timedelta(days=60)).strftime("%Y-%m-%d")
-        return dates[0], sum(1 for d in dates if d >= cutoff)
+        recent60 = sum(1 for d in dates if d >= cutoff)
+        rated = [e2 for e2 in entries if "im:rating" in e2]
+        bad = sum(1 for e2 in rated if int(e2["im:rating"]["label"]) <= 2)
+        bad_share = round(100.0 * bad / len(rated)) if rated else None
+        return dates[0], recent60, bad_share
     except Exception:  # noqa: BLE001 — отзывные данные не критичны для прогона
         return None
 
@@ -346,7 +375,7 @@ def fmt_row(a):
     port = a.get("seller_apps")
     port_s = f"{a['seller'][:22]}{'' if port is None else f' ({port})'}"
     rev = a.get("recent_reviews")
-    rev_s = f"{rev[0]} ({rev[1]})" if rev else "-"
+    rev_s = (f"{rev[0]} ({rev[1]})" + (f" 💔{rev[2]}%" if rev and rev[2] is not None else "")) if rev else "-"
     warn = " ⚠️портфель" if (port or 0) > 8 else ""
     native = " ⛔натив" if a.get("native_risk") else ""
     return (
@@ -368,7 +397,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 """
 
 
-def write_report(path, zombies, watchlist, args, heat_rows=None):
+def write_report(path, zombies, watchlist, args, heat_rows=None, risers=None, quality_gaps=None):
     lines = [REPORT_HEAD.format(date=iso(now_utc())[:10], stale=args.min_stale_months, ratings=args.min_rating_count)]
     if zombies:
         for a in zombies:
@@ -391,8 +420,28 @@ def write_report(path, zombies, watchlist, args, heat_rows=None):
                 "\n## Heat по категориям (рост конкуренции)\n\n"
                 "fresh = версия младше 12 мес (активные конкуренты); new = новые в БД за прогон.\n"
                 "Читать парой: зомби% ВЫСОКИЙ + fresh% НИЗКИЙ = свободная ниша; зомби% высокий + fresh% высокий = ниша уже поднимают.\n\n"
-                "| Категория | Гео | Видно | Fresh% | New | Зомби% |\n|---|---|---|---|---|---|\n"
+                "| Категория | Гео | Видно | Fresh% | New | Зомби% | Топ-продавец |\n|---|---|---|---|---|---|---|\n"
                 + "\n".join(heat_rows) + "\n"
+            )
+    if risers:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(
+                "\n## Risers — новые в топ-20 выдачи с аудиторией (нишу занимают сейчас)\n\n"
+                "| Оценок | Приложение | Гео | Запрос | Версия от |\n|---|---|---|---|---|\n"
+                + "\n".join(
+                    f"| {a['rating_count']:,} | [{a['name'][:36]}]({a['store_url']}) | {a['country']} "
+                    f"| {a['query']} | {a['version_date'][:10] if a['version_date'] else '?'} |"
+                    for a in risers) + "\n"
+            )
+    if quality_gaps:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(
+                "\n## Quality gaps — популярно, но плохо оценено (feature-gap raid цели)\n\n"
+                "| Оценок | Рейтинг | Приложение | Гео | Версия от |\n|---|---|---|---|---|\n"
+                + "\n".join(
+                    f"| {a['rating_count']:,} | {a['avg_rating']:.1f} | [{a['name'][:36]}]({a['store_url']}) "
+                    f"| {a['country']} | {a['version_date'][:10] if a['version_date'] else '?'} |"
+                    for a in quality_gaps) + "\n"
             )
     with open(path, "a", encoding="utf-8") as f:
         f.write(
@@ -412,7 +461,7 @@ def load_seed(path):
         return json.load(f)
 
 
-def normalize(raw, country, category, query):
+def normalize(raw, country, category, query, rank=None):
     date_str = raw.get("currentVersionReleaseDate", "").replace("Z", "Z")
     return {
         "track_id": raw.get("trackId"),
@@ -430,6 +479,7 @@ def normalize(raw, country, category, query):
         "version_date": date_str or None,
         "rating_count": raw.get("userRatingCount") or 0,
         "avg_rating": raw.get("averageUserRating"),
+        "rank": rank,
         "first_country": country,
         "first_seen": iso(now_utc()),
         "last_seen": iso(now_utc()),
@@ -492,12 +542,12 @@ def main():
                 except RuntimeError as e:
                     print(f"  ! пропускаю запрос: {e}", file=sys.stderr)
                     continue
-                for raw in results:
+                for pos, raw in enumerate(results, 1):
                     tid = raw.get("trackId")
                     if not tid or tid in seen:
                         continue
                     seen.add(tid)
-                    app = normalize(raw, country, cid, q)
+                    app = normalize(raw, country, cid, q, rank=pos)
                     if app["rating_count"] < 10:  # шум отсекаем сразу
                         continue
                     app["native_risk"] = is_native_risk(app["name"], q)
@@ -522,7 +572,7 @@ def main():
     heat = {}
     for a in analyzed:
         key = (a["category"], a["country"])
-        h = heat.setdefault(key, {"total": 0, "fresh": 0, "new": 0, "zombie": 0})
+        h = heat.setdefault(key, {"total": 0, "fresh": 0, "new": 0, "zombie": 0, "sellers": Counter()})
         h["total"] += 1
         if a["stale_months"] is not None and a["stale_months"] < 12:
             h["fresh"] += 1
@@ -530,6 +580,21 @@ def main():
             h["new"] += 1
         if a["is_zombie"]:
             h["zombie"] += 1
+        h["sellers"][a["seller"]] += 1
+
+    # risers: новые в топ-50 выдачи с аудиторией — «нишу уже кто-то занимает»
+    risers = sorted(
+        [a for a in analyzed
+         if a["track_id"] not in existing_ids and a["rating_count"] >= 500
+         and a.get("rank") and a["rank"] <= 20 and _relevant(a["name"], a["query"])],
+        key=lambda x: -x["rating_count"],
+    )[:15]
+
+    # quality gaps: популярно + плохо оценено + версия живая = feature-gap raid цель
+    quality_gaps = sorted(
+        [a for a in analyzed if a.get("is_quality_gap")],
+        key=lambda x: -x["rating_count"],
+    )[:15]
 
     # свежесть отзывов для топ-кандидатов (спрос жив?) — 12 запросов RSS
     for a in zombies[:12]:
@@ -545,11 +610,13 @@ def main():
 
     heat_rows_out = []
     for (cat, geo), h in sorted(heat.items(), key=lambda kv: -(kv[1]["zombie"] / max(1, kv[1]["total"]))):
+        top_seller, top_cnt = (h["sellers"].most_common(1)[0] if h["sellers"] else ("—", 0))
+        conc = f"{top_seller[:18]} ({100.0*top_cnt/max(1,h['total']):.0f}%)"
         heat_rows_out.append(
             f"| {cat} | {geo} | {h['total']} | {100.0*h['fresh']/max(1,h['total']):.0f}% | "
-            f"{h['new']} | {100.0*h['zombie']/max(1,h['total']):.0f}% |"
+            f"{h['new']} | {100.0*h['zombie']/max(1,h['total']):.0f}% | {conc} |"
         )
-    write_report(args.report, zombies, watchlist, args, heat_rows_out)
+    write_report(args.report, zombies, watchlist, args, heat_rows_out, risers, quality_gaps)
     if not args.quiet:
         print(f"\n== Итог: приложений проанализировано {len(analyzed)}, зомби {len(zombies)}, watchlist {len(watchlist)}")
         for a in zombies[:15]:
