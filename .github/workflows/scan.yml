@@ -36,6 +36,7 @@ jobs:
           git config user.email "scan-bot@users.noreply.github.com"
           git add niches.db report.md
           git commit -m "daily scan $(date -u +%F)" || echo "nothing to commit"
+          git pull --rebase --autostash || true
           git push
 
   deploy-pages:
@@ -110,4 +111,5 @@ jobs:
           git config user.email "scan-bot@users.noreply.github.com"
           git add niches.db report_t2.md charts_report.md clusters_report.md
           git commit -m "weekly deep $(date -u +%F)" || echo "nothing to commit"
+          git pull --rebase --autostash || true
           git push
