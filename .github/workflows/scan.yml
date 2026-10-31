@@ -11,7 +11,7 @@ on:
   schedule:
     - cron: "17 6 * * *"     # daily tier-1
     - cron: "17 8 * * 1-4"   # Пн-Чт: tier-2 слот дня
-    - cron: "17 8 * * 4"     # Чт: + charts + play
+    - cron: "17 10 * * 4"    # Чт 10:17: charts + play (после slot 08:17 — БД пишет одна джоба за раз)
     - cron: "17 8 * * 6"     # Сб: similar-graph crawl
     - cron: "30 11 * * *"    # ежедневно: deploy Pages
   workflow_dispatch: {}
@@ -68,7 +68,7 @@ jobs:
           git push
 
   weekly-charts-play:
-    if: github.event.schedule == '17 8 * * 4'
+    if: github.event.schedule == '17 10 * * 4'
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
