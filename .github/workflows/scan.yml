@@ -108,6 +108,11 @@ jobs:
           python-version: "3.12"
       - name: Similar-graph decay crawl (топ-зомби)
         run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 || true
+      - name: Weekly TG digest (динамика)
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 tg_digest.py --send || true
       - name: Commit report
         run: |
           git config user.name "scan-bot"; git config user.email "scan-bot@users.noreply.github.com"

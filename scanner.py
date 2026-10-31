@@ -17,6 +17,7 @@ Niche Decay Scanner — находит «зомби»-приложения в Ap
 """
 
 import argparse
+import html
 import json
 import math
 import os
@@ -159,14 +160,17 @@ def previous_snapshot(con, track_id, min_age_days=7):
     return row  # (scanned_at, rating_count) | None
 
 
-def was_flagged_before(con, track_id, min_stale_months, min_ratings):
-    """Считался ли этот трек зомби в прошлых прогонах (по самой старой и новой версии)."""
+def was_flagged_before(con, track_id, min_stale_months, min_ratings, before_iso=None):
+    """Считался ли трек зомби в ПРОШЛЫХ прогонах (до before_iso — иначе текущий
+    прогон флагает сам себя и алерты никогда не срабатывают)."""
     if con is None:
         return False
+    cond = "AND scanned_at < ?" if before_iso else ""
+    params = [track_id, min_ratings] + ([before_iso] if before_iso else [])
     row = con.execute(
-        """SELECT MIN(version_date) FROM snapshots
-           WHERE track_id = ? AND rating_count >= ?""",
-        (track_id, min_ratings),
+        f"""SELECT MIN(version_date) FROM snapshots
+            WHERE track_id = ? AND rating_count >= ? {cond}""",
+        params,
     ).fetchone()
     if not row or not row[0]:
         return False
@@ -230,20 +234,68 @@ def analyze(con, app, min_stale_months, min_ratings):
 
 # ---------------------------------------------------------------- алерты
 
+def flag_emoji(iso_country):
+    return "".join(chr(0x1F1E6 + ord(c) - 65) for c in iso_country.upper()[:2])
+
+
+def telegram_dashboard_url():
+    repo = os.environ.get("GITHUB_REPOSITORY", "LAPTop4iK/niche-watcher")
+    return f"https://{repo.split('/')[0].lower()}.github.io/{repo.split('/')[1]}/"
+
+
 def send_telegram(text):
+    """Отправка с разбивкой по лимиту 4096 символов и экранированием HTML."""
     token = os.environ.get("TG_BOT_TOKEN")
     chat_id = os.environ.get("TG_CHAT_ID")
     if not token or not chat_id:
         return False
+    chunks, cur = [], ""
+    for line in text.split("\n"):
+        if len(cur) + len(line) + 1 > 3900:
+            chunks.append(cur)
+            cur = line
+        else:
+            cur = f"{cur}\n{line}" if cur else line
+    if cur:
+        chunks.append(cur)
     url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = json.dumps({"chat_id": chat_id, "text": text, "parse_mode": "HTML"}).encode()
-    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.status == 200
-    except Exception as e:  # noqa: BLE001
-        print(f"  ! telegram alert failed: {e}", file=sys.stderr)
-        return False
+    ok = True
+    for chunk in chunks:
+        payload = json.dumps({"chat_id": chat_id, "text": chunk,
+                              "parse_mode": "HTML", "disable_web_page_preview": True}).encode()
+        req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                ok = ok and resp.status == 200
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! telegram alert failed: {e}", file=sys.stderr)
+            ok = False
+        time.sleep(1)
+    return ok
+
+
+def build_alert_message(new, total_zombies, print_mode=False):
+    """Красивый digest: ссылки на сторы, флаги, velocity, свежесть, риски, ссылка на дашборд."""
+    e = (lambda s: s) if print_mode else html.escape
+    lines = [f"🧟 <b>Niche Watcher</b> — новые зомби: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
+    for i, a in enumerate(new[:12], 1):
+        vel = f" · {a['velocity_30d']:+.0f}/30д" if a["velocity_30d"] is not None else ""
+        rev = f" · 📩 отзыв {a['recent_reviews'][0]}" if a.get("recent_reviews") else ""
+        port = " · ⚠️портфель" if (a.get("seller_apps") or 0) > 8 else ""
+        native = " · ⛔натив" if a.get("native_risk") else ""
+        link = f'<a href="{a["store_url"]}">{e(a["name"])}</a>' if not print_mode else a["name"]
+        rating = f"{a['avg_rating']:.1f}★" if a.get("avg_rating") else "—"
+        lines.append(
+            f"{i}. <b>{link}</b> {flag_emoji(a['country'])}\n"
+            f"   {a['rating_count']:,} оценок · {rating} · "
+            f"<b>{a['stale_months']:.0f} мес</b> без обновл.{vel}{rev}{port}{native}"
+        )
+    if len(new) > 12:
+        lines.append(f"… и ещё {len(new) - 12} — см. отчёт")
+    lines.append("")
+    lines.append(f"📊 <a href=\"{telegram_dashboard_url()}\">дашборд с динамикой</a> · "
+                 f"отчёт: report.md в репо")
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------- отчёт
@@ -400,6 +452,7 @@ def main():
     ap.add_argument("--min-stale-months", type=int, default=DEFAULT_MIN_STALE_MONTHS)
     ap.add_argument("--dry-run", action="store_true", help="не писать в БД")
     ap.add_argument("--no-alerts", action="store_true")
+    ap.add_argument("--print-alert", action="store_true", help="показать TG-сообщение вместо отправки")
     ap.add_argument("--quiet", action="store_true")
     args = ap.parse_args()
 
@@ -415,6 +468,7 @@ def main():
     wanted = set(args.categories.split(",")) if args.categories else None
 
     con = None if args.dry_run else open_db(args.db)
+    run_start_iso = iso(now_utc())  # граница «до этого прогона» для алертов
     analyzed, seen = [], set()
     # приложения, уже бывшие в прошлых прогонах — база для inflow (heat)
     existing_ids = (
@@ -503,13 +557,13 @@ def main():
 
     # Алерты: только НОВЫЕ зомби (не флагались в прошлых прогонах)
     if con and not args.no_alerts and zombies:
-        new = [a for a in zombies if not was_flagged_before(con, a["track_id"], args.min_stale_months, args.min_rating_count)]
+        new = [a for a in zombies if not was_flagged_before(con, a["track_id"], args.min_stale_months, args.min_rating_count, run_start_iso)]
         if new:
-            lines = [f"🧟 Новые зомби ({len(new)}):"]
-            for a in new[:10]:
-                lines.append(f"• {a['name']} [{a['country']}] — {a['rating_count']} оценок, "
-                             f"версия от {a['version_date'][:10]} ({a['stale_months']:.0f} мес)\n{a['store_url']}")
-            send_telegram("\n".join(lines))
+            msg = build_alert_message(new, len(zombies))
+            if args.print_alert:
+                print("\n" + "=" * 50 + "\nTG ALERT (print mode):\n" + msg + "\n" + "=" * 50)
+            else:
+                send_telegram(msg)
 
     if con:
         con.close()
