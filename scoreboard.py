@@ -83,6 +83,28 @@ def main():
         if first_seen and first_seen >= datetime.now(timezone.utc).strftime("%Y-%m-%dT") + "00:00:00Z":
             a["new"] += 1
 
+    # demand-alive: у скольких зомби ячейки растёт счётчик оценок (2+ снапшота ≥6 дней)
+    vel_live = defaultdict(lambda: [0, 0])  # alive, stale_total
+    con2 = sqlite3.connect(args.db)
+    vrows = con2.execute(
+        """SELECT s.track_id, s.country, s.category,
+                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id
+                    ORDER BY scanned_at DESC LIMIT 1),
+                  (SELECT rating_count FROM snapshots s3 WHERE s3.track_id = s.track_id
+                    ORDER BY scanned_at ASC LIMIT 1),
+                  julianday(MAX(s.scanned_at)) - julianday(MIN(s.scanned_at)),
+                  s.version_date
+           FROM snapshots s GROUP BY s.track_id"""
+    ).fetchall()
+    for tid, country, cat, rc_now, rc_first, days, vd in vrows:
+        sm = stale_months(vd)
+        if sm is None or sm < 18 or (rc_now or 0) < 500 or days is None or days < 6:
+            continue
+        key = (cat, country)
+        vel_live[key][1] += 1
+        if rc_now is not None and rc_first is not None and rc_now > rc_first:
+            vel_live[key][0] += 1
+
     scored = []
     for (cat, geo), a in agg.items():
         if a["total"] < args.min_n:
@@ -91,20 +113,23 @@ def main():
         f = 100.0 * a["fresh"] / a["total"]
         qg100 = 100.0 * a["qg"] / a["total"]
         new100 = 100.0 * a["new"] / a["total"]
-        score = (0.35 * z + 0.20 * (100 - f) + 0.15 * min(100.0, qg100 * 10)
-                 + 0.10 * min(100.0, new100 * 5) + 0.20 * 100.0 * anomaly[geo][0] / a_max)
+        alive = vel_live.get((cat, geo), [0, 0])
+        demand = 100.0 * alive[0] / alive[1] if alive[1] else 0.0
+        score = (0.30 * z + 0.15 * (100 - f) + 0.15 * min(100.0, qg100 * 10)
+                 + 0.10 * min(100.0, new100 * 5) + 0.15 * demand
+                 + 0.15 * 100.0 * anomaly[geo][0] / a_max)
         scored.append((score, cat, geo, a["total"], z, f, a["qg"], a["new"],
-                       anomaly[geo][1], anomaly[geo][0]))
+                       f"{demand:.0f}%", anomaly[geo][1], anomaly[geo][0]))
     scored.sort(reverse=True)
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     head = (f"# Scoreboard — куда смотреть ({datetime.now(timezone.utc):%Y-%m-%d})\n\n"
             "Свод всех сигналов: 35% декей + 20% вакуум + 15% quality-gap "
             "+ 10% приток + 20% денежность гео. n≥" + str(args.min_n) + ".\n\n"
-            "| Скор | Категория | Гео | n | Зомби% | Fresh% | QG | New | Модель | Аномалия |\n"
-            "|---|---|---|---|---|---|---|---|---|---|\n")
-    trs = [f"| {s:5.1f} | {cat} | {geo} | {n} | {z:.0f}% | {f:.0f}% | {qg} | {nw} | {model} | {an:,.0f} |"
-           for s, cat, geo, n, z, f, qg, nw, model, an in scored[:args.top]]
+            "| Скор | Категория | Гео | n | Зомби% | Fresh% | QG | New | Спрос | Модель | Аномалия |\n"
+            "|---|---|---|---|---|---|---|---|---|---|---|\n")
+    trs = [f"| {s:5.1f} | {cat} | {geo} | {n} | {z:.0f}% | {f:.0f}% | {qg} | {nw} | {demand} | {model} | {an:,.0f} |"
+           for s, cat, geo, n, z, f, qg, nw, demand, model, an in scored[:args.top]]
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write(head + "\n".join(trs) + "\n")
     print("\n".join([head] + trs[:15]))
