@@ -115,17 +115,19 @@ def main():
         new100 = 100.0 * a["new"] / a["total"]
         alive = vel_live.get((cat, geo), [0, 0])
         demand = 100.0 * alive[0] / alive[1] if alive[1] else 0.0
-        score = (0.30 * z + 0.15 * (100 - f) + 0.15 * min(100.0, qg100 * 10)
-                 + 0.10 * min(100.0, new100 * 5) + 0.15 * demand
-                 + 0.15 * 100.0 * anomaly[geo][0] / a_max)
+        # Вакуум (100−fresh%) НЕ входит в скор: эмпирически r(зомби%,fresh%) = −0.33
+        # на наших 132 ячейках — это та же переменная, что и зомби% (двойной счёт).
+        score = (0.35 * z + 0.15 * min(100.0, qg100 * 10)
+                 + 0.10 * min(100.0, new100 * 5) + 0.20 * demand
+                 + 0.20 * 100.0 * anomaly[geo][0] / a_max)
         scored.append((score, cat, geo, a["total"], z, f, a["qg"], a["new"],
                        f"{demand:.0f}%", anomaly[geo][1], anomaly[geo][0]))
     scored.sort(reverse=True)
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     head = (f"# Scoreboard — куда смотреть ({datetime.now(timezone.utc):%Y-%m-%d})\n\n"
-            "Свод всех сигналов: 35% декей + 20% вакуум + 15% quality-gap "
-            "+ 10% приток + 20% денежность гео. n≥" + str(args.min_n) + ".\n\n"
+            "Свод: 35% декей + 15% quality-gap + 10% приток + 20% спрос(velocity) "
+            "+ 20% денежность гео. Вакуум исключён (r=−0.33 с декеем). n≥" + str(args.min_n) + ".\n\n"
             "| Скор | Категория | Гео | n | Зомби% | Fresh% | QG | New | Спрос | Модель | Аномалия |\n"
             "|---|---|---|---|---|---|---|---|---|---|---|\n")
     trs = [f"| {s:5.1f} | {cat} | {geo} | {n} | {z:.0f}% | {f:.0f}% | {qg} | {nw} | {demand} | {model} | {an:,.0f} |"

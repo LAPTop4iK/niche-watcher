@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
 
 try:
-    from google_play_scraper import reviews, app as gp_app
+    from google_play_scraper import reviews, app as gp_app, Sort
 except ImportError:
     sys.exit("Нужен google-play-scraper:  pip3 install --user google-play-scraper")
 
@@ -39,7 +39,7 @@ def tokens(text):
 
 def analyze_app(app_id, country, lang, n):
     meta = gp_app(app_id, lang=lang, country=country)
-    result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=2)  # 2 = NEWEST
+    result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=Sort.NEWEST)
     if not result:
         return None
     bad = [r for r in result if r["score"] <= 2]

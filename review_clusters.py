@@ -81,9 +81,9 @@ def fetch_ios(track_id, country, n):
 
 
 def fetch_play(app_id, country, n):
-    from google_play_scraper import reviews
+    from google_play_scraper import reviews, Sort
     lang = {"us": "en", "gb": "en", "de": "de", "ru": "ru", "jp": "ja", "kr": "ko"}.get(country, "en")
-    result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=2)
+    result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=Sort.NEWEST)
     return [{"text": r["content"], "score": r["score"], "thumbs": r.get("thumbsUpCount", 0)}
             for r in result if r["score"] <= 3]
 

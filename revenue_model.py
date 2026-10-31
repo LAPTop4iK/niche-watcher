@@ -83,20 +83,22 @@ def main():
     markets, d = load()
 
     if args.model == "rank":
-        # Рейтинг всех рынков по каждой модели + индекс аномалии (выручка/CPI = рычаг органики)
-        print(f"Выручка на {args.installs} установок, USD. Аномалия = выручка лучшей модели / CPI (рычаг органики)\n")
+        # Рейтинг рынков. organic = абсолютная выручка лучшей модели (для органического входа);
+        # anomaly = выручка/CPI (маржа платного UA). RU tops anomaly из-за CPI $0.5 — смотреть organic тоже.
+        print(f"Выручка на {args.installs} установок, USD. organic = лучшая модель (абсолют); "
+              f"аномалия = organic/CPI (маржа платного UA)\n")
         rows = []
         for geo, mk in markets.items():
             revs = {m: model_revenue(geo, mk, d, m, args.installs, args.price) for m in ["ads", "paid", "sub", "hybrid"]}
             best_m = max(revs, key=revs.get)
             anomaly = revs[best_m] / mk["cpi_usd"]
-            rows.append((geo, revs["ads"], revs["paid"], revs["sub"], best_m, anomaly, mk["tier"]))
-        print(f"{'гео':4} | {'ads':>6} | {'paid':>7} | {'sub':>8} | {'best':6} | {'аномалия':>8} | tier")
-        print("-" * 62)
+            rows.append((geo, revs["ads"], revs["paid"], revs["sub"], best_m, revs[best_m], anomaly, mk["tier"]))
+        print(f"{'гео':4} | {'ads':>6} | {'paid':>7} | {'sub':>8} | {'best':6} | {'organic$':>9} | {'аномалия':>8} | tier")
+        print("-" * 72)
         for r in sorted(rows, key=lambda x: -x[5]):
-            flag = "  ←" if r[5] > 5000 else ""
-            print(f"{r[0]:4} | {r[1]:6.0f} | {r[2]:7.0f} | {r[3]:8.0f} | {r[4]:6} | {r[5]:8.0f} | {r[6]}{flag}")
-        print("\n← высокая аномалия = рынок даёт много денег на доллар трафика: лучший кандидат для органического запуска")
+            flag = "  ←organic-топ" if r[5] == max(x[5] for x in rows) else ""
+            print(f"{r[0]:4} | {r[1]:6.0f} | {r[2]:7.0f} | {r[3]:8.0f} | {r[4]:6} | {r[5]:9.0f} | {r[6]:8.0f} | {r[7]}{flag}")
+        print("\norganic$ — для органического входа (бесплатные установки); аномалия — маржа платного UA")
         return
 
     for geo in [g.strip() for g in args.geo.split(",")]:
