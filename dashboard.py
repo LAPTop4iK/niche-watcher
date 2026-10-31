@@ -35,7 +35,7 @@ def load_latest_snapshots(db):
            FROM apps a
            JOIN snapshots s ON s.track_id = a.track_id
              AND s.scanned_at = (SELECT MAX(s2.scanned_at) FROM snapshots s2
-                                 WHERE s2.track_id = a.track_id)"""
+                                 WHERE s2.track_id = a.track_id AND s2.country = s.country)"""
     ).fetchall()
     con.close()
     return rows

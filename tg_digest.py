@@ -48,7 +48,7 @@ def main():
         """SELECT s.track_id, s.country, s.category, s.rating_count, s.avg_rating,
                   s.version_date, a.name, a.store_url
            FROM snapshots s JOIN apps a ON a.track_id = s.track_id
-           WHERE s.scanned_at = (SELECT MAX(s2.scanned_at) FROM snapshots s2 WHERE s2.track_id = s.track_id)"""
+           WHERE s.scanned_at = (SELECT MAX(s2.scanned_at) FROM snapshots s2 WHERE s2.track_id = s.track_id AND s2.country = s.country)"""
     ).fetchall()
 
     zombies = [r for r in latest if is_zombie(r[5], r[3])]
@@ -59,16 +59,16 @@ def main():
     # velocity: треки с 2+ снапшотами >=6 дней между первым и последним
     vel = []
     rows = con.execute(
-        """SELECT track_id, MIN(scanned_at), MAX(scanned_at),
-                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id
+        """SELECT track_id, country, MIN(scanned_at), MAX(scanned_at),
+                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id AND s2.country = s.country
                     ORDER BY scanned_at DESC LIMIT 1) AS rc_now
-           FROM snapshots s GROUP BY track_id
+           FROM snapshots s GROUP BY track_id, country
            HAVING julianday(MAX(scanned_at)) - julianday(MIN(scanned_at)) >= 6"""
     ).fetchall()
-    for tid, first, last, rc_now in rows:
+    for tid, dcountry, first, last, rc_now in rows:
         rc_first = con.execute(
-            "SELECT rating_count FROM snapshots WHERE track_id = ? AND scanned_at = ?",
-            (tid, first),
+            "SELECT rating_count FROM snapshots WHERE track_id = ? AND country = ? AND scanned_at = ?",
+            (tid, dcountry, first),
         ).fetchone()[0]
         days = max(1, (sc.parse_iso(last) - sc.parse_iso(first)).days)
         if rc_now and rc_first is not None and rc_now > rc_first:

@@ -61,7 +61,7 @@ def main():
                   a.first_seen, a.name, a.store_url
            FROM snapshots s JOIN apps a ON a.track_id = s.track_id
            WHERE s.scanned_at = (SELECT MAX(s2.scanned_at) FROM snapshots s2
-                                 WHERE s2.track_id = s.track_id)"""
+                                 WHERE s2.track_id = s.track_id AND s2.country = s.country)"""
     ).fetchall()
     new7 = con.execute(
         "SELECT COUNT(*) FROM apps WHERE first_seen >= datetime('now','-7 days')"
@@ -90,13 +90,13 @@ def main():
     con2 = sqlite3.connect(args.db)
     vrows = con2.execute(
         """SELECT s.track_id, s.country, s.category,
-                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id
+                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id AND s2.country = s.country
                     ORDER BY scanned_at DESC LIMIT 1),
-                  (SELECT rating_count FROM snapshots s3 WHERE s3.track_id = s.track_id
+                  (SELECT rating_count FROM snapshots s3 WHERE s3.track_id = s.track_id AND s3.country = s.country
                     ORDER BY scanned_at ASC LIMIT 1),
                   julianday(MAX(s.scanned_at)) - julianday(MIN(s.scanned_at)),
                   s.version_date
-           FROM snapshots s GROUP BY s.track_id"""
+           FROM snapshots s GROUP BY s.track_id, s.country"""
     ).fetchall()
     for tid, country, cat, rc_now, rc_first, days, vd in vrows:
         sm = stale_months(vd)

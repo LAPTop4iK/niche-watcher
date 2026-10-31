@@ -146,6 +146,8 @@ jobs:
         run: python3 scoreboard.py || true
       - name: Divergence (кросс-гео + rank-дельты)
         run: python3 divergence.py || true
+      - name: Demand check (живой спрос vs мёртвый у зомби)
+        run: python3 demand_check.py --delay 1.5 || true
       - name: Commit report
         run: |
           git config user.name "scan-bot"; git config user.email "scan-bot@users.noreply.github.com"

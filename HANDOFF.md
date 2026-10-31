@@ -131,6 +131,14 @@ python3 seed_harvester.py --min-count 4              # кандидаты ниш
 Проверить формулы: README §17 (список свойств/ограничений), markets.json `_defaults_research`
 (источники: RevenueCat 2026, TopOn/AnyMind eCPM Q4-2025, Business of Apps CPI 2025).
 
+## 8.1. Demand-слой (добавлено 31.10.2026, требование заказчика)
+
+Требование: НЕ считать мёртвые по спросу приложения — нужны недавние значимые оценки
+как доказательство живого спроса + гипотеза миграции спроса в аналоги.
+Реализация: demand_check.py (таблица demand; ALIVE/WEAK/DEAD по velocity+r90+last_review),
+пер-страновая семантика rating_count исправлена в 5 скриптах (dashboard, tg_digest,
+scoreboard, scanner-velocity, demand_check). Правило: go только на ALIVE.
+
 ## 9. Открытые вопросы и следующие шаги
 
 1. Секреты TG_BOT_TOKEN / TG_CHAT_ID — заказчик перезапишет (сейчас пустые заглушки).

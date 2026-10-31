@@ -152,16 +152,17 @@ def insert_snapshot(con, app):
     )
 
 
-def previous_snapshot(con, track_id, min_age_days=7):
-    """Последний снапшот старше min_age_days — база для velocity."""
+def previous_snapshot(con, track_id, country, min_age_days=7):
+    """Последний снапшот ТОГО ЖЕ сторфронта старше min_age_days — база для velocity.
+    rating_count в API пер-страновый: смешение стран даёт мусорную velocity."""
     if con is None:  # dry-run: velocity недоступна
         return None
     cutoff = iso(now_utc() - timedelta(days=min_age_days))
     row = con.execute(
         """SELECT scanned_at, rating_count FROM snapshots
-           WHERE track_id = ? AND scanned_at <= ?
+           WHERE track_id = ? AND country = ? AND scanned_at <= ?
            ORDER BY scanned_at DESC LIMIT 1""",
-        (track_id, cutoff),
+        (track_id, country, cutoff),
     ).fetchone()
     return row  # (scanned_at, rating_count) | None
 
@@ -203,7 +204,7 @@ def analyze(con, app, min_stale_months, min_ratings):
     out["stale_months"] = stale_months
 
     # velocity: прирост оценок за 30 дней относительно снапшота >= 7 дней назад
-    prev = previous_snapshot(con, app["track_id"])
+    prev = previous_snapshot(con, app["track_id"], app["country"])
     velocity = None
     if prev:
         old_iso, old_count = prev
