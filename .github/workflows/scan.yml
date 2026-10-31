@@ -115,6 +115,8 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 tg_digest.py --send || true
+      - name: Scoreboard (сводный рейтинг возможностей)
+        run: python3 scoreboard.py || true
       - name: Commit report
         run: |
           git config user.name "scan-bot"; git config user.email "scan-bot@users.noreply.github.com"
