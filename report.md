@@ -14,7 +14,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  72.4 | [Fancy Widgets & Themes](https://apps.apple.com/us/app/fancy-widgets-themes/id1567793831?uo=4) | PANDA GO CO., LIMITED (1) | us |  37060 | 4.4 | 2023-09-30 | 37 мес | n/a | 2026-10-25 (2) |
 |  72.3 | [Word Alert](https://apps.apple.com/us/app/word-alert/id416931540?uo=4) | Fingoware, LLC (1) | us |  34925 | 4.9 | 2021-01-25 | 69 мес | n/a | 2026-10-25 (16) |
 |  72.0 | [Craft Island](https://apps.apple.com/us/app/craft-island/id1552703591?uo=4) | HOMA GAMES (2) | us |  31734 | 4.6 | 2023-10-18 | 36 мес | n/a | 2026-08-18 (0) |
-|  71.7 | [Themes: Color Widgets, Icons](https://apps.apple.com/us/app/themes-color-widgets-icons/id1537362606?uo=4) | QIJI TECHNOLOGY COMPAN (1) | us |  27868 | 4.2 | 2022-08-05 | 51 мес | n/a | - |
+|  71.7 | [Themes: Color Widgets, Icons](https://apps.apple.com/us/app/themes-color-widgets-icons/id1537362606?uo=4) | QIJI TECHNOLOGY COMPAN (1) | us |  27868 | 4.2 | 2022-08-05 | 51 мес | n/a | 2026-10-20 (6) |
 |  70.9 | [Wallpaper Maker- Icon Changer](https://apps.apple.com/us/app/wallpaper-maker-icon-changer/id1164466761?uo=4) | Whistle Studios LLC (1) ⛔натив | us |  20942 | 4.5 | 2023-02-10 | 45 мес | n/a | 2026-10-18 (3) |
 |  70.1 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/us/app/themes-widget-icons-packs-15/id1533047121?uo=4) | Cardiio, Inc. (1) | us |  15197 | 4.5 | 2022-09-09 | 50 мес | n/a | 2026-04-19 (0) |
 |  69.4 | [Depth Wallpaper & Live Effect](https://apps.apple.com/us/app/depth-wallpaper-live-effect/id1265751053?uo=4) | Europos IT, UAB (1) ⛔натив | us |  11724 | 4.4 | 2023-08-31 | 38 мес | n/a | 2025-11-21 (0) |
@@ -79,9 +79,9 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  65.0 | [DashCommand - OBD-II Gauges](https://apps.apple.com/us/app/dashcommand-obd-ii-gauges/id321293183?uo=4) | AUTO METER PRODUCTS, I (1) ⛔натив | us |   2142 | 4.2 | 2023-02-14 | 45 мес | n/a | - |
 |  65.0 | [Video Teleprompter Lite](https://apps.apple.com/us/app/video-teleprompter-lite/id1031079244?uo=4) | Teleprompter Apps Ltd (5) | us |   2162 | 4.7 | 2021-08-10 | 63 мес | n/a | - |
 |  65.0 | [記事本 - 方便快捷的備忘錄(notebook)](https://apps.apple.com/tw/app/%E8%A8%98%E4%BA%8B%E6%9C%AC-%E6%96%B9%E4%BE%BF%E5%BF%AB%E6%8D%B7%E7%9A%84%E5%82%99%E5%BF%98%E9%8C%84-notebook/id1312981774?uo=4) | Katoh Atsushi (1) | tw |   2188 | 4.6 | 2022-02-19 | 56 мес | n/a | - |
+|  65.0 | [Pixel Pet Widget: Island Pet](https://apps.apple.com/us/app/pixel-pet-widget-island-pet/id6445975134?uo=4) | 雪萍 雷 (1) | us |   3146 | 4.5 | 2023-12-02 | 35 мес | n/a | - |
 |  64.9 | [Fuelly: MPG & Service Tracker](https://apps.apple.com/us/app/fuelly-mpg-service-tracker/id295905460?uo=4) | Fuelly, LLC (1) | us |  29683 | 4.7 | 2024-06-03 | 29 мес | n/a | - |
 |  64.9 | [Gardenia - Plant Organizer](https://apps.apple.com/us/app/gardenia-plant-organizer/id1135246410?uo=4) | Fabio Prati (1) | us |   2056 | 4.3 | 2017-12-04 | 107 мес | n/a | - |
-|  64.9 | [Pixel Pet Widget: Island Pet](https://apps.apple.com/us/app/pixel-pet-widget-island-pet/id6445975134?uo=4) | 雪萍 雷 (1) | us |   3146 | 4.5 | 2023-12-02 | 35 мес | n/a | - |
 |  64.9 | [Blocky Islands](https://apps.apple.com/us/app/blocky-islands/id1515748211?uo=4) | Kanapper (1) | us |   2089 | 4.7 | 2022-09-22 | 49 мес | n/a | - |
 |  64.9 | [California DMV Test](https://apps.apple.com/us/app/california-dmv-test/id430216643?uo=4) | Deedal Studios Inc (2) | us |   2092 | 4.7 | 2019-03-05 | 92 мес | n/a | - |
 |  64.8 | [Converter (unit conversions)](https://apps.apple.com/us/app/converter-unit-conversions/id285986066?uo=4) | Brent Royal-Gordon (1) | us |   1997 | 4.7 | 2019-02-12 | 93 мес | n/a | - |
@@ -128,6 +128,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  63.4 | [Amortization Loan Calculator](https://apps.apple.com/us/app/amortization-loan-calculator/id1436857045?uo=4) | JC Accounting & Innova (1) ⛔натив | us |   1156 | 4.7 | 2023-02-02 | 45 мес | n/a | - |
 |  63.4 | [度量衡換算+](https://apps.apple.com/tw/app/%E5%BA%A6%E9%87%8F%E8%A1%A1%E6%8F%9B%E7%AE%97/id573539093?uo=4) | Biggo Limited (1) | tw |   1160 | 4.8 | 2023-06-23 | 40 мес | n/a | - |
 |  63.4 | [RetroCam: edit vintage photos](https://apps.apple.com/au/app/retrocam-edit-vintage-photos/id298796414?uo=4) | BrainCake Inc. (1) | au |   1178 | 4.5 | 2022-02-01 | 57 мес | n/a | - |
+|  63.4 | [音声をテキストに変換する - Speechy](https://apps.apple.com/jp/app/%E9%9F%B3%E5%A3%B0%E3%82%92%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%E3%81%AB%E5%A4%89%E6%8F%9B%E3%81%99%E3%82%8B-speechy/id1229437714?uo=4) | 圣辉 金 (1) | jp |   1145 | 4.2 | 2021-08-08 | 63 мес | n/a | - |
 |  63.3 | [Muslim Muna: Azkar Quran Athan](https://apps.apple.com/us/app/muslim-muna-azkar-quran-athan/id1486560555?uo=4) | Sahiba Gulati (1) | us |   9883 | 4.7 | 2024-04-24 | 30 мес | n/a | - |
 |  63.3 | [Lapse It](https://apps.apple.com/us/app/lapse-it/id539108382?uo=4) | INTERACTIVE UNIVERSE C (2) ⛔натив | us |   1115 | 3.4 | 2019-10-24 | 84 мес | n/a | - |
 |  63.2 | [油價公告](https://apps.apple.com/tw/app/%E6%B2%B9%E5%83%B9%E5%85%AC%E5%91%8A/id421142099?uo=4) | Goodlife Inc (1) | tw |   1082 | 3.2 | 2018-04-02 | 103 мес | n/a | - |
@@ -137,7 +138,6 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  63.1 | [PRO digitizing](https://apps.apple.com/us/app/pro-digitizing/id473577887?uo=4) | Alan Gorinstein (1) | us |   1058 | 4.9 | 2017-11-28 | 107 мес | n/a | - |
 |  63.1 | [Voxel數字塗色 - AR填色畫畫遊戲](https://apps.apple.com/tw/app/voxel%E6%95%B8%E5%AD%97%E5%A1%97%E8%89%B2-ar%E5%A1%AB%E8%89%B2%E7%95%AB%E7%95%AB%E9%81%8A%E6%88%B2/id1317195834?uo=4) | PICFUN TECH LIMITED (3) | tw |   1027 | 4.6 | 2020-08-25 | 74 мес | n/a | - |
 |  63.1 | [Tip Calculator & Bill Split](https://apps.apple.com/us/app/tip-calculator-bill-split/id1190244008?uo=4) | Rome Rock LLC (3) ⛔натив | us |   1023 | 4.6 | 2021-05-14 | 66 мес | n/a | - |
-|  63.1 | [Decibel Meter Master](https://apps.apple.com/ca/app/decibel-meter-master/id1281344281?uo=4) | 燕辉 冯 (1) ⛔натив | ca |   1044 | 4.5 | 2018-03-22 | 103 мес | n/a | - |
 |  63.0 | [Unit Converter Calculator Pro](https://apps.apple.com/ca/app/unit-converter-calculator-pro/id1343845631?uo=4) | Rome Rock LLC (3) ⛔натив | ca |    993 | 4.6 | 2023-10-31 | 36 мес | n/a | - |
 |  63.0 | [ToolBox: AR Ruler, Level Tool](https://apps.apple.com/us/app/toolbox-ar-ruler-level-tool/id1349659723?uo=4) | Vlad Polyanskiy (3) ⛔натив | us |   1014 | 4.4 | 2021-09-08 | 62 мес | n/a | - |
 |  62.8 | [節拍器 - 高精度](https://apps.apple.com/tw/app/%E7%AF%80%E6%8B%8D%E5%99%A8-%E9%AB%98%E7%B2%BE%E5%BA%A6/id1383322176?uo=4) | 海 林 (3) | tw |    920 | 4.7 | 2020-05-20 | 77 мес | n/a | - |
@@ -167,6 +167,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  62.2 | [Cahoのふわふわでんたく](https://apps.apple.com/jp/app/caho%E3%81%AE%E3%81%B5%E3%82%8F%E3%81%B5%E3%82%8F%E3%81%A7%E3%82%93%E3%81%9F%E3%81%8F/id1454489628?uo=4) | on the orange Inc. (1) ⛔натив | jp |    741 | 4.3 | 2022-03-27 | 55 мес | n/a | - |
 |  62.2 | [Photo Widget: Picture Widgets](https://apps.apple.com/us/app/photo-widget-picture-widgets/id1517018286?uo=4) | SMART WIDGET LABS COMP (1) | us |    721 | 3.9 | 2022-06-18 | 52 мес | n/a | - |
 |  62.1 | [Torque App: Car Check, Tracker](https://apps.apple.com/us/app/torque-app-car-check-tracker/id1626074834?uo=4) | Hai Anh Nguyen (1) | us |    694 | 3.0 | 2022-06-02 | 53 мес | n/a | - |
+|  62.1 | [Decibel Meter Master](https://apps.apple.com/au/app/decibel-meter-master/id1281344281?uo=4) | 燕辉 冯 (1) ⛔натив | au |    707 | 4.4 | 2018-03-22 | 103 мес | n/a | - |
 |  62.0 | [Tennessee DMV - TN Permit test](https://apps.apple.com/us/app/tennessee-dmv-tn-permit-test/id1047470888?uo=4) | SPOTTERLOOK INC (8) | us |    673 | 4.4 | 2017-10-12 | 109 мес | n/a | - |
 |  61.9 | [Avatar Spiele Für Mädchen](https://apps.apple.com/de/app/avatar-spiele-f%C3%BCr-m%C3%A4dchen/id705483535?uo=4) | BWEB SARL (1) | de |    652 | 4.4 | 2022-01-21 | 57 мес | n/a | - |
 |  61.9 | [吉他调音器高精度版 - 专业的吉他调音模拟器](https://apps.apple.com/tw/app/%E5%90%89%E4%BB%96%E8%B0%83%E9%9F%B3%E5%99%A8%E9%AB%98%E7%B2%BE%E5%BA%A6%E7%89%88-%E4%B8%93%E4%B8%9A%E7%9A%84%E5%90%89%E4%BB%96%E8%B0%83%E9%9F%B3%E6%A8%A1%E6%8B%9F%E5%99%A8/id1488743037?uo=4) | 姿凤 陈 (1) | tw |    656 | 4.7 | 2021-01-19 | 69 мес | n/a | - |
@@ -197,7 +198,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  61.3 | [本日開店猫カフェレストラン-経営シュミレーションゲーム-](https://apps.apple.com/jp/app/%E6%9C%AC%E6%97%A5%E9%96%8B%E5%BA%97%E7%8C%AB%E3%82%AB%E3%83%95%E3%82%A7%E3%83%AC%E3%82%B9%E3%83%88%E3%83%A9%E3%83%B3-%E7%B5%8C%E5%96%B6%E3%82%B7%E3%83%A5%E3%83%9F%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%82%B2%E3%83%BC%E3%83%A0/id1113934892?uo=4) | Char Room (1) | jp |    528 | 4.4 | 2022-11-30 | 47 мес | n/a | - |
 |  61.3 | [WaterMe - Gardening Reminders](https://apps.apple.com/us/app/waterme-gardening-reminders/id1089742494?uo=4) | Jeffrey Bergier (1) | us |    515 | 4.7 | 2021-12-05 | 59 мес | n/a | - |
 |  61.2 | [Silk: Cross Stitch Patterns](https://apps.apple.com/us/app/silk-cross-stitch-patterns/id1505362289?uo=4) | CSP Embroidery Digital (1) | us |    501 | 4.8 | 2023-02-28 | 44 мес | n/a | - |
-|  60.9 | [Yome2x - 画質良くする(Waifu2x)](https://apps.apple.com/jp/app/yome2x-%E7%94%BB%E8%B3%AA%E8%89%AF%E3%81%8F%E3%81%99%E3%82%8B-waifu2x/id1511677178?uo=4) | Shen-Wen Yang (1) | jp |  34534 | 4.6 | 2024-10-19 | 24 мес | n/a | - |
+|  60.9 | [Yome2x - 画質良くする(Waifu2x)](https://apps.apple.com/jp/app/yome2x-%E7%94%BB%E8%B3%AA%E8%89%AF%E3%81%8F%E3%81%99%E3%82%8B-waifu2x/id1511677178?uo=4) | Shen-Wen Yang (1) | jp |  34536 | 4.6 | 2024-10-19 | 24 мес | n/a | - |
 |  60.6 | [UK Salary Calculator 2024-2025](https://apps.apple.com/gb/app/uk-salary-calculator-2024-2025/id366872441?uo=4) | James Still (1) ⛔натив | gb |   3126 | 4.8 | 2024-04-14 | 31 мес | n/a | - |
 |  60.5 | [Gravel Calculator Plus](https://apps.apple.com/us/app/gravel-calculator-plus/id1504997190?uo=4) | Calc Hub, LLC (8) ⛔натив | us |   2061 | 4.8 | 2024-03-15 | 32 мес | n/a | - |
 |  60.4 | [Metal Detector and Spy Camera](https://apps.apple.com/us/app/metal-detector-and-spy-camera/id409682366?uo=4) | Giorgia De Giorgi (1) | us |  10703 | 4.2 | 2024-07-31 | 27 мес | n/a | - |
@@ -231,7 +232,6 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  55.6 | [Time Card Calculator-Timeclock](https://apps.apple.com/us/app/time-card-calculator-timeclock/id672350386?uo=4) | Review And Judge LLC (2) ⛔натив | us |   1157 | 4.5 | 2024-07-01 | 28 мес | n/a | - |
 |  55.4 | [Class Timetable - Schedule App](https://apps.apple.com/us/app/class-timetable-schedule-app/id425121147?uo=4) | Class Timetable LLC (1) | us |   3012 | 4.7 | 2024-09-23 | 25 мес | n/a | - |
 |  55.3 | [Paint By Numbers: Hey Colour](https://apps.apple.com/gb/app/paint-by-numbers-hey-colour/id1445135380?uo=4) | Tripledot Studios Limi (1) ⛔натив | gb |  17153 | 4.7 | 2025-02-13 | 20 мес | n/a | - |
-|  55.3 | [AI Chat Chatbot](https://apps.apple.com/us/app/ai-chat-chatbot/id1665560060?uo=4) | Om Solutions LLC (1) ⛔натив | us |   1175 | 4.5 | 2024-07-12 | 28 мес | n/a | - |
 |  55.1 | [MOON - Current Moon Phase](https://apps.apple.com/us/app/moon-current-moon-phase/id660036257?uo=4) | MOON CALENDAR LTD (1) | us |  29897 | 4.8 | 2025-04-07 | 19 мес | n/a | - |
 |  54.9 | [Visibook Appointment Scheduler](https://apps.apple.com/us/app/visibook-appointment-scheduler/id961171461?uo=4) | Visibook, Inc (1) | us |    853 | 4.5 | 2024-06-26 | 28 мес | n/a | - |
 |  54.8 | [Tuner by Piascore](https://apps.apple.com/us/app/tuner-by-piascore/id635644097?uo=4) | Piascore, Inc. (4) | us |   1451 | 4.8 | 2024-08-12 | 27 мес | n/a | - |
@@ -241,6 +241,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  54.4 | [Wallpapers・Dynamic Island](https://apps.apple.com/us/app/wallpapers-dynamic-island/id6472042742?uo=4) | Petru Mocanu (1) | us |   1585 | 4.5 | 2024-09-02 | 26 мес | n/a | - |
 |  54.3 | [動態壁紙: 4K Themes, Background](https://apps.apple.com/tw/app/%E5%8B%95%E6%85%8B%E5%A3%81%E7%B4%99-4k-themes-background/id1098805023?uo=4) | Zephyrmobile LTD (2) | tw |   1010 | 4.2 | 2024-07-31 | 27 мес | n/a | - |
 |  53.3 | [Piano Crush - Klavier Spiele](https://apps.apple.com/de/app/piano-crush-klavier-spiele/id1392338617?uo=4) | Gismart Ltd (5) | de |    653 | 4.0 | 2024-07-26 | 27 мес | n/a | - |
+|  53.3 | [AI Chat Chatbot](https://apps.apple.com/gb/app/ai-chat-chatbot/id1665560060?uo=4) | Om Solutions LLC (1) ⛔натив | gb |    559 | 4.4 | 2024-07-12 | 28 мес | n/a | - |
 |  53.1 | [The Coffee Club](https://apps.apple.com/au/app/the-coffee-club/id1457278358?uo=4) | The Coffee Club Pty Lt (1) ⛔натив | au |   3237 | 4.4 | 2024-12-09 | 23 мес | n/a | - |
 |  52.9 | [Moon & Sun: LunaSol](https://apps.apple.com/us/app/moon-sun-lunasol/id1518139990?uo=4) | Mendo Jurukovski (1) | us |    917 | 4.8 | 2024-09-04 | 26 мес | n/a | - |
 |  52.8 | [Hunt & Fish Times by iSolunar™](https://apps.apple.com/us/app/hunt-fish-times-by-isolunar/id853063648?uo=4) | RedSnake Enterprises,  (2) | us |    693 | 4.6 | 2024-08-14 | 27 мес | n/a | - |
@@ -298,7 +299,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |---|---|---|---|---|---|---|---|---|---|
 |  56.4 | [I Can Paint](https://apps.apple.com/us/app/i-can-paint/id1518806009?uo=4) | Cocoplay Limited (1) ⛔натив | us | 112511 | 4.6 | 2025-06-04 | 17 мес | n/a | - |
 |  55.2 | [Convert Any Unit Lite](https://apps.apple.com/us/app/convert-any-unit-lite/id478222820?uo=4) | Cider Software LLC (5) | us |  48316 | 4.7 | 2025-05-12 | 18 мес | n/a | - |
-|  54.9 | [Voice Recorder & Audio Editor](https://apps.apple.com/us/app/voice-recorder-audio-editor/id685310398?uo=4) | TapMedia Ltd (1) | us | 453659 | 4.7 | 2025-07-19 | 15 мес | n/a | - |
+|  54.9 | [Voice Recorder & Audio Editor](https://apps.apple.com/us/app/voice-recorder-audio-editor/id685310398?uo=4) | TapMedia Ltd (1) | us | 453687 | 4.7 | 2025-07-19 | 15 мес | n/a | - |
 |  53.9 | [qrコードリーダー，バーコードの読み取りfor iPhone](https://apps.apple.com/jp/app/qr%E3%82%B3%E3%83%BC%E3%83%89%E3%83%AA%E3%83%BC%E3%83%80%E3%83%BC-%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AE%E8%AA%AD%E3%81%BF%E5%8F%96%E3%82%8Afor-iphone/id1322234579?uo=4) | Smart Tool Studio (2) | jp |  35958 | 4.2 | 2025-05-28 | 17 мес | n/a | - |
 |  53.2 | [音楽プレイヤー Music LIST Z](https://apps.apple.com/jp/app/%E9%9F%B3%E6%A5%BD%E3%83%97%E3%83%AC%E3%82%A4%E3%83%A4%E3%83%BC-music-list-z/id1005093433?uo=4) | Kenji Ueda (1) | jp | 129946 | 4.5 | 2025-09-11 | 14 мес | n/a | - |
 |  51.3 | [Rehancer: AI Photo Enhancer](https://apps.apple.com/us/app/rehancer-ai-photo-enhancer/id1466206341?uo=4) | FLOWMATIC PTE. LTD (3) | us |  18273 | 3.7 | 2025-06-25 | 16 мес | n/a | - |
@@ -307,7 +308,7 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 |  50.6 | [Widgetkit](https://apps.apple.com/jp/app/widgetkit/id1532637790?uo=4) | SPEAKEASY INC (1) | jp |  17043 | 4.3 | 2025-07-10 | 16 мес | n/a | - |
 |  49.8 | [The Learners Test Practice DKT](https://apps.apple.com/au/app/the-learners-test-practice-dkt/id500493488?uo=4) | Iteration Mobile S.L (6) | au |   7714 | 4.6 | 2025-06-01 | 17 мес | n/a | - |
 |  49.6 | [夢想家居：裝飾我的小家](https://apps.apple.com/tw/app/%E5%A4%A2%E6%83%B3%E5%AE%B6%E5%B1%85-%E8%A3%9D%E9%A3%BE%E6%88%91%E7%9A%84%E5%B0%8F%E5%AE%B6/id1413668881?uo=4) | ZenLife Games Pte. Ltd (1) | tw |  64329 | 4.7 | 2025-11-26 | 11 мес | n/a | - |
-|  49.6 | [Aesthetic: App icons & Widgets](https://apps.apple.com/us/app/aesthetic-app-icons-widgets/id1538543750?uo=4) | Aesthetic Apps & Widge (3) | us |  46247 | 4.5 | 2025-10-31 | 12 мес | n/a | - |
+|  49.6 | [Aesthetic: App icons & Widgets](https://apps.apple.com/us/app/aesthetic-app-icons-widgets/id1538543750?uo=4) | Aesthetic Apps & Widge (3) | us |  46249 | 4.5 | 2025-10-31 | 12 мес | n/a | - |
 |  49.4 | [Hatch Grow](https://apps.apple.com/us/app/hatch-grow/id976334466?uo=4) | Hatch Baby Inc. (1) | us |  13470 | 4.8 | 2025-07-30 | 15 мес | n/a | - |
 |  49.3 | [DMV Practice Test・2026](https://apps.apple.com/us/app/dmv-practice-test-2026/id1553740877?uo=4) | Minh Nhat Tran (1) | us |  61886 | 4.7 | 2025-12-04 | 11 мес | n/a | - |
 |  49.1 | [EagleView](https://apps.apple.com/us/app/eagleview/id352070517?uo=4) | Eagle View Technologie (1) ⛔натив | us |  10437 | 4.9 | 2025-07-17 | 15 мес | n/a | - |
@@ -326,64 +327,63 @@ fresh = версия младше 12 мес (активные конкурент
 |---|---|---|---|---|---|
 | religious | jp | 39 | 59% | 0 | 21% |
 | needlework | tw | 5 | 60% | 0 | 20% |
-| widgets_watch | us | 171 | 68% | 8 | 18% |
+| widgets_watch | us | 171 | 68% | 0 | 18% |
 | driving_ed | ca | 6 | 67% | 0 | 17% |
-| diy_home | us | 107 | 58% | 1 | 15% |
-| music_practice | gb | 21 | 57% | 1 | 14% |
+| diy_home | us | 107 | 58% | 0 | 15% |
+| music_practice | gb | 21 | 57% | 0 | 14% |
 | music_practice | us | 109 | 69% | 0 | 14% |
-| religious | us | 130 | 76% | 6 | 13% |
-| music_practice | jp | 80 | 68% | 1 | 12% |
-| finance_tools | tw | 36 | 67% | 1 | 11% |
+| diy_home | au | 15 | 73% | 0 | 13% |
+| religious | us | 130 | 76% | 0 | 13% |
+| music_practice | jp | 80 | 68% | 0 | 12% |
+| finance_tools | tw | 36 | 67% | 0 | 11% |
 | photo_video_utils | au | 9 | 67% | 0 | 11% |
-| widgets_watch | jp | 46 | 78% | 3 | 11% |
-| driving_ed | us | 93 | 71% | 1 | 11% |
-| construction | us | 114 | 65% | 1 | 11% |
+| widgets_watch | jp | 46 | 78% | 0 | 11% |
+| driving_ed | us | 93 | 71% | 0 | 11% |
+| construction | us | 114 | 65% | 0 | 11% |
 | auto | tw | 19 | 74% | 0 | 11% |
 | finance_tools | ca | 10 | 60% | 0 | 10% |
-| diy_home | gb | 50 | 60% | 1 | 10% |
-| diy_home | ca | 10 | 50% | 0 | 10% |
+| diy_home | gb | 50 | 60% | 0 | 10% |
 | driving_ed | de | 20 | 85% | 0 | 10% |
-| photo_video_utils | us | 118 | 67% | 2 | 9% |
+| photo_video_utils | us | 118 | 67% | 0 | 9% |
 | diy_home | jp | 22 | 55% | 0 | 9% |
 | widgets_watch | au | 11 | 73% | 0 | 9% |
-| hunting_fishing | us | 112 | 71% | 2 | 9% |
-| parenting | us | 112 | 81% | 3 | 9% |
-| auto | ca | 12 | 75% | 1 | 8% |
-| hunting_fishing | tw | 38 | 82% | 1 | 8% |
-| widgets_watch | gb | 26 | 77% | 2 | 8% |
+| hunting_fishing | us | 112 | 71% | 0 | 9% |
+| parenting | us | 112 | 81% | 0 | 9% |
+| auto | ca | 12 | 75% | 0 | 8% |
+| hunting_fishing | tw | 38 | 82% | 0 | 8% |
+| widgets_watch | gb | 26 | 77% | 0 | 8% |
 | auto | us | 145 | 78% | 0 | 8% |
-| hunting_fishing | gb | 27 | 56% | 1 | 7% |
-| finance_tools | us | 180 | 77% | 4 | 7% |
+| hunting_fishing | gb | 27 | 56% | 0 | 7% |
+| finance_tools | us | 178 | 77% | 0 | 7% |
 | finance_tools | jp | 72 | 79% | 0 | 7% |
 | cooking | tw | 29 | 76% | 0 | 7% |
-| parenting | ca | 15 | 80% | 1 | 7% |
-| music_practice | de | 31 | 81% | 1 | 6% |
-| garden | us | 111 | 70% | 4 | 6% |
-| books_media | us | 65 | 86% | 2 | 6% |
-| widgets_watch | tw | 33 | 70% | 2 | 6% |
-| needlework | de | 17 | 65% | 1 | 6% |
-| garden | tw | 17 | 76% | 2 | 6% |
-| parenting | au | 17 | 76% | 1 | 6% |
-| ai_tools | us | 190 | 86% | 9 | 6% |
-| needlework | us | 106 | 76% | 2 | 6% |
-| diy_home | au | 18 | 83% | 0 | 6% |
+| music_practice | de | 30 | 83% | 0 | 7% |
+| parenting | ca | 15 | 80% | 0 | 7% |
+| garden | us | 111 | 70% | 0 | 6% |
+| books_media | us | 65 | 86% | 0 | 6% |
+| widgets_watch | tw | 33 | 70% | 0 | 6% |
+| needlework | de | 17 | 65% | 0 | 6% |
+| garden | tw | 17 | 76% | 0 | 6% |
+| parenting | au | 17 | 76% | 0 | 6% |
+| needlework | us | 106 | 76% | 0 | 6% |
+| ai_tools | jp | 55 | 91% | 2 | 5% |
 | construction | jp | 19 | 79% | 0 | 5% |
-| auto | gb | 38 | 68% | 1 | 5% |
-| cooking | au | 19 | 79% | 0 | 5% |
+| auto | gb | 38 | 68% | 0 | 5% |
+| cooking | au | 19 | 79% | 2 | 5% |
+| ai_tools | us | 190 | 87% | 0 | 5% |
 | hunting_fishing | jp | 40 | 72% | 0 | 5% |
-| music_practice | tw | 40 | 65% | 3 | 5% |
 | parenting | tw | 20 | 75% | 0 | 5% |
+| music_practice | tw | 41 | 63% | 0 | 5% |
 | parenting | jp | 41 | 88% | 0 | 5% |
-| auto | jp | 43 | 79% | 1 | 5% |
-| finance_tools | gb | 45 | 78% | 1 | 4% |
-| driving_ed | gb | 23 | 65% | 2 | 4% |
-| cooking | us | 150 | 75% | 1 | 4% |
-| ai_tools | jp | 54 | 89% | 1 | 4% |
-| hunting_fishing | de | 29 | 83% | 7 | 3% |
-| cooking | gb | 29 | 83% | 0 | 3% |
+| auto | jp | 43 | 79% | 0 | 5% |
+| finance_tools | gb | 46 | 78% | 0 | 4% |
+| driving_ed | gb | 23 | 65% | 0 | 4% |
+| cooking | us | 150 | 75% | 0 | 4% |
+| ai_tools | gb | 56 | 82% | 3 | 4% |
+| hunting_fishing | de | 29 | 83% | 0 | 3% |
+| cooking | gb | 31 | 81% | 0 | 3% |
 | books_media | jp | 31 | 87% | 0 | 3% |
-| ai_tools | tw | 44 | 82% | 0 | 2% |
-| ai_tools | gb | 48 | 83% | 2 | 2% |
+| ai_tools | tw | 43 | 81% | 0 | 2% |
 | construction | gb | 20 | 45% | 0 | 0% |
 | construction | au | 8 | 75% | 0 | 0% |
 | construction | ca | 6 | 33% | 0 | 0% |
@@ -391,45 +391,46 @@ fresh = версия младше 12 мес (активные конкурент
 | auto | au | 26 | 88% | 0 | 0% |
 | auto | de | 21 | 81% | 0 | 0% |
 | needlework | jp | 22 | 77% | 0 | 0% |
-| needlework | gb | 9 | 44% | 1 | 0% |
+| needlework | gb | 9 | 44% | 0 | 0% |
 | needlework | au | 6 | 83% | 0 | 0% |
-| hunting_fishing | au | 12 | 67% | 1 | 0% |
-| hunting_fishing | ca | 6 | 83% | 2 | 0% |
+| hunting_fishing | au | 12 | 67% | 0 | 0% |
+| hunting_fishing | ca | 6 | 83% | 0 | 0% |
 | music_practice | au | 9 | 56% | 0 | 0% |
-| music_practice | ca | 6 | 83% | 1 | 0% |
-| religious | gb | 31 | 81% | 2 | 0% |
-| religious | au | 17 | 88% | 1 | 0% |
+| music_practice | ca | 6 | 83% | 0 | 0% |
+| religious | gb | 31 | 81% | 0 | 0% |
+| religious | au | 17 | 88% | 0 | 0% |
 | religious | ca | 12 | 75% | 0 | 0% |
-| religious | de | 29 | 90% | 1 | 0% |
+| religious | de | 29 | 90% | 0 | 0% |
 | religious | tw | 7 | 29% | 0 | 0% |
-| finance_tools | au | 21 | 76% | 4 | 0% |
-| finance_tools | de | 49 | 88% | 3 | 0% |
+| finance_tools | au | 21 | 76% | 0 | 0% |
+| finance_tools | de | 49 | 88% | 0 | 0% |
 | garden | jp | 27 | 93% | 0 | 0% |
-| garden | gb | 23 | 87% | 1 | 0% |
-| garden | au | 10 | 80% | 1 | 0% |
-| garden | ca | 9 | 89% | 1 | 0% |
-| garden | de | 17 | 71% | 3 | 0% |
+| garden | gb | 23 | 87% | 0 | 0% |
+| garden | au | 10 | 80% | 0 | 0% |
+| garden | ca | 9 | 89% | 0 | 0% |
+| garden | de | 17 | 71% | 0 | 0% |
 | parenting | gb | 32 | 66% | 0 | 0% |
 | parenting | de | 33 | 79% | 0 | 0% |
 | photo_video_utils | jp | 13 | 77% | 0 | 0% |
 | photo_video_utils | gb | 17 | 71% | 0 | 0% |
 | photo_video_utils | ca | 4 | 100% | 0 | 0% |
 | photo_video_utils | de | 11 | 82% | 0 | 0% |
-| photo_video_utils | tw | 30 | 83% | 8 | 0% |
-| cooking | ca | 16 | 75% | 0 | 0% |
+| photo_video_utils | tw | 30 | 83% | 0 | 0% |
+| cooking | ca | 15 | 73% | 0 | 0% |
 | cooking | de | 1 | 100% | 0 | 0% |
-| diy_home | tw | 13 | 23% | 1 | 0% |
-| ai_tools | au | 17 | 100% | 1 | 0% |
-| ai_tools | ca | 11 | 73% | 1 | 0% |
-| ai_tools | de | 34 | 97% | 2 | 0% |
-| widgets_watch | ca | 14 | 71% | 1 | 0% |
-| widgets_watch | de | 20 | 70% | 1 | 0% |
+| diy_home | ca | 10 | 60% | 0 | 0% |
+| diy_home | tw | 13 | 23% | 0 | 0% |
+| ai_tools | au | 16 | 94% | 1 | 0% |
+| ai_tools | ca | 9 | 78% | 0 | 0% |
+| ai_tools | de | 32 | 97% | 0 | 0% |
+| widgets_watch | ca | 14 | 71% | 0 | 0% |
+| widgets_watch | de | 20 | 70% | 0 | 0% |
 | driving_ed | jp | 7 | 86% | 0 | 0% |
 | driving_ed | au | 8 | 50% | 0 | 0% |
 | driving_ed | tw | 5 | 80% | 0 | 0% |
-| books_media | gb | 14 | 93% | 1 | 0% |
+| books_media | gb | 14 | 93% | 0 | 0% |
 | books_media | au | 8 | 88% | 0 | 0% |
-| books_media | ca | 2 | 100% | 1 | 0% |
+| books_media | ca | 2 | 100% | 0 | 0% |
 | books_media | de | 35 | 97% | 0 | 0% |
 | books_media | tw | 3 | 67% | 0 | 0% |
 
