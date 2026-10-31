@@ -34,7 +34,8 @@ GENRES = {
     6017: "Education", 6018: "Books", 6023: "Food & Drink",
 }
 
-FEEDS = ["topfreeapplications", "topgrossingapplications"]
+# top_paid = прямое доказательство платёжеспособности гео (культура разовых покупок)
+FEEDS = ["topfreeapplications", "topgrossingapplications", "toppaidapplications"]
 
 
 def fetch_rss_chart(feed, country, genre, limit):

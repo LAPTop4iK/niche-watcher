@@ -87,6 +87,8 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 play_scan.py --countries us,de,jp --limit 15
+      - name: Play reviews mining (жалобы на живых лидеров Play)
+        run: python3 play_reviews.py --from-db 5 || true
       - name: Commit DB & reports
         run: |
           git config user.name "scan-bot"; git config user.email "scan-bot@users.noreply.github.com"
