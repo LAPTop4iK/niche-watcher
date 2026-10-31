@@ -81,12 +81,12 @@ jobs:
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-        run: python3 charts_scan.py --countries us,jp,gb,au,de,tw,ch,no,se,dk,sa
+        run: python3 charts_scan.py --countries us,jp,gb,au,de,tw,ch,no,se,dk,sa,ae
       - name: Play zombie scan
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-        run: python3 play_scan.py --countries us,de,jp --limit 15
+        run: python3 play_scan.py --countries us,de,jp,gb,au --limit 15
       - name: Play reviews mining (жалобы на живых лидеров Play)
         run: python3 play_reviews.py --from-db 5 || true
       - name: Commit DB & reports
@@ -107,7 +107,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Similar-graph decay crawl (топ-зомби)
-        run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 || true
+        run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 --country us || true
+      - name: Similar-graph crawl (GB)
+        run: python3 similar_crawl.py --from-report report.md --top-seeds 3 --depth 1 --country gb || true
       - name: Weekly TG digest (динамика)
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}

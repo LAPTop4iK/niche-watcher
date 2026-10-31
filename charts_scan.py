@@ -82,21 +82,31 @@ def main():
     countries = [c.strip() for c in args.countries.split(",")]
     con = sc.open_db(args.db)
     min_age = args.min_stale_months
-    cutoff = (datetime.now(timezone.utc) - timedelta(days=30.44 * min_age)).strftime("%Y-%m-%d")
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=30.44 * min_age)).strftime("%Y-%m-%d")  # для ages
 
     rows = []  # (country, genre_name, resolved, stale, pct, median_age, top_stale_str)
+    churn_rows, band_rows = [], []
+    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=30.44 * min_age)).strftime("%Y-%m-%d")
     for country in countries:
         for gid, gname in genres.items():
-            ids = set()
+            resolved, feed_pos = [], {}
             for feed in FEEDS:
                 try:
-                    ids |= set(fetch_rss_chart(feed, country, gid, args.top))
+                    ids = fetch_rss_chart(feed, country, gid, args.top)
                 except RuntimeError as e:
                     print(f"! {country}/{gname}/{feed}: {e}", file=sys.stderr)
+                    continue
+                # позиция в фиде = rank чарта (для churn и бандов глубины)
+                for i, tid in enumerate(ids, 1):
+                    feed_pos[int(tid)] = i
+                got = lookup_ids(ids, country)
+                for r in got:
+                    r["_feed"] = feed
+                    r["_rank"] = feed_pos.get(r.get("trackId"))
+                resolved.extend(got)
                 time.sleep(sc.REQUEST_DELAY)
-            if not ids:
+            if not resolved:
                 continue
-            resolved = lookup_ids(sorted(ids), country)
             stale, ages, top_stale = [], [], []
             for r in resolved:
                 vd = r.get("currentVersionReleaseDate", "")
@@ -118,12 +128,41 @@ def main():
             )
             rows.append((country, gname, len(ages), len(stale), 100.0 * len(stale) / len(ages),
                          statistics.median(ages), top_str))
-            # зомби из чартов пишем в БД — velocity копится и тут
+
+            # --- churn: ротация топа vs прошлый прогон (>=6 дней назад)
+            today_ids = {r.get("trackId") for r in resolved if r.get("_feed")}
+            for feed in FEEDS:
+                prev = con.execute(
+                    """SELECT DISTINCT s.track_id FROM snapshots s
+                       WHERE s.category = ? AND s.country = ? AND s.query = ?
+                         AND s.scanned_at <= ?""",
+                    (f"chart:{gname.lower()}", country, feed,
+                     (datetime.now(timezone.utc) - timedelta(days=6)).strftime("%Y-%m-%dT%H:%M:%SZ")),
+                ).fetchall()
+                prev_ids = {p[0] for p in prev}
+                today_feed_ids = {r.get("trackId") for r in resolved if r.get("_feed") == feed}
+                if not prev_ids or not today_feed_ids:
+                    continue  # baseline ещё не накоплен
+                entered = len(today_feed_ids - prev_ids)
+                exited = len(prev_ids - today_feed_ids)
+                churn_rows.append((country, gname, feed, len(today_feed_ids), entered, exited,
+                                   100.0 * (entered + exited) / max(1, len(today_feed_ids))))
+
+            # --- банды глубины: где гниль — в топ-10, 11-50 или хвосте
+            for lo, hi, label in [(1, 10, "top-10"), (11, 50, "11-50"), (51, 9999, "51+")]:
+                band = [r for r in resolved
+                        if r.get("_rank") and lo <= r["_rank"] <= hi and r.get("currentVersionReleaseDate")]
+                if band:
+                    b_stale = sum(1 for r in band
+                                  if r["currentVersionReleaseDate"][:10] < cutoff_date)
+                    band_rows.append((country, gname, label, len(band),
+                                      100.0 * b_stale / len(band)))
+            # зомби из чартов пишем в БД — velocity копится и тут; rank = позиция фида
             for r in resolved:
                 rc = r.get("userRatingCount") or 0
                 if rc < 10:
                     continue
-                app = sc.normalize(r, country, f"chart:{gname.lower()}", f"topfree/topgrossing")
+                app = sc.normalize(r, country, f"chart:{gname.lower()}", r["_feed"], rank=r["_rank"])
                 sc.upsert_app(con, app)
                 sc.insert_snapshot(con, app)
             con.commit()
@@ -139,9 +178,24 @@ def main():
     ]
     for r in sorted(rows, key=lambda x: -x[4]):
         lines.append(f"| {r[0]} | {r[1]} | {r[2]} | {r[3]} | {r[4]:.0f}% | {r[5]:.0f} мес | {r[6]} |")
+    if churn_rows:
+        lines += [
+            "\n## Churn топов (ротация vs прошлый прогон ≥6 дней назад)\n",
+            "Высокая ротация = рынок вознаграждает новизну, вход проще; нулевая = места застыли.\n",
+            "| Гео | Категория | Фид | В топе | Вошло | Вышло | Ротация% |",
+            "|---|---|---|---|---|---|---|",
+        ] + [f"| {r[0]} | {r[1]} | {r[2]} | {r[3]} | {r[4]} | {r[5]} | {r[6]:.0f}% |" for r in
+             sorted(churn_rows, key=lambda x: -x[6])]
+    if band_rows:
+        lines += [
+            "\n## Глубина гнили по бандам (top-10 / 11-50 / хвост)\n",
+            "| Гео | Категория | Банд | Приложений | Зомби% |",
+            "|---|---|---|---|---|",
+        ] + [f"| {r[0]} | {r[1]} | {r[2]} | {r[3]} | {r[4]:.0f}% |" for r in
+             sorted(band_rows, key=lambda x: -x[4])]
     with open(args.out, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
-    print(f"\n== отчёт: {args.out}")
+    print(f"\n== отчёт: {args.out} (churn: {len(churn_rows)}, bands: {len(band_rows)})")
 
 
 if __name__ == "__main__":

@@ -1014,6 +1014,52 @@
           "определитель птиц"
         ]
       }
+    },
+    {
+      "id": "pet_care",
+      "enabled": true,
+      "queries": {
+        "en": [
+          "dog training clicker",
+          "pet health tracker",
+          "puppy potty training",
+          "cat feeding reminder",
+          "pet vaccination record"
+        ],
+        "de": [
+          "hunde training app",
+          "tier impfpass"
+        ],
+        "ru": [
+          "дрессировка собаки",
+          "прививки питомца"
+        ]
+      }
+    },
+    {
+      "id": "travel_utils",
+      "enabled": true,
+      "queries": {
+        "en": [
+          "packing list",
+          "offline phrasebook",
+          "flight distance calculator",
+          "jet lag app",
+          "travel budget tracker"
+        ],
+        "de": [
+          "packliste app",
+          "reisegeld rechner"
+        ],
+        "ja": [
+          "パッキング リスト",
+          "時差ボケ アプリ"
+        ],
+        "ru": [
+          "список вещей в поездку",
+          "конвертер валют оффлайн"
+        ]
+      }
     }
   ]
 }
