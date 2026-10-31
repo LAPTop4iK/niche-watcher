@@ -29,8 +29,8 @@ from collections import Counter
 from datetime import datetime, timezone, timedelta
 
 API_URL = "https://itunes.apple.com/search"
-REQUEST_DELAY = 1.1          # сек между запросами (iTunes не любит чаще ~20/мин)
-MAX_RETRIES = 3
+REQUEST_DELAY = 3.0          # сек между запросами; iTunes неофициально ~20/мин, 3с = безопасно
+MAX_RETRIES = 5
 HTTP_TIMEOUT = 20
 
 # Пороги "зомби" по умолчанию (можно переопределить флагами)
@@ -63,7 +63,9 @@ def fetch_json(url, quiet=False):
                 return json.loads(resp.read().decode("utf-8", "replace"))
         except Exception as e:  # noqa: BLE001 — сетевые ошибки любые
             last_err = e
-            wait = 2 ** attempt
+            is_429 = getattr(e, "code", None) == 429
+            # 429 у iTunes требует длинной паузы (окно лимита ~минута), прочее — обычный backoff
+            wait = int(os.environ.get("RATE_429_WAIT", "45")) * attempt if is_429 else 2 ** attempt
             if not quiet:
                 print(f"  ! попытка {attempt}/{MAX_RETRIES} не удалась ({e}); жду {wait}s", file=sys.stderr)
             time.sleep(wait)
