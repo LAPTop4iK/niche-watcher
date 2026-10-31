@@ -1,8 +1,8 @@
-# Similar-Graph Decay — 2026-10-30
+# Similar-Graph Decay — 2026-10-31
 
-Глубина 1, гео us. Порог гнилости 18 мес.
+Глубина 1, гео gb. Порог гнилости 18 мес.
 
 | Seed | Соседей | Гнилых | % гнилых | Медианный возраст | Топ-гнилые соседи |
 |---|---|---|---|---|---|
-| 1567793831 | 10 | 3 | 30% | 10 мес | Portrait:Make Avatar Chara (27693★, 31 мес); Easy Life - Everything at  (10443★, 25 мес); Super Voice - AI Covers Ma (1626★, 34 мес) |
-| 1645384373 | 14 | 4 | 29% | 7 мес | LiveIn - Share Your Moment (30480★, 34 мес); linkit Q&A - by sendit (13588★, 27 мес); starmatch: chat with creat (3497★, 31 мес); DuoArt - Lockscreen Drawin (230★, 21 мес) |
+| 443932954 | 16 | 7 | 44% | 3 мес | Calculator Pro+ for iPad (11957★, 19 мес); Calculator+ (583★, 71 мес); Flashlight. (240★, 55 мес); Ordinary Calculator (4★, 32 мес) |
+| 1645384373 | 14 | 4 | 29% | 4 мес | linkit - questions and ans (949★, 27 мес); LiveIn - Share Your Moment (740★, 34 мес); starmatch: chat with creat (465★, 31 мес); DuoArt - Lockscreen Drawin (28★, 21 мес) |
