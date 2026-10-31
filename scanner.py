@@ -31,7 +31,7 @@ from collections import Counter
 from datetime import datetime, timezone, timedelta
 
 API_URL = "https://itunes.apple.com/search"
-REQUEST_DELAY = 3.0          # сек между запросами; iTunes неофициально ~20/мин, 3с = безопасно
+REQUEST_DELAY = float(os.environ.get("SCAN_DELAY", "3.0"))  # iTunes ~20/мин; для длинных локальных прогонов SCAN_DELAY=4
 MAX_RETRIES = 5
 HTTP_TIMEOUT = 20
 
