@@ -177,7 +177,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=os.path.join(HERE, "niches.db"))
     ap.add_argument("--out-dir", default=os.path.join(HERE, "dashboard"))
-    ap.add_argument("--repo", default="laptop4ik/niche-watcher")
+    ap.add_argument("--repo", default="LAPTop4iK/niche-watcher")
     args = ap.parse_args()
 
     os.makedirs(os.path.join(args.out_dir, "charts"), exist_ok=True)
