@@ -73,6 +73,10 @@
         "ar": [
           "حاسبة الخرسانة",
           "حاسبة البناء"
+        ],
+        "he": [
+          "מחשבון בטון",
+          "מחשבון בנייה"
         ]
       }
     },
@@ -147,6 +151,10 @@
         "ar": [
           "استهلاك الوقود",
           "مصاريف السيارة"
+        ],
+        "he": [
+          "תקלות רכב",
+          "יומן דלק"
         ]
       }
     },
@@ -199,6 +207,26 @@
           "neulelaskuri",
           "virkkaus ohje",
           "ristipisto"
+        ],
+        "ar": [
+          "عداد صفوف التريكو",
+          "كروشيه"
+        ],
+        "fr": [
+          "compteur de rangs tricot",
+          "patron crochet"
+        ],
+        "he": [
+          "מונה שורות סריגה",
+          "דוגמאות סריגה"
+        ],
+        "nl": [
+          "toerenteller breien",
+          "haakpatroon"
+        ],
+        "zh-TW": [
+          "編織計數器",
+          "十字繡"
         ]
       }
     },
@@ -261,6 +289,22 @@
           "vistijden",
           "hengelsport app",
           "luchtdruk vissen"
+        ],
+        "ar": [
+          "أوقات الصيد",
+          "صيد السمك"
+        ],
+        "fr": [
+          "calendrier de pêche",
+          "carnet de chasse"
+        ],
+        "he": [
+          "זמני דיג",
+          "דיג"
+        ],
+        "zh-TW": [
+          "釣魚潮汐",
+          "釣魚時間"
         ]
       }
     },
@@ -324,6 +368,14 @@
         "nl": [
           "gitaar stemmen",
           "metronoom"
+        ],
+        "ar": [
+          "موالف جيتار",
+          "مترونوم"
+        ],
+        "he": [
+          "מכוון גיטרה",
+          "מטרונום"
         ]
       }
     },
@@ -370,6 +422,30 @@
           "זמני תפילה",
           "ספירת העומר",
           "פסוק היום"
+        ],
+        "da": [
+          "bibelvers",
+          "daglig bibellæsning"
+        ],
+        "fi": [
+          "raamattu päivittäin",
+          "päivän raamatunjae"
+        ],
+        "fr": [
+          "horaires de prière",
+          "verset biblique du jour"
+        ],
+        "nb": [
+          "dagens bibelvers",
+          "bibelen app"
+        ],
+        "nl": [
+          "dagelijkse bijbeltekst",
+          "bijbel app"
+        ],
+        "sv": [
+          "dagens bibelord",
+          "bibeln app"
         ]
       }
     },
@@ -511,6 +587,18 @@
         "nl": [
           "planten water geven",
           "moestuin plannen"
+        ],
+        "ar": [
+          "تذكير سقي النباتات",
+          "مخطط الحديقة"
+        ],
+        "he": [
+          "תזכורת השקיה",
+          "תכנון גינה"
+        ],
+        "zh-TW": [
+          "植物澆水提醒",
+          "園藝日記"
         ]
       }
     },
@@ -623,6 +711,38 @@
         "ru": [
           "телесуфлёр",
           "дата на фото"
+        ],
+        "ar": [
+          "ملقن نصوص",
+          "مقياس الضوء"
+        ],
+        "da": [
+          "lysmåler",
+          "datostempel billeder"
+        ],
+        "fi": [
+          "valotusmittari",
+          "päivämäärä kuvaan"
+        ],
+        "fr": [
+          "téléprompteur",
+          "posemètre"
+        ],
+        "he": [
+          "טלפרומפטר",
+          "מד אור"
+        ],
+        "nb": [
+          "lysmåler",
+          "datostempel bilder"
+        ],
+        "nl": [
+          "lichtmeter",
+          "datumstempel foto"
+        ],
+        "sv": [
+          "ljusmätare",
+          "datumstämpel foto"
         ]
       }
     },
@@ -692,6 +812,14 @@
           "brood timer",
           "koffieverhouding",
           "recept omrekenen"
+        ],
+        "ar": [
+          "مخطط الوجبات",
+          "محول قياسات الطبخ"
+        ],
+        "he": [
+          "תכנון ארוחות",
+          "ממיר מידות"
         ]
       }
     },
@@ -765,6 +893,14 @@
           "حاسبة الطلاء",
           "حاسبة السيراميك",
           "ميزان ماء"
+        ],
+        "fr": [
+          "niveau à bulle",
+          "calcul peinture"
+        ],
+        "he": [
+          "פלס",
+          "מחשבון צבע"
         ]
       }
     },
@@ -790,6 +926,46 @@
         "ru": [
           "калькулятор повторений",
           "напоминание пить воду"
+        ],
+        "ar": [
+          "حاسبة السعرات",
+          "تذكير شرب الماء"
+        ],
+        "da": [
+          "kalorieberegner",
+          "drik vand påmindelse"
+        ],
+        "de": [
+          "kalorienrechner",
+          "wasser trinken erinnerung"
+        ],
+        "fi": [
+          "kalorilaskuri",
+          "juomamuistutus"
+        ],
+        "fr": [
+          "calculateur de calories",
+          "rappel boire de l'eau"
+        ],
+        "he": [
+          "מחשבון קלוריות",
+          "תזכורת שתיית מים"
+        ],
+        "nb": [
+          "kaloriteller",
+          "drikke vann påminnelse"
+        ],
+        "nl": [
+          "calorieën teller",
+          "water drinken herinnering"
+        ],
+        "sv": [
+          "kaloriräknare",
+          "drick vatten påminnelse"
+        ],
+        "zh-TW": [
+          "卡路里計算",
+          "喝水提醒"
         ]
       }
     },
@@ -816,6 +992,46 @@
         "ru": [
           "голос в текст",
           "улучшить фото нейросеть"
+        ],
+        "ar": [
+          "تحويل الصوت إلى نص",
+          "تحسين الصور بالذكاء الاصطناعي"
+        ],
+        "da": [
+          "tale til tekst",
+          "ai billedforbedring"
+        ],
+        "fi": [
+          "puhe tekstiksi",
+          "kuvanparannus"
+        ],
+        "fr": [
+          "transcription audio",
+          "améliorer photo ia"
+        ],
+        "he": [
+          "תמלול קול",
+          "שיפור תמונות בינה מלאכותית"
+        ],
+        "ko": [
+          "음성 텍스트 변환",
+          "AI 사진 보정"
+        ],
+        "nb": [
+          "tale til tekst",
+          "bildeforbedring"
+        ],
+        "nl": [
+          "spraak naar tekst",
+          "ai foto verbeteren"
+        ],
+        "sv": [
+          "tal till text",
+          "ai förbättra bilder"
+        ],
+        "zh-TW": [
+          "語音轉文字",
+          "AI修圖"
         ]
       }
     },
@@ -837,6 +1053,50 @@
         "de": [
           "widgets startbildschirm",
           "watch face"
+        ],
+        "ar": [
+          "أدوات الشاشة الرئيسية",
+          "خلفيات الساعة"
+        ],
+        "da": [
+          "widgets startskærm",
+          "urskive app"
+        ],
+        "fi": [
+          "widgetit",
+          "kellotaulu"
+        ],
+        "fr": [
+          "widgets écran d'accueil",
+          "cadrans montre"
+        ],
+        "he": [
+          "ווידג'טים",
+          "פני שעון"
+        ],
+        "ko": [
+          "홈 화면 위젯",
+          "워치 페이스"
+        ],
+        "nb": [
+          "widgets hjemskjerm",
+          "urskive app"
+        ],
+        "nl": [
+          "widgets startscherm",
+          "wijzerplaten"
+        ],
+        "ru": [
+          "виджеты на экран",
+          "циферблаты для часов"
+        ],
+        "sv": [
+          "widgets hemskärm",
+          "urtavlor"
+        ],
+        "zh-TW": [
+          "桌面小工具",
+          "錶面"
         ]
       }
     },
@@ -858,6 +1118,50 @@
         ],
         "ru": [
           "билеты пдд"
+        ],
+        "ar": [
+          "اختبار القيادة",
+          "إشارات المرور"
+        ],
+        "da": [
+          "teoriprøve bil",
+          "færdselstavler"
+        ],
+        "fi": [
+          "teoriakoe",
+          "liikennemerkit"
+        ],
+        "fr": [
+          "code de la route",
+          "panneaux de signalisation"
+        ],
+        "he": [
+          "מבחן תיאוריה",
+          "תמרורים"
+        ],
+        "ja": [
+          "運転免許 学科",
+          "道路標識"
+        ],
+        "ko": [
+          "운전면허 필기",
+          "교통 표지판"
+        ],
+        "nb": [
+          "teoriprøven",
+          "trafikkskilt"
+        ],
+        "nl": [
+          "theorie examen auto",
+          "verkeersborden"
+        ],
+        "sv": [
+          "körkortsteori",
+          "vägmärken"
+        ],
+        "zh-TW": [
+          "駕照筆試",
+          "交通標誌"
         ]
       }
     },
@@ -877,6 +1181,50 @@
         "ru": [
           "читалка книг",
           "аудиокниги"
+        ],
+        "ar": [
+          "متتبع القراءة",
+          "مشغل الكتب الصوتية"
+        ],
+        "da": [
+          "læselog",
+          "lydbøger"
+        ],
+        "fi": [
+          "lukupäiväkirja",
+          "äänikirjat"
+        ],
+        "fr": [
+          "suivi de lecture",
+          "lecteur livres audio"
+        ],
+        "he": [
+          "מעקב קריאה",
+          "ספרי שמע"
+        ],
+        "ja": [
+          "読書記録",
+          "オーディオブック プレーヤー"
+        ],
+        "ko": [
+          "독서 기록",
+          "오디오북 플레이어"
+        ],
+        "nb": [
+          "lesedagbok",
+          "lydbokspiller"
+        ],
+        "nl": [
+          "boeken bijhouden",
+          "luisterboek speler"
+        ],
+        "sv": [
+          "läslogg",
+          "ljudboksspelare"
+        ],
+        "zh-TW": [
+          "閱讀紀錄",
+          "有聲書播放器"
         ]
       }
     },
@@ -895,6 +1243,50 @@
         ],
         "ru": [
           "счёт очков настольные игры"
+        ],
+        "ar": [
+          "حاسبة النقاط",
+          "عداد نقاط"
+        ],
+        "da": [
+          "pointtavle",
+          "pointtæller"
+        ],
+        "de": [
+          "punktezähler",
+          "spielstand zähler"
+        ],
+        "fi": [
+          "pistelaskuri",
+          "pistetaulu"
+        ],
+        "fr": [
+          "compteur de points",
+          "feuille de score"
+        ],
+        "he": [
+          "מונה נקודות",
+          "ספירת ניקוד"
+        ],
+        "ko": [
+          "점수판",
+          "점수 계산기"
+        ],
+        "nb": [
+          "poengteller",
+          "poengtavle"
+        ],
+        "nl": [
+          "scorebord",
+          "puntenteller"
+        ],
+        "sv": [
+          "poängräknare",
+          "poängtavla"
+        ],
+        "zh-TW": [
+          "記分板",
+          "計分器"
         ]
       }
     },
@@ -918,6 +1310,50 @@
         "ru": [
           "сечение кабеля калькулятор",
           "расчет трубопровода"
+        ],
+        "ar": [
+          "حاسبة الكهرباء",
+          "حاسبة كهربائية"
+        ],
+        "da": [
+          "elektriker",
+          "elektriker beregner"
+        ],
+        "fi": [
+          "sähköasentaja",
+          "sähkö laskuri"
+        ],
+        "fr": [
+          "calcul section câble",
+          "calcul électricien"
+        ],
+        "he": [
+          "מחשבון חשמל",
+          "חשמלאי"
+        ],
+        "ja": [
+          "電線 計算",
+          "電気工事 計算"
+        ],
+        "ko": [
+          "전선 굵기 계산",
+          "전기 계산기"
+        ],
+        "nb": [
+          "elektriker",
+          "elektriker kalkulator"
+        ],
+        "nl": [
+          "elektricien",
+          "elektra calculator"
+        ],
+        "sv": [
+          "elektriker",
+          "el kalkyl"
+        ],
+        "zh-TW": [
+          "電線線徑計算",
+          "水電計算"
         ]
       }
     },
@@ -939,6 +1375,50 @@
         "ru": [
           "расчет фуры",
           "калькулятор перевозки груза"
+        ],
+        "ar": [
+          "حاسبة الشحن",
+          "حاسبة المنصات"
+        ],
+        "da": [
+          "fragt",
+          "lastbil"
+        ],
+        "fi": [
+          "rahti",
+          "kuorma-auto"
+        ],
+        "fr": [
+          "calcul palette",
+          "calcul fret"
+        ],
+        "he": [
+          "הובלות",
+          "משאיות"
+        ],
+        "ja": [
+          "運賃 計算",
+          "パレット 計算"
+        ],
+        "ko": [
+          "화물 운송",
+          "팔레트 계산기"
+        ],
+        "nb": [
+          "frakt",
+          "lastebil"
+        ],
+        "nl": [
+          "vrachtwagen",
+          "pallet calculator"
+        ],
+        "sv": [
+          "frakt",
+          "lastbil"
+        ],
+        "zh-TW": [
+          "運費計算",
+          "材積計算"
         ]
       }
     },
@@ -961,6 +1441,50 @@
         "ru": [
           "таблицы приливов",
           "авиационный калькулятор"
+        ],
+        "ar": [
+          "جدول المد والجزر",
+          "طقس البحر"
+        ],
+        "da": [
+          "tidevandstabel",
+          "sejlads"
+        ],
+        "fi": [
+          "merisää",
+          "veneily"
+        ],
+        "fr": [
+          "horaires des marées",
+          "météo marine"
+        ],
+        "he": [
+          "מזג אוויר ימי",
+          "גאות ושפל"
+        ],
+        "ja": [
+          "潮見表",
+          "海 天気"
+        ],
+        "ko": [
+          "물때표",
+          "해상 날씨"
+        ],
+        "nb": [
+          "tidevannstabell",
+          "sjøvær"
+        ],
+        "nl": [
+          "getijden",
+          "zeeweer"
+        ],
+        "sv": [
+          "sjöväder",
+          "tidvatten"
+        ],
+        "zh-TW": [
+          "潮汐表",
+          "海象"
         ]
       }
     },
@@ -985,6 +1509,46 @@
         "ja": [
           "確定申林 アプリ",
           "所得税 計算"
+        ],
+        "ar": [
+          "حاسبة ضريبة القيمة المضافة",
+          "حاسبة الضرائب"
+        ],
+        "da": [
+          "momsberegner",
+          "skatteberegner"
+        ],
+        "fi": [
+          "alv laskuri",
+          "verolaskuri"
+        ],
+        "fr": [
+          "calcul tva",
+          "calcul impôt"
+        ],
+        "he": [
+          "מחשבון מע\"מ",
+          "מחשבון מס הכנסה"
+        ],
+        "ko": [
+          "부가세 계산기",
+          "세금 계산기"
+        ],
+        "nb": [
+          "mva kalkulator",
+          "skattekalkulator"
+        ],
+        "nl": [
+          "btw berekenen",
+          "belasting berekenen"
+        ],
+        "sv": [
+          "momsräknare",
+          "skatt räkna"
+        ],
+        "zh-TW": [
+          "營業稅計算",
+          "所得稅計算"
         ]
       }
     },
@@ -1012,6 +1576,46 @@
         "ru": [
           "определитель грибов",
           "определитель птиц"
+        ],
+        "ar": [
+          "التعرف على النباتات",
+          "التعرف على العملات"
+        ],
+        "da": [
+          "plante identifikation",
+          "svampe app"
+        ],
+        "fi": [
+          "kasvin tunnistus",
+          "sienten tunnistus"
+        ],
+        "fr": [
+          "identifier plante",
+          "identifier champignon"
+        ],
+        "he": [
+          "זיהוי צמחים",
+          "זיהוי מטבעות"
+        ],
+        "ko": [
+          "식물 식별",
+          "동전 식별"
+        ],
+        "nb": [
+          "plantegjenkjenning",
+          "soppgjenkjenning"
+        ],
+        "nl": [
+          "planten herkennen",
+          "paddenstoelen herkennen"
+        ],
+        "sv": [
+          "växtidentifiering",
+          "svampidentifiering"
+        ],
+        "zh-TW": [
+          "植物辨識",
+          "錢幣辨識"
         ]
       }
     },
@@ -1033,6 +1637,50 @@
         "ru": [
           "дрессировка собаки",
           "прививки питомца"
+        ],
+        "ar": [
+          "تدريب الكلاب",
+          "متتبع صحة الحيوانات الأليفة"
+        ],
+        "da": [
+          "hundetræning",
+          "kæledyr dagbog"
+        ],
+        "fi": [
+          "koiran koulutus",
+          "lemmikin terveys"
+        ],
+        "fr": [
+          "dressage chien",
+          "carnet de santé animal"
+        ],
+        "he": [
+          "אילוף כלבים",
+          "מעקב בריאות חיית מחמד"
+        ],
+        "ja": [
+          "犬 しつけ",
+          "ペット 健康管理"
+        ],
+        "ko": [
+          "강아지 훈련",
+          "반려동물 건강 기록"
+        ],
+        "nb": [
+          "hundetrening",
+          "kjæledyr helse"
+        ],
+        "nl": [
+          "hondentraining",
+          "huisdier gezondheid"
+        ],
+        "sv": [
+          "hundträning",
+          "husdjur hälsa"
+        ],
+        "zh-TW": [
+          "狗狗訓練",
+          "寵物健康紀錄"
         ]
       }
     },
@@ -1058,6 +1706,46 @@
         "ru": [
           "список вещей в поездку",
           "конвертер валют оффлайн"
+        ],
+        "ar": [
+          "قائمة السفر",
+          "ميزانية السفر"
+        ],
+        "da": [
+          "pakkeliste",
+          "rejsebudget"
+        ],
+        "fi": [
+          "pakkauslista",
+          "matkabudjetti"
+        ],
+        "fr": [
+          "liste de voyage",
+          "budget voyage"
+        ],
+        "he": [
+          "רשימת ציוד לטיול",
+          "תקציב טיול"
+        ],
+        "ko": [
+          "여행 짐 리스트",
+          "여행 가계부"
+        ],
+        "nb": [
+          "pakkeliste",
+          "reisebudsjett"
+        ],
+        "nl": [
+          "paklijst",
+          "reisbudget"
+        ],
+        "sv": [
+          "packlista",
+          "resebudget"
+        ],
+        "zh-TW": [
+          "行李清單",
+          "旅行記帳"
         ]
       }
     }

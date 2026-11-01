@@ -1,0 +1,2762 @@
+{
+"checked_at": "2026-11-01",
+"endpoint": "iTunes Search, entity=software, limit=50",
+"note": "One storefront per language. results is the rows returned; rated counts top-10 apps with 50+ local ratings. Few results is a thin market or a poor phrase, the check does not tell which.",
+"phrases": 344,
+"median_results": 45.0,
+"below_5": 0,
+"rows": [
+{
+"lang": "he",
+"country": "il",
+"category": "construction",
+"query": "מחשבון בטון",
+"results": 29,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "construction",
+"query": "מחשבון בנייה",
+"results": 34,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "auto",
+"query": "יומן דלק",
+"results": 42,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "needlework",
+"query": "عداد صفوف التريكو",
+"results": 11,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "needlework",
+"query": "compteur de rangs tricot",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "needlework",
+"query": "patron crochet",
+"results": 50,
+"rated": 5
+},
+{
+"lang": "he",
+"country": "il",
+"category": "needlework",
+"query": "מונה שורות סריגה",
+"results": 24,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "needlework",
+"query": "דוגמאות סריגה",
+"results": 7,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "needlework",
+"query": "toerenteller breien",
+"results": 30,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "needlework",
+"query": "haakpatroon",
+"results": 5,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "needlework",
+"query": "編織計數器",
+"results": 50,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "needlework",
+"query": "十字繡",
+"results": 47,
+"rated": 3
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "hunting_fishing",
+"query": "أوقات الصيد",
+"results": 47,
+"rated": 6
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "hunting_fishing",
+"query": "صيد السمك",
+"results": 45,
+"rated": 5
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "hunting_fishing",
+"query": "calendrier de pêche",
+"results": 32,
+"rated": 6
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "hunting_fishing",
+"query": "carnet de chasse",
+"results": 27,
+"rated": 2
+},
+{
+"lang": "he",
+"country": "il",
+"category": "hunting_fishing",
+"query": "זמני דיג",
+"results": 7,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "hunting_fishing",
+"query": "釣魚潮汐",
+"results": 43,
+"rated": 7
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "hunting_fishing",
+"query": "釣魚時間",
+"results": 38,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "music_practice",
+"query": "موالف جيتار",
+"results": 48,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "music_practice",
+"query": "مترونوم",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "he",
+"country": "il",
+"category": "music_practice",
+"query": "מכוון גיטרה",
+"results": 45,
+"rated": 7
+},
+{
+"lang": "he",
+"country": "il",
+"category": "music_practice",
+"query": "מטרונום",
+"results": 43,
+"rated": 6
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "religious",
+"query": "bibelvers",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "religious",
+"query": "daglig bibellæsning",
+"results": 19,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "religious",
+"query": "raamattu päivittäin",
+"results": 13,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "religious",
+"query": "päivän raamatunjae",
+"results": 12,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "religious",
+"query": "horaires de prière",
+"results": 49,
+"rated": 10
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "religious",
+"query": "verset biblique du jour",
+"results": 49,
+"rated": 4
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "religious",
+"query": "dagens bibelvers",
+"results": 46,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "religious",
+"query": "bibelen app",
+"results": 44,
+"rated": 3
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "religious",
+"query": "dagelijkse bijbeltekst",
+"results": 37,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "religious",
+"query": "bijbel app",
+"results": 47,
+"rated": 8
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "religious",
+"query": "dagens bibelord",
+"results": 37,
+"rated": 3
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "religious",
+"query": "bibeln app",
+"results": 43,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "garden",
+"query": "تذكير سقي النباتات",
+"results": 32,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "garden",
+"query": "مخطط الحديقة",
+"results": 47,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "garden",
+"query": "תזכורת השקיה",
+"results": 37,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "garden",
+"query": "תכנון גינה",
+"results": 26,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "garden",
+"query": "植物澆水提醒",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "garden",
+"query": "園藝日記",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "photo_video_utils",
+"query": "ملقن نصوص",
+"results": 44,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "photo_video_utils",
+"query": "مقياس الضوء",
+"results": 42,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "photo_video_utils",
+"query": "lysmåler",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "photo_video_utils",
+"query": "datostempel billeder",
+"results": 14,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "photo_video_utils",
+"query": "valotusmittari",
+"results": 15,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "photo_video_utils",
+"query": "päivämäärä kuvaan",
+"results": 49,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "photo_video_utils",
+"query": "téléprompteur",
+"results": 50,
+"rated": 6
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "photo_video_utils",
+"query": "posemètre",
+"results": 46,
+"rated": 6
+},
+{
+"lang": "he",
+"country": "il",
+"category": "photo_video_utils",
+"query": "טלפרומפטר",
+"results": 47,
+"rated": 7
+},
+{
+"lang": "he",
+"country": "il",
+"category": "photo_video_utils",
+"query": "מד אור",
+"results": 48,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "photo_video_utils",
+"query": "lysmåler",
+"results": 46,
+"rated": 1
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "photo_video_utils",
+"query": "datostempel bilder",
+"results": 7,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "photo_video_utils",
+"query": "lichtmeter",
+"results": 44,
+"rated": 2
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "photo_video_utils",
+"query": "datumstempel foto",
+"results": 16,
+"rated": 0
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "photo_video_utils",
+"query": "ljusmätare",
+"results": 42,
+"rated": 2
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "photo_video_utils",
+"query": "datumstämpel foto",
+"results": 17,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "cooking",
+"query": "مخطط الوجبات",
+"results": 46,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "cooking",
+"query": "محول قياسات الطبخ",
+"results": 11,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "cooking",
+"query": "תכנון ארוחות",
+"results": 47,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "diy_home",
+"query": "niveau à bulle",
+"results": 45,
+"rated": 6
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "diy_home",
+"query": "calcul peinture",
+"results": 39,
+"rated": 3
+},
+{
+"lang": "he",
+"country": "il",
+"category": "diy_home",
+"query": "פלס",
+"results": 24,
+"rated": 8
+},
+{
+"lang": "he",
+"country": "il",
+"category": "diy_home",
+"query": "מחשבון צבע",
+"results": 25,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "fitness_calc",
+"query": "حاسبة السعرات",
+"results": 47,
+"rated": 8
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "fitness_calc",
+"query": "تذكير شرب الماء",
+"results": 43,
+"rated": 7
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "fitness_calc",
+"query": "kalorieberegner",
+"results": 46,
+"rated": 8
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "fitness_calc",
+"query": "drik vand påmindelse",
+"results": 46,
+"rated": 3
+},
+{
+"lang": "de",
+"country": "de",
+"category": "fitness_calc",
+"query": "kalorienrechner",
+"results": 45,
+"rated": 9
+},
+{
+"lang": "de",
+"country": "de",
+"category": "fitness_calc",
+"query": "wasser trinken erinnerung",
+"results": 45,
+"rated": 9
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "fitness_calc",
+"query": "kalorilaskuri",
+"results": 38,
+"rated": 8
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "fitness_calc",
+"query": "juomamuistutus",
+"results": 14,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "fitness_calc",
+"query": "calculateur de calories",
+"results": 45,
+"rated": 10
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "fitness_calc",
+"query": "rappel boire de l'eau",
+"results": 48,
+"rated": 9
+},
+{
+"lang": "he",
+"country": "il",
+"category": "fitness_calc",
+"query": "מחשבון קלוריות",
+"results": 45,
+"rated": 8
+},
+{
+"lang": "he",
+"country": "il",
+"category": "fitness_calc",
+"query": "תזכורת שתיית מים",
+"results": 34,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "fitness_calc",
+"query": "kaloriteller",
+"results": 44,
+"rated": 7
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "fitness_calc",
+"query": "drikke vann påminnelse",
+"results": 45,
+"rated": 3
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "fitness_calc",
+"query": "calorieën teller",
+"results": 41,
+"rated": 10
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "fitness_calc",
+"query": "water drinken herinnering",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "fitness_calc",
+"query": "kaloriräknare",
+"results": 42,
+"rated": 9
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "fitness_calc",
+"query": "drick vatten påminnelse",
+"results": 46,
+"rated": 4
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "fitness_calc",
+"query": "卡路里計算",
+"results": 48,
+"rated": 10
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "fitness_calc",
+"query": "喝水提醒",
+"results": 46,
+"rated": 7
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "ai_tools",
+"query": "تحويل الصوت إلى نص",
+"results": 49,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "ai_tools",
+"query": "تحسين الصور بالذكاء الاصطناعي",
+"results": 43,
+"rated": 8
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "ai_tools",
+"query": "tale til tekst",
+"results": 49,
+"rated": 6
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "ai_tools",
+"query": "ai billedforbedring",
+"results": 6,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "ai_tools",
+"query": "puhe tekstiksi",
+"results": 48,
+"rated": 2
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "ai_tools",
+"query": "transcription audio",
+"results": 49,
+"rated": 8
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "ai_tools",
+"query": "améliorer photo ia",
+"results": 47,
+"rated": 8
+},
+{
+"lang": "he",
+"country": "il",
+"category": "ai_tools",
+"query": "תמלול קול",
+"results": 50,
+"rated": 2
+},
+{
+"lang": "he",
+"country": "il",
+"category": "ai_tools",
+"query": "שיפור תמונות בינה מלאכותית",
+"results": 25,
+"rated": 0
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "ai_tools",
+"query": "음성 텍스트 변환",
+"results": 49,
+"rated": 7
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "ai_tools",
+"query": "AI 사진 보정",
+"results": 39,
+"rated": 9
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "ai_tools",
+"query": "tale til tekst",
+"results": 45,
+"rated": 4
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "ai_tools",
+"query": "spraak naar tekst",
+"results": 48,
+"rated": 7
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "ai_tools",
+"query": "ai foto verbeteren",
+"results": 46,
+"rated": 5
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "ai_tools",
+"query": "tal till text",
+"results": 46,
+"rated": 3
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "ai_tools",
+"query": "ai förbättra bilder",
+"results": 44,
+"rated": 4
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "ai_tools",
+"query": "語音轉文字",
+"results": 45,
+"rated": 10
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "ai_tools",
+"query": "AI修圖",
+"results": 38,
+"rated": 7
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "widgets_watch",
+"query": "أدوات الشاشة الرئيسية",
+"results": 48,
+"rated": 8
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "widgets_watch",
+"query": "خلفيات الساعة",
+"results": 49,
+"rated": 7
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "widgets_watch",
+"query": "widgets startskærm",
+"results": 18,
+"rated": 2
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "widgets_watch",
+"query": "urskive app",
+"results": 39,
+"rated": 4
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "widgets_watch",
+"query": "widgets écran d'accueil",
+"results": 47,
+"rated": 9
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "widgets_watch",
+"query": "cadrans montre",
+"results": 42,
+"rated": 10
+},
+{
+"lang": "he",
+"country": "il",
+"category": "widgets_watch",
+"query": "פני שעון",
+"results": 10,
+"rated": 3
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "widgets_watch",
+"query": "홈 화면 위젯",
+"results": 49,
+"rated": 8
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "widgets_watch",
+"query": "워치 페이스",
+"results": 43,
+"rated": 7
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "widgets_watch",
+"query": "widgets hjemskjerm",
+"results": 30,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "widgets_watch",
+"query": "urskive app",
+"results": 33,
+"rated": 3
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "widgets_watch",
+"query": "widgets startscherm",
+"results": 19,
+"rated": 4
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "widgets_watch",
+"query": "wijzerplaten",
+"results": 42,
+"rated": 6
+},
+{
+"lang": "ru",
+"country": "ru",
+"category": "widgets_watch",
+"query": "виджеты на экран",
+"results": 46,
+"rated": 10
+},
+{
+"lang": "ru",
+"country": "ru",
+"category": "widgets_watch",
+"query": "циферблаты для часов",
+"results": 38,
+"rated": 9
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "widgets_watch",
+"query": "widgets hemskärm",
+"results": 44,
+"rated": 6
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "widgets_watch",
+"query": "urtavlor",
+"results": 46,
+"rated": 5
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "widgets_watch",
+"query": "桌面小工具",
+"results": 47,
+"rated": 9
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "widgets_watch",
+"query": "錶面",
+"results": 49,
+"rated": 10
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "driving_ed",
+"query": "اختبار القيادة",
+"results": 43,
+"rated": 7
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "driving_ed",
+"query": "إشارات المرور",
+"results": 46,
+"rated": 4
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "driving_ed",
+"query": "teoriprøve bil",
+"results": 34,
+"rated": 2
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "driving_ed",
+"query": "færdselstavler",
+"results": 15,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "driving_ed",
+"query": "teoriakoe",
+"results": 48,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "driving_ed",
+"query": "liikennemerkit",
+"results": 44,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "driving_ed",
+"query": "code de la route",
+"results": 43,
+"rated": 9
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "driving_ed",
+"query": "panneaux de signalisation",
+"results": 42,
+"rated": 4
+},
+{
+"lang": "he",
+"country": "il",
+"category": "driving_ed",
+"query": "מבחן תיאוריה",
+"results": 49,
+"rated": 4
+},
+{
+"lang": "he",
+"country": "il",
+"category": "driving_ed",
+"query": "תמרורים",
+"results": 50,
+"rated": 4
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "driving_ed",
+"query": "運転免許 学科",
+"results": 49,
+"rated": 8
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "driving_ed",
+"query": "道路標識",
+"results": 45,
+"rated": 5
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "driving_ed",
+"query": "운전면허 필기",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "driving_ed",
+"query": "교통 표지판",
+"results": 48,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "driving_ed",
+"query": "teoriprøven",
+"results": 40,
+"rated": 7
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "driving_ed",
+"query": "trafikkskilt",
+"results": 44,
+"rated": 5
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "driving_ed",
+"query": "theorie examen auto",
+"results": 46,
+"rated": 6
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "driving_ed",
+"query": "verkeersborden",
+"results": 43,
+"rated": 3
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "driving_ed",
+"query": "körkortsteori",
+"results": 40,
+"rated": 9
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "driving_ed",
+"query": "vägmärken",
+"results": 34,
+"rated": 6
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "driving_ed",
+"query": "駕照筆試",
+"results": 49,
+"rated": 7
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "driving_ed",
+"query": "交通標誌",
+"results": 47,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "books_media",
+"query": "متتبع القراءة",
+"results": 50,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "books_media",
+"query": "مشغل الكتب الصوتية",
+"results": 13,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "books_media",
+"query": "læselog",
+"results": 26,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "books_media",
+"query": "lukupäiväkirja",
+"results": 33,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "books_media",
+"query": "suivi de lecture",
+"results": 46,
+"rated": 8
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "books_media",
+"query": "lecteur livres audio",
+"results": 48,
+"rated": 5
+},
+{
+"lang": "he",
+"country": "il",
+"category": "books_media",
+"query": "מעקב קריאה",
+"results": 47,
+"rated": 0
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "books_media",
+"query": "読書記録",
+"results": 45,
+"rated": 8
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "books_media",
+"query": "オーディオブック プレーヤー",
+"results": 50,
+"rated": 3
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "books_media",
+"query": "독서 기록",
+"results": 49,
+"rated": 6
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "books_media",
+"query": "오디오북 플레이어",
+"results": 50,
+"rated": 3
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "books_media",
+"query": "lesedagbok",
+"results": 29,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "books_media",
+"query": "lydbokspiller",
+"results": 5,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "books_media",
+"query": "boeken bijhouden",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "books_media",
+"query": "luisterboek speler",
+"results": 23,
+"rated": 2
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "books_media",
+"query": "läslogg",
+"results": 37,
+"rated": 0
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "books_media",
+"query": "ljudboksspelare",
+"results": 5,
+"rated": 1
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "books_media",
+"query": "閱讀紀錄",
+"results": 49,
+"rated": 6
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "books_media",
+"query": "有聲書播放器",
+"results": 49,
+"rated": 5
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "boardgames",
+"query": "حاسبة النقاط",
+"results": 48,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "boardgames",
+"query": "عداد نقاط",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "boardgames",
+"query": "pointtavle",
+"results": 47,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "boardgames",
+"query": "pointtæller",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "de",
+"country": "de",
+"category": "boardgames",
+"query": "punktezähler",
+"results": 50,
+"rated": 5
+},
+{
+"lang": "de",
+"country": "de",
+"category": "boardgames",
+"query": "spielstand zähler",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "boardgames",
+"query": "pistelaskuri",
+"results": 47,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "boardgames",
+"query": "pistetaulu",
+"results": 16,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "boardgames",
+"query": "compteur de points",
+"results": 47,
+"rated": 7
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "boardgames",
+"query": "feuille de score",
+"results": 47,
+"rated": 9
+},
+{
+"lang": "he",
+"country": "il",
+"category": "boardgames",
+"query": "מונה נקודות",
+"results": 41,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "boardgames",
+"query": "ספירת ניקוד",
+"results": 16,
+"rated": 0
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "boardgames",
+"query": "점수판",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "boardgames",
+"query": "점수 계산기",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "boardgames",
+"query": "poengteller",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "boardgames",
+"query": "poengtavle",
+"results": 46,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "boardgames",
+"query": "scorebord",
+"results": 50,
+"rated": 5
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "boardgames",
+"query": "puntenteller",
+"results": 50,
+"rated": 4
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "boardgames",
+"query": "poängräknare",
+"results": 50,
+"rated": 2
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "boardgames",
+"query": "poängtavla",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "boardgames",
+"query": "記分板",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "boardgames",
+"query": "計分器",
+"results": 49,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "trades_pro",
+"query": "حاسبة الكهرباء",
+"results": 46,
+"rated": 2
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "trades_pro",
+"query": "elektriker beregner",
+"results": 5,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "trades_pro",
+"query": "calcul section câble",
+"results": 21,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "trades_pro",
+"query": "calcul électricien",
+"results": 42,
+"rated": 1
+},
+{
+"lang": "he",
+"country": "il",
+"category": "trades_pro",
+"query": "מחשבון חשמל",
+"results": 27,
+"rated": 2
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "trades_pro",
+"query": "電線 計算",
+"results": 40,
+"rated": 0
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "trades_pro",
+"query": "電気工事 計算",
+"results": 48,
+"rated": 0
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "trades_pro",
+"query": "전선 굵기 계산",
+"results": 5,
+"rated": 0
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "trades_pro",
+"query": "전기 계산기",
+"results": 49,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "trades_pro",
+"query": "elektriker kalkulator",
+"results": 11,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "trades_pro",
+"query": "elektra calculator",
+"results": 20,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "trades_pro",
+"query": "電線線徑計算",
+"results": 6,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "trades_pro",
+"query": "水電計算",
+"results": 28,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "logistics_freight",
+"query": "حاسبة الشحن",
+"results": 21,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "logistics_freight",
+"query": "حاسبة المنصات",
+"results": 10,
+"rated": 2
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "logistics_freight",
+"query": "calcul palette",
+"results": 17,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "logistics_freight",
+"query": "calcul fret",
+"results": 17,
+"rated": 0
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "logistics_freight",
+"query": "運賃 計算",
+"results": 41,
+"rated": 4
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "logistics_freight",
+"query": "パレット 計算",
+"results": 12,
+"rated": 0
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "logistics_freight",
+"query": "팔레트 계산기",
+"results": 5,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "logistics_freight",
+"query": "pallet calculator",
+"results": 42,
+"rated": 1
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "logistics_freight",
+"query": "運費計算",
+"results": 40,
+"rated": 4
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "logistics_freight",
+"query": "材積計算",
+"results": 47,
+"rated": 7
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "aviation_marine",
+"query": "جدول المد والجزر",
+"results": 10,
+"rated": 2
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "aviation_marine",
+"query": "طقس البحر",
+"results": 49,
+"rated": 6
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "aviation_marine",
+"query": "tidevandstabel",
+"results": 16,
+"rated": 2
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "aviation_marine",
+"query": "merisää",
+"results": 16,
+"rated": 5
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "aviation_marine",
+"query": "horaires des marées",
+"results": 43,
+"rated": 9
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "aviation_marine",
+"query": "météo marine",
+"results": 44,
+"rated": 9
+},
+{
+"lang": "he",
+"country": "il",
+"category": "aviation_marine",
+"query": "מזג אוויר ימי",
+"results": 7,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "aviation_marine",
+"query": "גאות ושפל",
+"results": 18,
+"rated": 0
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "aviation_marine",
+"query": "潮見表",
+"results": 44,
+"rated": 8
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "aviation_marine",
+"query": "海 天気",
+"results": 45,
+"rated": 9
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "aviation_marine",
+"query": "물때표",
+"results": 47,
+"rated": 5
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "aviation_marine",
+"query": "해상 날씨",
+"results": 47,
+"rated": 8
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "aviation_marine",
+"query": "tidevannstabell",
+"results": 42,
+"rated": 4
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "aviation_marine",
+"query": "sjøvær",
+"results": 10,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "aviation_marine",
+"query": "getijden",
+"results": 40,
+"rated": 5
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "aviation_marine",
+"query": "zeeweer",
+"results": 10,
+"rated": 2
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "aviation_marine",
+"query": "sjöväder",
+"results": 41,
+"rated": 8
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "aviation_marine",
+"query": "tidvatten",
+"results": 44,
+"rated": 3
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "aviation_marine",
+"query": "潮汐表",
+"results": 46,
+"rated": 5
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "aviation_marine",
+"query": "海象",
+"results": 47,
+"rated": 8
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "tax_regional",
+"query": "حاسبة ضريبة القيمة المضافة",
+"results": 44,
+"rated": 3
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "tax_regional",
+"query": "حاسبة الضرائب",
+"results": 24,
+"rated": 2
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "tax_regional",
+"query": "momsberegner",
+"results": 12,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "tax_regional",
+"query": "skatteberegner",
+"results": 9,
+"rated": 3
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "tax_regional",
+"query": "alv laskuri",
+"results": 43,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "tax_regional",
+"query": "verolaskuri",
+"results": 6,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "tax_regional",
+"query": "calcul tva",
+"results": 40,
+"rated": 3
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "tax_regional",
+"query": "calcul impôt",
+"results": 47,
+"rated": 6
+},
+{
+"lang": "he",
+"country": "il",
+"category": "tax_regional",
+"query": "מחשבון מע\"מ",
+"results": 44,
+"rated": 7
+},
+{
+"lang": "he",
+"country": "il",
+"category": "tax_regional",
+"query": "מחשבון מס הכנסה",
+"results": 20,
+"rated": 1
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "tax_regional",
+"query": "부가세 계산기",
+"results": 48,
+"rated": 5
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "tax_regional",
+"query": "세금 계산기",
+"results": 47,
+"rated": 7
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "tax_regional",
+"query": "mva kalkulator",
+"results": 43,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "tax_regional",
+"query": "skattekalkulator",
+"results": 5,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "tax_regional",
+"query": "btw berekenen",
+"results": 44,
+"rated": 2
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "tax_regional",
+"query": "belasting berekenen",
+"results": 37,
+"rated": 6
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "tax_regional",
+"query": "momsräknare",
+"results": 10,
+"rated": 1
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "tax_regional",
+"query": "營業稅計算",
+"results": 11,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "tax_regional",
+"query": "所得稅計算",
+"results": 35,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "ai_identifiers",
+"query": "التعرف على النباتات",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "ai_identifiers",
+"query": "التعرف على العملات",
+"results": 38,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "ai_identifiers",
+"query": "plante identifikation",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "ai_identifiers",
+"query": "svampe app",
+"results": 44,
+"rated": 6
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "ai_identifiers",
+"query": "kasvin tunnistus",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "ai_identifiers",
+"query": "sienten tunnistus",
+"results": 16,
+"rated": 1
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "ai_identifiers",
+"query": "identifier plante",
+"results": 49,
+"rated": 8
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "ai_identifiers",
+"query": "identifier champignon",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "he",
+"country": "il",
+"category": "ai_identifiers",
+"query": "זיהוי צמחים",
+"results": 49,
+"rated": 5
+},
+{
+"lang": "he",
+"country": "il",
+"category": "ai_identifiers",
+"query": "זיהוי מטבעות",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "ai_identifiers",
+"query": "식물 식별",
+"results": 49,
+"rated": 4
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "ai_identifiers",
+"query": "동전 식별",
+"results": 46,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "ai_identifiers",
+"query": "plantegjenkjenning",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "ai_identifiers",
+"query": "soppgjenkjenning",
+"results": 5,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "ai_identifiers",
+"query": "planten herkennen",
+"results": 43,
+"rated": 9
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "ai_identifiers",
+"query": "paddenstoelen herkennen",
+"results": 45,
+"rated": 3
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "ai_identifiers",
+"query": "växtidentifiering",
+"results": 48,
+"rated": 4
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "ai_identifiers",
+"query": "svampidentifiering",
+"results": 11,
+"rated": 1
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "ai_identifiers",
+"query": "植物辨識",
+"results": 48,
+"rated": 8
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "ai_identifiers",
+"query": "錢幣辨識",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "pet_care",
+"query": "تدريب الكلاب",
+"results": 46,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "pet_care",
+"query": "متتبع صحة الحيوانات الأليفة",
+"results": 17,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "pet_care",
+"query": "hundetræning",
+"results": 39,
+"rated": 4
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "pet_care",
+"query": "kæledyr dagbog",
+"results": 39,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "pet_care",
+"query": "koiran koulutus",
+"results": 41,
+"rated": 2
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "pet_care",
+"query": "lemmikin terveys",
+"results": 27,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "pet_care",
+"query": "dressage chien",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "pet_care",
+"query": "carnet de santé animal",
+"results": 47,
+"rated": 2
+},
+{
+"lang": "he",
+"country": "il",
+"category": "pet_care",
+"query": "אילוף כלבים",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "he",
+"country": "il",
+"category": "pet_care",
+"query": "מעקב בריאות חיית מחמד",
+"results": 17,
+"rated": 1
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "pet_care",
+"query": "犬 しつけ",
+"results": 45,
+"rated": 6
+},
+{
+"lang": "ja",
+"country": "jp",
+"category": "pet_care",
+"query": "ペット 健康管理",
+"results": 48,
+"rated": 7
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "pet_care",
+"query": "강아지 훈련",
+"results": 48,
+"rated": 5
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "pet_care",
+"query": "반려동물 건강 기록",
+"results": 50,
+"rated": 1
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "pet_care",
+"query": "hundetrening",
+"results": 48,
+"rated": 4
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "pet_care",
+"query": "kjæledyr helse",
+"results": 47,
+"rated": 1
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "pet_care",
+"query": "hondentraining",
+"results": 47,
+"rated": 4
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "pet_care",
+"query": "huisdier gezondheid",
+"results": 49,
+"rated": 0
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "pet_care",
+"query": "hundträning",
+"results": 46,
+"rated": 5
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "pet_care",
+"query": "husdjur hälsa",
+"results": 47,
+"rated": 0
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "pet_care",
+"query": "狗狗訓練",
+"results": 44,
+"rated": 2
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "pet_care",
+"query": "寵物健康紀錄",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "travel_utils",
+"query": "قائمة السفر",
+"results": 49,
+"rated": 5
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "travel_utils",
+"query": "ميزانية السفر",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "travel_utils",
+"query": "pakkeliste",
+"results": 46,
+"rated": 3
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "travel_utils",
+"query": "rejsebudget",
+"results": 17,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "travel_utils",
+"query": "pakkauslista",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "travel_utils",
+"query": "matkabudjetti",
+"results": 15,
+"rated": 0
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "travel_utils",
+"query": "liste de voyage",
+"results": 48,
+"rated": 5
+},
+{
+"lang": "fr",
+"country": "fr",
+"category": "travel_utils",
+"query": "budget voyage",
+"results": 49,
+"rated": 8
+},
+{
+"lang": "he",
+"country": "il",
+"category": "travel_utils",
+"query": "רשימת ציוד לטיול",
+"results": 7,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "travel_utils",
+"query": "תקציב טיול",
+"results": 49,
+"rated": 1
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "travel_utils",
+"query": "여행 짐 리스트",
+"results": 48,
+"rated": 1
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "travel_utils",
+"query": "여행 가계부",
+"results": 48,
+"rated": 7
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "travel_utils",
+"query": "pakkeliste",
+"results": 43,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "travel_utils",
+"query": "reisebudsjett",
+"results": 18,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "travel_utils",
+"query": "paklijst",
+"results": 48,
+"rated": 6
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "travel_utils",
+"query": "reisbudget",
+"results": 23,
+"rated": 0
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "travel_utils",
+"query": "packlista",
+"results": 45,
+"rated": 4
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "travel_utils",
+"query": "resebudget",
+"results": 47,
+"rated": 6
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "travel_utils",
+"query": "行李清單",
+"results": 50,
+"rated": 4
+},
+{
+"lang": "zh-TW",
+"country": "tw",
+"category": "travel_utils",
+"query": "旅行記帳",
+"results": 49,
+"rated": 6
+},
+{
+"lang": "he",
+"country": "il",
+"category": "auto",
+"query": "תקלות רכב",
+"results": 11,
+"rated": 0
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "needlework",
+"query": "كروشيه",
+"results": 49,
+"rated": 2
+},
+{
+"lang": "he",
+"country": "il",
+"category": "hunting_fishing",
+"query": "דיג",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "he",
+"country": "il",
+"category": "cooking",
+"query": "ממיר מידות",
+"results": 8,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "ai_tools",
+"query": "kuvanparannus",
+"results": 14,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "ai_tools",
+"query": "bildeforbedring",
+"results": 14,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "widgets_watch",
+"query": "widgetit",
+"results": 42,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "widgets_watch",
+"query": "kellotaulu",
+"results": 32,
+"rated": 3
+},
+{
+"lang": "he",
+"country": "il",
+"category": "widgets_watch",
+"query": "ווידג'טים",
+"results": 46,
+"rated": 1
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "books_media",
+"query": "lydbøger",
+"results": 41,
+"rated": 10
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "books_media",
+"query": "äänikirjat",
+"results": 46,
+"rated": 9
+},
+{
+"lang": "he",
+"country": "il",
+"category": "books_media",
+"query": "ספרי שמע",
+"results": 40,
+"rated": 1
+},
+{
+"lang": "ar",
+"country": "sa",
+"category": "trades_pro",
+"query": "حاسبة كهربائية",
+"results": 11,
+"rated": 0
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "trades_pro",
+"query": "elektriker",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "trades_pro",
+"query": "sähköasentaja",
+"results": 40,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "trades_pro",
+"query": "sähkö laskuri",
+"results": 39,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "trades_pro",
+"query": "חשמלאי",
+"results": 46,
+"rated": 0
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "trades_pro",
+"query": "elektriker",
+"results": 45,
+"rated": 0
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "trades_pro",
+"query": "elektricien",
+"results": 46,
+"rated": 2
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "trades_pro",
+"query": "elektriker",
+"results": 46,
+"rated": 0
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "trades_pro",
+"query": "el kalkyl",
+"results": 40,
+"rated": 8
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "logistics_freight",
+"query": "fragt",
+"results": 40,
+"rated": 5
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "logistics_freight",
+"query": "lastbil",
+"results": 44,
+"rated": 6
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "logistics_freight",
+"query": "rahti",
+"results": 46,
+"rated": 1
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "logistics_freight",
+"query": "kuorma-auto",
+"results": 47,
+"rated": 1
+},
+{
+"lang": "he",
+"country": "il",
+"category": "logistics_freight",
+"query": "הובלות",
+"results": 43,
+"rated": 0
+},
+{
+"lang": "he",
+"country": "il",
+"category": "logistics_freight",
+"query": "משאיות",
+"results": 46,
+"rated": 5
+},
+{
+"lang": "ko",
+"country": "kr",
+"category": "logistics_freight",
+"query": "화물 운송",
+"results": 48,
+"rated": 3
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "logistics_freight",
+"query": "frakt",
+"results": 45,
+"rated": 2
+},
+{
+"lang": "nb",
+"country": "no",
+"category": "logistics_freight",
+"query": "lastebil",
+"results": 49,
+"rated": 3
+},
+{
+"lang": "nl",
+"country": "nl",
+"category": "logistics_freight",
+"query": "vrachtwagen",
+"results": 49,
+"rated": 4
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "logistics_freight",
+"query": "frakt",
+"results": 48,
+"rated": 10
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "logistics_freight",
+"query": "lastbil",
+"results": 42,
+"rated": 8
+},
+{
+"lang": "da",
+"country": "dk",
+"category": "aviation_marine",
+"query": "sejlads",
+"results": 39,
+"rated": 5
+},
+{
+"lang": "fi",
+"country": "fi",
+"category": "aviation_marine",
+"query": "veneily",
+"results": 44,
+"rated": 7
+},
+{
+"lang": "sv",
+"country": "se",
+"category": "tax_regional",
+"query": "skatt räkna",
+"results": 23,
+"rated": 0
+}
+]
+}
