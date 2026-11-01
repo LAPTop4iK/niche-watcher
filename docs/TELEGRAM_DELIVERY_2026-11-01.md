@@ -78,3 +78,8 @@
 
 <a href="https://laptop4ik.github.io/niche-watcher/">Открыть дашборд</a>
 ```
+
+Исправление `4824705` запушено. Облачная валидация `41316088557` успешна;
+проверочный run `41316134976` и Pages deploy успешны: 62 теста, чистый replay,
+48 live-запросов / 451 сохранённая карточка, RSS OK, read-only Telegram OK,
+messages_sent=0. Квитанция — `docs/telegram_pipeline_verification.json`.
