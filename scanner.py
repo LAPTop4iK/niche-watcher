@@ -84,9 +84,12 @@ def fetch_json(url, quiet=False):
     raise RuntimeError(f"не удалось получить {url}: {last_err}")
 
 
-def search_apps(term, country, limit):
+def search_apps(term, country, limit, entity="software"):
+    # A `lang` parameter changed neither the set nor the order on de, ru and sa
+    # (1 Nov 2026). `software` hides iPad-only apps, but adding them reshuffles
+    # about a third of the results, so that frame is a separate opt-in run.
     params = urllib.parse.urlencode(
-        {"term": term, "entity": "software", "country": country, "limit": min(limit, 200)}
+        {"term": term, "entity": entity, "country": country, "limit": min(limit, 200)}
     )
     data = fetch_json(f"{API_URL}?{params}")
     if not isinstance(data, dict) or not isinstance(data.get("results"), list):
@@ -510,6 +513,7 @@ def main():
     ap.add_argument("--slot", type=int, default=None, help="недельный слот 1-4 для tier-2 (day-of-week)")
     ap.add_argument("--categories", default=None, help="construction,auto — фильтр категорий")
     ap.add_argument("--limit", type=int, default=50, help="результатов на запрос (max 200)")
+    ap.add_argument("--entity", default="software", choices=["software","software,iPadSoftware"], help="другая рамка хранится, но не заменяет основную выдачу")
     ap.add_argument("--min-rating-count", type=int, default=DEFAULT_MIN_RATINGS)
     ap.add_argument("--min-stale-months", type=int, default=DEFAULT_MIN_STALE_MONTHS)
     ap.add_argument("--dry-run", action="store_true", help="не писать в БД")
@@ -552,10 +556,24 @@ def planned_jobs(seed,markets,countries,wanted=None):
     return list(dict.fromkeys(jobs))
 
 
+def job_frames(seed,markets,jobs):
+    """Query language per job: a query with no local list falls back to English."""
+    queries={c["id"]:c["queries"] for c in seed["categories"]}
+    for geo,cat,query in jobs:
+        market=markets[geo].get("lang","en")
+        yield geo,cat,query,(market if query in (queries[cat].get(market) or []) else "en"),market
+
+
 def run_scan(args,seed,markets,countries,wanted):
     con = None if args.dry_run else open_db(args.db)
     jobs=planned_jobs(seed,markets,countries,wanted)
-    run_id=scan_state.start_run(con,jobs,{"limit":args.limit,"storage_min_ratings":0},args.run_id) if con else None
+    entity=getattr(args,"entity","software")
+    settings={"limit":args.limit,"storage_min_ratings":0}
+    if entity!="software":
+        settings["entity"]=entity
+    run_id=scan_state.start_run(con,jobs,settings,args.run_id) if con else None
+    if con:
+        scan_state.record_frames(con,job_frames(seed,markets,jobs))
     done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))} if con else set()
     print(f"RUN {run_id}: {len(jobs)} queries, already complete {len(done)}",flush=True)
     run_start_iso = con.execute("SELECT started_at FROM scan_runs WHERE run_id=?",(run_id,)).fetchone()[0] if con else iso(now_utc())
@@ -566,7 +584,7 @@ def run_scan(args,seed,markets,countries,wanted):
     )
 
     remaining=[job for job in jobs if job not in done]
-    search=lambda query,geo: search_apps(query,geo,args.limit)
+    search=lambda query,geo: search_apps(query,geo,args.limit,entity)
     for (country,cid,q),results,error in scan_state.query_results(con,run_id,remaining,search,REQUEST_DELAY):
         if error:
             print(f"! {country}/{cid}/{q}: {error}",file=sys.stderr,flush=True)

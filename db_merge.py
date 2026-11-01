@@ -25,7 +25,7 @@ def merge(main_path, other_path):
         # Preserve the destination cache before the latest-value merge can replace it.
         demand_history.seed_existing(con)
         counts={}
-        for table in ('apps','scan_runs','scan_queries','snapshots','play_apps','play_snapshots','demand_samples','demand','study_members','study_reviews','notification_outbox'):
+        for table in ('apps','scan_runs','scan_queries','query_frames','snapshots','play_apps','play_snapshots','demand_samples','demand','study_members','study_reviews','notification_outbox'):
             if table not in source_tables:
                 continue
             if not columns(con,'main',table):
@@ -42,7 +42,7 @@ def merge(main_path, other_path):
                 counts[table]=con.execute(f'''INSERT INTO main.{table} ({names})
                     SELECT {','.join('s.'+chr(34)+k+chr(34) for k in cols)} FROM src.{table} s
                     WHERE NOT EXISTS (SELECT 1 FROM main.{table} m WHERE {equals})''').rowcount
-            elif table in ('study_members','study_reviews','demand_samples'):
+            elif table in ('study_members','study_reviews','demand_samples','query_frames'):
                 con.execute(f'INSERT OR IGNORE INTO main.{table} ({names}) SELECT {names} FROM src.{table}')
             elif table in ('scan_runs','scan_queries','notification_outbox'):
                 keys={'scan_runs':['run_id'],'scan_queries':['run_id','country','category','query'],

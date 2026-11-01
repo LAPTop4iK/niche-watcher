@@ -10,12 +10,25 @@ import demand_history
 import scanner as sc
 
 ROOT=Path(__file__).resolve().parent
+TRUNCATED_SHARE=0.7  # At limit=200 every sampled query with 35+ of 50 rows returned more than 50.
 
 
-def build(con,now=None,rows=None,queue=None):
+def queue_funnel(queue):
+    """How many old versions survive each visibility step; not a profit estimate."""
+    stale=[r for r in queue if r['lane']=='stale'];steps={'stale':stale}
+    steps['search']=[r for r in steps['stale'] if 'search' in r['sources']]
+    steps['alive']=[r for r in steps['search'] if r['verdict']=='ALIVE']
+    steps['top10']=[r for r in steps['alive'] if r.get('best_rank') and r['best_rank']<=10]
+    steps['title_match']=[r for r in steps['top10'] if r.get('title_match')]
+    return {name:dict(records=len(rows),apps=len({r['track_id'] for r in rows})) for name,rows in steps.items()}
+
+
+def build(con,now=None,rows=None,queue=None,coverage=None):
     now=now or datetime.now(timezone.utc);con.row_factory=sqlite3.Row
     rows=evidence.latest(con) if rows is None else rows
-    queue=evidence.research_queue(con,now)[0] if queue is None else queue
+    if queue is None or coverage is None:
+        computed,coverage=evidence.research_queue(con,now)
+        queue=computed if queue is None else queue
     base=[r for r in rows if any(not c.startswith('chart:') and c!='similar-graph' for c in r['categories'])]
     eligible=[r for r in base if evidence.is_candidate(r,now,min_stale=0)]
     cache=evidence.demand_map(con);assessed={(r['track_id'],r['country']):r for r in queue}
@@ -54,13 +67,6 @@ def build(con,now=None,rows=None,queue=None):
             broad_counts['rss_usable_now']+=int(a['fetch_status']=='OK')
     for name in ('rss_usable','rss_missing','rss_error','rss_empty','rss_stale','rss_unknown','rss_recent_capped','rss_with_review_versions','rss_with_review_ids'):
         counts.setdefault(name,0)
-    pain=[r for r in queue if r['lane']=='recent_pain' and 'search' in r['sources']]
-    pain_timing=dict(total=len(pain),after_release=sum((r.get('bad_after_version_count') or 0)>0 for r in pain),
-        only_before_release=sum(r.get('bad_after_version_count')==0 for r in pain),
-        timing_unknown=sum(r.get('bad_after_version_count') is None for r in pain),
-        rss_before_release=sum(r.get('rss_collected_after_version') is False for r in pain),
-        same_version_positive=sum((r.get('bad_current_version_count') or 0)>0 for r in pain),
-        version_unknown=sum(r.get('bad_current_version_count') is None for r in pain))
     # The two ALIVE paths have different sensitivity: compare periods per path only.
     alive_paths=Counter(r.get('alive_path') for r in queue if r['lane']=='stale' and r['verdict']=='ALIVE')
     seed=sc.load_seed(ROOT/'seed_queries.json');markets=json.loads((ROOT/'markets.json').read_text())['markets']
@@ -81,8 +87,10 @@ def build(con,now=None,rows=None,queue=None):
         if isinstance(limit,(int,float)) and limit>0:
             query_counts['limit_known']+=1
             query_counts['at_limit']+=int((row['result_count'] or 0)>=limit)
+            query_counts['likely_truncated']+=int((row['result_count'] or 0)>=TRUNCATED_SHARE*limit)
     query_counts['expected']=len(planned);query_counts['missing']=len(planned)-len(latest)
-    for name in ('ok','error','running','fresh_ok','limit_known','at_limit'):query_counts.setdefault(name,0)
+    for name in ('ok','error','running','fresh_ok','limit_known','at_limit','likely_truncated'):query_counts.setdefault(name,0)
+    query_counts['fallback_language']=sum(lang!=market for _,_,_,lang,market in sc.job_frames(seed,markets,sorted(planned)))
     multi_geo=sum(len(geos)>=2 for geos in app_geos.values())
     return dict(computed_at=now.isoformat(),scope='Current keyword-search memberships; counts before the optional title filter',
         unit='app×storefront, not independent users',search_records=len(base),search_unique_apps=len({r['track_id'] for r in base}),
@@ -92,15 +100,15 @@ def build(con,now=None,rows=None,queue=None):
             raw_capture='Opt-in local archive only; complete HTTP bodies are not persisted by CI',
             note='Exploration strata are not weighted estimates of the App Store population'),
         last_search_query_at=max((r['finished_at'] for r in latest.values() if r['status']=='OK'),default=None),
-        recent_pain_timing=pain_timing,alive_paths=dict(alive_paths),
+        recent_pain_timing=coverage['pain_timing'],alive_paths=dict(alive_paths),queue_funnel=queue_funnel(queue),
         cross_geo_review_ids=dict(apps_comparable=multi_geo,shared_ids=sum(len(geos)>=2 for geos in id_geos.values()) if multi_geo else None,
             note='Only collected review IDs; repeated countries do not establish independent people or demand'),
         competitor_revenue_observed=False,
-        limitations=['Reaching the result limit signals truncation; successful queries are not full market coverage.',
+        limitations=['The API returns fewer rows than the limit, so 35+ of 50 counts as truncated; successful queries are not full market coverage.',
             'Reviews after a release date may still refer to an older installed version; matching version strings is a separate count.',
             'Absence of complaints after a release does not prove a fix. RSS dates can be review updates.',
             'Legacy RSS lacks review IDs/versions. Those fields are unknown until fetched; frozen studies are not backfilled.',
-            'Counts with all 50 reviews inside 90 days are censored lower bounds; negative shares are not population rates.'])
+            'Counts with every fetched review inside 90 days are censored lower bounds; negative shares are not population rates.'])
 
 
 def main():

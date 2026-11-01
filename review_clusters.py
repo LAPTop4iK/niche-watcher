@@ -25,6 +25,7 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
+from relevance import cjk
 
 STOP = set("""the a an and or but is are was were to of in on for with this that it its i you my me we
 they he she at as be by from has have had not no do does did can will would should could very just
@@ -35,7 +36,13 @@ than too при этом для что так как это оно они его
 
 
 def tokens(text):
-    return [w for w in re.findall(r'[^\W\d_]+',unicodedata.normalize('NFKC',text).casefold(),re.UNICODE) if len(w)>3 and w not in STOP]
+    found=[]
+    for word in re.findall(r'[^\W\d_]+',unicodedata.normalize('NFKC',text).casefold(),re.UNICODE):
+        if cjk(word):
+            found.extend(word[i:i+2] for i in range(len(word)-1))  # No word segmentation: bigrams.
+        elif len(word)>3 and word not in STOP:
+            found.append(word)
+    return found
 
 
 def cluster(reviews_bad, max_clusters=6):
@@ -160,7 +167,7 @@ def main():
             print(f"   [{t['score']}★ 👍{t['thumbs']}] {txt}")
         print()
     print(f"Некластеризованный остаток: {len(rest)}")
-    print("Словарная группировка: не измеряет долю проблем среди всех пользователей; для CJK нет сегментации слов.")
+    print("Словарная группировка: не измеряет долю проблем среди всех пользователей; CJK делится на биграммы, а не на слова.")
     print("→ Кластеры — гипотезы: проверь свежесть, контекст, повторяемость и готовность платить. Частота слова не равна приоритету MVP.")
 
 

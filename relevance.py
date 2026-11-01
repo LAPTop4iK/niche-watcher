@@ -10,6 +10,10 @@ def normalize(value):
     return ''.join(c for c in unicodedata.normalize('NFKD',value.lower()) if unicodedata.category(c)!='Mn')
 
 
+def cjk(value):
+    return any('\u3040'<=c<='\u30ff' or '\u3400'<=c<='\u9fff' or '\uac00'<=c<='\ud7af' for c in value)
+
+
 def tokens(value):
     return {t for t in re.findall(r'[^\W_]+',normalize(value),re.UNICODE) if len(t)>=2 and t not in STOP}
 
@@ -22,6 +26,7 @@ def relevant(name,query):
     if not wanted:
         return False
     title=normalize(name);title_tokens=tokens(name)
-    matches=sum(t in title_tokens or (len(t)>=3 and t in title) for t in wanted)
+    # CJK words run together without spaces, and two characters already make a word.
+    matches=sum(t in title_tokens or ((len(t)>=3 or cjk(t)) and t in title) for t in wanted)
     required=min(2,len(wanted))
     return matches>=required

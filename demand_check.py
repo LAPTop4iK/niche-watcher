@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS demand (
 
 
 class DemandFetch(tuple):
-    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None, raw_ref=None, capped=False):
+    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None, raw_ref=None, capped=False, themes=None):
         result=super().__new__(cls,values)
         result.dates=dates or []
         result.scores=scores or []
@@ -55,7 +55,20 @@ class DemandFetch(tuple):
         result.versions=versions or []
         result.raw_ref=raw_ref
         result.capped=capped
+        result.themes=themes
         return result
+
+
+def review_themes(texts,scores,limit=5):
+    """Words repeated across 1–2★ reviews, by position in the sample. CI keeps no text."""
+    from review_clusters import tokens
+    found={}
+    for i,(text,score) in enumerate(zip(texts,scores)):
+        if score<=2:
+            for word in set(tokens(text)):
+                found.setdefault(word,[]).append(i)
+    repeated=sorted(((word,reviews) for word,reviews in found.items() if len(reviews)>=2),key=lambda x:(-len(x[1]),x[0]))
+    return dict(repeated[:limit])
 
 
 def rss_page(track_id,country,page):
@@ -80,7 +93,7 @@ def fetch_demand(track_id, country, pages=RSS_MAX_PAGES, pause=1.0):
     """
     raw_ref=None
     try:
-        dates,scores,ids,versions,seen=[],[],[],[],set()
+        dates,scores,ids,versions,texts,seen=[],[],[],[],[],set()
         now=sc.now_utc();capped=False;holes=0
         for page in range(1,pages+1):
             try:
@@ -111,6 +124,7 @@ def fetch_demand(track_id, country, pages=RSS_MAX_PAGES, pause=1.0):
                 seen.add(identity);dates.append(date.isoformat());scores.append(score)
                 ids.append(e.get('id',{}).get('label'))
                 versions.append(e.get('im:version',{}).get('label'))
+                texts.append((e.get('content') or {}).get('label') or '')
             if not rated and page==1:
                 break
             if rated:
@@ -129,7 +143,7 @@ def fetch_demand(track_id, country, pages=RSS_MAX_PAGES, pause=1.0):
             return DemandFetch((None,None,None,None,'EMPTY'),raw_ref=raw_ref)
         r60=sum((now-evidence.parse(d)).total_seconds() <= 60*86400 for d in dates)
         r90=sum((now-evidence.parse(d)).total_seconds() <= 90*86400 for d in dates)
-        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions,raw_ref=raw_ref,capped=capped)
+        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions,raw_ref=raw_ref,capped=capped,themes=review_themes(texts,scores))
     except Exception as exc:
         import raw_archive
         if isinstance(exc,raw_archive.ArchiveError):raise
@@ -140,7 +154,7 @@ def prepare(con):
     con.executescript(DEMAND_SCHEMA)
     fields={'fetch_status':'TEXT','method_version':'TEXT','review_dates_json':'TEXT',
             'review_scores_json':'TEXT','sample_size':'INTEGER','sample_capped':'INTEGER','fetch_error':'TEXT',
-            'review_ids_json':'TEXT','review_versions_json':'TEXT','collection_policy':'TEXT','alive_path':'TEXT'}
+            'review_ids_json':'TEXT','review_versions_json':'TEXT','collection_policy':'TEXT','alive_path':'TEXT','review_themes_json':'TEXT'}
     existing={r[1] for r in con.execute('PRAGMA table_info(demand)')}
     for name,kind in fields.items():
         if name not in existing:
@@ -179,19 +193,21 @@ def _store_result(con,tid,country,result,policy):
     con.execute('''INSERT INTO demand
         (track_id,country,checked_at,last_review,r60,r90,bad_share,vel_30d,verdict,
          fetch_status,method_version,review_dates_json,review_scores_json,sample_size,sample_capped,fetch_error,
-         review_ids_json,review_versions_json,collection_policy,alive_path)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
+         review_ids_json,review_versions_json,collection_policy,alive_path,review_themes_json)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
         checked_at=excluded.checked_at,last_review=excluded.last_review,r60=excluded.r60,r90=excluded.r90,
         bad_share=excluded.bad_share,vel_30d=excluded.vel_30d,verdict=excluded.verdict,
         fetch_status=excluded.fetch_status,method_version=excluded.method_version,
         review_dates_json=excluded.review_dates_json,review_scores_json=excluded.review_scores_json,
         sample_size=excluded.sample_size,sample_capped=excluded.sample_capped,fetch_error=excluded.fetch_error,
         review_ids_json=excluded.review_ids_json,review_versions_json=excluded.review_versions_json,
-        collection_policy=excluded.collection_policy,alive_path=excluded.alive_path''',
+        collection_policy=excluded.collection_policy,alive_path=excluded.alive_path,
+        review_themes_json=excluded.review_themes_json''',
         (tid,country,sc.iso(sc.now_utc()),lr,r60,r90,bad,vel,state,status,evidence.METHOD,
          json.dumps(dates) if dates else None,json.dumps(scores) if scores else None,
          len(dates) if dates else None,int(bool(getattr(result,'capped',False))),getattr(result,'error',None),
-         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None,policy,path))
+         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None,policy,path,
+         json.dumps(result.themes,ensure_ascii=False) if getattr(result,'themes',None) is not None else None))
 
 
 def follow_run(con,run_id,delay,workers=2,controls=20):

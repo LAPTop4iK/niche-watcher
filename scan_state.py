@@ -19,6 +19,11 @@ CREATE TABLE IF NOT EXISTS scan_queries (
  finished_at TEXT, status TEXT NOT NULL, result_count INTEGER, stored_count INTEGER,
  error TEXT, PRIMARY KEY(run_id,country,category,query)
 );
+CREATE TABLE IF NOT EXISTS query_frames (
+ country TEXT NOT NULL, category TEXT NOT NULL, query TEXT NOT NULL,
+ query_lang TEXT NOT NULL, market_lang TEXT NOT NULL,
+ PRIMARY KEY(country,category,query)
+);
 '''
 
 
@@ -58,6 +63,11 @@ def start_run(con, jobs, settings, run_id=None):
         con.execute("UPDATE scan_runs SET status='RUNNING',finished_at=NULL WHERE run_id=?",(run_id,))
     con.commit()
     return run_id
+
+
+def record_frames(con,frames):
+    con.executemany('INSERT OR IGNORE INTO query_frames VALUES (?,?,?,?,?)',frames)
+    con.commit()
 
 
 def begin_query(con,run_id,geo,cat,query):

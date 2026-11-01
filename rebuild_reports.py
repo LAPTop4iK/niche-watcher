@@ -13,6 +13,7 @@ import tempfile
 import evidence
 import demand_check
 import dashboard
+import quality_metrics
 import validate_data
 
 ROOT=Path(__file__).resolve().parent
@@ -20,16 +21,18 @@ ROOT=Path(__file__).resolve().parent
 
 def candidate_report(con,out):
     rows,coverage=evidence.research_queue(con)
-    sample=coverage['all']
+    sample=coverage['all'];funnel=quality_metrics.queue_funnel(rows)
     lines=['# Кандидаты для исследования',f'\nМетод {evidence.METHOD}. Дата {datetime.now(timezone.utc).isoformat(timespec="seconds")}. Всего {len(rows)} app×country. Это не список прибыльных ниш.',
-           '\nДва направления: версии ≥18 мес и версии <18 мес с хотя бы одним свежим отзывом 1–2★. Отзыв требует чтения и проверки; это ещё не подтверждённая боль. Сначала свежая активность и сочетание платной загрузки с жалобами. Цена не подтверждает текущие продажи. R90 — нижняя граница выборки RSS. Платежи неизвестны.',
-           f"\nВерсии <18 мес: пригодный RSS {sample['rss_usable']}/{sample['eligible']} app×страна; с жалобами {sample['complaint_records']}. Это охват проверок, а не частота проблем на рынке.",
-           '\n| Приложение | Страна | Направление | Сигнал | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |',
-           '|---|---|---|---|---:|---|---:|---:|---|']
+           '\nДва направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.',
+           f"\nВоронка старых версий: поиск {funnel['search']['records']} → активность {funnel['alive']['records']} → топ-10 {funnel['top10']['records']} → запрос в названии {funnel['title_match']['records']} ({funnel['title_match']['apps']} приложений).",
+           f"\nВерсии <18 мес: пригодный RSS {sample['rss_usable']}/{sample['eligible']} app×страна; есть 1–2★ у {sample['any_complaint']}, прошли условие {sample['complaint_records']}; выпали из-за устаревшего RSS {sample['lost_to_stale_rss']}. Это охват проверок, а не частота проблем на рынке.",
+           '\n| Приложение | Страна | Направление | Сигнал | Позиция | Запрос | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |',
+           '|---|---|---|---|---:|---|---:|---|---:|---:|---|']
     for r in rows:
         name=r['name'].replace('|','/').replace('\n',' ')
         price='—' if r['price'] is None else f"{r['price']} {r.get('currency') or ''}" if r['price'] else 'free'
-        lines.append(f"| [{name}](https://apps.apple.com/{r['country']}/app/id{r['track_id']}) | {r['country']} | {evidence.LANES[r['lane']]} | {r['verdict']} | {r['rating_count']} | {price} | {r['r90'] if r['r90'] is not None else '—'} | {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'} | {r['version_date'][:10]} |")
+        query=(r.get('best_query') or '—').replace('|','/')
+        lines.append(f"| [{name}](https://apps.apple.com/{r['country']}/app/id{r['track_id']}) | {r['country']} | {evidence.LANES[r['lane']]} | {r['verdict']} | {r.get('best_rank') or '—'} | {query} | {r['rating_count']} | {price} | {r['r90'] if r['r90'] is not None else '—'} | {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'} | {r['version_date'][:10]} |")
     out.write_text('\n'.join(lines)+'\n')
 
 

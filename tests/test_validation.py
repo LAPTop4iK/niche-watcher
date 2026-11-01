@@ -58,11 +58,12 @@ class FreshnessAndSampling(Fixtures):
         self.assertEqual((a['r7'],a['r30'],a['r90']),(1,4,4))
         self.assertEqual((a['bad_recent_count'],a['bad_after_version_count'],a['bad_current_version_count']),(3,2,1))
         self.assertEqual(a['review_id_known_count'],5)
-        queue,_=evidence.research_queue(con,now)
-        before=next(r for r in queue if r['track_id']==2)
+        queue,coverage=evidence.research_queue(con,now)
+        self.assertFalse(any(r['track_id']==2 for r in queue))
+        before=evidence.assess(con,next(r for r in evidence.latest(con) if r['track_id']==2),cache[(2,'us')],now)
         self.assertEqual(before['bad_after_version_count'],0)
         self.assertTrue(any('предшествуют' in reason for reason in before['reasons']))
-        q=quality_metrics.build(con,now,queue=queue)
+        q=quality_metrics.build(con,now,queue=queue,coverage=coverage)
         self.assertEqual(q['recent_pain_timing']['only_before_release'],1)
         self.assertEqual(q['recent_pain_timing']['rss_before_release'],1)
         legacy=dict(cache[(1,'us')]);legacy.pop('review_versions_json')
@@ -470,12 +471,13 @@ class Presentation(Fixtures):
         self.make(con,tid=5,name='No complaint',version='2026-10-01T00:00:00Z')
         dc.prepare(con)
         with patch.object(sc,'now_utc',return_value=now):
+            stamps=['2026-10-29T00:00:00Z','2026-10-30T00:00:00Z','2026-10-31T00:00:00Z']
             for tid,score in [(2,1),(4,2),(5,5)]:
-                dc.store_result(con,tid,'us',dc.DemandFetch(('2026-10-31T00:00:00Z',1,1,100,'OK'),['2026-10-31T00:00:00Z'],[score]))
+                dc.store_result(con,tid,'us',dc.DemandFetch(('2026-10-31T00:00:00Z',3,3,100,'OK'),stamps,[score]*3))
         con.execute("UPDATE demand SET checked_at='2026-09-01T00:00:00Z' WHERE track_id=4")
         queue,coverage=evidence.research_queue(con,now)
         self.assertEqual({r['track_id']:r['lane'] for r in queue},{1:'stale',2:'recent_pain'})
-        self.assertEqual(coverage['search'],dict(eligible=4,rss_usable=2,complaint_records=1,lost_to_stale_rss=1))
+        self.assertEqual(coverage['search'],dict(eligible=4,rss_usable=2,any_complaint=1,complaint_records=1,lost_to_stale_rss=1))
         # Telegram uses the same qualifying rule; missing/outdated data is not pain.
         with patch.object(evidence,'research_queue',return_value=(queue,coverage)):
             message=tg_digest.build_message(con)
@@ -503,6 +505,109 @@ class Presentation(Fixtures):
             self.assertEqual(data['source_coverage']['charts'],['de','us'])
             both=next(r for r in data['candidates'] if r['track_id']==1)
             self.assertEqual(both['sources'],['charts','search'])
+
+
+class QueueSignals(Fixtures):
+    def reviewed(self,con,tid,scores,versions=None,themes=None,version='2.0'):
+        import demand_check as dc
+        self.make(con,tid=tid,version='2026-10-01T00:00:00Z');con.execute('UPDATE snapshots SET version=? WHERE track_id=?',(version,tid))
+        dates=[f'2026-10-{10+i:02d}T00:00:00Z' for i in range(len(scores))]
+        now=datetime(2026,11,1,tzinfo=timezone.utc)
+        with patch.object(sc,'now_utc',return_value=now):
+            dc.prepare(con)
+            dc.store_result(con,tid,'us',dc.DemandFetch((dates[-1],len(dates),len(dates),0,'OK'),dates,scores,
+                ids=[f'{tid}-{i}' for i in range(len(dates))],versions=versions or ['2.0']*len(dates),themes=themes))
+        return now
+
+    def test_pain_needs_three_reviews_on_the_release_above_the_category_base(self):
+        con=sc.open_db(':memory:')
+        self.reviewed(con,1,[1,1,1,5,5,5],themes={'crash':[0,1,2]})
+        self.reviewed(con,2,[1,1,5,5,5,5,5,5,5,5])
+        self.reviewed(con,3,[1]*4+[5]*16)
+        now=self.reviewed(con,4,[1,1,1,5],versions=['1.0','1.0','1.0','2.0'])
+        queue,coverage=evidence.research_queue(con,now)
+        self.assertEqual([r['track_id'] for r in queue],[1])
+        self.assertGreater(queue[0]['pain_excess'],0)
+        self.assertEqual(queue[0]['pain_theme'],'crash')
+        self.assertEqual(coverage['search']['any_complaint'],4)
+
+    def test_pain_with_captured_text_needs_a_repeated_theme(self):
+        con=sc.open_db(':memory:')
+        now=self.reviewed(con,1,[1,1,1,5],themes={})
+        self.assertEqual(evidence.research_queue(con,now)[0],[])
+
+    def test_review_themes_keep_repeated_words_of_low_ratings_only(self):
+        import demand_check as dc
+        themes=dc.review_themes(['sync keeps failing','sync lost data','sync is great','failing again'],[1,2,5,1])
+        self.assertEqual(themes,{'failing':[0,3],'sync':[0,1]})
+
+    def test_queue_shows_best_position_and_sorts_by_it(self):
+        con=sc.open_db(':memory:')
+        jobs=[('us','construction','concrete calculator'),('us','construction','slab')]
+        run=scan_state.start_run(con,jobs,{'limit':50})
+        for query,rank in (('concrete calculator',30),('slab',4)):
+            scan_state.begin_query(con,run,'us','construction',query)
+            app=self.make(con,tid=1,query=query,run_id=run);con.execute('UPDATE snapshots SET rank=? WHERE query=?',(rank,query))
+            scan_state.end_query(con,run,'us','construction',query,'OK',1,1)
+        self.assertEqual(evidence.best_positions(con)[(1,'us')],(4,'slab'))
+        queue,_=evidence.research_queue(con,datetime(2026,11,1,tzinfo=timezone.utc))
+        self.assertEqual((queue[0]['best_rank'],queue[0]['best_query']),(4,'slab'))
+
+    def test_likely_truncated_counts_short_answers_below_the_limit(self):
+        import quality_metrics
+        con=sc.open_db(':memory:');markets=json.loads((Path(__file__).resolve().parents[1]/'markets.json').read_text())['markets']
+        seed=sc.load_seed(Path(__file__).resolve().parents[1]/'seed_queries.json');jobs=sc.planned_jobs(seed,markets,['us'])[:2]
+        run=scan_state.start_run(con,jobs,{'limit':50})
+        for job,count in zip(jobs,(38,12)):
+            scan_state.begin_query(con,run,*job);scan_state.end_query(con,run,*job,'OK',count,0)
+        q=quality_metrics.build(con,datetime.now(timezone.utc))['queries']
+        self.assertEqual((q['at_limit'],q['likely_truncated']),(0,1))
+
+    def test_title_hint_finds_cjk_words_without_spaces(self):
+        self.assertTrue(relevant('燃費記録アプリ','燃費 記録'))
+
+    def test_query_language_is_recorded_for_fallback_jobs(self):
+        seed=dict(categories=[dict(id='c',queries=dict(en=['tax'],de=['steuer']))])
+        markets=dict(de=dict(lang='de'),fr=dict(lang='fr'))
+        frames=list(sc.job_frames(seed,markets,sc.planned_jobs(seed,markets,['de','fr'])))
+        self.assertEqual(frames,[('de','c','steuer','de','de'),('fr','c','tax','en','fr')])
+
+
+class GeoGap(unittest.TestCase):
+    lang={'us':'en','gb':'en','nz':'en','de':'de','at':'de'}
+
+    def row(self,tid,geo,rank,count,query='concrete calculator',name='Concrete Calculator'):
+        return (tid,geo,'c',query,rank,count,name)
+
+    def test_same_app_in_a_smaller_market_is_not_a_gap(self):
+        import geo_gap
+        rows=[self.row(1,'us',1,5000),self.row(1,'nz',1,100)]
+        self.assertEqual(geo_gap.find_gaps(rows,self.lang),[])
+
+    def test_real_absence_is_reported_after_scaling(self):
+        import geo_gap
+        rows=[self.row(1,'us',1,5000),self.row(2,'gb',1,50),
+              self.row(3,'us',1,6000,query='slab tool',name='Slab Tool'),self.row(4,'gb',1,6000,query='slab tool',name='Slab Tool')]
+        gaps=geo_gap.find_gaps(rows,self.lang)
+        self.assertEqual([(g['leader'][0],g['poor']) for g in gaps],[(1,{'gb':50})])
+
+    def test_strong_top_ten_without_title_match_closes_the_gap(self):
+        import geo_gap
+        rows=[self.row(1,'us',1,5000),self.row(2,'gb',3,900,name='Builder Toolkit')]
+        self.assertEqual(geo_gap.find_gaps(rows,self.lang),[])
+
+    def test_market_size_explains_a_small_counter(self):
+        import geo_gap
+        rows=[self.row(1,'us',1,5000),self.row(2,'nz',1,100),
+              self.row(3,'us',1,10000,query='slab tool',name='Slab Tool'),self.row(4,'nz',1,250,query='slab tool',name='Slab Tool')]
+        self.assertEqual(geo_gap.find_gaps(rows,self.lang,max_poor=200),[])
+
+    def test_fallback_query_is_not_compared_between_countries(self):
+        import geo_gap
+        con=sc.open_db(':memory:')
+        scan_state.record_frames(con,[('de','c','tax','en','de'),('at','c','steuer','de','de')])
+        rows=[(1,'de','c','tax',1,10,'x'),(2,'at','c','steuer',1,10,'y')]
+        self.assertEqual(list(geo_gap.localized(con,rows,dict(categories=[]),self.lang)),[rows[1]])
 
 
 class ReviewCollection(Fixtures):

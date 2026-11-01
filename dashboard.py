@@ -34,7 +34,7 @@ def build_data(db):
         bounds=con.execute('SELECT MIN(scanned_at),MAX(scanned_at) FROM snapshots').fetchone()
         groups=[dict(category=cat,country=geo,**a) for cat,geo,a in scoreboard.build(con)]
         runs=evidence.coverage(con)
-        quality=quality_metrics.build(con,rows=latest,queue=candidates)
+        quality=quality_metrics.build(con,rows=latest,queue=candidates,coverage=research_coverage)
     markets=json.loads((HERE/'markets.json').read_text())['markets']
     seen={r['country'] for r in coverage}
     seed=json.loads((HERE/'seed_queries.json').read_text())['categories']
