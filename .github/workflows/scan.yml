@@ -48,6 +48,8 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 scanner.py --report report.md
+      - name: Explore complaints in recent versions (bounded rotating sample)
+        run: python3 demand_check.py --explore-updated 20 --tier 1 --delay 1.5
       - name: Save collected data
         if: always()
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
@@ -78,6 +80,8 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 scanner.py --tier 2 --slot ${{ steps.slot.outputs.n }} --report report_t2.md
+      - name: Explore complaints in recent versions (bounded rotating sample)
+        run: python3 demand_check.py --explore-updated 20 --tier 2 --slot ${{ steps.slot.outputs.n }} --delay 1.5
       - name: Save collected data
         if: always()
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"

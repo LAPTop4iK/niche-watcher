@@ -174,6 +174,56 @@ def velocity(con, track_id, country):
     return evidence.rating_velocity(con, track_id, country)
 
 
+def updated_review_sample(rows,cached,per_country,countries=None,now=None):
+    """Budgeted discovery sample, separate from the frozen scientific control.
+
+    Alternate overdue refreshes and unseen records, round-robin by query family.
+    Daily hashing rotates choices within a family. This is not a market sample.
+    """
+    now=now or sc.now_utc();pools={};title_hints={}
+    from relevance import relevant
+    for row in rows:
+        geo=row['country'];key=(row['track_id'],geo)
+        if countries is not None and geo not in countries:
+            continue
+        if not evidence.is_candidate(row,now,min_stale=0) or evidence.is_candidate(row,now):
+            continue
+        try:
+            if not 0<=(now-evidence.parse(row['scanned_at'])).total_seconds()<=14*86400:
+                continue
+        except (ValueError,TypeError,KeyError):
+            continue
+        previous=cached.get(key,{})
+        try:
+            age=(now-evidence.parse(previous['checked_at'])).total_seconds()/86400
+            if age<(1 if previous.get('fetch_status')=='ERROR' else 7):
+                continue
+        except (ValueError,TypeError,KeyError):
+            pass
+        category=next((c for c in row['categories'] if not c.startswith('chart:') and c!='similar-graph'),row['categories'][0])
+        title_hints[key]=any(relevant(row['name'],q) for c,queries in row.get('source_queries',{}).items()
+            if not c.startswith('chart:') and c!='similar-graph' for q in queries)
+        bucket=pools.setdefault(geo,{}).setdefault(bool(previous),{})
+        bucket.setdefault(category,[]).append(key)
+    selected=[]
+    for geo,kinds in sorted(pools.items()):
+        rotations={}
+        for known,categories in kinds.items():
+            for category,keys in categories.items():
+                keys.sort(key=lambda key:(int(title_hints[key]),hashlib.sha256(f'{now:%Y-%m-%d}:{key}'.encode()).hexdigest()))
+            rotation=[]
+            while any(categories.values()):
+                for category in sorted(categories):
+                    if categories[category]:rotation.append(categories[category].pop())
+            rotations[known]=rotation
+        for i in range(per_country):
+            preferred=bool(i%2==0)
+            pool=rotations.get(preferred) or rotations.get(not preferred)
+            if not pool:break
+            selected.append(pool.pop(0))
+    return selected
+
+
 def verdict_for(rc, vel, last_review, r90, fetch_status="OK"):
     return evidence.classify(vel, last_review, r90, fetch_status)
 
@@ -220,13 +270,37 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--track")
     ap.add_argument("--delay", type=float, default=1.2)
+    ap.add_argument('--explore-updated',type=int,default=0,metavar='N',help='до N версий <18 мес на страну; отдельная ротационная выборка, не контроль исследования')
+    ap.add_argument('--countries',help='страны для --explore-updated; по умолчанию все')
+    ap.add_argument('--tier',type=int,choices=[1,2],help='tier из markets.json для --explore-updated')
+    ap.add_argument('--slot',type=int,choices=[1,2,3,4])
     ap.add_argument("--out", default=os.path.join(HERE, "demand_report.md"))
     args = ap.parse_args()
+    if not 0<=args.explore_updated<=200:
+        ap.error('explore-updated должен быть 0..200')
+    if args.explore_updated and (args.follow_run or args.cached_only or args.track or args.limit):
+        ap.error('explore-updated запускается отдельно от follow/cached/track/limit')
     db_store.ensure(args.db)
 
     con = sqlite3.connect(__import__("pathlib").Path(args.db).resolve().as_uri()+"?mode=ro",uri=True,timeout=30) if args.cached_only else sqlite3.connect(args.db,timeout=30)
     if args.cached_only:
         write_cached_report(con, args.out)
+        con.close()
+        return
+    if args.explore_updated:
+        import scan_state
+        markets=json.load(open(os.path.join(HERE,'markets.json')))['markets']
+        countries=set(args.countries.split(',')) if args.countries else {geo for geo,m in markets.items()
+            if (args.tier is None or m.get('tier',2)==args.tier) and (args.slot is None or m.get('week_slot')==args.slot)}
+        if not countries or not countries<=set(markets):ap.error('Нужны страны из markets.json')
+        with scan_state.writer_lock(args.db):
+            prepare(con)
+            keys=updated_review_sample(evidence.latest(con),evidence.demand_map(con),args.explore_updated,countries)
+            print(f'UPDATED DISCOVERY: {len(keys)} RSS checks, max {args.explore_updated}/country; not a statistical control',flush=True)
+            for i,(tid,geo) in enumerate(keys,1):
+                store_result(con,tid,geo,fetch_demand(tid,geo))
+                if i%25==0:print(f'UPDATED {i}/{len(keys)}',flush=True)
+                time.sleep(args.delay)
         con.close()
         return
     prepare(con)

@@ -13,6 +13,7 @@
 | tax_regional | steuer app | de | [Taxfix: Online Steuererklärung](https://apps.apple.com/de/app/id1163776422) [de] | 273,850 | ch (148) |
 | music_practice | tuner app | en | [Радио онлайн фм: myTuner Radio](https://apps.apple.com/us/app/id520502858) [us] | 244,737 | gb (155) |
 | driving_ed | dmv practice test | en | [DMV Genie: Permit Test 2026](https://apps.apple.com/us/app/id513850893) [us] | 184,262 | ie (23), sg (36), au (48), gb (203), ca (207) |
+| fitness_calc | one rep max calculator | en | [MaxPreps: High School Sports](https://apps.apple.com/us/app/id980665604) [us] | 163,341 | ie (2), sg (2), nz (4), au (16), ca (19), gb (34) |
 | diy_home | paint calculator | en | [Cut and Paint](https://apps.apple.com/us/app/id1498901771) [us] | 155,182 | sg (0) |
 | widgets_watch | home screen widgets | en | [iScreen - Widgets & Wallpaper](https://apps.apple.com/us/app/id1534704608) [us] | 153,983 | ie (104), nz (161) |
 | hunting_fishing | moon phase hunting | en | [The Moon: Calendar Moon Phases](https://apps.apple.com/us/app/id1077455978) [us] | 118,270 | sg (163) |
@@ -26,6 +27,7 @@
 | finance_tools | tip calculator | en | [Tip Calculator % Gold](https://apps.apple.com/us/app/id532457588) [us] | 61,290 | ie (3), sg (4), nz (14), au (101) |
 | pet_care | puppy potty training | en | [Woofz - Puppy and Dog Training](https://apps.apple.com/us/app/id1532020050) [us] | 57,948 | sg (121) |
 | pet_care | dog training clicker | en | [Woofz - Puppy and Dog Training](https://apps.apple.com/us/app/id1532020050) [us] | 57,948 | sg (121) |
+| fitness_calc | pace calculator | en | [Pacer Pedometer: Step Counter](https://apps.apple.com/gb/app/id600446812) [gb] | 57,096 | ca (18) |
 | religious | rosary counter | en | [Relevant Radio Catholic Rosary](https://apps.apple.com/us/app/id597930318) [us] | 56,885 | sg (0), nz (40), ie (70) |
 | tax_regional | elster | de | [ElsterSecure](https://apps.apple.com/de/app/id1579060331) [de] | 56,240 | at (126), ch (155) |
 | books_media | reading tracker | en | [Amazon Kindle: Reading App](https://apps.apple.com/nz/app/id302584613) [nz] | 45,187 | ie (198) |
@@ -33,6 +35,7 @@
 | construction | construction calculator | en | [Construction Master Pro Calc](https://apps.apple.com/us/app/id370406446) [us] | 40,452 | sg (24), ie (47), nz (241) |
 | photo_video_utils | teleprompter | en | [BIGVU Teleprompter Captions AI](https://apps.apple.com/us/app/id1124958568) [us] | 36,224 | ie (239) |
 | needlework | crochet pattern app | en | [YarnPal - Crochet & Patterns](https://apps.apple.com/us/app/id6738537088) [us] | 34,609 | ie (8), sg (10), nz (11), ca (124), au (135), gb (215) |
+| fitness_calc | macro calculator | en | [My Macros+ | Macro Tracker](https://apps.apple.com/us/app/id475249619) [us] | 33,807 | sg (72), ie (207), nz (280) |
 | auto | obd2 scanner | en | [Car Scanner ELM OBD2](https://apps.apple.com/us/app/id1259933623) [us] | 33,102 | sg (152) |
 | finance_tools | budget planner | en | [Emma - Budget Planner Tracker](https://apps.apple.com/gb/app/id1270062373) [gb] | 27,107 | ie (196) |
 | construction | concrete calculator | en | [Concrete Calculator Plus](https://apps.apple.com/us/app/id1494386815) [us] | 26,353 | sg (1), ie (52), nz (66) |
@@ -41,6 +44,7 @@
 | diy_home | stud finder | en | [Stud Finder®](https://apps.apple.com/us/app/id1484289588) [us] | 22,985 | sg (4), ie (48), nz (69) |
 | logistics_freight | load board | en | [RXO Drive: Free Load Board](https://apps.apple.com/us/app/id1268107798) [us] | 18,108 | nz (0), ie (0), sg (0), au (1), gb (1) |
 | finance_tools | invoice generator | en | [Invoice Generator - Zoho](https://apps.apple.com/us/app/id1061863220) [us] | 17,962 | sg (65), ie (152), nz (202) |
+| boardgames | board game companion | en | [Line 'Em Up®: Board Game](https://apps.apple.com/us/app/id1354945642) [us] | 17,635 | sg (13), ie (291) |
 | aviation_marine | marine weather | en | [Marine Weather Forecast Pro](https://apps.apple.com/us/app/id1191010451) [us] | 16,442 | ie (2), sg (2), nz (54), gb (71), ca (169), au (216) |
 | needlework | cross stitch | en | [Cross-Stitch: Color by Number](https://apps.apple.com/us/app/id1246165006) [us] | 15,843 | ie (45), sg (55), nz (117) |
 | hunting_fishing | solunar | en | [Fishing & Hunting Solunar Time](https://apps.apple.com/us/app/id1056000899) [us] | 15,737 | sg (10), ie (12), nz (120), gb (154) |
@@ -49,6 +53,7 @@
 | hunting_fishing | fishing times | en | [Fishing Calendar & Tide Times](https://apps.apple.com/us/app/id414676749) [us] | 12,141 | ie (16), sg (25) |
 | driving_ed | road signs quiz | en | [Highway Code 2026 & Road Signs](https://apps.apple.com/gb/app/id1131887200) [gb] | 11,752 | nz (1), sg (4), au (8), ie (10), ca (15) |
 | pet_care | pet vaccination record | en | [VitusVet Pet Medical Records](https://apps.apple.com/us/app/id955252538) [us] | 10,772 | nz (0), ie (1), au (2), sg (5), gb (5), ca (149) |
+| boardgames | life counter | en | [MTG Life Counter App: Lotus](https://apps.apple.com/us/app/id1498057193) [us] | 10,699 | ie (43), sg (68), nz (119) |
 | photo_video_utils | photo date stamp | en | [DateStamper](https://apps.apple.com/us/app/id916281570) [us] | 9,362 | ie (62), nz (169) |
 | trades_pro | electrical code calculator | en | [Electrical Code-A-Day](https://apps.apple.com/us/app/id934222651) [us] | 9,325 | nz (0), ie (2), au (10), gb (14), ca (198) |
 | travel_utils | packing list | en | [Packr Travel Packing List](https://apps.apple.com/us/app/id1208312901) [us] | 7,151 | ie (52), nz (72), sg (209) |
@@ -59,9 +64,11 @@
 | parenting | baby sleep tracker | en | [Napper: Baby Sleep Tracker](https://apps.apple.com/us/app/id1491340863) [us] | 4,615 | nz (108), ie (140), sg (148) |
 | religious | время намаза | en | [Sajda: Время намаза, Коран](https://apps.apple.com/us/app/id517254891) [us] | 4,614 | gb (35) |
 | auto | vin check | en | [Plate Lookup: VIN Check](https://apps.apple.com/us/app/id1476862366) [us] | 4,071 | nz (0), ie (0), sg (0), au (12), gb (15), ca (159) |
+| fitness_calc | pace calculator | zh-TW | [Pacer運動計步器](https://apps.apple.com/hk/app/id600446812) [hk] | 3,937 | tw (24) |
 | widgets_watch | dynamic island app | en | [Wallpapers for Dynamic Island](https://apps.apple.com/us/app/id6444361509) [us] | 3,937 | nz (12), ie (77), au (180), sg (192), ca (244) |
 | driving_ed | führerschein test | de | [Führerschein-Test](https://apps.apple.com/at/app/id526389880) [at] | 3,899 | ch (0), de (29) |
 | ai_identifiers | stamp identifier | en | [Stamp Value Stamp Identifier](https://apps.apple.com/us/app/id6504604156) [us] | 3,646 | ie (33), sg (50), nz (109) |
+| boardgames | score keeper | en | [Score Keeper for Game Night](https://apps.apple.com/us/app/id1245390236) [us] | 3,542 | ie (4), sg (4), nz (108), gb (112) |
 | tax_regional | self assessment tax calculator | en | [Coconut: Tax for self-employed](https://apps.apple.com/gb/app/id1318768066) [gb] | 3,007 | nz (0), ie (0), sg (0), ca (0), au (0) |
 | construction | stair calculator | en | [Stairs](https://apps.apple.com/ca/app/id1320535586) [ca] | 2,799 | sg (3), ie (4), nz (26), gb (39) |
 | diy_home | level tool | en | [Bubble Level Tool - Digital](https://apps.apple.com/us/app/id1662018802) [us] | 2,491 | sg (5), ie (13), nz (14), ca (44), au (52) |

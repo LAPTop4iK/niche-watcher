@@ -295,6 +295,29 @@ class CompressedStorage(Fixtures):
 
 
 class Presentation(Fixtures):
+    def test_both_routes_share_evidence_without_excluding_high_rated_recent_apps(self):
+        import demand_check as dc
+        import tg_digest
+        con=sc.open_db(':memory:');now=datetime(2026,11,1,tzinfo=timezone.utc)
+        self.make(con,tid=1,name='Old app')
+        self.make(con,tid=2,name='Recent pain',version='2026-10-01T00:00:00Z')
+        self.make(con,tid=3,name='Not checked',version='2026-10-01T00:00:00Z')
+        self.make(con,tid=4,name='Stale RSS',version='2026-10-01T00:00:00Z')
+        self.make(con,tid=5,name='No complaint',version='2026-10-01T00:00:00Z')
+        dc.prepare(con)
+        with patch.object(sc,'now_utc',return_value=now):
+            for tid,score in [(2,1),(4,2),(5,5)]:
+                dc.store_result(con,tid,'us',dc.DemandFetch(('2026-10-31T00:00:00Z',1,1,100,'OK'),['2026-10-31T00:00:00Z'],[score]))
+        con.execute("UPDATE demand SET checked_at='2026-09-01T00:00:00Z' WHERE track_id=4")
+        queue,coverage=evidence.research_queue(con,now)
+        self.assertEqual({r['track_id']:r['lane'] for r in queue},{1:'stale',2:'recent_pain'})
+        self.assertEqual(coverage['search'],dict(eligible=4,rss_usable=2,complaint_records=1))
+        # Telegram uses the same qualifying rule; missing/outdated data is not pain.
+        with patch.object(evidence,'research_queue',return_value=(queue,coverage)):
+            message=tg_digest.build_message(con)
+        self.assertIn('Recent pain',message);self.assertNotIn('Stale RSS',message)
+        self.assertNotIn('Not checked',message);self.assertNotIn('No complaint',message)
+
     def test_alert_footer_has_one_dashboard_link_and_no_filename_domain(self):
         import tg_digest
         con=sc.open_db(':memory:');app=self.make(con)
@@ -316,6 +339,54 @@ class Presentation(Fixtures):
             self.assertEqual(data['source_coverage']['charts'],['de','us'])
             both=next(r for r in data['candidates'] if r['track_id']==1)
             self.assertEqual(both['sources'],['charts','search'])
+
+
+class DiscoveryAndReplay(Fixtures):
+    def test_review_export_keeps_sources_and_excludes_old_future_and_duplicate_texts(self):
+        now=datetime(2026,11,1,tzinfo=timezone.utc)
+        base=dict(platform='ios',app_id='1',country='us',source_url='https://itunes.apple.com/us/rss/',
+                  score=1,thumbs=0,text='Export loses saved progress')
+        rows=[dict(base,review_id='current',date='2026-10-31T01:00:00Z'),
+              dict(base,review_id='current',date='2026-10-31T01:00:00Z'),
+              dict(base,review_id='too-old',date='2026-08-02T23:00:00Z'),
+              dict(base,review_id='future',date='2026-11-02T00:00:00Z')]
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'reviews.json'
+            with patch.object(sys,'argv',['review_clusters.py','--ios','1','--out',str(path)]),patch.object(review_clusters,'fetch_ios',return_value=rows),patch.object(sc,'now_utc',return_value=now),contextlib.redirect_stdout(io.StringIO()):
+                review_clusters.main()
+            result=json.loads(path.read_text())
+            self.assertEqual([r['review_id'] for r in result['reviews']],['current'])
+            self.assertEqual(result['reviews'][0]['source_url'],base['source_url'])
+            self.assertEqual(result['method'],'lexical; not LLM')
+
+    def test_updated_discovery_respects_country_budget_cooldown_and_refreshes(self):
+        import demand_check as dc
+        now=datetime(2026,11,1,tzinfo=timezone.utc)
+        con=sc.open_db(':memory:')
+        for tid,geo,category in [(1,'us','a'),(2,'us','b'),(3,'us','a'),(4,'us','b'),(5,'de','a'),(6,'us','c')]:
+            self.make(con,tid=tid,country=geo,category=category,version='2026-09-01T00:00:00Z')
+        self.make(con,tid=7,category='a',name='WhatsApp',version='2026-09-01T00:00:00Z')
+        cached={(1,'us'):dict(checked_at='2026-10-20T00:00:00Z',fetch_status='OK'),
+                (6,'us'):dict(checked_at='2026-10-31T00:00:00Z',fetch_status='OK')}
+        selected=dc.updated_review_sample(evidence.latest(con),cached,3,{'us'},now)
+        self.assertEqual(len(selected),3);self.assertEqual(len(set(selected)),3)
+        self.assertTrue(all(geo=='us' for _,geo in selected))
+        self.assertIn((1,'us'),selected);self.assertNotIn((6,'us'),selected);self.assertNotIn((7,'us'),selected)
+        self.assertTrue({1,2}.issubset({tid for tid,_ in selected}))
+
+    def test_clean_replay_uses_original_jobs_after_current_config_expands(self):
+        import verify_pipeline
+        with tempfile.TemporaryDirectory() as folder:
+            db=Path(folder)/'reference.db';con=sc.open_db(db)
+            jobs=[('us','historical-family','old phrase')]
+            run=scan_state.start_run(con,jobs,{'limit':50,'storage_min_ratings':0},'historical-run')
+            app=self.make(con,category='historical-family',query='old phrase',run_id=run)
+            con.execute('UPDATE snapshots SET rank=1')
+            scan_state.begin_query(con,run,*jobs[0]);scan_state.end_query(con,run,*jobs[0],'OK',1,1)
+            scan_state.finish_run(con,run);con.close()
+            result=verify_pipeline.replay(db,folder)
+            self.assertEqual(result['queries'],1);self.assertEqual(result['observations'],1)
+            self.assertEqual(result['network_requests'],0)
 
 
 class SourceAndMath(unittest.TestCase):

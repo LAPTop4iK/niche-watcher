@@ -6,6 +6,7 @@ import sqlite3
 METHOD = 'activity-v3'
 LABELS = {'ALIVE':'Есть свежая активность','WEAK':'Слабый сигнал',
           'UNKNOWN':'Недостаточно данных','NO_RECENT_EVIDENCE':'Нет свежих сигналов'}
+LANES = {'stale':'Версия ≥18 мес', 'recent_pain':'Версия <18 мес + жалобы'}
 MAX_AGE_DAYS=14
 
 
@@ -174,6 +175,8 @@ def assess(con,row,cached=None,now=None):
                 bad_recent=sum(scores[i]<=2 for i in recent)
         except (ValueError,TypeError,AttributeError):
             status='ERROR';r90=None
+    if status!='OK':
+        bad_recent=None  # stale/error samples cannot qualify a current pain signal
     state=classify(vel,d.get('last_review'),r90,status,now)
     reasons=[f'{vel:+.1f} оценок/30д за {days:.1f} дней наблюдений' if vel is not None else
              f'Надёжный прирост пока недоступен; история {days:.1f} дн.']
@@ -187,6 +190,53 @@ def assess(con,row,cached=None,now=None):
                 last_review=d.get('last_review'),checked_at=d.get('checked_at'),fetch_status=status,
                 snapshot_age_days=snapshot_age,sample_size=d.get('sample_size'),
                 bad_recent_count=bad_recent,reasons=reasons,method=METHOD)
+
+
+def research_queue(con,now=None):
+    """Two discovery routes; the frozen old/fresh study still uses is_candidate.
+
+    Recent-version records qualify through observed complaints, not their age or
+    lifetime average rating. Coverage describes the selected RSS sample; it is
+    not an estimate of complaint prevalence in the market.
+    """
+    from relevance import relevant
+    now=now or datetime.now(timezone.utc)
+    cached=demand_map(con);queue=[]
+    coverage={kind:dict(eligible=0,rss_usable=0,complaint_records=0) for kind in ('search','charts','links','all')}
+    for row in latest(con):
+        if not row['categories'] or (row['rating_count'] or 0)<500:
+            continue
+        try:
+            age=(now-parse(row['version_date'])).total_seconds()/86400/30.44
+        except (ValueError,TypeError,AttributeError):
+            continue
+        if age<0:
+            continue
+        row['sources']=sorted({'charts' if c.startswith('chart:') else 'links' if c=='similar-graph' else 'search' for c in row['categories']})
+        row['title_match_categories']=sorted(c for c,queries in row['source_queries'].items()
+            if not c.startswith('chart:') and c!='similar-graph' and any(relevant(row['name'],q) for q in queries))
+        row['title_match']=bool(row['title_match_categories'])
+        d=cached.get((row['track_id'],row['country']))
+        if age>=18:
+            row.update(assess(con,row,d,now));row['lane']='stale'
+        else:
+            kinds=[*row['sources'],'all']
+            for kind in kinds:coverage[kind]['eligible']+=1
+            if not d:
+                continue
+            row.update(assess(con,row,d,now))
+            usable=row['fetch_status']=='OK' and row['snapshot_age_days'] is not None and 0<=row['snapshot_age_days']<=MAX_AGE_DAYS
+            for kind in kinds:coverage[kind]['rss_usable']+=int(usable)
+            if not usable or not (row['bad_recent_count'] or 0)>0:
+                continue
+            for kind in kinds:coverage[kind]['complaint_records']+=1
+            row['lane']='recent_pain'
+        row['store_url']=f"https://apps.apple.com/{row['country']}/app/id{row['track_id']}"
+        queue.append(row)
+    queue.sort(key=lambda r:(list(LABELS).index(r['verdict']),-int(r['title_match']),
+        -int((r.get('bad_recent_count') or 0)>0 and (r.get('price') or 0)>0),
+        -int((r.get('bad_recent_count') or 0)>0),-(r['r90'] or 0),r['track_id'],r['country']))
+    return queue,coverage
 
 
 def coverage(con):

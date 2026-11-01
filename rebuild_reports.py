@@ -19,20 +19,17 @@ ROOT=Path(__file__).resolve().parent
 
 
 def candidate_report(con,out):
-    cached=evidence.demand_map(con);rows=[]
-    for row in evidence.latest(con):
-        if evidence.is_candidate(row):
-            row.update(evidence.assess(con,row,cached.get((row['track_id'],row['country']))))
-            rows.append(row)
-    rows.sort(key=lambda r:(list(evidence.LABELS).index(r['verdict']),-int((r.get('bad_recent_count') or 0)>0 and (r.get('price') or 0)>0),-(r['r90'] or 0)))
+    rows,coverage=evidence.research_queue(con)
+    sample=coverage['all']
     lines=['# Кандидаты для исследования',f'\nМетод {evidence.METHOD}. Дата {datetime.now(timezone.utc).isoformat(timespec="seconds")}. Всего {len(rows)} app×country. Это не список прибыльных ниш.',
-           '\nСначала свежая активность и сочетание платной загрузки со свежими отзывами 1–2★; далее число отзывов. Цена не подтверждает текущие продажи. R90 — нижняя граница выборки RSS. Платежи неизвестны.',
-           '\n| Приложение | Страна | Сигнал | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |',
-           '|---|---|---|---:|---|---:|---:|---|']
+           '\nДва направления: версии ≥18 мес и версии <18 мес с хотя бы одним свежим отзывом 1–2★. Отзыв требует чтения и проверки; это ещё не подтверждённая боль. Сначала свежая активность и сочетание платной загрузки с жалобами. Цена не подтверждает текущие продажи. R90 — нижняя граница выборки RSS. Платежи неизвестны.',
+           f"\nВерсии <18 мес: пригодный RSS {sample['rss_usable']}/{sample['eligible']} app×страна; с жалобами {sample['complaint_records']}. Это охват проверок, а не частота проблем на рынке.",
+           '\n| Приложение | Страна | Направление | Сигнал | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |',
+           '|---|---|---|---|---:|---|---:|---:|---|']
     for r in rows:
         name=r['name'].replace('|','/').replace('\n',' ')
         price='—' if r['price'] is None else f"{r['price']} {r.get('currency') or ''}" if r['price'] else 'free'
-        lines.append(f"| [{name}](https://apps.apple.com/{r['country']}/app/id{r['track_id']}) | {r['country']} | {r['verdict']} | {r['rating_count']} | {price} | {r['r90'] if r['r90'] is not None else '—'} | {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'} | {r['version_date'][:10]} |")
+        lines.append(f"| [{name}](https://apps.apple.com/{r['country']}/app/id{r['track_id']}) | {r['country']} | {evidence.LANES[r['lane']]} | {r['verdict']} | {r['rating_count']} | {price} | {r['r90'] if r['r90'] is not None else '—'} | {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'} | {r['version_date'][:10]} |")
     out.write_text('\n'.join(lines)+'\n')
 
 

@@ -19,6 +19,8 @@ import sys
 import time
 import math
 import unicodedata
+import json
+from pathlib import Path
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -84,8 +86,10 @@ def fetch_ios(track_id, country, n):
             rated += 1
             if int(e["im:rating"]["label"]) <= 3:
                 out.append({"text": e.get("content", {}).get("label", ""),
+                            "review_id":identity,"platform":"ios","app_id":str(track_id),"country":country,
+                            "source_url":f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page={page}/json",
                             "score": int(e["im:rating"]["label"]),
-                            "thumbs": 0,"date":e.get("updated",{}).get("label","")[:10]})
+                            "thumbs": 0,"date":e.get("updated",{}).get("label","")})
         if rated == 0:
             break
         time.sleep(1)
@@ -96,7 +100,9 @@ def fetch_play(app_id, country, n):
     from google_play_scraper import reviews, Sort
     lang = {"us": "en", "gb": "en", "de": "de", "ru": "ru", "jp": "ja", "kr": "ko"}.get(country, "en")
     result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=Sort.NEWEST)
-    return [{"text": r["content"], "score": r["score"], "thumbs": r.get("thumbsUpCount", 0),"date":str(r.get("at", ""))[:10]}
+    return [{"text": r["content"], "score": r["score"], "thumbs": r.get("thumbsUpCount", 0),"date":str(r.get("at", "")),
+             "review_id":r.get('reviewId'),"platform":"play","app_id":app_id,"country":country,
+             "source_url":f'https://play.google.com/store/apps/details?id={app_id}&gl={country}'}
             for r in result if r["score"] <= 3]
 
 
@@ -107,7 +113,9 @@ def main():
     ap.add_argument("--country", default="us")
     ap.add_argument("--n", type=int, default=300)
     ap.add_argument("--days",type=int,default=90)
+    ap.add_argument('--out',help='сохранить датированные тексты и источники в JSON для ручного/LLM-разбора')
     args = ap.parse_args()
+    if args.n<1 or args.days<1:ap.error('n и days должны быть положительными')
 
     if not args.ios and not args.play:
         sys.exit("укажи --ios <trackId> и/или --play <appId>")
@@ -117,8 +125,21 @@ def main():
         bad += fetch_ios(args.ios, args.country, args.n)
     if args.play:
         bad += fetch_play(args.play, args.country, args.n)
-    cutoff=(sc.now_utc()-__import__('datetime').timedelta(days=args.days)).strftime('%Y-%m-%d')
-    bad = [r for r in bad if r["text"] and r.get('date','')>=cutoff]
+    import evidence
+    captured=sc.now_utc();seen=set();recent=[]
+    for r in bad:
+        try:age=(captured-evidence.parse(r['date'])).total_seconds()/86400
+        except (ValueError,TypeError,KeyError):continue
+        key=(r['platform'],r['app_id'],r.get('review_id') or (r['date'],r['text']))
+        if r['text'] and 0<=age<=args.days and key not in seen:
+            recent.append(r);seen.add(key)
+    bad=recent
+    if args.out:
+        output=Path(args.out);output.parent.mkdir(parents=True,exist_ok=True)
+        output.write_text(json.dumps(dict(captured_at=captured.isoformat(),country=args.country,
+            window_days=args.days,max_latest_reviews_requested_per_store=args.n,score_max=3,
+            method='lexical; not LLM',scope='Capped latest-review sample, not all users; fetch may stop early on a page error',
+            reviews=bad),ensure_ascii=False,indent=2)+'\n')
     if not bad:
         sys.exit("1-3★ отзывов не найдено")
 

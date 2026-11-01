@@ -40,6 +40,23 @@ def digest(con,run):
     return count,result.hexdigest()
 
 
+def reference_config(jobs):
+    """Replay the recorded search frame even after today's seed has expanded."""
+    geos=list(dict.fromkeys(job[0] for job in jobs))
+    markets={geo:{'lang':geo} for geo in geos}
+    categories=[]
+    for category in dict.fromkeys(job[1] for job in jobs):
+        queries={'en':[]}
+        for geo in geos:
+            queries[geo]=[q for g,c,q in jobs if (g,c)==(geo,category)]
+        categories.append(dict(id=category,enabled=True,queries=queries))
+    seed=dict(categories=categories)
+    planned=[(geo,c['id'],q) for c in categories for geo in geos for q in c['queries'][geo]]
+    if planned!=jobs:
+        raise ValueError('Recorded job order is not a scanner search frame')
+    return seed,markets
+
+
 def replay(reference,folder,run_id=None):
     with sqlite3.connect(reference) as source:
         source.row_factory=sqlite3.Row
@@ -58,10 +75,7 @@ def replay(reference,folder,run_id=None):
         reference_identity=digest(source,run_id)
         expected_hypotheses=hypotheses.build(source)
         query_by_key={(q['country'],q['category'],q['query']):q for q in queries}
-        seed=sc.load_seed(ROOT/'seed_queries.json');markets=json.loads((ROOT/'markets.json').read_text())['markets']
-        planned=list(dict.fromkeys((geo,c['id'],q) for c in seed['categories'] if c.get('enabled',True)
-            for geo in markets for q in (c['queries'].get(markets[geo]['lang']) or c['queries']['en'])))
-        if set(planned)!=set(jobs):raise ValueError('Current seed differs from the reference; a new full scan is needed')
+        seed,markets=reference_config(jobs)
         normalize=sc.normalize
         def normalize_saved(raw,geo,cat,query,rank=None):
             app=normalize(raw,geo,cat,query,rank)
@@ -115,7 +129,7 @@ def replay(reference,folder,run_id=None):
                 if actual[field]!=expected_hypotheses[field]:raise ValueError('Clean replay changed hypothesis: '+field)
         return dict(reference_run=run_id,queries=len(jobs),observations=identity[0],sha256=identity[1],
             empty_database=True,resume_without_duplicates=True,network_requests=network_calls[0],
-            hypothesis_fields_equal=list(fields))
+            hypothesis_fields_equal=list(fields),configuration='Recorded jobs; independent of the current seed')
 
 
 def live_matrix(folder):

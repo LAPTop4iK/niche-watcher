@@ -1,122 +1,148 @@
 {
   "method": "activity-v3",
-  "candidate_storefronts": 1120,
+  "candidate_storefronts": 1171,
   "counts": {
-    "WEAK": 166,
-    "NO_RECENT_EVIDENCE": 600,
-    "ALIVE": 350,
+    "WEAK": 173,
+    "NO_RECENT_EVIDENCE": 625,
+    "ALIVE": 369,
     "UNKNOWN": 4
   },
   "transitions": {
-    "WEAK → WEAK": 166,
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 600,
-    "ALIVE → ALIVE": 350,
+    "WEAK → WEAK": 173,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 625,
+    "ALIVE → ALIVE": 369,
     "UNKNOWN → UNKNOWN": 4
   },
-  "apps": 28849,
-  "snapshots": 150396,
+  "apps": 29954,
+  "snapshots": 157523,
   "coverage": [
     {
       "country": "ae",
-      "apps": 3911
+      "apps": 4205
     },
     {
       "country": "at",
-      "apps": 1787
+      "apps": 2075
     },
     {
       "country": "au",
-      "apps": 4746
+      "apps": 5032
     },
     {
       "country": "ca",
-      "apps": 4813
+      "apps": 5101
     },
     {
       "country": "ch",
-      "apps": 1829
+      "apps": 2125
     },
     {
       "country": "de",
-      "apps": 4349
+      "apps": 4625
     },
     {
       "country": "dk",
-      "apps": 3054
+      "apps": 3337
     },
     {
       "country": "fi",
-      "apps": 2928
+      "apps": 3197
     },
     {
       "country": "fr",
-      "apps": 3722
+      "apps": 4017
     },
     {
       "country": "gb",
-      "apps": 7402
+      "apps": 7681
     },
     {
       "country": "hk",
-      "apps": 3358
+      "apps": 3663
     },
     {
       "country": "ie",
-      "apps": 4541
+      "apps": 4797
     },
     {
       "country": "il",
-      "apps": 4191
+      "apps": 4483
     },
     {
       "country": "jp",
-      "apps": 6109
+      "apps": 6318
     },
     {
       "country": "kr",
-      "apps": 3389
+      "apps": 3613
     },
     {
       "country": "nl",
-      "apps": 3225
+      "apps": 3497
     },
     {
       "country": "no",
-      "apps": 3178
+      "apps": 3475
     },
     {
       "country": "nz",
-      "apps": 4644
+      "apps": 4916
     },
     {
       "country": "ru",
-      "apps": 3723
+      "apps": 3778
     },
     {
       "country": "sa",
-      "apps": 3954
+      "apps": 4238
     },
     {
       "country": "se",
-      "apps": 3059
+      "apps": 3328
     },
     {
       "country": "sg",
-      "apps": 4546
+      "apps": 4827
     },
     {
       "country": "tw",
-      "apps": 3539
+      "apps": 3847
     },
     {
       "country": "us",
-      "apps": 8556
+      "apps": 8827
     }
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-10-31T21:04:52Z"
+    "last": "2026-11-01T01:06:05Z"
   },
   "histories_7d": 0,
-  "adjacent_counter_drops": 2272
+  "adjacent_counter_drops": 2279,
+  "research_lanes": {
+    "stale": 1171,
+    "recent_pain": 497
+  },
+  "recent_version_review_coverage": {
+    "search": {
+      "eligible": 9548,
+      "rss_usable": 861,
+      "complaint_records": 433
+    },
+    "charts": {
+      "eligible": 9349,
+      "rss_usable": 111,
+      "complaint_records": 85
+    },
+    "links": {
+      "eligible": 22,
+      "rss_usable": 1,
+      "complaint_records": 1
+    },
+    "all": {
+      "eligible": 17870,
+      "rss_usable": 944,
+      "complaint_records": 497
+    }
+  }
 }

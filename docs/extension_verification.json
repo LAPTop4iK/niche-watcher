@@ -1,0 +1,25 @@
+{
+  "checked_at": "2026-11-01T01:08:57.431443+00:00",
+  "run_id": "extension-20261101",
+  "status": "COMPLETE",
+  "countries": 24,
+  "directions": [
+    "boardgames",
+    "fitness_calc"
+  ],
+  "queries": 160,
+  "expected": 160,
+  "query_errors": 0,
+  "empty": 0,
+  "stored": 7127,
+  "rss_checks": 99,
+  "rss_states": {
+    "OK": 99
+  },
+  "old_checks": 51,
+  "recent_checks": 48,
+  "started_at": "2026-11-01T00:58:07Z",
+  "finished_at": "2026-11-01T01:06:06Z",
+  "scope": "Separate extension of 2 previously excluded directions; not a simultaneous rescan of all 25",
+  "telegram_messages_sent": 0
+}

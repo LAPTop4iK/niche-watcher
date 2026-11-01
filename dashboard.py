@@ -21,18 +21,12 @@ def build_data(db):
         con.row_factory=sqlite3.Row
         con.execute("BEGIN")
         latest=evidence.latest(con)
-        cached=evidence.demand_map(con)
-        candidates=[]
+        candidates,research_coverage=evidence.research_queue(con)
         source_coverage={kind:set() for kind in ('search','charts','links','all')}
         for r in latest:
             r['sources']=sorted({'charts' if c.startswith('chart:') else 'links' if c=='similar-graph' else 'search' for c in r['categories']})
             for kind in [*r['sources'],'all']:
                 source_coverage[kind].add(r['country'])
-            if evidence.is_candidate(r):
-                r.update(evidence.assess(con,r,cached.get((r['track_id'],r['country']))))
-                r['store_url']=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
-                candidates.append(r)
-        candidates.sort(key=lambda r:(list(evidence.LABELS).index(r['verdict']),-int((r.get('bad_recent_count') or 0)>0 and (r.get('price') or 0)>0),-int((r.get('bad_recent_count') or 0)>0),-(r['r90'] or 0),r['track_id'],r['country']))
         coverage=[dict(r) for r in con.execute('SELECT country,COUNT(DISTINCT track_id) apps,MAX(scanned_at) last_seen FROM snapshots GROUP BY country')]
         napps=con.execute('SELECT COUNT(*) FROM apps').fetchone()[0]
         observations=con.execute('SELECT COUNT(*) FROM snapshots').fetchone()[0]
@@ -41,7 +35,12 @@ def build_data(db):
         runs=evidence.coverage(con)
     markets=json.loads((HERE/'markets.json').read_text())['markets']
     seen={r['country'] for r in coverage}
+    seed=json.loads((HERE/'seed_queries.json').read_text())['categories']
+    directions=dict(configured=len(seed),enabled=sum(c.get('enabled',True) for c in seed),
+        observed=sorted({c for r in latest for c in r['categories'] if not c.startswith('chart:') and c!='similar-graph'}),
+        note='Поисковые направления в нашем конфиге; не полный перечень категорий App Store.')
     return dict(candidates=candidates,counts=Counter(r['verdict'] for r in candidates),labels=evidence.LABELS,
+                lanes=evidence.LANES,research_coverage=research_coverage,directions=directions,
                 source_coverage={kind:sorted(geos) for kind,geos in source_coverage.items()},coverage=coverage,missing=sorted(set(markets)-seen),napps=napps,observations=observations,
                 first=bounds[0],last=bounds[1],groups=groups,runs=runs,method=evidence.METHOD,
                 built=datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'))

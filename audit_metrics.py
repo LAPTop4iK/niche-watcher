@@ -35,6 +35,9 @@ def main():
                   adjacent_counter_drops=c.execute('''WITH t AS (SELECT rating_count,LAG(rating_count) OVER
                     (PARTITION BY track_id,country ORDER BY scanned_at,id) previous FROM snapshots)
                     SELECT COUNT(*) FROM t WHERE rating_count<previous''').fetchone()[0])
+        queue,review_coverage=evidence.research_queue(c)
+        data['research_lanes']=Counter(r['lane'] for r in queue)
+        data['recent_version_review_coverage']=review_coverage
     Path(args.out).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps(data,ensure_ascii=False,indent=2))
 

@@ -14,12 +14,9 @@ import scanner as sc
 def build_message(con):
     con.row_factory=sqlite3.Row
     rows=evidence.latest(con)
-    cached=evidence.demand_map(con)
-    candidates=[]
-    for r in rows:
-        if evidence.is_candidate(r):
-            r.update(evidence.assess(con,r,cached.get((r['track_id'],r['country']))))
-            candidates.append(r)
+    queue,coverage=evidence.research_queue(con)
+    candidates=[r for r in queue if r['lane']=='stale']
+    recent=[r for r in queue if r['lane']=='recent_pain']
     counts=Counter(r['verdict'] for r in candidates)
     geos=len({r['country'] for r in rows})
     unique=con.execute('SELECT COUNT(*) FROM apps').fetchone()[0]
@@ -40,7 +37,7 @@ def build_message(con):
     else:
         lines.append('\nНадёжного положительного прироста пока нет. Проверь срок наблюдений в дашборде.')
     ranked=sorted((r for r in candidates if r['verdict']=='ALIVE'),
-        key=lambda r:(-int((r.get('price') or 0)>0 and (r.get('bad_recent_count') or 0)>0),
+        key=lambda r:(-int(r.get('title_match',False)),-int((r.get('price') or 0)>0 and (r.get('bad_recent_count') or 0)>0),
                       -int((r.get('bad_recent_count') or 0)>0),-(r['r90'] or 0)))
     active=[];seen=set()
     for row in ranked:
@@ -54,6 +51,19 @@ def build_message(con):
             url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
             lines.append(f"• <a href=\"{url}\">{html.escape(r['name'][:120])}</a> {sc.flag_emoji(r['country'])}: "
                          f"{html.escape(sc.download_price_label(r))}; R90 ≥ {r['r90'] or 0}; свежие 1–2★: {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'}")
+    sample=coverage['all']
+    lines.append(f"\n<b>Версия &lt;18 мес + свежие жалобы</b>: {len(recent)} app×страна. "
+                 f"Пригодный RSS: {sample['rss_usable']}/{sample['eligible']} проверяемых записей; выборка неполная.")
+    seen=set()
+    for r in sorted(recent,key=lambda r:(-int(r.get('title_match',False)),-int((r.get('price') or 0)>0),-(r['bad_recent_count'] or 0))):
+        if r['track_id'] in seen:
+            continue
+        seen.add(r['track_id'])
+        url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
+        lines.append(f"• <a href=\"{url}\">{html.escape(r['name'][:100])}</a> {sc.flag_emoji(r['country'])}: "
+                     f"{html.escape(sc.download_price_label(r))}; свежие 1–2★: {r['bad_recent_count']}")
+        if len(seen)==2:break
+    lines.append('Жалоба — повод прочитать текст, проверить воспроизводимость и готовность платить.')
     lines.append(f'\n<a href="{sc.telegram_dashboard_url()}">Открыть дашборд</a>')
     return '\n'.join(lines)
 

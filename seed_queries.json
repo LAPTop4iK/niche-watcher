@@ -1,5 +1,5 @@
 {
-  "_comment": "Категории ниш. queries — словарь по языковым группам (см. markets.json: lang). Сканер берёт queries[lang] для гео, при отсутствии — queries.en. enabled=false исключает категорию.",
+  "_comment": "Поисковые направления, не официальная таксономия App Store и не полный охват рынка. queries — словарь по языковым группам (см. markets.json: lang). Сканер берёт queries[lang] для гео, при отсутствии — queries.en. enabled=false исключает направление; причина исключения должна быть записана явно. 2026-11-01: fitness_calc и boardgames возвращены для исследования; прежнее отключение не имело документированной проверки.",
   "categories": [
     {
       "id": "construction",
@@ -770,7 +770,7 @@
     },
     {
       "id": "fitness_calc",
-      "enabled": false,
+      "enabled": true,
       "queries": {
         "en": [
           "one rep max calculator",
@@ -882,7 +882,7 @@
     },
     {
       "id": "boardgames",
-      "enabled": false,
+      "enabled": true,
       "queries": {
         "en": [
           "score keeper",
