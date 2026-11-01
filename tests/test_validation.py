@@ -788,6 +788,79 @@ class SourceAndMath(unittest.TestCase):
         self.assertAlmostEqual(rm.ltv_sub(mk,d,10),2.04)
         self.assertAlmostEqual(rm.ltv_sub(mk,dict(d,monthly_churn_utility=1),10),.17)
 
+    def test_vat_comes_out_before_the_commission(self):
+        self.assertAlmostEqual(rm.net_price(4.99,.19,.15),3.564,places=3)
+        markets,d=rm.load()
+        self.assertAlmostEqual(markets['de']['vat_rate'],.19)
+        self.assertLess(rm.ltv_payer(markets['de'],d),rm.ltv_payer(markets['us'],d)/1.15)
+
+    def test_monthly_curve_steps_at_the_first_renewal(self):
+        markets,d=rm.load();plan=d['plans']['monthly']
+        self.assertAlmostEqual(rm.survival(plan,1),.57)
+        self.assertAlmostEqual(rm.survival(plan,12),.10,places=2)
+        payments=sum(rm.survival(plan,cycle) for cycle in range(12))
+        self.assertAlmostEqual(payments,4.2,places=1)
+
+    def test_payer_ltv_on_priors_stays_inside_the_published_range(self):
+        markets,d=rm.load()
+        self.assertTrue(9<=rm.ltv_payer(markets['us'],d)<=37)
+        self.assertLess(rm.ltv_payer(markets['us'],d,'standard'),rm.ltv_payer(markets['us'],d))
+
+    def test_commission_program_regions_and_renewals(self):
+        markets,_=rm.load()
+        self.assertEqual(rm.fee(markets['us'],'small-business'),.15)
+        self.assertEqual(rm.fee(markets['us'],'standard'),.30)
+        self.assertEqual(rm.fee(markets['de'],'standard'),.26)
+        self.assertEqual(rm.fee(markets['us'],'standard',12),.15)
+        with self.assertRaises(ValueError):rm.fee(markets['us'],'other')
+
+    def test_acquisition_formulas_reproduce_the_plan(self):
+        self.assertAlmostEqual(rm.cac(1,.40,.10),25)
+        self.assertAlmostEqual(rm.cac(1.23,.632,.024),81.1,places=1)
+        self.assertAlmostEqual(rm.break_even_cpt(19,.632,.024),.288,places=3)
+        self.assertAlmostEqual(rm.searches_required(1000,.284,.6,.024,19),12870,delta=5)
+        self.assertAlmostEqual(rm.payers_max(100000,.1,.106,.632,.024),16.1,places=1)
+
+    def test_monte_carlo_is_seeded_and_medians_match_the_closed_form(self):
+        first=rm.monte_carlo(rm.paid_contribution);second=rm.monte_carlo(rm.paid_contribution)
+        self.assertEqual(first,second)
+        self.assertLess(first['p10'],first['p50']);self.assertLess(first['p50'],first['p90'])
+        self.assertLess(first['positive_share'],.5)
+        self.assertAlmostEqual(rm.monte_carlo(lambda **values:values['cpt'])['p50'],1.23,delta=.05)
+
+    def test_sensitivity_ranks_what_to_measure_first(self):
+        ranked=rm.sensitivity(rm.paid_contribution)
+        self.assertEqual(len(ranked),len(rm.PRIORS));self.assertEqual(ranked[0][0],'cpt')
+        self.assertGreaterEqual(ranked[0][1],ranked[-1][1])
+
+    def test_retention_interpolation_is_convex_and_lower_than_linear(self):
+        _,d=rm.load()
+        linear=1+d['d1_retention']+sum(d['d1_retention']+(d['d7_retention']-d['d1_retention'])*(day-1)/6 for day in range(2,8))+\
+            sum(d['d7_retention']+(d['d30_retention']-d['d7_retention'])*(day-7)/23 for day in range(8,31))
+        self.assertLess(rm.active_days(d),linear)
+        self.assertAlmostEqual(rm.retention(d,7),d['d7_retention'])
+        self.assertAlmostEqual(rm.retention(d,30),d['d30_retention'])
+        self.assertLess(rm.retention(d,90),d['d30_retention'])
+
+    def test_hybrid_uses_one_horizon_for_both_parts(self):
+        markets,d=rm.load();mk=markets['us']
+        hybrid=rm.model_revenue('us',mk,d,'hybrid',1,None)
+        self.assertAlmostEqual(hybrid,.5*rm.rpd_ads(mk,d)+.5*rm.ltv_sub(mk,d))
+        self.assertGreater(rm.rpd_ads(mk,d),rm.rpd_ads(mk,d,30))
+
+    def test_requirements_report_prints_cac_and_required_searches(self):
+        output=io.StringIO()
+        with patch.object(sys,'argv',['revenue_model.py','--model','sub','--requirements','--rank','3']),contextlib.redirect_stdout(output):
+            rm.main()
+        for text in ('CAC $81','безубыточный CPT','Что измерить первым'):
+            self.assertIn(text,output.getvalue())
+
+    def test_requirements_scale_the_payer_value_to_the_storefront(self):
+        markets,d=rm.load()
+        priors=rm.market_priors(markets['de'],d,'small-business')
+        self.assertLess(priors['ltv_payer'][1],rm.PRIORS['ltv_payer'][1])
+        self.assertEqual(priors['cpt'],rm.PRIORS['cpt'])
+
     def test_invalid_economics_rejected(self):
         markets,d=rm.load();mk=markets['us']
         for changes in [{'monthly_churn_utility':-1},{'horizon_months':0},{'horizon_months':1.2},{'d1_retention':3},{'refund_rate':float('nan')}]:

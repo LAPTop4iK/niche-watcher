@@ -111,7 +111,8 @@ boardgames (160 запросов по 24 странам).
 ## Экономика и бесплатная воронка
 
 ```bash
-python3 revenue_model.py --geo us --model sub --horizon 6 --conversion .02 --churn .15 --refund .03 --acquisition-cost .50 --variable-cost .10
+python3 revenue_model.py --geo us --model sub --horizon 6 --conversion .02 --churn .15 --refund .03 --cpt .50 --cost-per-active-day .002
+python3 revenue_model.py --geo us,de --model sub --requirements --rank 3 --target 1000
 python3 calibrate.py --installs 1200 --ratings-gained 38 --paying 41 --revenue 87.40 --matched-cohort
 python3 revenue_model.py --observed
 ```

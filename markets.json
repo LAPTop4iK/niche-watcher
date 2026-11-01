@@ -10,6 +10,7 @@
       "sub_affinity": 5,
       "cpi_usd": 2.5,
       "store_commission": 0.15,
+      "vat_rate": 0,
       "note": "крупнейший рынок; подписки доминируют; самый дешёвый органический вход через зомби-ключи"
     },
     "jp": {
@@ -21,6 +22,7 @@
       "sub_affinity": 2,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.1,
       "note": "TopOn: топ-1/2 interstitial eCPM мира; iOS ~60-69%; культура разовых покупок утилит (paid 5/5)"
     },
     "gb": {
@@ -32,6 +34,7 @@
       "sub_affinity": 4,
       "cpi_usd": 2.2,
       "store_commission": 0.15,
+      "vat_rate": 0.2,
       "note": "Tier-1, en-язык = одни и те же ключи с US"
     },
     "au": {
@@ -43,6 +46,7 @@
       "sub_affinity": 4,
       "cpi_usd": 2.3,
       "store_commission": 0.15,
+      "vat_rate": 0.1,
       "note": "iOS ~55%, богатый en-рынок с малой конкуренцией разработчиков"
     },
     "ca": {
@@ -54,6 +58,7 @@
       "sub_affinity": 4,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0,
       "note": "Tier-1 en, App Store бустит CA-локали"
     },
     "de": {
@@ -65,6 +70,8 @@
       "sub_affinity": 3,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.19,
+      "eu": true,
       "note": "культура платных приложений (paid 4/5); один de-язык обслуживает de+at+ch"
     },
     "tw": {
@@ -76,6 +83,7 @@
       "sub_affinity": 3,
       "cpi_usd": 1.5,
       "store_commission": 0.15,
+      "vat_rate": 0.05,
       "note": "TopOn Q4-2025: TW в топ-3 interstitial eCPM; высокий спенсинг на душу; почти нет западной конкуренции в zh-TW"
     },
     "ch": {
@@ -87,6 +95,7 @@
       "sub_affinity": 3,
       "cpi_usd": 2.2,
       "store_commission": 0.15,
+      "vat_rate": 0.081,
       "note": "АНОМАЛИЯ: доход на душу №1 Европы, iOS ~60%, крошечная локальная конкуренция — de-приложение бесплатно получает CH",
       "week_slot": 1
     },
@@ -99,6 +108,7 @@
       "sub_affinity": 3,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.25,
       "note": "АНОМАЛИЯ: богатый, iOS ~60-65%, язык-барьер = нет конкуренции; ниши jakt/fiske/weather горячие",
       "week_slot": 2
     },
@@ -111,6 +121,8 @@
       "sub_affinity": 3,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.25,
+      "eu": true,
       "note": "как NO: богатый малый рынок, язык-барьер",
       "week_slot": 2
     },
@@ -123,6 +135,8 @@
       "sub_affinity": 3,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.25,
+      "eu": true,
       "note": "как NO/DK; больше локальных разработчиков чем в NO/DK, всё ещё мало",
       "week_slot": 2
     },
@@ -135,6 +149,8 @@
       "sub_affinity": 3,
       "cpi_usd": 1.9,
       "store_commission": 0.15,
+      "vat_rate": 0.255,
+      "eu": true,
       "note": "богатый, язык почти без конкуренции (fi учат единицы разработчиков)",
       "week_slot": 1
     },
@@ -147,6 +163,8 @@
       "sub_affinity": 3,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.21,
+      "eu": true,
       "note": "богатый, но nederlands часто говорят по-английски — локализуй только нишевые утилиты",
       "week_slot": 1
     },
@@ -159,6 +177,8 @@
       "sub_affinity": 3,
       "cpi_usd": 1.9,
       "store_commission": 0.15,
+      "vat_rate": 0.2,
+      "eu": true,
       "note": "de-язык,rich, идёт в нагрузку к de/ch",
       "week_slot": 1
     },
@@ -171,6 +191,8 @@
       "sub_affinity": 3,
       "cpi_usd": 1.8,
       "store_commission": 0.15,
+      "vat_rate": 0.2,
+      "eu": true,
       "note": "большой Tier-1, сильная локальная конкуренция, защита языка",
       "week_slot": 1
     },
@@ -183,6 +205,7 @@
       "sub_affinity": 3,
       "cpi_usd": 1.5,
       "store_commission": 0.15,
+      "vat_rate": 0.1,
       "note": "топ-траты, но Android-тяжёлый для утилит; Naver-экосистема",
       "week_slot": 4
     },
@@ -195,6 +218,7 @@
       "sub_affinity": 4,
       "cpi_usd": 1.5,
       "store_commission": 0.15,
+      "vat_rate": 0.15,
       "note": "АНОМАЛИЯ: религиозные/практические приложения (prayer, zakat, hijri) — подписки живые; богатые юзеры",
       "week_slot": 3
     },
@@ -207,6 +231,7 @@
       "sub_affinity": 4,
       "cpi_usd": 1.6,
       "store_commission": 0.15,
+      "vat_rate": 0.05,
       "note": "как SA; iOS-доля по usage высокая",
       "week_slot": 3
     },
@@ -219,6 +244,7 @@
       "sub_affinity": 4,
       "cpi_usd": 1.6,
       "store_commission": 0.15,
+      "vat_rate": 0.09,
       "note": "богатый en/zh хаб; малый объём но высокий ARPU",
       "week_slot": 2
     },
@@ -231,6 +257,7 @@
       "sub_affinity": 3,
       "cpi_usd": 1.5,
       "store_commission": 0.15,
+      "vat_rate": 0,
       "note": "zh-TW-приложение бесплатно получает HK",
       "week_slot": 3
     },
@@ -243,6 +270,8 @@
       "sub_affinity": 4,
       "cpi_usd": 2.0,
       "store_commission": 0.15,
+      "vat_rate": 0.23,
+      "eu": true,
       "note": "rich en-рынок в нагрузку к US/GB ключам",
       "week_slot": 2
     },
@@ -255,6 +284,7 @@
       "sub_affinity": 4,
       "cpi_usd": 1.8,
       "store_commission": 0.15,
+      "vat_rate": 0.15,
       "note": "en в нагрузку к AU; App Store любит NZ-фичеринг",
       "week_slot": 2
     },
@@ -267,6 +297,7 @@
       "sub_affinity": 4,
       "cpi_usd": 1.6,
       "store_commission": 0.15,
+      "vat_rate": 0.18,
       "note": "богатый, RTL-язык = нет конкуренции; иврит-локализация нишевых утилит дёшево даёт монополию",
       "week_slot": 3
     },
@@ -279,15 +310,15 @@
       "sub_affinity": 2,
       "cpi_usd": 0.5,
       "store_commission": 0.15,
+      "vat_rate": 0.22,
       "note": "чарты прогнили (26% зомби в Books) — вход лёгкий, eCPM мизерный; только портфель-стратегия",
       "week_slot": 4
     }
   },
   "_defaults_research": {
-    "freemium_sub_convert_30d": 0.017,
+    "freemium_sub_convert_30d": 0.024,
     "freemium_sub_convert_top": 0.042,
     "hardpaywall_convert": 0.107,
-    "monthly_churn_utility": 0.07,
     "ad_impressions_per_dau": 3.0,
     "d1_retention": 0.25,
     "d7_retention": 0.1,
@@ -296,6 +327,31 @@
     "one_time_purchase_convert": 0.02,
     "horizon_months": 12,
     "refund_rate": 0.03,
-    "assumption_note": "Экономические параметры — пример сценария, не прогноз ниши. hardpaywall_convert=0.107 — справочный D35 subscription download-to-paid RevenueCat 2026, НЕ разовая покупка. freemium_sub_convert_30d=0.017 и top=0.042 — прежние сценарные допущения, не заявленные D35 медианы 2026. Конверсию и churn заменять данными собственной когорты."
+    "assumption_note": "Экономические параметры — пример сценария, не прогноз ниши. hardpaywall_convert=0.107 — справочный D35 subscription download-to-paid RevenueCat 2026, НЕ разовая покупка. freemium_sub_convert_30d=0.024 — D35 Utilities RevenueCat 2026 (P25 1.0%, P75 5.1%), top=0.042 — прежнее сценарное допущение. Конверсию и удержание заменять данными собственной когорты.",
+    "plans": {
+      "weekly": {
+        "share": 0.41,
+        "price": 3.99,
+        "cycles_per_year": 52,
+        "first_renewal": 0.45,
+        "later_renewal": 0.8
+      },
+      "monthly": {
+        "share": 0.2,
+        "price": 7.99,
+        "cycles_per_year": 12,
+        "first_renewal": 0.57,
+        "later_renewal": 0.854
+      },
+      "annual": {
+        "share": 0.38,
+        "price": 29.99,
+        "cycles_per_year": 1,
+        "first_renewal": 0.23,
+        "later_renewal": 0.55
+      }
+    },
+    "plans_note": "Доли продаж нед/мес/год — Utilities, RevenueCat 2026. Месячный план: 57% на первом продлении и 10% к 12 мес, later_renewal выведен из этих двух точек. Недельный 45% и годовой 23% — медианы RevenueCat для Productivity и Photo & Video, отдельного значения Utilities нет. Недельный 80% и годовой 55% — середины диапазонов третьего и второго продления. Цены планов — допущения.",
+    "vat_note": "vat_rate — стандартные национальные ставки на ноябрь 2026, а не таблица Apple: фактический вычет сверять в App Store Connect. us, ca, hk: цена витрины без налога."
   }
 }
