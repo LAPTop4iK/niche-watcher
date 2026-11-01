@@ -1,18 +1,20 @@
 {
-  "computed_at": "2026-11-01T15:39:28.772186+00:00",
+  "computed_at": "2026-11-01T21:20:16.609907+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 90949,
   "search_unique_apps": 20990,
   "queries": {
-    "ok": 2586,
-    "fresh_ok": 2586,
-    "limit_known": 2586,
-    "at_limit": 151,
-    "expected": 2586,
-    "missing": 0,
+    "ok": 1521,
+    "fresh_ok": 1521,
+    "limit_known": 1521,
+    "at_limit": 94,
+    "likely_truncated": 1278,
+    "expected": 1942,
+    "missing": 421,
     "error": 0,
-    "running": 0
+    "running": 0,
+    "fallback_language": 0
   },
   "freshness_days": 14,
   "review_coverage": {
@@ -42,7 +44,7 @@
       "0-49|<12mo|paid": 3957,
       "500+|<12mo|paid": 161,
       "500+|<12mo|unknown": 168,
-      "0-49|18mo+|free": 12946,
+      "0-49|18mo+|free": 12948,
       "50-499|18mo+|free": 1348,
       "0-49|18mo+|paid": 1590,
       "50-499|18mo+|paid": 131,
@@ -50,7 +52,7 @@
       "50-499|12-18mo|paid": 15,
       "0-49|12-18mo|paid": 355,
       "50-499|<12mo|unknown": 89,
-      "0-49|12-18mo|free": 3097,
+      "0-49|12-18mo|free": 3095,
       "0-49|18mo+|unknown": 31,
       "500+|12-18mo|free": 221,
       "50-499|12-18mo|free": 340,
@@ -80,7 +82,7 @@
     "raw_capture": "Opt-in local archive only; complete HTTP bodies are not persisted by CI",
     "note": "Exploration strata are not weighted estimates of the App Store population"
   },
-  "last_search_query_at": "2026-11-01T14:08:31Z",
+  "last_search_query_at": "2026-11-01T14:08:17Z",
   "recent_pain_timing": {
     "total": 466,
     "after_release": 164,
@@ -90,6 +92,31 @@
     "same_version_positive": 3,
     "version_unknown": 456
   },
+  "alive_paths": {
+    "rss": 354
+  },
+  "queue_funnel": {
+    "stale": {
+      "records": 1173,
+      "apps": 834
+    },
+    "search": {
+      "records": 850,
+      "apps": 547
+    },
+    "alive": {
+      "records": 194,
+      "apps": 155
+    },
+    "top10": {
+      "records": 66,
+      "apps": 54
+    },
+    "title_match": {
+      "records": 32,
+      "apps": 28
+    }
+  },
   "cross_geo_review_ids": {
     "apps_comparable": 1,
     "shared_ids": 0,
@@ -97,10 +124,10 @@
   },
   "competitor_revenue_observed": false,
   "limitations": [
-    "Reaching the result limit signals truncation; successful queries are not full market coverage.",
+    "The API returns fewer rows than the limit, so 35+ of 50 counts as truncated; successful queries are not full market coverage.",
     "Reviews after a release date may still refer to an older installed version; matching version strings is a separate count.",
     "Absence of complaints after a release does not prove a fix. RSS dates can be review updates.",
     "Legacy RSS lacks review IDs/versions. Those fields are unknown until fetched; frozen studies are not backfilled.",
-    "Counts with all 50 reviews inside 90 days are censored lower bounds; negative shares are not population rates."
+    "Counts with every fetched review inside 90 days are censored lower bounds; negative shares are not population rates."
   ]
 }

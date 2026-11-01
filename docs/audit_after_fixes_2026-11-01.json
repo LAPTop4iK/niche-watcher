@@ -1,0 +1,749 @@
+{
+ "computed_for": "2026-11-01T16:40:00Z",
+ "counts": {
+  "apps": 30395,
+  "snapshots": 192264
+ },
+ "study": {
+  "n": {
+   "old": 772,
+   "fresh": 464
+  },
+  "ratings": {
+   "old_median": 1567.5,
+   "fresh_median": 3255.0,
+   "old_p90": 8730.899999999998,
+   "fresh_p90": 37961.39999999998
+  },
+  "paid_share": {
+   "old": 0.061,
+   "fresh": 0.013
+  },
+  "us_rows": {
+   "old": 230,
+   "fresh": 19
+  },
+  "control_age_months": {
+   "0.1": 0.07,
+   "0.5": 0.3,
+   "0.9": 2.42
+  },
+  "control_under_3mo": 0.912,
+  "adjusted": {
+   "raw": {
+    "pp": -34.18,
+    "ci95": [
+     -40.21,
+     -28.16
+    ],
+    "terms": 2
+   },
+   "ratings": {
+    "pp": -23.48,
+    "ci95": [
+     -29.64,
+     -17.32
+    ],
+    "terms": 3
+   },
+   "country": {
+    "pp": -27.6,
+    "ci95": [
+     -34.46,
+     -20.73
+    ],
+    "terms": 26
+   },
+   "genre": {
+    "pp": -27.27,
+    "ci95": [
+     -34.13,
+     -20.41
+    ],
+    "terms": 40
+   },
+   "full": {
+    "pp": -26.95,
+    "ci95": [
+     -33.83,
+     -20.07
+    ],
+    "terms": 42
+   }
+  },
+  "repo_matched_pp": -26.71,
+  "repo_matched_cluster_ci95": [
+   -34.4,
+   -18.7
+  ],
+  "dose_response": [
+   {
+    "ab": "<3",
+    "n": 423,
+    "apps": 317,
+    "rate": 0.584,
+    "mean_r90": 9.012
+   },
+   {
+    "ab": "3-6",
+    "n": 16,
+    "apps": 15,
+    "rate": 0.438,
+    "mean_r90": 6.5
+   },
+   {
+    "ab": "6-12",
+    "n": 25,
+    "apps": 24,
+    "rate": 0.56,
+    "mean_r90": 3.96
+   },
+   {
+    "ab": "18-24",
+    "n": 119,
+    "apps": 83,
+    "rate": 0.252,
+    "mean_r90": 1.908
+   },
+   {
+    "ab": "24-36",
+    "n": 250,
+    "apps": 130,
+    "rate": 0.248,
+    "mean_r90": 1.856
+   },
+   {
+    "ab": "36-60",
+    "n": 205,
+    "apps": 120,
+    "rate": 0.22,
+    "mean_r90": 1.741
+   },
+   {
+    "ab": "60-84",
+    "n": 113,
+    "apps": 81,
+    "rate": 0.186,
+    "mean_r90": 1.487
+   },
+   {
+    "ab": "84+",
+    "n": 85,
+    "apps": 75,
+    "rate": 0.282,
+    "mean_r90": 1.153
+   }
+  ],
+  "within_old_36plus_vs_18_36": {
+   "pp": -0.2,
+   "ci95": [
+    -7.11,
+    6.72
+   ],
+   "terms": 3
+  },
+  "thresholds": {
+   "1": {
+    "pp": -35.18,
+    "ci95": [
+     -42.28,
+     -28.08
+    ],
+    "terms": 40
+   },
+   "2": {
+    "pp": -27.27,
+    "ci95": [
+     -34.13,
+     -20.41
+    ],
+    "terms": 40
+   },
+   "5": {
+    "pp": -18.54,
+    "ci95": [
+     -23.9,
+     -13.18
+    ],
+    "terms": 40
+   },
+   "10": {
+    "pp": -13.62,
+    "ci95": [
+     -18.14,
+     -9.09
+    ],
+    "terms": 40
+   }
+  },
+  "release_event_study": {
+   "rows": 267,
+   "apps": 199,
+   "pre": 329,
+   "post": 290,
+   "ratio": 0.881,
+   "ci95": [
+    0.76,
+    1.02
+   ],
+   "note": "Только приложения, чей RSS покрывает окно до выпуска, то есть низкая активность."
+  }
+ },
+ "pain_base_rate": {
+  "pooled_bad_share": 0.385,
+  "table": [
+   {
+    "band": "1",
+    "n": 154,
+    "has_bad": 0.429,
+    "bad": 66,
+    "reviews": 154,
+    "mid": 1.0,
+    "bad_share": 0.429,
+    "binomial_expected": 0.385
+   },
+   {
+    "band": "2",
+    "n": 104,
+    "has_bad": 0.481,
+    "bad": 75,
+    "reviews": 208,
+    "mid": 2.0,
+    "bad_share": 0.361,
+    "binomial_expected": 0.622
+   },
+   {
+    "band": "3-4",
+    "n": 114,
+    "has_bad": 0.658,
+    "bad": 141,
+    "reviews": 391,
+    "mid": 3.0,
+    "bad_share": 0.361,
+    "binomial_expected": 0.768
+   },
+   {
+    "band": "5-9",
+    "n": 128,
+    "has_bad": 0.836,
+    "bad": 347,
+    "reviews": 846,
+    "mid": 7.0,
+    "bad_share": 0.41,
+    "binomial_expected": 0.967
+   },
+   {
+    "band": "10-19",
+    "n": 101,
+    "has_bad": 0.911,
+    "bad": 498,
+    "reviews": 1374,
+    "mid": 13.0,
+    "bad_share": 0.362,
+    "binomial_expected": 0.998
+   },
+   {
+    "band": "20-49",
+    "n": 91,
+    "has_bad": 0.956,
+    "bad": 1167,
+    "reviews": 2841,
+    "mid": 29.0,
+    "bad_share": 0.411,
+    "binomial_expected": 1.0
+   },
+   {
+    "band": "50+",
+    "n": 108,
+    "has_bad": 0.972,
+    "bad": 2027,
+    "reviews": 5400,
+    "mid": 50.0,
+    "bad_share": 0.375,
+    "binomial_expected": 1.0
+   }
+  ]
+ },
+ "velocity": {
+  "blocked_by_size": {
+   "500-5k": {
+    "series": 1528,
+    "blocked": 435,
+    "share": 0.285
+   },
+   "50k+": {
+    "series": 435,
+    "blocked": 306,
+    "share": 0.703
+   },
+   "5k-50k": {
+    "series": 1036,
+    "blocked": 586,
+    "share": 0.566
+   },
+   "<500": {
+    "series": 3023,
+    "blocked": 160,
+    "share": 0.053
+   }
+  },
+  "within_run": {
+   "decreases": 629,
+   "increases": 632
+  }
+ },
+ "velocity_current": {
+  "500-5k": {
+   "series": 1528,
+   "blocked": 22,
+   "share": 0.014
+  },
+  "50k+": {
+   "series": 435,
+   "blocked": 1,
+   "share": 0.002
+  },
+  "5k-50k": {
+   "series": 1036,
+   "blocked": 4,
+   "share": 0.004
+  },
+  "<500": {
+   "series": 3023,
+   "blocked": 14,
+   "share": 0.005
+  }
+ },
+ "truncation": {
+  "queries": 2426,
+  "at_or_above": {
+   "35": 2007,
+   "45": 1364,
+   "50": 147
+  },
+  "share_ge35": 0.827,
+  "reported_at_limit": 147
+ },
+ "serp_noise": {
+  "queries": 712,
+  "hours_apart": "~17",
+  "top10_overlap_mean": 0.946,
+  "top3_changed": 0.178,
+  "median_abs_rank_shift": 1.0
+ },
+ "serp_trace": {
+  "pairs": 2536,
+  "pairs_with_10": 2414,
+  "rows": 24740,
+  "rating_known": 1.0,
+  "rss_usable_rows": 0.033,
+  "pairs_without_rss": 0.758,
+  "usable_capped": 0.728,
+  "top10_median_ratings": {
+   "p10": 0.0,
+   "p25": 0.0,
+   "p50": 6.5,
+   "p75": 122.9,
+   "p90": 1321.5
+  },
+  "pairs_median_below_50": 0.673,
+  "pairs_median_below_500": 0.842,
+  "top1_share_of_sum_median": 0.632
+ },
+ "seed_fallback": {
+  "ar": {
+   "local": 56,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "da": {
+   "local": 57,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "de": {
+   "local": 64,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "en": {
+   "local": 134,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "fi": {
+   "local": 58,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "fr": {
+   "local": 58,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "he": {
+   "local": 53,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "ja": {
+   "local": 71,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "ko": {
+   "local": 65,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "nb": {
+   "local": 60,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "nl": {
+   "local": 56,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "ru": {
+   "local": 48,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "sv": {
+   "local": 62,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  },
+  "zh-TW": {
+   "local": 56,
+   "english_fallback": 0,
+   "fallback_share": 0.0
+  }
+ },
+ "funnel": {
+  "lanes": {
+   "stale": 1173,
+   "recent_pain": 55
+  },
+  "funnel": {
+   "stale": {
+    "rows": 1173,
+    "apps": 834
+   },
+   "search": {
+    "rows": 850,
+    "apps": 547
+   },
+   "alive": {
+    "rows": 195,
+    "apps": 156
+   },
+   "rank_top10": {
+    "rows": 67,
+    "apps": 55
+   },
+   "title_match": {
+    "rows": 33,
+    "apps": 29
+   }
+  },
+  "recent_pain_title_match": 0.091,
+  "stale_title_match": 0.226,
+  "stale_search_rank": {
+   "top10": 0.273,
+   "top3": 0.072,
+   "median": 19.0
+  },
+  "shortlist": [
+   {
+    "name": "Wallpapers・Dynamic Island",
+    "country": "us",
+    "rating_count": 1588,
+    "r90": 38.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "MOON - Current Moon Phase",
+    "country": "us",
+    "rating_count": 29903,
+    "r90": 28.0,
+    "audit_rank": 9.0
+   },
+   {
+    "name": "PCGS CoinFacts Coin Collecting",
+    "country": "us",
+    "rating_count": 67342,
+    "r90": 24.0,
+    "audit_rank": 6.0
+   },
+   {
+    "name": "Expenses OK - expenses tracker",
+    "country": "us",
+    "rating_count": 4976,
+    "r90": 12.0,
+    "audit_rank": 6.0
+   },
+   {
+    "name": "셀핏 - 운동기록, 운동일지",
+    "country": "kr",
+    "rating_count": 1022,
+    "r90": 10.0,
+    "audit_rank": 3.0
+   },
+   {
+    "name": "Wallpaper SA 4K",
+    "country": "us",
+    "rating_count": 13003,
+    "r90": 9.0,
+    "audit_rank": 3.0
+   },
+   {
+    "name": "Video Teleprompter",
+    "country": "us",
+    "rating_count": 6634,
+    "r90": 7.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "時計 ウィジェット 秒針アナログ時計 - Clock SD",
+    "country": "jp",
+    "rating_count": 8623,
+    "r90": 7.0,
+    "audit_rank": 6.0
+   },
+   {
+    "name": "MOON - Current Moon Phase",
+    "country": "ca",
+    "rating_count": 3794,
+    "r90": 7.0,
+    "audit_rank": 3.0
+   },
+   {
+    "name": "Rock ID - Stone Identifier",
+    "country": "us",
+    "rating_count": 3151,
+    "r90": 7.0,
+    "audit_rank": 8.0
+   },
+   {
+    "name": "Tip Calculator‰",
+    "country": "us",
+    "rating_count": 9147,
+    "r90": 7.0,
+    "audit_rank": 2.0
+   },
+   {
+    "name": "Simply Metronome",
+    "country": "us",
+    "rating_count": 827,
+    "r90": 6.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "ずっしーの音感トレーニング",
+    "country": "jp",
+    "rating_count": 3344,
+    "r90": 6.0,
+    "audit_rank": 1.0
+   },
+   {
+    "name": "Bound - Audiobook Player",
+    "country": "us",
+    "rating_count": 2029,
+    "r90": 5.0,
+    "audit_rank": 7.0
+   },
+   {
+    "name": "Православная Библия + Молитвослов",
+    "country": "ru",
+    "rating_count": 6726,
+    "r90": 5.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "مسبحة الكترونية",
+    "country": "sa",
+    "rating_count": 2246,
+    "r90": 5.0,
+    "audit_rank": 1.0
+   },
+   {
+    "name": "Daily Holy Rosary Prayer App",
+    "country": "us",
+    "rating_count": 12479,
+    "r90": 4.0,
+    "audit_rank": 6.0
+   },
+   {
+    "name": "KyBook 2 Читалка для книг",
+    "country": "ru",
+    "rating_count": 18667,
+    "r90": 4.0,
+    "audit_rank": 9.0
+   },
+   {
+    "name": "MOON - Current Moon Phase",
+    "country": "au",
+    "rating_count": 1397,
+    "r90": 4.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "Electrical Code-A-Day",
+    "country": "us",
+    "rating_count": 9325,
+    "r90": 4.0,
+    "audit_rank": 5.0
+   },
+   {
+    "name": "Concrete Calculator Plus",
+    "country": "us",
+    "rating_count": 26350,
+    "r90": 4.0,
+    "audit_rank": 1.0
+   },
+   {
+    "name": "iSolunar™ Hunt & Fish Times",
+    "country": "us",
+    "rating_count": 3588,
+    "r90": 3.0,
+    "audit_rank": 4.0
+   },
+   {
+    "name": "Прогноз клева - ТипТоп Рыбалка",
+    "country": "ru",
+    "rating_count": 4290,
+    "r90": 3.0,
+    "audit_rank": 2.0
+   },
+   {
+    "name": "MOON - Current Moon Phase",
+    "country": "gb",
+    "rating_count": 3820,
+    "r90": 3.0,
+    "audit_rank": 2.0
+   },
+   {
+    "name": "Water Time - My Drink Reminder",
+    "country": "us",
+    "rating_count": 2360,
+    "r90": 3.0,
+    "audit_rank": 9.0
+   },
+   {
+    "name": "Holy Rosary - Standard Edition",
+    "country": "us",
+    "rating_count": 1811,
+    "r90": 3.0,
+    "audit_rank": 9.0
+   },
+   {
+    "name": "VIN Check & Decoder",
+    "country": "us",
+    "rating_count": 1553,
+    "r90": 2.0,
+    "audit_rank": 4.0
+   },
+   {
+    "name": "locksmith widget - by sendit",
+    "country": "us",
+    "rating_count": 58014,
+    "r90": 2.0,
+    "audit_rank": 6.0
+   }
+  ],
+  "grossing": {
+   "rows": 3513,
+   "countries": [
+    "gb",
+    "jp",
+    "us"
+   ],
+   "genres": 16,
+   "observed": [
+    "2026-10-31T14:42:10Z",
+    "2026-10-31T15:00:00Z"
+   ],
+   "stale_share": 0.024,
+   "stale_share_top50": 0.012,
+   "under_3mo_share": 0.882,
+   "search_pool_stale_share": 0.081
+  },
+  "verdict_vs_grossing": {
+   "ALIVE": {
+    "size": 120,
+    "sum": 3
+   },
+   "NO_RECENT_EVIDENCE": {
+    "size": 197,
+    "sum": 2
+   },
+   "UNKNOWN": {
+    "size": 14,
+    "sum": 0
+   },
+   "WEAK": {
+    "size": 69,
+    "sum": 2
+   }
+  },
+  "stale_in_grossing": [
+   {
+    "name": "MOON - Current Moon Phase",
+    "country": "gb",
+    "rating_count": 3820,
+    "r90": 3.0,
+    "verdict": "ALIVE"
+   },
+   {
+    "name": "ScanCoin: identify & check",
+    "country": "us",
+    "rating_count": 8539,
+    "r90": 7.0,
+    "verdict": "ALIVE"
+   },
+   {
+    "name": "NOAA Radar & Weather Forecast",
+    "country": "us",
+    "rating_count": 76015,
+    "r90": 2.0,
+    "verdict": "ALIVE"
+   },
+   {
+    "name": "QRコードスキャナー-コードをスキャンして信頼性を確認します",
+    "country": "jp",
+    "rating_count": 3287,
+    "r90": 1.0,
+    "verdict": "WEAK"
+   },
+   {
+    "name": "Receipt Lens - Expense Tracker",
+    "country": "us",
+    "rating_count": 4266,
+    "r90": 1.0,
+    "verdict": "WEAK"
+   },
+   {
+    "name": "Hunting Calendar, Solunar",
+    "country": "us",
+    "rating_count": 5959,
+    "r90": 0.0,
+    "verdict": "NO_RECENT_EVIDENCE"
+   },
+   {
+    "name": "FishTrack - Charts & Forecasts",
+    "country": "us",
+    "rating_count": 6265,
+    "r90": 0.0,
+    "verdict": "NO_RECENT_EVIDENCE"
+   }
+  ]
+ },
+ "storage": {
+  "db_bytes": 87670784,
+  "gz_bytes": 23970807,
+  "gz_limit_bytes": 94371840
+ }
+}

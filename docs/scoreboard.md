@@ -27,10 +27,10 @@
 | widgets_watch | jp | 91 | 6 | 3 | 0 | 3 | 0 | 0 |
 | boardgames | us | 144 | 7 | 2 | 4 | 1 | 0 | 2 |
 | diy_home | gb | 266 | 15 | 2 | 3 | 9 | 1 | 2 |
-| widgets_watch | gb | 188 | 15 | 2 | 3 | 10 | 0 | 2 |
 | parenting | us | 179 | 10 | 2 | 2 | 4 | 2 | 0 |
 | religious | jp | 98 | 8 | 2 | 2 | 4 | 0 | 0 |
 | widgets_watch | ca | 200 | 13 | 2 | 2 | 9 | 0 | 3 |
+| widgets_watch | gb | 188 | 15 | 2 | 2 | 11 | 0 | 2 |
 | books_media | us | 124 | 3 | 2 | 1 | 0 | 0 | 0 |
 | cooking | us | 268 | 6 | 2 | 1 | 3 | 0 | 0 |
 | diy_home | ru | 99 | 10 | 2 | 1 | 7 | 0 | 2 |
@@ -45,7 +45,6 @@
 | driving_ed | de | 63 | 3 | 2 | 0 | 0 | 1 | 1 |
 | hunting_fishing | au | 155 | 3 | 2 | 0 | 1 | 0 | 0 |
 | hunting_fishing | gb | 164 | 4 | 2 | 0 | 2 | 0 | 0 |
-| parenting | fr | 110 | 3 | 2 | 0 | 1 | 0 | 0 |
 | religious | ru | 100 | 5 | 2 | 0 | 3 | 0 | 0 |
 | widgets_watch | ru | 193 | 10 | 2 | 0 | 8 | 0 | 3 |
 | fitness_calc | us | 171 | 13 | 1 | 3 | 9 | 0 | 0 |
@@ -58,6 +57,7 @@
 | cooking | ru | 47 | 8 | 1 | 1 | 5 | 1 | 1 |
 | finance_tools | de | 173 | 5 | 1 | 1 | 3 | 0 | 0 |
 | finance_tools | ru | 70 | 4 | 1 | 1 | 2 | 0 | 1 |
+| parenting | fr | 110 | 3 | 1 | 1 | 1 | 0 | 0 |
 | pet_care | ca | 207 | 4 | 1 | 1 | 2 | 0 | 0 |
 | photo_video_utils | ru | 104 | 11 | 1 | 1 | 9 | 0 | 0 |
 | widgets_watch | au | 190 | 12 | 1 | 1 | 10 | 0 | 0 |
