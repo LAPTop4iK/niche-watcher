@@ -1,20 +1,23 @@
 {
   "method": "activity-v3",
-  "candidate_storefronts": 1171,
+  "candidate_storefronts": 1172,
   "counts": {
-    "WEAK": 173,
-    "NO_RECENT_EVIDENCE": 625,
-    "ALIVE": 369,
-    "UNKNOWN": 4
+    "WEAK": 172,
+    "NO_RECENT_EVIDENCE": 623,
+    "ALIVE": 355,
+    "UNKNOWN": 22
   },
   "transitions": {
-    "WEAK → WEAK": 173,
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 625,
-    "ALIVE → ALIVE": 369,
-    "UNKNOWN → UNKNOWN": 4
+    "WEAK → WEAK": 169,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 621,
+    "ALIVE → ALIVE": 355,
+    "MISSING → UNKNOWN": 19,
+    "ALIVE → WEAK": 3,
+    "WEAK → NO_RECENT_EVIDENCE": 2,
+    "UNKNOWN → UNKNOWN": 3
   },
-  "apps": 29954,
-  "snapshots": 157523,
+  "apps": 30395,
+  "snapshots": 192264,
   "coverage": [
     {
       "country": "ae",
@@ -26,11 +29,11 @@
     },
     {
       "country": "au",
-      "apps": 5032
+      "apps": 5491
     },
     {
       "country": "ca",
-      "apps": 5101
+      "apps": 5476
     },
     {
       "country": "ch",
@@ -38,7 +41,7 @@
     },
     {
       "country": "de",
-      "apps": 4625
+      "apps": 4748
     },
     {
       "country": "dk",
@@ -54,7 +57,7 @@
     },
     {
       "country": "gb",
-      "apps": 7681
+      "apps": 8059
     },
     {
       "country": "hk",
@@ -70,7 +73,7 @@
     },
     {
       "country": "jp",
-      "apps": 6318
+      "apps": 6431
     },
     {
       "country": "kr",
@@ -106,33 +109,33 @@
     },
     {
       "country": "tw",
-      "apps": 3847
+      "apps": 3966
     },
     {
       "country": "us",
-      "apps": 8827
+      "apps": 9028
     }
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-01T01:06:05Z"
+    "last": "2026-11-01T14:08:31Z"
   },
   "histories_7d": 0,
-  "adjacent_counter_drops": 2279,
+  "adjacent_counter_drops": 3055,
   "research_lanes": {
-    "stale": 1171,
-    "recent_pain": 497
+    "stale": 1172,
+    "recent_pain": 581
   },
   "recent_version_review_coverage": {
     "search": {
-      "eligible": 9548,
-      "rss_usable": 861,
-      "complaint_records": 433
+      "eligible": 9673,
+      "rss_usable": 929,
+      "complaint_records": 465
     },
     "charts": {
       "eligible": 9349,
-      "rss_usable": 111,
-      "complaint_records": 85
+      "rss_usable": 174,
+      "complaint_records": 143
     },
     "links": {
       "eligible": 22,
@@ -140,9 +143,9 @@
       "complaint_records": 1
     },
     "all": {
-      "eligible": 17870,
-      "rss_usable": 944,
-      "complaint_records": 497
+      "eligible": 17967,
+      "rss_usable": 1068,
+      "complaint_records": 581
     }
   }
 }
