@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Niche Decay Scanner — находит «зомби»-приложения в App Store:
-аудитория и рейтинг есть, обновлений давно нет => окно для входа.
+Niche Decay Scanner — находит приложения-кандидаты в App Store:
+давно не обновлявшиеся приложения с накопленными оценками — повод проверить боль.
 
 Только stdlib Python 3. Источник данных: iTunes Search API (бесплатно, без ключа).
 
@@ -17,21 +17,22 @@ Niche Decay Scanner — находит «зомби»-приложения в Ap
 """
 
 import argparse
+import db_store
 import html
 import json
-import math
 import os
 import re
 import sqlite3
 import sys
 import time
+import scan_state
 import urllib.parse
 import urllib.request
 from collections import Counter
 from datetime import datetime, timezone, timedelta
 
 API_URL = "https://itunes.apple.com/search"
-REQUEST_DELAY = float(os.environ.get("SCAN_DELAY", "3.0"))  # iTunes ~20/мин; для длинных локальных прогонов SCAN_DELAY=4
+REQUEST_DELAY = float(os.environ.get("SCAN_DELAY", "3.0"))  # iTunes ~20/мин; для длинных локальных наблюдений SCAN_DELAY=4
 MAX_RETRIES = 5
 HTTP_TIMEOUT = 20
 
@@ -79,7 +80,9 @@ def search_apps(term, country, limit):
         {"term": term, "entity": "software", "country": country, "limit": min(limit, 200)}
     )
     data = fetch_json(f"{API_URL}?{params}")
-    return data.get("results", [])
+    if not isinstance(data, dict) or not isinstance(data.get("results"), list):
+        raise RuntimeError("Invalid iTunes Search response: results array missing")
+    return data["results"]
 
 
 # ---------------------------------------------------------------- БД
@@ -108,19 +111,31 @@ CREATE TABLE IF NOT EXISTS snapshots (
     version_date TEXT,
     rating_count INTEGER,
     avg_rating   REAL,
-    rank         INTEGER
+    rank         INTEGER,
+    app_name     TEXT,
+    seller_name  TEXT,
+    storefront_url TEXT
 );
 CREATE INDEX IF NOT EXISTS idx_snap_track_time ON snapshots(track_id, scanned_at);
 """
 
 
 def open_db(path):
+    db_store.ensure(path)
     con = sqlite3.connect(path, timeout=30)
     con.executescript(SCHEMA)
     try:  # миграция старых баз
         con.execute("ALTER TABLE snapshots ADD COLUMN rank INTEGER")
     except sqlite3.OperationalError:
         pass
+    columns = {r[1] for r in con.execute("PRAGMA table_info(snapshots)")}
+    for name, kind in {"app_name":"TEXT", "seller_name":"TEXT", "storefront_url":"TEXT", "run_id":"TEXT", "price_amount":"REAL", "currency":"TEXT", "release_date":"TEXT"}.items():
+        if name not in columns:
+            con.execute(f"ALTER TABLE snapshots ADD COLUMN {name} {kind}")
+    con.executescript(scan_state.SCHEMA)
+    con.execute("CREATE INDEX IF NOT EXISTS idx_snap_store_time ON snapshots(track_id,country,scanned_at,id)")
+    con.execute("CREATE INDEX IF NOT EXISTS idx_snap_run ON snapshots(run_id)")
+    con.commit()
     return con
 
 
@@ -130,7 +145,9 @@ def upsert_app(con, app):
                              first_country, first_seen, last_seen)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
            ON CONFLICT(track_id) DO UPDATE SET
-             last_seen = excluded.last_seen, name = excluded.name""",
+             last_seen = MAX(apps.last_seen, excluded.last_seen), name = excluded.name,
+             seller=excluded.seller, bundle_id=excluded.bundle_id, store_url=excluded.store_url,
+             price=excluded.price, genre=excluded.genre""",
         (
             app["track_id"], app["name"], app["seller"], app["bundle_id"],
             app["store_url"], app["price"], app["genre"],
@@ -142,12 +159,14 @@ def upsert_app(con, app):
 def insert_snapshot(con, app):
     con.execute(
         """INSERT INTO snapshots (track_id, country, category, query, scanned_at,
-                                  version, version_date, rating_count, avg_rating, rank)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                                  version, version_date, rating_count, avg_rating, rank, app_name, seller_name, storefront_url, run_id, price_amount, currency, release_date)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (
             app["track_id"], app["country"], app["category"], app["query"],
             app["scanned_at"], app["version"], app["version_date"],
             app["rating_count"], app["avg_rating"], app.get("rank"),
+            app.get("name"), app.get("seller"), app.get("store_url"),
+            app.get("run_id"), app.get("price"), app.get("currency"), app.get("release_date"),
         ),
     )
 
@@ -167,22 +186,18 @@ def previous_snapshot(con, track_id, country, min_age_days=7):
     return row  # (scanned_at, rating_count) | None
 
 
-def was_flagged_before(con, track_id, min_stale_months, min_ratings, before_iso=None):
+def was_flagged_before(con, track_id, min_stale_months, min_ratings, before_iso=None, country=None):
     """Считался ли трек зомби в ПРОШЛЫХ прогонах (до before_iso — иначе текущий
     прогон флагает сам себя и алерты никогда не срабатывают)."""
     if con is None:
         return False
-    cond = "AND scanned_at < ?" if before_iso else ""
-    params = [track_id, min_ratings] + ([before_iso] if before_iso else [])
-    row = con.execute(
-        f"""SELECT MIN(version_date) FROM snapshots
-            WHERE track_id = ? AND rating_count >= ? {cond}""",
-        params,
-    ).fetchone()
-    if not row or not row[0]:
-        return False
-    months = months_between(parse_iso(row[0]), now_utc())
-    return months >= min_stale_months
+    conditions=['track_id=?','rating_count>=?',"(julianday(scanned_at)-julianday(version_date))/30.44>=?"]
+    params=[track_id,min_ratings,min_stale_months]
+    if before_iso:
+        conditions.append('scanned_at<?');params.append(before_iso)
+    if country:
+        conditions.append('country=?');params.append(country)
+    return con.execute('SELECT 1 FROM snapshots WHERE '+' AND '.join(conditions)+' LIMIT 1',params).fetchone() is not None
 
 
 # ---------------------------------------------------------------- анализ
@@ -193,7 +208,7 @@ def months_between(a, b):
 
 
 def analyze(con, app, min_stale_months, min_ratings):
-    """Считает метрики и скор (0..100) для одного снапшота."""
+    """Считает наблюдаемые признаки; вероятность прибыли не оценивается."""
     out = dict(app)
     stale_months = None
     if app["version_date"]:
@@ -204,12 +219,10 @@ def analyze(con, app, min_stale_months, min_ratings):
     out["stale_months"] = stale_months
 
     # velocity: прирост оценок за 30 дней относительно снапшота >= 7 дней назад
-    prev = previous_snapshot(con, app["track_id"], app["country"])
     velocity = None
-    if prev:
-        old_iso, old_count = prev
-        days = max(1, (now_utc() - parse_iso(old_iso)).days)
-        velocity = (app["rating_count"] - old_count) / days * 30.0
+    if con is not None:
+        from evidence import rating_velocity
+        velocity, _ = rating_velocity(con, app["track_id"], app["country"])
     out["velocity_30d"] = velocity
 
     is_zombie = (
@@ -219,30 +232,14 @@ def analyze(con, app, min_stale_months, min_ratings):
     )
     out["is_zombie"] = is_zombie
 
-    # quality gap: спрос доказан (аудитория), продукт плох (низкий рейтинг), лидер жив
+    # Historical dissatisfaction hint; fresh complaints and payments need separate checks.
     out["is_quality_gap"] = bool(
         app["rating_count"] >= 1000
         and app["avg_rating"] and app["avg_rating"] < 4.0
-        and stale_months is not None and stale_months < 12
+        and stale_months is not None and 0 <= stale_months < 12
     )
 
-    # --- скоринг 0..100
-    staleness = 0.0
-    if stale_months is not None:
-        staleness = 35.0 * min(1.0, max(0.0, stale_months) / 36.0)
 
-    mass = 0.0
-    if app["rating_count"] and app["rating_count"] > 0:
-        mass = 30.0 * min(1.0, math.log10(app["rating_count"] + 1) / 5.0)  # 100k оценок = 30
-
-    if velocity is None:
-        velocity_pts = 10.0  # данных пока нет — нейтрально
-    elif velocity > 0:
-        velocity_pts = 25.0 * min(1.0, velocity / 50.0)  # +50 оценок/мес у зомби = максимум
-    else:
-        velocity_pts = 0.0
-
-    out["score"] = round(staleness + mass + velocity_pts, 1)
     return out
 
 
@@ -280,9 +277,10 @@ def send_telegram(text):
         req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
         try:
             with urllib.request.urlopen(req, timeout=15) as resp:
-                ok = ok and resp.status == 200
+                body=json.loads(resp.read().decode("utf-8"))
+                ok = ok and resp.status == 200 and body.get("ok") is True
         except Exception as e:  # noqa: BLE001
-            print(f"  ! telegram alert failed: {e}", file=sys.stderr)
+            print(f"  ! telegram alert failed: {type(e).__name__}", file=sys.stderr)
             ok = False
         time.sleep(1)
     return ok
@@ -291,13 +289,14 @@ def send_telegram(text):
 def build_alert_message(new, total_zombies, print_mode=False):
     """Красивый digest: ссылки на сторы, флаги, velocity, свежесть, риски, ссылка на дашборд."""
     e = (lambda s: s) if print_mode else html.escape
-    lines = [f"🧟 <b>Niche Watcher</b> — новые зомби: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
+    lines = [f"🧟 <b>Niche Watcher</b> — новые кандидаты: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
+    lines.append("Срез: "+iso(now_utc()))
     for i, a in enumerate(new[:12], 1):
         vel = f" · {a['velocity_30d']:+.0f}/30д" if a["velocity_30d"] is not None else ""
         rev = f" · 📩 отзыв {a['recent_reviews'][0]}" if a.get("recent_reviews") else ""
         port = " · ⚠️портфель" if (a.get("seller_apps") or 0) > 8 else ""
-        native = " · ⛔натив" if a.get("native_risk") else ""
-        link = f'<a href="{a["store_url"]}">{e(a["name"])}</a>' if not print_mode else a["name"]
+        native = " · ? ОС" if a.get("native_risk") else ""
+        link = f'<a href="{html.escape(a["store_url"], quote=True)}">{e(a["name"][:120])}</a>' if not print_mode else a["name"]
         rating = f"{a['avg_rating']:.1f}★" if a.get("avg_rating") else "—"
         lines.append(
             f"{i}. <b>{link}</b> {flag_emoji(a['country'])}\n"
@@ -306,7 +305,7 @@ def build_alert_message(new, total_zombies, print_mode=False):
         )
     if len(new) > 12:
         lines.append(f"… и ещё {len(new) - 12} — см. отчёт")
-    lines.append("")
+    lines.append("\nСтарая версия и отзывы — повод проверить боль; платежи и доход не установлены.")
     lines.append(f"📊 <a href=\"{telegram_dashboard_url()}\">дашборд с динамикой</a> · "
                  f"отчёт: report.md в репо")
     return "\n".join(lines)
@@ -314,32 +313,27 @@ def build_alert_message(new, total_zombies, print_mode=False):
 
 # ---------------------------------------------------------------- отчёт
 
-# Ключевые слова, означающие конкуренцию с нативными фичами iOS (калькулятор,
-# фонарик, уровень, компас, сканер — встроены в ОС). Зомби в таких нишах —
-# часто СМЕРТЬ СПРОСА (платформа поглотила боль), а не возможность.
-NATIVE_RISK_KEYWORDS = (
-    "calculator", "flashlight", "level", "compass", "scanner",
-    "measure", "magnifier", "torch",
-    "калькулятор", "фонарик", "уровень", "компас", "сканер",
-    "計算", "계산기", "电筒",
-)
-
+# Generic tasks to check against the current OS. Specialized calculators and
+# identifiers are not equivalent to an OS utility merely because of one word.
+NATIVE_RISK_KEYWORDS = {
+    'calculator','simple calculator','flashlight','torch','compass','level',
+    'bubble level','magnifier','document scanner','qr scanner','measure',
+    'калькулятор','фонарик','уровень','компас','сканер документов',
+    '計算機','계산기','电筒',
+}
 
 _STOP_TOK = set("""for with and the your app my pro free plus hd lite best simple easy all one new
 timer time""".split())
 
 
-def _relevant(name, query):
-    """Ложные корреляции выдачи: гиганты утекают в длинные запросы (ADP по
-    «hourly paycheck calculator»). Райзер ниши обязан делить токен с запросом."""
-    tn = {w for w in re.split(r"[^a-zа-яёäöüß0-9]+", name.lower()) if len(w) > 2 and w not in _STOP_TOK}
-    tq = {w for w in re.split(r"[^a-zа-яёäöüß0-9]+", query.lower()) if len(w) > 2 and w not in _STOP_TOK}
-    return bool(tn & tq)
+def _relevant(name,query):
+    from relevance import relevant
+    return relevant(name,query)
 
 
 def is_native_risk(name, query):
-    text = f"{name} {query}".lower()
-    return any(k in text for k in NATIVE_RISK_KEYWORDS)
+    text=" ".join(query.casefold().split())
+    return text in NATIVE_RISK_KEYWORDS
 
 
 def fetch_recent_reviews(track_id, country="us"):
@@ -378,9 +372,9 @@ def fmt_row(a):
     rev = a.get("recent_reviews")
     rev_s = (f"{rev[0]} ({rev[1]})" + (f" 💔{rev[2]}%" if rev and rev[2] is not None else "")) if rev else "-"
     warn = " ⚠️портфель" if (port or 0) > 8 else ""
-    native = " ⛔натив" if a.get("native_risk") else ""
+    native = " ? ОС" if a.get("native_risk") else ""
     return (
-        f"| {a['score']:5.1f} | [{a['name'][:34]}]({a['store_url']}) "
+        f"| [{a['name'][:34]}]({a['store_url']}) "
         f"| {port_s}{warn}{native} | {a['country']} | {a['rating_count']:>6} | {rating} "
         f"| {a['version_date'][:10] if a['version_date'] else '?'} | {stale} | {vel} | {rev_s} |"
     )
@@ -391,10 +385,12 @@ REPORT_HEAD = """# Niche Decay Scan — {date}
 Зомби: версия старше {stale} мес И оценок >= {ratings}.
 Velocity — прирост оценок за 30 дней (нужны 2+ прогона с интервалом >= 7 дней).
 (прод N) — сколько приложений этого продавца встречено в прогоне: >8 = портфельная сеть ⚠️.
-посл. отзыв (N) — дата последнего отзыва и сколько отзывов за 60 дней: свежие = спрос жив.
+посл. отзыв (N) — дата последнего отзыва и сколько отзывов за 60 дней: свежие = есть активность, готовность платить не установлена.
+Порядок по накопленным оценкам — для исследования, не по вероятности успеха.
+Новый в БД ≠ новый конкурент. Старая версия ≠ сломанный продукт.
 
-| Скор | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
-|---|---|---|---|---|---|---|---|---|---|
+| Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
+|---|---|---|---|---|---|---|---|---|
 """
 
 
@@ -406,8 +402,8 @@ def write_report(path, zombies, watchlist, args, heat_rows=None, risers=None, qu
     else:
         lines.append("_Зомби по порогам не найдено._")
     lines.append(f"\n## Watchlist (версия 9–{args.min_stale_months} мес, наблюдаю)\n")
-    lines.append("| Скор | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |")
-    lines.append("|---|---|---|---|---|---|---|---|---|---|")
+    lines.append("| Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |")
+    lines.append("|---|---|---|---|---|---|---|---|---|")
     if watchlist:
         for a in watchlist:
             lines.append(fmt_row(a))
@@ -418,16 +414,16 @@ def write_report(path, zombies, watchlist, args, heat_rows=None, risers=None, qu
     if heat_rows:
         with open(path, "a", encoding="utf-8") as f:
             f.write(
-                "\n## Heat по категориям (рост конкуренции)\n\n"
-                "fresh = версия младше 12 мес (активные конкуренты); new = новые в БД за прогон.\n"
-                "Читать парой: зомби% ВЫСОКИЙ + fresh% НИЗКИЙ = свободная ниша; зомби% высокий + fresh% высокий = ниша уже поднимают.\n\n"
+                "\n## Состав выдачи по категориям\n\n"
+                "fresh = версия младше 12 мес; new = впервые найденные в БД. Это не число новых запусков.\n"
+                "Состав не доказывает свободную нишу: нужны релевантность выдачи, спрос, платежи и канал привлечения.\n\n"
                 "| Категория | Гео | Видно | Fresh% | New | Зомби% | Топ-продавец |\n|---|---|---|---|---|---|---|\n"
                 + "\n".join(heat_rows) + "\n"
             )
     if risers:
         with open(path, "a", encoding="utf-8") as f:
             f.write(
-                "\n## Risers — новые в топ-20 выдачи с аудиторией (нишу занимают сейчас)\n\n"
+                "\n## Впервые найдены в API-выдаче (это не новые запуски)\n\n"
                 "| Оценок | Приложение | Гео | Запрос | Версия от |\n|---|---|---|---|---|\n"
                 + "\n".join(
                     f"| {a['rating_count']:,} | [{a['name'][:36]}]({a['store_url']}) | {a['country']} "
@@ -437,7 +433,7 @@ def write_report(path, zombies, watchlist, args, heat_rows=None, risers=None, qu
     if quality_gaps:
         with open(path, "a", encoding="utf-8") as f:
             f.write(
-                "\n## Quality gaps — популярно, но плохо оценено (feature-gap raid цели)\n\n"
+                "\n## Низкий исторический рейтинг: проверить свежие жалобы\n\n"
                 "| Оценок | Рейтинг | Приложение | Гео | Версия от |\n|---|---|---|---|---|\n"
                 + "\n".join(
                     f"| {a['rating_count']:,} | {a['avg_rating']:.1f} | [{a['name'][:36]}]({a['store_url']}) "
@@ -447,8 +443,8 @@ def write_report(path, zombies, watchlist, args, heat_rows=None, risers=None, qu
     with open(path, "a", encoding="utf-8") as f:
         f.write(
             "\n## Легенда рисков\n\n"
-            "- ⚠️портфель — продавец с 9+ приложениями в прогоне: зомби может проснуться.\n"
-            "- ⛔натив — пересечение с нативными ключевиками iOS (калькулятор, фонарик, уровень,\n"
+            "- ⚠️портфель — продавец с 9+ приложениями в прогоне: число встреченных карточек; вероятность реакции автора не измерена.\n"
+            "- ? ОС — лексическое пересечение с ключевиками iOS (калькулятор, фонарик, уровень,\n"
             "  сканер...). Не авто-отказ: обязателен вопрос «поглотила ли ОС боль?» Если боль\n"
             "  решена нативно (фонарик) — скип; если нет (бетонный расчёт) — нужна отстрой\n"
             "  (Apple Pencil, Math Notes-гэпы, качество) или другой заход.\n"
@@ -463,15 +459,17 @@ def load_seed(path):
 
 
 def normalize(raw, country, category, query, rank=None):
-    date_str = raw.get("currentVersionReleaseDate", "").replace("Z", "Z")
+    date_str = raw.get("currentVersionReleaseDate") or ""
     return {
         "track_id": raw.get("trackId"),
         "name": raw.get("trackName") or "?",
         "seller": raw.get("sellerName") or raw.get("artistName") or "?",
         "bundle_id": raw.get("bundleId") or "",
         "store_url": raw.get("trackViewUrl") or "",
-        "price": raw.get("price", 0) or 0,
+        "price": raw.get("price"),
         "genre": raw.get("primaryGenreName") or "",
+        "currency": raw.get("currency"),
+        "release_date": raw.get("releaseDate"),
         "country": country,
         "category": category,
         "query": query,
@@ -505,6 +503,9 @@ def main():
     ap.add_argument("--no-alerts", action="store_true")
     ap.add_argument("--print-alert", action="store_true", help="показать TG-сообщение вместо отправки")
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--all-markets", action="store_true")
+    ap.add_argument("--run-id", help="возобновить прогон с тем же идентификатором")
+    ap.add_argument("--skip-reviews", action="store_true", help="RSS проверяет отдельный demand-слой")
     args = ap.parse_args()
 
     seed = load_seed(args.seed)
@@ -516,58 +517,96 @@ def main():
               if v.get("tier", 2) == args.tier
               and (args.slot is None or args.tier != 2 or v.get("week_slot") == args.slot)]
     )
+    if args.all_markets:
+        countries = list(markets)
+    if not countries or any(c not in markets for c in countries):
+        ap.error("Нужны страны из markets.json")
+    if not 1 <= args.limit <= 200:
+        ap.error("limit должен быть 1..200")
     wanted = set(args.categories.split(",")) if args.categories else None
+    known_categories={c["id"] for c in seed["categories"]}
+    if wanted and not wanted <= known_categories:
+        ap.error("Неизвестная категория")
 
+    lock = scan_state.writer_lock(args.db) if not args.dry_run else __import__('contextlib').nullcontext()
+    with lock:
+        return run_scan(args,seed,markets,countries,wanted)
+
+
+def run_scan(args,seed,markets,countries,wanted):
     con = None if args.dry_run else open_db(args.db)
-    run_start_iso = iso(now_utc())  # граница «до этого прогона» для алертов
+    jobs=[(geo,c["id"],q) for c in seed["categories"] if c.get("enabled",True) and (not wanted or c["id"] in wanted)
+          for geo in countries for q in (c["queries"].get(markets[geo].get("lang","en")) or c["queries"]["en"])]
+    jobs=list(dict.fromkeys(jobs))
+    run_id=scan_state.start_run(con,jobs,{"limit":args.limit,"storage_min_ratings":0},args.run_id) if con else None
+    done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))} if con else set()
+    print(f"RUN {run_id}: {len(jobs)} queries, already complete {len(done)}",flush=True)
+    run_start_iso = con.execute("SELECT started_at FROM scan_runs WHERE run_id=?",(run_id,)).fetchone()[0] if con else iso(now_utc())
     analyzed, seen = [], set()
     # приложения, уже бывшие в прошлых прогонах — база для inflow (heat)
     existing_ids = (
         {r[0] for r in con.execute("SELECT track_id FROM apps")} if con else set()
     )
 
-    for cat in seed["categories"]:
-        cid = cat["id"]
-        if wanted and cid not in wanted:
+    remaining=[job for job in jobs if job not in done]
+    search=lambda query,geo: search_apps(query,geo,args.limit)
+    for (country,cid,q),results,error in scan_state.query_results(con,run_id,remaining,search,REQUEST_DELAY):
+        if error:
+            print(f"! {country}/{cid}/{q}: {error}",file=sys.stderr,flush=True)
+            if con:
+                scan_state.end_query(con,run_id,country,cid,q,'ERROR',error=error)
             continue
-        if not cat.get("enabled", True):
-            continue
-        for country in countries:
-            lang = markets.get(country, {}).get("lang", "en")
-            queries = cat["queries"].get(lang) or cat["queries"]["en"]
-            for q in queries:
-                if not args.quiet:
-                    print(f"[{cid}/{country}] {q}")
-                try:
-                    results = search_apps(q, country, args.limit)
-                except RuntimeError as e:
-                    print(f"  ! пропускаю запрос: {e}", file=sys.stderr)
-                    continue
-                for pos, raw in enumerate(results, 1):
-                    tid = raw.get("trackId")
-                    if not tid or tid in seen:
-                        continue
-                    seen.add(tid)
-                    app = normalize(raw, country, cid, q, rank=pos)
-                    if app["rating_count"] < 10:  # шум отсекаем сразу
-                        continue
-                    app["native_risk"] = is_native_risk(app["name"], q)
-                    if con:
-                        upsert_app(con, app)
-                        insert_snapshot(con, app)
-                    analyzed.append(analyze(con, app, args.min_stale_months, args.min_rating_count) if con
-                                    else analyze(None, app, args.min_stale_months, args.min_rating_count))
-                time.sleep(REQUEST_DELAY)
+        stored_count=0
+        for pos,raw in enumerate(results,1):
+            tid=raw.get('trackId');key=(tid,country,cid,q)
+            if not tid or key in seen:
+                continue
+            seen.add(key)
+            app=normalize(raw,country,cid,q,rank=pos)
+            app['run_id']=run_id
+            app['native_risk']=is_native_risk(app['name'],q)
+            if con:
+                upsert_app(con,app);insert_snapshot(con,app)
+            stored_count+=1
+            analyzed.append(analyze(con,app,args.min_stale_months,args.min_rating_count))
+        if con:
+            scan_state.end_query(con,run_id,country,cid,q,'OK',len(results),stored_count)
+            done.add((country,cid,q))
+            if len(done)%25==0:
+                print(f"PROGRESS {len(done)}/{len(jobs)} · {country}/{cid}",flush=True)
 
     if con:
         con.commit()
 
+    if con:
+        # Resume reports include the whole run, not only the part after a restart.
+        from evidence import latest
+        data=con.execute("SELECT s.*,a.bundle_id,a.genre,a.first_country,a.first_seen,a.last_seen FROM snapshots s JOIN apps a USING(track_id) WHERE s.run_id=?",(run_id,))
+        fields=[d[0] for d in data.description]
+        all_rows=[dict(zip(fields,r)) for r in data.fetchall()]
+        analyzed=[]
+        for r in all_rows:
+            r.update(name=r['app_name'],seller=r['seller_name'],store_url=r['storefront_url'],price=r['price_amount'])
+            r['native_risk']=is_native_risk(r['name'],r['query'])
+            analyzed.append(analyze(con,r,args.min_stale_months,args.min_rating_count))
+
+    # Keep every query/category observation in the DB, but count each app only
+    # once per storefront in alerts and each category/storefront in heat.
+    unique = {}
+    for app in analyzed:
+        unique.setdefault((app["track_id"], app["country"], app["category"]), app)
+    analyzed = list(unique.values())
+
     # портфельный аудит: сколько приложений каждого продавца встречено в прогоне
-    seller_counts = Counter(a["seller"] for a in analyzed)
+    seller_counts = Counter(seller for seller, tid in {(a["seller"], a["track_id"]) for a in analyzed})
     for a in analyzed:
         a["seller_apps"] = seller_counts[a["seller"]]
 
-    zombies = sorted([a for a in analyzed if a["is_zombie"]], key=lambda x: -x["score"])
+    zombie_map = {}
+    for a in analyzed:
+        if a["is_zombie"]:
+            zombie_map.setdefault((a["track_id"], a["country"]), a)
+    zombies = sorted(zombie_map.values(), key=lambda x: -x["rating_count"])
 
     # heat по категориям: рост конкуренции (свежие приложения) + приток новых за прогон
     heat = {}
@@ -575,7 +614,7 @@ def main():
         key = (a["category"], a["country"])
         h = heat.setdefault(key, {"total": 0, "fresh": 0, "new": 0, "zombie": 0, "sellers": Counter()})
         h["total"] += 1
-        if a["stale_months"] is not None and a["stale_months"] < 12:
+        if a["stale_months"] is not None and 0 <= a["stale_months"] < 12:
             h["fresh"] += 1
         if a["track_id"] not in existing_ids:
             h["new"] += 1
@@ -598,7 +637,7 @@ def main():
     )[:15]
 
     # свежесть отзывов для топ-кандидатов (спрос жив?) — 12 запросов RSS
-    for a in zombies[:12]:
+    for a in ([] if args.skip_reviews else zombies[:12]):
         a["recent_reviews"] = fetch_recent_reviews(a["track_id"], a["country"])
         time.sleep(0.6)
 
@@ -606,7 +645,7 @@ def main():
         [a for a in analyzed
          if not a["is_zombie"] and a["stale_months"] is not None
          and 9 <= a["stale_months"] < args.min_stale_months and a["rating_count"] >= max(100, args.min_rating_count // 5)],
-        key=lambda x: -x["score"],
+        key=lambda x: -x["rating_count"],
     )[:20]
 
     heat_rows_out = []
@@ -623,27 +662,37 @@ def main():
         for a in zombies[:15]:
             print(fmt_row(a))
 
-    # Алерты: только НОВЫЕ зомби (не флагались в прошлых прогонах)
-    if con and not args.no_alerts and zombies:
-        new = [a for a in zombies if not was_flagged_before(con, a["track_id"], args.min_stale_months, args.min_rating_count, run_start_iso)]
-        if new:
-            msg = build_alert_message(new, len(zombies))
+    run_status=None
+    if con:
+        run_status,ok,expected=scan_state.finish_run(con,run_id)
+        print(f"RUN {run_id}: {run_status} {ok}/{expected}",flush=True)
+    telegram_failed=False
+    if con and not args.no_alerts:
+        import notifications
+        new=[a for a in zombies if not was_flagged_before(con,a['track_id'],args.min_stale_months,args.min_rating_count,run_start_iso,country=a['country'])]
+        messages=[]
+        for offset in range(0,len(new),12):
+            batch=new[offset:offset+12]
+            identity=','.join(f"{a['track_id']}:{a['country']}" for a in batch)
+            messages.append((f'candidates:{identity}',build_alert_message(batch,len(zombies))))
+        if not messages:
+            messages=[(f'heartbeat:{run_id}',f'🔭 Niche Watcher: сбор {run_status} {ok}/{expected}; кандидатов {len(zombies)}. Активность и платежи проверяются отдельно. <a href="{telegram_dashboard_url()}">Дашборд</a>')]
+        for key,message in messages:
             if args.print_alert:
-                print("\n" + "=" * 50 + "\nTG ALERT (print mode):\n" + msg + "\n" + "=" * 50)
+                print('TG PREVIEW:',message)
             else:
-                send_telegram(msg)
-        else:
-            # heartbeat: бот молчит = непонятно, жив ли; шлём короткую сводку
-            hb = (f"🔭 Niche Watcher: прогон завершён. Новых зомби нет, "
-                  f"всего в прогоне {len(zombies)}. "
-                  f'<a href="{telegram_dashboard_url()}">дашборд</a>')
-            if args.print_alert:
-                print("\nTG HEARTBEAT:", hb)
-            else:
-                send_telegram(hb)
+                notifications.enqueue(con,key,message)
+        if not args.print_alert and os.environ.get('TG_BOT_TOKEN') and os.environ.get('TG_CHAT_ID'):
+            delivered,failed=notifications.flush(con,send_telegram)
+            print(f'Telegram acknowledged {delivered}; pending failures {failed}',flush=True)
+            telegram_failed=bool(failed)
 
     if con:
         con.close()
+    if run_status=='PARTIAL':
+        raise SystemExit("Scan incomplete; query errors are recorded and can be retried with --run-id")
+    if telegram_failed and (os.environ.get("TG_BOT_TOKEN") or os.environ.get("TG_CHAT_ID")):
+        raise SystemExit("Telegram delivery failed; scan data has been saved")
 
 
 if __name__ == "__main__":

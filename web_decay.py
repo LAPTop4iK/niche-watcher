@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""
-Web Decay — тот же decay-арбитраж для сайтов через Wayback CDX API (бесплатно, легально).
+"""Wayback observations: archive coverage and the latest HTTP-200 capture.
 
-Для каждого URL: сколько снимков в архиве, когда последний, «застой» = месяцы с
-последнего изменения. Страница-инструмент, живая в топе Google, не менявшаяся
-2+ года — веб-зомби (README §14).
-
-Использование:
-    python3 web_decay.py --urls "https://concrete-calculators.com,https://example.com/calc"
-    python3 web_decay.py --file urls.txt
+Neither measures the last product change, search ranking, demand or revenue.
+Monthly collapsing keeps the first capture in a month, so the latest capture
+must be requested independently with limit=-1 (CDX server documentation).
 """
 
 import argparse
@@ -20,12 +15,14 @@ import urllib.request
 from datetime import datetime, timezone
 
 
-def cdx(url):
-    q = urllib.parse.urlencode({
+def cdx(url,latest=False):
+    params={
         "url": url, "output": "json", "fl": "timestamp,statuscode",
-        "filter": "statuscode:200", "collapse": "timestamp:6",
-    })
-    req = urllib.request.Request(f"http://web.archive.org/cdx/search/cdx?{q}",
+        "filter": "statuscode:200",
+    }
+    params.update({"limit":-1,"fastLatest":"true"} if latest else {"collapse":"timestamp:6"})
+    q=urllib.parse.urlencode(params)
+    req = urllib.request.Request(f"https://web.archive.org/cdx/search/cdx?{q}",
                                  headers={"User-Agent": "niche-watcher/1.0"})
     with urllib.request.urlopen(req, timeout=30) as r:
         rows = json.loads(r.read().decode("utf-8", "replace") or "[]")
@@ -46,11 +43,12 @@ def main():
     if not urls:
         sys.exit("укажи --urls или --file")
 
-    print("| URL | Снимков | Последний снимок | Застой | Вердикт |")
+    print("| URL | Месяцев со снимками | Последний снимок | Возраст снимка | Ограничение |")
     print("|---|---|---|---|---|")
     for url in urls:
         try:
             rows = cdx(url)
+            latest=cdx(url,latest=True) if rows else []
         except Exception as e:  # noqa: BLE001
             print(f"| {url} | ? | ? | ? | ошибка CDX: {e} |")
             continue
@@ -58,11 +56,13 @@ def main():
             print(f"| {url} | 0 | — | — | нет снимков (не индикатор) |")
             continue
         snaps = len(rows)
-        last = rows[-1][0]
+        if not latest:
+            print(f"| {url} | {len(rows)} | ? | ? | последний снимок не получен |")
+            continue
+        last = max(r[0] for r in latest)
         last_dt = datetime.strptime(last[:8], "%Y%m%d").replace(tzinfo=timezone.utc)
         months = (datetime.now(timezone.utc) - last_dt).days / 30.44
-        verdict = ("🟢 веб-зомби: 2+ года без изменений" if months >= 24 else
-                   "🟡 6–24 мес без изменений" if months >= 6 else "🔴 обновляется недавно")
+        verdict="Архив не измеряет обновления или текущий спрос"
         print(f"| {url} | {snaps} | {last_dt:%Y-%m-%d} | {months:.0f} мес | {verdict} |")
         time.sleep(3)  # CDX вежливость
 

@@ -1,0 +1,190 @@
+[
+  {
+    "source": "google-play",
+    "runs": [
+      {
+        "run_id": "play-final-us",
+        "source": "google-play",
+        "started_at": "2026-10-31T20:10:35Z",
+        "finished_at": "2026-10-31T20:10:40Z",
+        "config_hash": "0d25c42066139502ce258404ac5ae0413e896bae6a71ccb80b32d41e305bb653",
+        "expected_queries": 1,
+        "status": "COMPLETE",
+        "settings": {
+          "jobs": [
+            [
+              "us",
+              "construction",
+              "concrete calculator"
+            ]
+          ],
+          "library_version": "1.2.2",
+          "limit": 3,
+          "source": "google-play"
+        }
+      },
+      {
+        "run_id": "play-final-de",
+        "source": "google-play",
+        "started_at": "2026-10-31T20:10:40Z",
+        "finished_at": "2026-10-31T20:10:44Z",
+        "config_hash": "205eb26f368ff18c5928dad523c34ed1b936b6a2c92f9a6d2e17d9d720322096",
+        "expected_queries": 1,
+        "status": "COMPLETE",
+        "settings": {
+          "jobs": [
+            [
+              "de",
+              "construction",
+              "betonrechner"
+            ]
+          ],
+          "library_version": "1.2.2",
+          "limit": 3,
+          "source": "google-play"
+        }
+      }
+    ],
+    "queries": [
+      {
+        "run_id": "play-final-us",
+        "country": "us",
+        "category": "construction",
+        "query": "concrete calculator",
+        "started_at": "2026-10-31T20:10:35Z",
+        "finished_at": "2026-10-31T20:10:38Z",
+        "status": "OK",
+        "result_count": 3,
+        "stored_count": 3,
+        "error": null
+      },
+      {
+        "run_id": "play-final-de",
+        "country": "de",
+        "category": "construction",
+        "query": "betonrechner",
+        "started_at": "2026-10-31T20:10:40Z",
+        "finished_at": "2026-10-31T20:10:43Z",
+        "status": "OK",
+        "result_count": 3,
+        "stored_count": 3,
+        "error": null
+      }
+    ],
+    "observations": 6
+  },
+  {
+    "source": "apple-charts",
+    "runs": [
+      {
+        "run_id": "1085cf6f-e8dd-40f1-a736-359a24c42aa9",
+        "source": "apple-charts",
+        "started_at": "2026-11-01T00:08:56Z",
+        "finished_at": "2026-11-01T00:09:17Z",
+        "config_hash": "b65145765bc7aa6becf826678b6dc6029d5ec84e495f99268c38b1650b257037",
+        "expected_queries": 3,
+        "status": "COMPLETE",
+        "settings": {
+          "jobs": [
+            [
+              "us",
+              "chart:music",
+              "topfreeapplications"
+            ],
+            [
+              "us",
+              "chart:music",
+              "topgrossingapplications"
+            ],
+            [
+              "us",
+              "chart:music",
+              "toppaidapplications"
+            ]
+          ],
+          "source": "apple-charts",
+          "top": 10
+        }
+      }
+    ],
+    "queries": [
+      {
+        "run_id": "1085cf6f-e8dd-40f1-a736-359a24c42aa9",
+        "country": "us",
+        "category": "chart:music",
+        "query": "topfreeapplications",
+        "started_at": "2026-11-01T00:08:56Z",
+        "finished_at": "2026-11-01T00:09:00Z",
+        "status": "OK",
+        "result_count": 10,
+        "stored_count": 10,
+        "error": null
+      },
+      {
+        "run_id": "1085cf6f-e8dd-40f1-a736-359a24c42aa9",
+        "country": "us",
+        "category": "chart:music",
+        "query": "topgrossingapplications",
+        "started_at": "2026-11-01T00:09:03Z",
+        "finished_at": "2026-11-01T00:09:07Z",
+        "status": "OK",
+        "result_count": 10,
+        "stored_count": 10,
+        "error": null
+      },
+      {
+        "run_id": "1085cf6f-e8dd-40f1-a736-359a24c42aa9",
+        "country": "us",
+        "category": "chart:music",
+        "query": "toppaidapplications",
+        "started_at": "2026-11-01T00:09:10Z",
+        "finished_at": "2026-11-01T00:09:14Z",
+        "status": "OK",
+        "result_count": 10,
+        "stored_count": 10,
+        "error": null
+      }
+    ],
+    "observations": 30
+  },
+  {
+    "source": "apple-page-links",
+    "runs": [
+      {
+        "run_id": "a1981151-f3bf-47fd-9e05-b088e3b76efd",
+        "source": "apple-page-links",
+        "started_at": "2026-11-01T00:08:56Z",
+        "finished_at": "2026-11-01T00:09:04Z",
+        "config_hash": "43ba25d5558c1bd630a3e756b28e6d91db54ba9116b0dbe03912ab4add4e7db7",
+        "expected_queries": 1,
+        "status": "COMPLETE",
+        "settings": {
+          "depth": 1,
+          "jobs": [
+            [
+              "us",
+              "similar-graph",
+              "links-of-286799607"
+            ]
+          ],
+          "source": "apple-page-links"
+        }
+      }
+    ],
+    "queries": [
+      {
+        "run_id": "a1981151-f3bf-47fd-9e05-b088e3b76efd",
+        "country": "us",
+        "category": "similar-graph",
+        "query": "links-of-286799607",
+        "started_at": "2026-11-01T00:08:56Z",
+        "finished_at": "2026-11-01T00:09:04Z",
+        "status": "OK",
+        "result_count": 10,
+        "stored_count": 10,
+        "error": null
+      }
+    ],
+    "observations": 10
+  }
+]

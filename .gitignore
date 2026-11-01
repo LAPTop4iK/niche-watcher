@@ -3,3 +3,11 @@ __pycache__/
 .DS_Store
 *.pyc
 *.db-journal
+
+*.scan.lock
+*.db-wal
+*.db-shm
+
+/niches.db
+.niche-pack-*
+.niche-restore-*

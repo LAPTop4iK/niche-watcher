@@ -1,12 +1,106 @@
-# Scoreboard — куда смотреть (2026-10-31)
+# Очередь исследования — 2026-11-01
 
-Свод: 35% декей + 15% quality-gap + 10% приток + 20% спрос(velocity) + 20% денежность гео. Вакуум исключён (r=−0.33 с декеем). n≥8.
+Порядок по числу кандидатов со свежей активностью, затем слабых сигналов. Это не вероятность успеха и не рейтинг доходности. n — приложения в выдаче, а не случайная выборка рынка. Старые данные и ошибки наблюдений сохранены как неизвестные. «Новые в базе» не считаются новыми конкурентами. Страны не сравниваются по выдуманному LTV.
 
-| Скор | Категория | Гео | n | Зомби% | Fresh% | QG | New | Спрос | Модель | Аномалия |
-|---|---|---|---|---|---|---|---|---|---|---|
-|  43.7 | similar-graph | us | 23 | 30% | 52% | 2 | 0 | 0% | sub | 6,867 |
-|  41.0 | ai_identifiers | ca | 10 | 0% | 70% | 1 | 9 | 0% | sub | 6,867 |
-|  39.6 | hunting_fishing | ca | 11 | 0% | 82% | 1 | 3 | 0% | sub | 6,867 |
-|  36.6 | driving_ed | au | 9 | 0% | 44% | 1 | 1 | 0% | sub | 5,971 |
-|  35.0 | chart:education | us | 58 | 0% | 100% | 7 | 0 | 0% | sub | 6,867 |
-|  33.3 | aviation_marine | us | 141 | 6% | 75% | 1 | 105 | 0% | sub | 6,867 |
+| Категория | Гео | n | Старые версии ≥500 оценок | Активность | Слабый сигнал | Нет свежих сигналов | Неизвестно | Рейтинг <4 при ≥1000 оценок |
+|---|---|---|---|---|---|---|---|---|
+| music_practice | us | 178 | 20 | 11 | 3 | 6 | 0 | 0 |
+| widgets_watch | us | 196 | 29 | 10 | 8 | 11 | 0 | 2 |
+| diy_home | us | 239 | 28 | 9 | 3 | 15 | 1 | 2 |
+| religious | us | 211 | 17 | 9 | 2 | 6 | 0 | 1 |
+| photo_video_utils | us | 236 | 18 | 8 | 3 | 7 | 0 | 4 |
+| auto | us | 340 | 18 | 7 | 3 | 8 | 0 | 1 |
+| finance_tools | us | 305 | 17 | 7 | 3 | 7 | 0 | 0 |
+| travel_utils | us | 237 | 14 | 7 | 1 | 6 | 0 | 0 |
+| music_practice | jp | 166 | 16 | 5 | 5 | 6 | 0 | 6 |
+| ai_identifiers | us | 306 | 7 | 5 | 1 | 1 | 0 | 1 |
+| widgets_watch | jp | 89 | 10 | 5 | 1 | 4 | 0 | 1 |
+| religious | sa | 174 | 8 | 4 | 4 | 0 | 0 | 1 |
+| construction | us | 271 | 15 | 4 | 3 | 7 | 1 | 0 |
+| garden | us | 207 | 14 | 4 | 1 | 8 | 1 | 2 |
+| aviation_marine | us | 248 | 10 | 3 | 3 | 4 | 0 | 2 |
+| books_media | ru | 73 | 18 | 3 | 3 | 12 | 0 | 2 |
+| diy_home | gb | 269 | 15 | 3 | 3 | 9 | 0 | 2 |
+| driving_ed | us | 201 | 11 | 3 | 3 | 5 | 0 | 0 |
+| parenting | us | 179 | 10 | 3 | 2 | 5 | 0 | 0 |
+| trades_pro | us | 258 | 12 | 3 | 2 | 7 | 0 | 0 |
+| books_media | us | 123 | 4 | 3 | 1 | 0 | 0 | 0 |
+| logistics_freight | us | 232 | 10 | 3 | 1 | 5 | 1 | 0 |
+| needlework | us | 206 | 6 | 3 | 1 | 2 | 0 | 0 |
+| pet_care | us | 213 | 12 | 3 | 1 | 8 | 0 | 1 |
+| hunting_fishing | gb | 164 | 5 | 3 | 0 | 2 | 0 | 0 |
+| widgets_watch | gb | 187 | 16 | 2 | 4 | 10 | 0 | 1 |
+| religious | jp | 98 | 6 | 2 | 2 | 2 | 0 | 0 |
+| widgets_watch | ca | 195 | 13 | 2 | 2 | 9 | 0 | 3 |
+| cooking | us | 267 | 6 | 2 | 1 | 3 | 0 | 0 |
+| diy_home | ru | 99 | 10 | 2 | 1 | 7 | 0 | 2 |
+| driving_ed | de | 65 | 3 | 2 | 1 | 0 | 0 | 1 |
+| finance_tools | sa | 181 | 8 | 2 | 1 | 5 | 0 | 1 |
+| hunting_fishing | us | 148 | 8 | 2 | 1 | 5 | 0 | 0 |
+| music_practice | ca | 168 | 7 | 2 | 1 | 4 | 0 | 2 |
+| music_practice | de | 136 | 13 | 2 | 1 | 10 | 0 | 1 |
+| auto | jp | 185 | 2 | 2 | 0 | 0 | 0 | 3 |
+| finance_tools | gb | 319 | 5 | 2 | 0 | 3 | 0 | 0 |
+| hunting_fishing | au | 155 | 3 | 2 | 0 | 1 | 0 | 0 |
+| parenting | au | 175 | 5 | 2 | 0 | 3 | 0 | 0 |
+| parenting | fr | 110 | 3 | 2 | 0 | 1 | 0 | 0 |
+| parenting | gb | 178 | 4 | 2 | 0 | 2 | 0 | 0 |
+| religious | ru | 100 | 5 | 2 | 0 | 3 | 0 | 0 |
+| widgets_watch | ru | 193 | 10 | 2 | 0 | 8 | 0 | 3 |
+| diy_home | ca | 254 | 11 | 1 | 2 | 7 | 1 | 1 |
+| parenting | ru | 90 | 4 | 1 | 2 | 1 | 0 | 0 |
+| ai_tools | jp | 84 | 3 | 1 | 1 | 1 | 0 | 1 |
+| aviation_marine | au | 250 | 5 | 1 | 1 | 3 | 0 | 0 |
+| aviation_marine | gb | 249 | 4 | 1 | 1 | 2 | 0 | 0 |
+| cooking | ru | 47 | 8 | 1 | 1 | 5 | 1 | 1 |
+| finance_tools | de | 170 | 3 | 1 | 1 | 1 | 0 | 0 |
+| finance_tools | ru | 70 | 4 | 1 | 1 | 2 | 0 | 1 |
+| music_practice | gb | 172 | 7 | 1 | 1 | 5 | 0 | 1 |
+| pet_care | ca | 208 | 4 | 1 | 1 | 2 | 0 | 0 |
+| photo_video_utils | ru | 104 | 11 | 1 | 1 | 9 | 0 | 0 |
+| widgets_watch | au | 193 | 12 | 1 | 1 | 10 | 0 | 0 |
+| ai_identifiers | gb | 323 | 3 | 1 | 0 | 2 | 0 | 0 |
+| ai_identifiers | hk | 313 | 1 | 1 | 0 | 0 | 0 | 0 |
+| ai_tools | gb | 250 | 1 | 1 | 0 | 0 | 0 | 2 |
+| ai_tools | ru | 80 | 1 | 1 | 0 | 0 | 0 | 0 |
+| auto | tw | 131 | 2 | 1 | 0 | 1 | 0 | 1 |
+| aviation_marine | ca | 245 | 2 | 1 | 0 | 1 | 0 | 0 |
+| aviation_marine | fr | 211 | 1 | 1 | 0 | 0 | 0 | 0 |
+| books_media | fr | 113 | 1 | 1 | 0 | 0 | 0 | 1 |
+| construction | sa | 83 | 1 | 1 | 0 | 0 | 0 | 0 |
+| cooking | au | 276 | 2 | 1 | 0 | 1 | 0 | 1 |
+| cooking | tw | 55 | 2 | 1 | 0 | 1 | 0 | 0 |
+| driving_ed | at | 65 | 1 | 1 | 0 | 0 | 0 | 1 |
+| finance_tools | au | 323 | 1 | 1 | 0 | 0 | 0 | 1 |
+| finance_tools | ca | 313 | 4 | 1 | 0 | 3 | 0 | 0 |
+| finance_tools | fr | 141 | 4 | 1 | 0 | 3 | 0 | 0 |
+| hunting_fishing | ca | 149 | 1 | 1 | 0 | 0 | 0 | 0 |
+| hunting_fishing | ru | 57 | 1 | 1 | 0 | 0 | 0 | 1 |
+| logistics_freight | jp | 186 | 1 | 1 | 0 | 0 | 0 | 1 |
+| music_practice | fr | 101 | 4 | 1 | 0 | 3 | 0 | 0 |
+| music_practice | se | 122 | 4 | 1 | 0 | 3 | 0 | 0 |
+| needlework | de | 96 | 1 | 1 | 0 | 0 | 0 | 0 |
+| parenting | kr | 118 | 2 | 1 | 0 | 1 | 0 | 0 |
+| pet_care | gb | 209 | 3 | 1 | 0 | 2 | 0 | 0 |
+| pet_care | ru | 90 | 2 | 1 | 0 | 1 | 0 | 0 |
+| photo_video_utils | nl | 224 | 1 | 1 | 0 | 0 | 0 | 2 |
+| religious | au | 189 | 1 | 1 | 0 | 0 | 0 | 0 |
+| religious | il | 77 | 1 | 1 | 0 | 0 | 0 | 0 |
+| religious | tw | 85 | 1 | 1 | 0 | 0 | 0 | 0 |
+| tax_regional | de | 67 | 1 | 1 | 0 | 0 | 0 | 0 |
+| tax_regional | gb | 91 | 2 | 1 | 0 | 1 | 0 | 0 |
+| travel_utils | gb | 230 | 1 | 1 | 0 | 0 | 0 | 0 |
+| widgets_watch | fr | 184 | 12 | 1 | 0 | 11 | 0 | 2 |
+| widgets_watch | nl | 189 | 5 | 1 | 0 | 4 | 0 | 3 |
+| ai_tools | us | 253 | 10 | 0 | 4 | 6 | 0 | 2 |
+| music_practice | au | 164 | 5 | 0 | 2 | 3 | 0 | 0 |
+| music_practice | ru | 91 | 4 | 0 | 2 | 2 | 0 | 0 |
+| parenting | ca | 192 | 4 | 0 | 2 | 2 | 0 | 0 |
+| photo_video_utils | gb | 232 | 7 | 0 | 2 | 5 | 0 | 0 |
+| ai_tools | nl | 236 | 1 | 0 | 1 | 0 | 0 | 2 |
+| auto | ca | 290 | 5 | 0 | 1 | 3 | 1 | 1 |
+| auto | fr | 134 | 3 | 0 | 1 | 2 | 0 | 0 |
+| auto | gb | 305 | 7 | 0 | 1 | 6 | 0 | 1 |
+| aviation_marine | jp | 220 | 2 | 0 | 1 | 1 | 0 | 0 |
+| aviation_marine | nz | 248 | 2 | 0 | 1 | 1 | 0 | 0 |
+| books_media | ae | 100 | 1 | 0 | 1 | 0 | 0 | 0 |

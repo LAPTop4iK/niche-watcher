@@ -1,139 +1,143 @@
 #!/usr/bin/env python3
+"""Explicit cohort scenarios. No country-level recommendation from invented affinity.
+
+paid = one-time unlock AFTER a free installation; upfront paid downloads are
+already purchases and require a different acquisition denominator. Sub revenue
+is a finite cohort projection, not MRR or a payback period.
 """
-Revenue Model — юнит-экономика монетизации нишевого приложения по рынкам.
-
-Формулы (все параметры берутся из markets.json, там же ссылки на источники):
-
-  ADS:      RPD   = ecpm/1000 × impressions_per_dau × avg_active_days
-            avg_active_days = d1 + (d1-d30)/29 × ... — упрощённо: d1 + d7 + d30 (активные дни на юзера)
-  PAID:     RPD   = hardpaywall_conv × price × (1 - commission)
-  SUB:      LTV   = trial_conv × trial_to_paid × price × (1/churn) × (1 - commission)
-  HYBRID:   сумма долей.
-
-  Break-even CPI = RPD (ads/paid) или LTV (sub) — выше этого платить за установку нельзя.
-
-Использование:
-    python3 revenue_model.py --geo us,jp,de --installs 10000 --model compare
-    python3 revenue_model.py --geo jp --model paid --price 6.99 --installs 5000
-    python3 revenue_model.py --geo us --model sub --price 4.99 --conv-top        # топ-квартиль конверсии
-"""
-
 import argparse
 import json
 import os
+import math
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def load():
-    with open(os.path.join(HERE, "markets.json"), encoding="utf-8") as f:
+    with open(os.path.join(HERE, 'markets.json'), encoding='utf-8') as f:
         data = json.load(f)
-    return data["markets"], data["_defaults_research"]
+    return data['markets'], dict(data['_defaults_research'])
+
+
+def validate(mk,d,installs=1,price=0,ads_share=.5):
+    def finite(value):
+        return isinstance(value,(int,float)) and math.isfinite(value)
+    if not finite(installs) or installs<0 or not finite(price) or price<0:
+        raise ValueError('Installs and price must be finite and nonnegative')
+    for name,value in [('store_commission',mk['store_commission']),('refund_rate',d.get('refund_rate',0)),
+        ('monthly_churn_utility',d['monthly_churn_utility']),('ads_share',ads_share),
+        ('one_time_purchase_convert',d.get('one_time_purchase_convert',.02)),
+        ('freemium_sub_convert_30d',d['freemium_sub_convert_30d']),
+        ('freemium_sub_convert_top',d['freemium_sub_convert_top']),
+        ('d1_retention',d['d1_retention']),('d7_retention',d['d7_retention']),('d30_retention',d['d30_retention'])]:
+        if not finite(value) or not 0<=value<=1:
+            raise ValueError(name+' must be in [0,1]')
+    if not 0<=d['d30_retention']<=d['d7_retention']<=d['d1_retention']<=1:
+        raise ValueError('Scenario assumes monotone D1/D7/D30 retention')
+    horizon=d.get('horizon_months',12)
+    if not isinstance(horizon,int) or not 1<=horizon<=120:
+        raise ValueError('Horizon must be an integer in [1,120]')
+    for name,value in [('eCPM',mk['ecpm_interstitial_ios']),('ad_impressions_per_dau',d['ad_impressions_per_dau'])]:
+        if not finite(value) or value<0:
+            raise ValueError(name+' must be finite and nonnegative')
 
 
 def active_days(d):
-    """Активные дни на установку: retention-кривая d1/d7/d30 как суррогат площади под кривой."""
-    return d["d1_retention"] + d["d7_retention"] + d["d30_retention"]
+    """Expected active days in D0..D30, linearly interpolated retention."""
+    knots = [(0, 1), (1, d['d1_retention']), (7, d['d7_retention']), (30, d['d30_retention'])]
+    total = 1.0
+    for (start, left), (end, right) in zip(knots, knots[1:]):
+        total += sum(left + (right-left) * (day-start)/(end-start) for day in range(start+1, end+1))
+    return total
 
 
 def geo_conv(mk, d, kind, conv_top=False):
-    """Конверсия, скорректированная платёжной культурой рынка (affinity 3 = базовая линия)."""
-    base = d["freemium_sub_convert_top"] if conv_top else d["freemium_sub_convert_30d"]
-    if kind == "paid":
-        return d["hardpaywall_convert"] * (mk["paid_affinity"] / 3.0)
-    return base * (mk["sub_affinity"] / 3.0)
+    # Legacy 1..5 affinity ratings are uncalibrated opinions, not multipliers.
+    if kind == 'paid':
+        return d.get('one_time_purchase_convert', 0.02)  # illustrative assumption
+    return d['freemium_sub_convert_top'] if conv_top else d['freemium_sub_convert_30d']
 
 
 def rpd_ads(mk, d):
-    return mk["ecpm_interstitial_ios"] / 1000 * d["ad_impressions_per_dau"] * active_days(d)
+    return mk['ecpm_interstitial_ios']/1000 * d['ad_impressions_per_dau'] * active_days(d)
 
 
 def rpd_paid(mk, d, price, conv_top=False):
-    return geo_conv(mk, d, "paid") * price * (1 - mk["store_commission"])
+    return geo_conv(mk, d, 'paid') * price * (1-mk['store_commission']) * (1-d.get('refund_rate', 0))
 
 
 def ltv_sub(mk, d, price, conv_top=False):
-    months = 1.0 / d["monthly_churn_utility"]
-    return geo_conv(mk, d, "sub", conv_top) * price * months * (1 - mk["store_commission"])
+    cycles = sum((1-d['monthly_churn_utility'])**i for i in range(d.get('horizon_months', 12)))
+    return geo_conv(mk, d, 'sub', conv_top) * price * cycles * (1-mk['store_commission']) * (1-d.get('refund_rate', 0))
 
 
-def model_revenue(geo, mk, d, model, installs, price, conv=None, ads_share=0.5):
-    """Выручка за installs по выбранной модели, USD (до вычета затрат на трафик)."""
-    if model == "ads":
-        return installs * rpd_ads(mk, d)
-    if model == "paid":
-        return installs * rpd_paid(mk, d, price)
-    if model == "sub":
-        return installs * ltv_sub(mk, d, price)
-    if model == "hybrid":
-        # 50% юзеров воронка рекламы, 50% — пейволл с подпиской (классический утилитарный гибрид)
-        return installs * (ads_share * rpd_ads(mk, d) + (1 - ads_share) * ltv_sub(mk, d, price))
-    raise ValueError(model)
+def model_revenue(geo, mk, d, model, installs, price, conv=None, ads_share=0.5, conv_top=False):
+    d = dict(d)
+    if conv is not None:
+        if not 0 <= conv <= 1:
+            raise ValueError('conversion must be in [0,1]')
+        d.update(one_time_purchase_convert=conv, freemium_sub_convert_30d=conv, freemium_sub_convert_top=conv)
+    validate(mk,d,installs,price,ads_share)
+    values = {'ads': rpd_ads(mk,d), 'paid': rpd_paid(mk,d,price), 'sub': ltv_sub(mk,d,price,conv_top)}
+    values['hybrid'] = ads_share*values['ads'] + (1-ads_share)*values['sub']
+    return installs*values[model]
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--geo", default="us", help="us,jp,de — из markets.json; 'all' для рейтинга")
-    ap.add_argument("--model", default="compare", choices=["compare", "ads", "paid", "sub", "hybrid", "rank"])
-    ap.add_argument("--installs", type=int, default=10000)
-    ap.add_argument("--price", type=float, default=4.99, help="цена (разовая или в месяц)")
-    ap.add_argument("--conv-top", action="store_true", help="использовать топ-квартиль конверсий вместо медианы")
+    ap.add_argument('--geo', default='us')
+    ap.add_argument('--model', default='compare', choices=['compare','ads','paid','sub','hybrid','rank'])
+    ap.add_argument('--installs', type=int, default=10000)
+    ap.add_argument('--price', type=float, default=4.99)
+    ap.add_argument('--conv-top', action='store_true')
+    ap.add_argument('--observed',action='store_true',help='показать записанный факт за период без экстраполяции')
+    ap.add_argument('--horizon',type=int,default=12)
+    ap.add_argument('--churn',type=float,help='месячный отток, доля 0..1')
+    ap.add_argument('--refund',type=float,help='доля возвратов 0..1')
+    ap.add_argument('--acquisition-cost',type=float,help='стоимость привлечения одной установки; 0 для органики')
+    ap.add_argument('--conversion', type=float, help='доля платящих (0..1), явный сценарий')
+    ap.add_argument('--variable-cost', type=float, default=0, help='затраты на API/сервис на установку, USD')
     args = ap.parse_args()
-
-    markets, d = load()
-
-    if args.model == "rank":
-        # Рейтинг рынков. organic = абсолютная выручка лучшей модели (для органического входа);
-        # anomaly = выручка/CPI (маржа платного UA). RU tops anomaly из-за CPI $0.5 — смотреть organic тоже.
-        print(f"Выручка на {args.installs} установок, USD. organic = лучшая модель (абсолют); "
-              f"аномалия = organic/CPI (маржа платного UA)\n")
-        rows = []
-        for geo, mk in markets.items():
-            revs = {m: model_revenue(geo, mk, d, m, args.installs, args.price) for m in ["ads", "paid", "sub", "hybrid"]}
-            best_m = max(revs, key=revs.get)
-            anomaly = revs[best_m] / mk["cpi_usd"]
-            rows.append((geo, revs["ads"], revs["paid"], revs["sub"], best_m, revs[best_m], anomaly, mk["tier"]))
-        print(f"{'гео':4} | {'ads':>6} | {'paid':>7} | {'sub':>8} | {'best':6} | {'organic$':>9} | {'аномалия':>8} | tier")
-        print("-" * 72)
-        for r in sorted(rows, key=lambda x: -x[5]):
-            flag = "  ←organic-топ" if r[5] == max(x[5] for x in rows) else ""
-            print(f"{r[0]:4} | {r[1]:6.0f} | {r[2]:7.0f} | {r[3]:8.0f} | {r[4]:6} | {r[5]:9.0f} | {r[6]:8.0f} | {r[7]}{flag}")
-        print("\norganic$ — для органического входа (бесплатные установки); аномалия — маржа платного UA")
+    if args.installs <= 0 or args.price < 0 or args.variable_cost < 0 or (args.conversion is not None and not 0 <= args.conversion <= 1):
+        ap.error('нужны установки >0, неотрицательные цена/затраты и конверсия 0..1')
+    markets,d = load()
+    if args.observed:
+        with open(os.path.join(HERE,'markets.json'),encoding='utf-8') as f:
+            fact=json.load(f).get('_calibration')
+        print(json.dumps(fact,ensure_ascii=False,indent=2) if fact else 'Наблюдаемых данных ещё нет')
         return
-
-    for geo in [g.strip() for g in args.geo.split(",")]:
-        mk = markets[geo]
-        print(f"\n===== {geo.upper()}  (lang={mk['lang']}, eCPM int={mk['ecpm_interstitial_ios']}$, "
-              f"paid={mk['paid_affinity']}/5, sub={mk['sub_affinity']}/5, CPI={mk['cpi_usd']}$) =====")
-
-        if args.model == "compare":
-            rows = []
-            for m in ["ads", "paid", "sub", "hybrid"]:
-                rev = model_revenue(geo, mk, d, m, args.installs, args.price)
-                # break-even CPI: ads/paid окупаются с первой установки, sub — весь LTV
-                be = {"ads": rpd_ads(mk, d), "paid": rpd_paid(mk, d, args.price),
-                      "sub": ltv_sub(mk, d, args.price, conv_top=args.conv_top),
-                      "hybrid": model_revenue(geo, mk, d, "hybrid", 1, args.price)}[m]
-                rows.append((m, rev, rev / args.installs, be))
-            print(f"{'модель':8} | {'выручка на '+str(args.installs)+' уст.':>14} | {'RPD/LTV $':>9} | {'max CPI $':>9}")
-            print("-" * 55)
-            for m, rev, rpd, be in rows:
-                print(f"{m:8} | {rev:14.0f} | {rpd:9.3f} | {be:9.3f}")
-            best = max(rows, key=lambda r: r[1])[0]
-            print(f"→ лучшая модель на этом рынке: {best}; платный UA выгоден при CPI < break-even")
-            print(f"  конверсии с учётом культуры рынка: hard-paywall={geo_conv(mk,d,'paid')*100:.1f}%, "
-                  f"freemium sub 30д={geo_conv(mk,d,'sub')*100:.1f}% (топ {geo_conv(mk,d,'sub',True)*100:.1f}%)  [RevenueCat 2026 × affinity]")
-        else:
-            rev = model_revenue(geo, mk, d, args.model, args.installs, args.price)
-            per = rev / args.installs
-            print(f"модель {args.model}: выручка {rev:.0f}$ на {args.installs} установок ({per:.3f}$/установку)")
-            if args.model in ("ads", "paid"):
-                print(f"break-even CPI = {per:.3f}$ (рыночный CPI {mk['cpi_usd']}$ → "
-                      f"{'УБЫТОЧНО' if mk['cpi_usd'] > per else 'окупается'}, маржа {(per-mk['cpi_usd']):.3f}$/установку)")
-            else:
-                months_payback = mk["cpi_usd"] / per if per else 999
-                print(f"окупаемость CPI {mk['cpi_usd']}$ за {months_payback:.1f} мес LTV-потока")
+    d['horizon_months']=args.horizon
+    if args.churn is not None:
+        d['monthly_churn_utility']=args.churn
+    if args.refund is not None:
+        d['refund_rate']=args.refund
+    if any(not math.isfinite(v) for v in (args.price,args.variable_cost)) or (args.acquisition_cost is not None and (not math.isfinite(args.acquisition_cost) or args.acquisition_cost<0)):
+        ap.error('Нужны конечные неотрицательные затраты и цена')
+    print('СЦЕНАРИЙ, не прогноз. Paid = разовая покупка внутри бесплатного приложения.\n'
+          f'Ads: D0–D30; Sub: когорта за {args.horizon} мес при постоянном churn. Горизонты различаются.\n'
+          'Affinity не используется; выбор модели требует данных конкретной ниши.\n'
+          'Калибровка _calibration — наблюдение за период, не LTV; автоматически не экстраполируется.\n')
+    geos = markets if args.model == 'rank' or args.geo == 'all' else args.geo.split(',')
+    for geo in geos:
+        if geo not in markets:
+            ap.error('Неизвестная страна '+geo)
+        mk=markets[geo]
+        try:
+            validate(mk,d,args.installs,args.price)
+        except ValueError as error:
+            ap.error(str(error))
+        models=['ads','paid','sub','hybrid'] if args.model in ('compare','rank') else [args.model]
+        for model in models:
+            rev=model_revenue(geo,mk,d,model,args.installs,args.price,conv=args.conversion,conv_top=args.conv_top)
+            per=rev/args.installs
+            acquisition=mk['cpi_usd'] if args.acquisition_cost is None else args.acquisition_cost
+            contribution=per-args.variable_cost-acquisition
+            print(f'{geo} {model}: поступления ${rev:,.0f}; ${per:.3f}/установку; '
+                  f'после заданных переменных затрат и CPI ${contribution:+.3f}/уст.')
+    print('\nЭто не прибыль: не учтены труд, налоги и неуказанные расходы. '
+          'Срок окупаемости без временного ряда платежей неизвестен. '
+          'Hybrid: взаимоисключающие доли рекламной и подписочной воронок 50/50 — только допущение.')
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

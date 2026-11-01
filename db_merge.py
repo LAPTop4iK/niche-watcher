@@ -1,89 +1,91 @@
 #!/usr/bin/env python3
+"""Union observations by complete payload, including country/category/query.
+
+Only merge quiescent SQLite files or files made with sqlite3.Connection.backup.
+Do not copy/rebase a live database. Demand results are merged by checked_at.
 """
-DB Merge — слияние двух niches.db (структурное решение бинарных git-конфликтов).
-
-Проблема: SQLite-байны не мержатся в git; когда локальный прогон и Actions-прогон
-коммитят niches.db параллельно, rebase падает и одна сторона теряется.
-Решение: снапшоты аддитивны — сливаем их в одну базу (apps upsert по track_id,
-snapshots вставкой «того, чего нет» по (track_id, scanned_at)).
-
-Использование (при конфликте или после него):
-    git fetch origin
-    git show origin/main:niches.db > /tmp/remote.db
-    python3 db_merge.py --main niches.db --other /tmp/remote.db   # other вливается в main
-"""
-
 import argparse
 import os
 import sqlite3
-import sys
+import db_store
+
+
+def columns(con, schema, table):
+    return {r[1]:r[2] for r in con.execute(f'PRAGMA {schema}.table_info({table})')}
 
 
 def merge(main_path, other_path):
-    con = sqlite3.connect(main_path, timeout=30)
-    con.execute("ATTACH DATABASE ? AS src", (other_path,))
+    db_store.ensure(main_path);db_store.ensure(other_path)
+    if not os.path.exists(other_path):
+        raise FileNotFoundError(other_path)
+    with sqlite3.connect(main_path, timeout=30) as con:
+        con.execute('ATTACH DATABASE ? AS src',(other_path,))
+        source_tables={r[0]:r[1] for r in con.execute("SELECT name,sql FROM src.sqlite_master WHERE type='table'")}
+        counts={}
+        for table in ('apps','scan_runs','scan_queries','snapshots','play_apps','play_snapshots','demand','study_members','study_reviews','notification_outbox'):
+            if table not in source_tables:
+                continue
+            if not columns(con,'main',table):
+                con.execute(source_tables[table])
+            src=columns(con,'src',table)
+            dst=columns(con,'main',table)
+            for name,kind in src.items():
+                if name not in dst:
+                    con.execute(f'ALTER TABLE main.{table} ADD COLUMN "{name}" {kind}')
+            cols=[k for k in src if k!='id']
+            names=','.join(f'"{k}"' for k in cols)
+            if table in ('snapshots','play_snapshots'):
+                equals=' AND '.join(f'm."{k}" IS s."{k}"' for k in cols)
+                counts[table]=con.execute(f'''INSERT INTO main.{table} ({names})
+                    SELECT {','.join('s.'+chr(34)+k+chr(34) for k in cols)} FROM src.{table} s
+                    WHERE NOT EXISTS (SELECT 1 FROM main.{table} m WHERE {equals})''').rowcount
+            elif table in ('study_members','study_reviews'):
+                con.execute(f'INSERT OR IGNORE INTO main.{table} ({names}) SELECT {names} FROM src.{table}')
+            elif table in ('scan_runs','scan_queries','notification_outbox'):
+                keys={'scan_runs':['run_id'],'scan_queries':['run_id','country','category','query'],
+                      'notification_outbox':['event_key']}[table]
+                if table=='scan_runs':
+                    conflict=con.execute('SELECT 1 FROM main.scan_runs m JOIN src.scan_runs s USING(run_id) WHERE m.config_hash!=s.config_hash LIMIT 1').fetchone()
+                    if conflict:
+                        raise ValueError('Conflicting scan configurations with the same run ID')
+                update=','.join(f'"{k}"=excluded."{k}"' for k in cols if k not in keys)
+                if table=='scan_runs':
+                    condition="excluded.status='COMPLETE' OR (scan_runs.status!='COMPLETE' AND COALESCE(excluded.finished_at,excluded.started_at)>=COALESCE(scan_runs.finished_at,scan_runs.started_at))"
+                elif table=='scan_queries':
+                    condition="(excluded.status='OK' AND (scan_queries.status!='OK' OR excluded.finished_at>=scan_queries.finished_at)) OR (scan_queries.status!='OK' AND COALESCE(excluded.finished_at,excluded.started_at)>=COALESCE(scan_queries.finished_at,scan_queries.started_at))"
+                else:
+                    condition="excluded.status='SENT' OR (notification_outbox.status!='SENT' AND COALESCE(excluded.last_attempt_at,excluded.created_at)>=COALESCE(notification_outbox.last_attempt_at,notification_outbox.created_at))"
+                con.execute(f'INSERT INTO main.{table} ({names}) SELECT {names} FROM src.{table} WHERE 1 ON CONFLICT({",".join(keys)}) DO UPDATE SET {update} WHERE {condition}')
+            elif table=='demand':
+                update=','.join(f'"{k}"=excluded."{k}"' for k in cols if k not in ('track_id','country'))
+                con.execute(f'INSERT INTO main.demand ({names}) SELECT {names} FROM src.demand WHERE 1 ON CONFLICT(track_id,country) DO UPDATE SET {update} WHERE excluded.checked_at>=demand.checked_at')
+            else:
+                pk='track_id' if table=='apps' else 'app_id'
+                updates=[]
+                for k in cols:
+                    if k==pk:
+                        continue
+                    if k=='first_seen':
+                        updates.append('first_seen=MIN(first_seen,excluded.first_seen)')
+                    elif k=='first_country':
+                        updates.append('first_country=CASE WHEN excluded.first_seen<first_seen THEN excluded.first_country ELSE first_country END')
+                    elif k=='last_seen':
+                        updates.append('last_seen=MAX(last_seen,excluded.last_seen)')
+                    else:
+                        updates.append(f'"{k}"=CASE WHEN excluded.last_seen >= last_seen THEN excluded."{k}" ELSE "{k}" END')
+                con.execute(f'''INSERT INTO main.{table} ({names}) SELECT {names} FROM src.{table} WHERE 1
+                    ON CONFLICT({pk}) DO UPDATE SET {','.join(updates)}''')
+        con.commit()
+        con.execute('DETACH DATABASE src')
+    print('merge OK:',counts)
 
-    apps_added = con.execute(
-        """INSERT OR IGNORE INTO main.apps
-           (track_id, name, seller, bundle_id, store_url, price, genre,
-            first_country, first_seen, last_seen)
-           SELECT track_id, name, seller, bundle_id, store_url, price, genre,
-                  first_country, first_seen, last_seen FROM src.apps"""
-    ).rowcount
-    # last_seen/max: подтянуть более свежий
-    con.execute(
-        """UPDATE main.apps SET last_seen = (
-               SELECT MAX(v) FROM (SELECT last_seen AS v FROM main.apps WHERE track_id = main.apps.track_id
-                                   UNION ALL SELECT last_seen FROM src.apps WHERE track_id = main.apps.track_id))
-           WHERE track_id IN (SELECT track_id FROM src.apps)"""
-    )
 
-    snaps_added = con.execute(
-        """INSERT INTO main.snapshots
-           (track_id, country, category, query, scanned_at, version, version_date,
-            rating_count, avg_rating, rank)
-           SELECT s.track_id, s.country, s.category, s.query, s.scanned_at, s.version,
-                  s.version_date, s.rating_count, s.avg_rating, s.rank
-           FROM src.snapshots s
-           WHERE NOT EXISTS (
-               SELECT 1 FROM main.snapshots m
-               WHERE m.track_id = s.track_id AND m.scanned_at = s.scanned_at)"""
-    ).rowcount
-
-    # play-таблицы, если есть в обеих
-    for tbl, pk in [("play_apps", "app_id")]:
-        try:
-            con.execute(
-                f"""INSERT OR IGNORE INTO main.{tbl} SELECT * FROM src.{tbl}"""
-            )
-        except sqlite3.OperationalError:
-            pass
-    try:
-        con.execute(
-            """INSERT INTO main.play_snapshots
-               (app_id, country, category, query, scanned_at, updated_at, stale_days,
-                rating, ratings_count, installs)
-               SELECT s.app_id, s.country, s.category, s.query, s.scanned_at, s.updated_at,
-                      s.stale_days, s.rating, s.ratings_count, s.installs
-               FROM src.play_snapshots s
-               WHERE NOT EXISTS (SELECT 1 FROM main.play_snapshots m
-                                 WHERE m.app_id = s.app_id AND m.scanned_at = s.scanned_at)"""
-        )
-    except sqlite3.OperationalError:
-        pass
-
-    con.commit()
-    con.execute("DETACH DATABASE src")
-    total = con.execute("SELECT COUNT(*) FROM snapshots").fetchone()[0]
-    con.close()
-    print(f"merge OK: +{apps_added} apps, +{snaps_added} snapshots; в базе теперь {total} снапшотов")
-
-
-if __name__ == "__main__":
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--main", default="niches.db")
-    ap.add_argument("--other", required=True)
-    args = ap.parse_args()
+if __name__=='__main__':
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--main',default='niches.db')
+    ap.add_argument('--other',required=True)
+    args=ap.parse_args()
+    db_store.ensure(args.other)
     if not os.path.exists(args.other):
-        sys.exit(f"нет файла {args.other}")
-    merge(args.main, args.other)
+        ap.error('нет файла '+args.other)
+    merge(args.main,args.other)

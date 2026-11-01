@@ -13,8 +13,12 @@ Seed Harvester — добыча новых запросов-ниш из собс
 """
 
 import argparse
+import db_store
 import json
 import os
+from pathlib import Path
+import evidence
+import unicodedata
 import re
 import sqlite3
 from collections import Counter
@@ -26,7 +30,7 @@ timer time app calculator calculators конвертер калькулятор 
 
 
 def tokens(text):
-    return [w for w in re.split(r"[^a-zа-яёäöüß0-9]+", text.lower()) if len(w) > 2 and w not in STOP]
+    return [w for w in re.findall(r'[^\W_]+',text.lower(),re.UNICODE) if len(w)>2 and w not in STOP]
 
 
 def main():
@@ -36,31 +40,34 @@ def main():
     ap.add_argument("--min-count", type=int, default=4)
     ap.add_argument("--top", type=int, default=12)
     args = ap.parse_args()
+    db_store.ensure(args.db)
 
-    seed = json.load(open(args.seed, encoding="utf-8"))
+    seed = json.loads(Path(args.seed).read_text(encoding='utf-8'))
     existing = set()
     for cat in seed["categories"]:
         for lang_qs in cat["queries"].values():
             for q in lang_qs:
                 existing.add(" ".join(sorted(tokens(q))))
 
-    con = sqlite3.connect(args.db)
-    rows = con.execute(
-        """SELECT s.category, a.name FROM apps a
-           JOIN snapshots s ON a.track_id = s.track_id
-           GROUP BY a.track_id"""
-    ).fetchall()
+    con=sqlite3.connect(Path(args.db).resolve().as_uri()+'?mode=ro',uri=True)
+    con.execute('BEGIN')
+    rows=evidence.latest(con,by_category=True)
     con.close()
-
-    by_cat = {}
-    for cat, name in rows:
-        toks = tokens(name)
-        for i in range(len(toks) - 1):
-            bigram = f"{toks[i]} {toks[i+1]}"
-            key = " ".join(sorted(toks[i : i + 2]))
-            if key in existing:
-                continue
-            by_cat.setdefault(cat, Counter())[bigram] += 1
+    by_cat={};seen=set()
+    for row in rows:
+        cat,name=row['category'],row['name']
+        if cat.startswith('chart:') or cat=='similar-graph':
+            continue
+        key=(row['track_id'],cat)
+        if key in seen:
+            continue
+        seen.add(key)
+        toks=tokens(name);grams=set()
+        for i in range(len(toks)-1):
+            bigram=f'{toks[i]} {toks[i+1]}'
+            if ' '.join(sorted(toks[i:i+2])) not in existing:
+                grams.add(bigram)
+        by_cat.setdefault(cat,Counter()).update(grams)
 
     print("# Кандидаты в seed (частотные биграммы, которых нет в seed_queries.json)\n")
     for cat, counter in sorted(by_cat.items()):

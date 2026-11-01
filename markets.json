@@ -1,5 +1,5 @@
 {
-  "_comment": "Профили рынков. tier: 1 = ежедневный скан (деньги), 2 = еженедельный. Числа — редактируемые оценки (октябрь 2026), источник-факты в note. ecpm_* — USD/1000 показов iOS. affinity 1..5. Модель: revenue_model.py читает отсюда.",
+  "_comment": "Профили расписания и ЯВНЫЕ СЦЕНАРНЫЕ ДОПУЩЕНИЯ для экономики. eCPM, CPI, affinity и note не измерены нашей базой. Affinity не участвует в revenue_model. Язык не доказывает монополию. Старые note — гипотезы, не факты.",
   "markets": {
     "us": {
       "lang": "en",
@@ -292,6 +292,10 @@
     "d1_retention": 0.25,
     "d7_retention": 0.1,
     "d30_retention": 0.04,
-    "sources": "RevenueCat State of Subscription Apps 2026 (10.7% vs 2.1%); TopOn/AnyMind eCPM Q4-2025 (JP/US/TW top interstitial); Business of Apps CPI 2025; StatCounter iOS share 2025"
+    "sources": "RevenueCat State of Subscription Apps 2026 (10.7% vs 2.1%); TopOn/AnyMind eCPM Q4-2025 (JP/US/TW top interstitial); Business of Apps CPI 2025; StatCounter iOS share 2025",
+    "one_time_purchase_convert": 0.02,
+    "horizon_months": 12,
+    "refund_rate": 0.03,
+    "assumption_note": "Экономические параметры — пример сценария, не прогноз ниши. hardpaywall_convert=0.107 — справочный D35 subscription download-to-paid RevenueCat 2026, НЕ разовая покупка. freemium_sub_convert_30d=0.017 и top=0.042 — прежние сценарные допущения, не заявленные D35 медианы 2026. Конверсию и churn заменять данными собственной когорты."
   }
 }

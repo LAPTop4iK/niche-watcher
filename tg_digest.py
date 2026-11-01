@@ -1,105 +1,85 @@
 #!/usr/bin/env python3
-"""
-TG Digest — еженедельная сводка динамики в Telegram (запускается по субботам).
-
-Содержимое:
-  - размер базы и прогонов
-  - тренд зомби (сравнение последних прогонов)
-  - топ-5 по velocity (кто быстрее всего набирает оценки при гнилой версии)
-  - самые быстро зарастающие ниши (приток за 7 дней)
-  - ссылка на дашборд
-
-Использование:
-    python3 tg_digest.py --print     # показать сообщение
-    python3 tg_digest.py --send      # отправить (нужны TG_BOT_TOKEN/TG_CHAT_ID)
-"""
-
+"""Weekly activity digest. Use --print for a preview; --send sends explicitly."""
 import argparse
+import db_store
+from pathlib import Path
 import html
 import os
 import sqlite3
-import sys
-from datetime import datetime, timezone
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from collections import Counter
+import evidence
 import scanner as sc
 
 
-def is_zombie(version_date, rc, min_months=18, min_ratings=500):
-    if not version_date or rc < min_ratings:
-        return False
-    return sc.months_between(sc.parse_iso(version_date), sc.now_utc()) >= min_months
+def build_message(con):
+    con.row_factory=sqlite3.Row
+    rows=evidence.latest(con)
+    cached=evidence.demand_map(con)
+    candidates=[]
+    for r in rows:
+        if evidence.is_candidate(r):
+            r.update(evidence.assess(con,r,cached.get((r['track_id'],r['country']))))
+            candidates.append(r)
+    counts=Counter(r['verdict'] for r in candidates)
+    geos=len({r['country'] for r in rows})
+    unique=con.execute('SELECT COUNT(*) FROM apps').fetchone()[0]
+    lines=['🔭 <b>Niche Watcher — очередь проверки</b>',
+           f'База: {unique:,} приложений · стран с данными: {geos}/24',
+           'Срез базы: '+str(con.execute('SELECT MAX(scanned_at) FROM snapshots').fetchone()[0] or 'нет наблюдений'),
+           f'Старые версии ≥500 оценок: {len(candidates)} записей приложение × страна',
+           '\n'+' · '.join(f'{evidence.LABELS[s]}: {counts[s]}' for s in evidence.LABELS),
+           '\nАктивность ≠ платежи. Ни один статус сам по себе не означает «делать».']
+    growing=sorted((r for r in candidates if r['velocity'] is not None and r['velocity']>0),
+                   key=lambda r:-r['velocity'])[:5]
+    if growing:
+        lines.append('\n<b>Прирост оценок старых версий (история ≥7 дней)</b>')
+        for r in growing:
+            url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
+            lines.append(f"• <a href=\"{url}\">{html.escape(r['name'][:120])}</a> {sc.flag_emoji(r['country'])}: "
+                         f"{r['velocity']:+.0f}/30д за {r['days']:.1f} дн.")
+    else:
+        lines.append('\nНадёжного положительного прироста пока нет. Проверь срок наблюдений в дашборде.')
+    ranked=sorted((r for r in candidates if r['verdict']=='ALIVE'),
+        key=lambda r:(-int((r.get('price') or 0)>0 and (r.get('bad_recent_count') or 0)>0),
+                      -int((r.get('bad_recent_count') or 0)>0),-(r['r90'] or 0)))
+    active=[];seen=set()
+    for row in ranked:
+        if row['track_id'] not in seen:
+            active.append(row);seen.add(row['track_id'])
+        if len(active)==3:
+            break
+    if active:
+        lines.append('\n<b>Для ручного исследования</b> (не рейтинг заработка)')
+        for r in active:
+            url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
+            lines.append(f"• <a href=\"{url}\">{html.escape(r['name'][:120])}</a> {sc.flag_emoji(r['country'])}: "
+                         f"R90 ≥ {r['r90'] or 0}; свежие 1–2★: {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'}")
+    lines.append(f'\n📊 <a href="{sc.telegram_dashboard_url()}">Доказательства и следующий шаг</a>')
+    return '\n'.join(lines)
 
 
 def main():
-    here = os.path.dirname(os.path.abspath(__file__))
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--db", default=os.path.join(here, "niches.db"))
-    ap.add_argument("--print", action="store_true")
-    ap.add_argument("--send", action="store_true")
-    args = ap.parse_args()
-
-    con = sqlite3.connect(args.db)
-    n_apps = con.execute("SELECT COUNT(*) FROM apps").fetchone()[0]
-    n_runs = con.execute("SELECT COUNT(DISTINCT scanned_at) FROM snapshots").fetchone()[0]
-
-    # последние снапшоты всех приложений
-    latest = con.execute(
-        """SELECT s.track_id, s.country, s.category, s.rating_count, s.avg_rating,
-                  s.version_date, a.name, a.store_url
-           FROM snapshots s JOIN apps a ON a.track_id = s.track_id
-           WHERE s.scanned_at = (SELECT MAX(s2.scanned_at) FROM snapshots s2 WHERE s2.track_id = s.track_id AND s2.country = s.country)"""
-    ).fetchall()
-
-    zombies = [r for r in latest if is_zombie(r[5], r[3])]
-    new_7d = con.execute(
-        "SELECT COUNT(*) FROM apps WHERE first_seen >= datetime('now','-7 days')"
-    ).fetchone()[0]
-
-    # velocity: треки с 2+ снапшотами >=6 дней между первым и последним
-    vel = []
-    rows = con.execute(
-        """SELECT track_id, country, MIN(scanned_at), MAX(scanned_at),
-                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id AND s2.country = s.country
-                    ORDER BY scanned_at DESC LIMIT 1) AS rc_now
-           FROM snapshots s GROUP BY track_id, country
-           HAVING julianday(MAX(scanned_at)) - julianday(MIN(scanned_at)) >= 6"""
-    ).fetchall()
-    for tid, dcountry, first, last, rc_now in rows:
-        rc_first = con.execute(
-            "SELECT rating_count FROM snapshots WHERE track_id = ? AND country = ? AND scanned_at = ?",
-            (tid, dcountry, first),
-        ).fetchone()[0]
-        days = max(1, (sc.parse_iso(last) - sc.parse_iso(first)).days)
-        if rc_now and rc_first is not None and rc_now > rc_first:
-            vel.append(((rc_now - rc_first) / days * 30.0, tid, rc_now))
-    con.close()
-
-    meta = {r[0]: r for r in latest}
-    top_vel = sorted(vel, reverse=True)[:5]
-
-    e = html.escape
-    lines = [
-        f"📈 <b>Niche Watcher — недельная динамика</b>",
-        f"База: {n_apps:,} приложений · прогонов: {n_runs} · зомби: <b>{len(zombies)}</b> · "
-        f"новых за 7 дней: {new_7d}",
-    ]
-    if top_vel:
-        lines.append("\n🚀 <b>Топ velocity</b> (прирост оценок/30д у гнилых версий):")
-        for v, tid, rc in top_vel:
-            m = meta.get(tid)
-            if not m:
-                continue
-            lines.append(f"• <a href=\"{m[7]}\">{e(m[6])}</a> {sc.flag_emoji(m[1])} — "
-                         f"<b>{v:+.0f}</b>/30д ({rc:,} оценок)")
-    lines.append("\n📊 <a href=\"" + sc.telegram_dashboard_url() + "\">дашборд с чартами</a>")
-    msg = "\n".join(lines)
-
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--db',default=os.path.join(os.path.dirname(__file__),'niches.db'))
+    ap.add_argument('--print',action='store_true')
+    ap.add_argument('--send',action='store_true')
+    args=ap.parse_args()
+    db_store.ensure(args.db)
+    with sqlite3.connect(Path(args.db).resolve().as_uri()+'?mode=ro',uri=True) as con:
+        msg=build_message(con)
     if args.print or not args.send:
         print(msg)
     if args.send:
-        sc.send_telegram(msg)
+        import notifications
+        from datetime import datetime,timezone
+        with sqlite3.connect(args.db) as con:
+            notifications.enqueue(con,'weekly:'+datetime.now(timezone.utc).strftime('%G-%V'),msg)
+            if not os.environ.get('TG_BOT_TOKEN') or not os.environ.get('TG_CHAT_ID'):
+                raise SystemExit('Telegram credentials missing; message stays pending')
+            _,failed=notifications.flush(con,sc.send_telegram)
+            if failed:
+                raise SystemExit('Telegram not acknowledged; message stays pending')
 
 
-if __name__ == "__main__":
+if __name__=='__main__':
     main()

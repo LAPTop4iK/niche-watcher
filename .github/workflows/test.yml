@@ -1,0 +1,24 @@
+name: validation
+on:
+  push:
+    paths: ['niches.db.gz', 'ci_save.sh', 'seed_queries.json', 'markets.json', 'requirements-play.txt', '**.py', 'tests/**', '.github/workflows/**', 'dashboard_template.html', 'dashboard.js', 'dashboard.css']
+  pull_request: {}
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Regression tests (no network or secrets)
+        run: python3 -m unittest discover -s tests -v
+      - name: Compile and validate committed data
+        run: |
+          python3 -m compileall -q .
+          node --check dashboard.js
+          python3 validate_data.py
+      - name: Build dashboard
+        run: python3 dashboard.py --out-dir /tmp/niche-dashboard

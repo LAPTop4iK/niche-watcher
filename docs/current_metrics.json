@@ -1,0 +1,122 @@
+{
+  "method": "activity-v3",
+  "candidate_storefronts": 1120,
+  "counts": {
+    "WEAK": 166,
+    "NO_RECENT_EVIDENCE": 600,
+    "ALIVE": 350,
+    "UNKNOWN": 4
+  },
+  "transitions": {
+    "WEAK → WEAK": 166,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 600,
+    "ALIVE → ALIVE": 350,
+    "UNKNOWN → UNKNOWN": 4
+  },
+  "apps": 28849,
+  "snapshots": 150396,
+  "coverage": [
+    {
+      "country": "ae",
+      "apps": 3911
+    },
+    {
+      "country": "at",
+      "apps": 1787
+    },
+    {
+      "country": "au",
+      "apps": 4746
+    },
+    {
+      "country": "ca",
+      "apps": 4813
+    },
+    {
+      "country": "ch",
+      "apps": 1829
+    },
+    {
+      "country": "de",
+      "apps": 4349
+    },
+    {
+      "country": "dk",
+      "apps": 3054
+    },
+    {
+      "country": "fi",
+      "apps": 2928
+    },
+    {
+      "country": "fr",
+      "apps": 3722
+    },
+    {
+      "country": "gb",
+      "apps": 7402
+    },
+    {
+      "country": "hk",
+      "apps": 3358
+    },
+    {
+      "country": "ie",
+      "apps": 4541
+    },
+    {
+      "country": "il",
+      "apps": 4191
+    },
+    {
+      "country": "jp",
+      "apps": 6109
+    },
+    {
+      "country": "kr",
+      "apps": 3389
+    },
+    {
+      "country": "nl",
+      "apps": 3225
+    },
+    {
+      "country": "no",
+      "apps": 3178
+    },
+    {
+      "country": "nz",
+      "apps": 4644
+    },
+    {
+      "country": "ru",
+      "apps": 3723
+    },
+    {
+      "country": "sa",
+      "apps": 3954
+    },
+    {
+      "country": "se",
+      "apps": 3059
+    },
+    {
+      "country": "sg",
+      "apps": 4546
+    },
+    {
+      "country": "tw",
+      "apps": 3539
+    },
+    {
+      "country": "us",
+      "apps": 8556
+    }
+  ],
+  "history": {
+    "first": "2026-10-30T16:40:07Z",
+    "last": "2026-10-31T21:04:52Z"
+  },
+  "histories_7d": 0,
+  "adjacent_counter_drops": 2272
+}

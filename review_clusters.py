@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Review Clusters — группировка жалоб на лидера в кластеры → фич-лист MVP.
+Review Clusters — лексические группы жалоб для ручной проверки.
 
-Без LLM, детерминированно: 1-2★ отзывы делятся на кластеры по общим жалобным
-токенам; каждый кластер = потенциальная фича твоего приложения. Работает по
+Без LLM, детерминированно: 1-3★ отзывы делятся на кластеры по общим жалобным
+токенам; кластеры дают темы для ручной проверки, не готовый фич-лист. Работает по
 iOS (RSS отзывов) и Google Play (google-play-scraper).
 
 Использование:
@@ -16,6 +16,9 @@ import argparse
 import os
 import re
 import sys
+import time
+import math
+import unicodedata
 from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -30,7 +33,7 @@ than too при этом для что так как это оно они его
 
 
 def tokens(text):
-    return [w.lower() for w in re.split(r"[^a-zA-Zа-яА-ЯёЁ]+", text) if len(w) > 3 and w.lower() not in STOP]
+    return [w for w in re.findall(r'[^\W\d_]+',unicodedata.normalize('NFKC',text).casefold(),re.UNICODE) if len(w)>3 and w not in STOP]
 
 
 def cluster(reviews_bad, max_clusters=6):
@@ -55,26 +58,35 @@ def cluster(reviews_bad, max_clusters=6):
 
 def fetch_ios(track_id, country, n):
     out = []
-    for page in range(1, max(1, n // 50) + 1):
+    seen=set()
+    total_seen=0
+    for page in range(1, min(10, max(1, (n + 49) // 50)) + 1):
         try:
             data = sc.fetch_json(
                 f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}"
                 f"/sortby=mostrecent/page={page}/json")
-        except RuntimeError:
+        except RuntimeError as error:
+            print(f'RSS page {page} unavailable; review sample incomplete: {error}',file=sys.stderr)
+            if not out:
+                raise
             break
         entries = (data.get("feed") or {}).get("entry") or []
         if isinstance(entries, dict):
             entries = [entries]
-        added = 0
+        rated = 0
         for e in entries:
             if "im:rating" not in e:
                 continue
+            identity=e.get('id',{}).get('label') or str(e)
+            if identity in seen or total_seen>=n:
+                continue
+            seen.add(identity);total_seen+=1
+            rated += 1
             if int(e["im:rating"]["label"]) <= 3:
                 out.append({"text": e.get("content", {}).get("label", ""),
                             "score": int(e["im:rating"]["label"]),
-                            "thumbs": 0})
-                added += 1
-        if added == 0:
+                            "thumbs": 0,"date":e.get("updated",{}).get("label","")[:10]})
+        if rated == 0:
             break
         time.sleep(1)
     return out
@@ -84,7 +96,7 @@ def fetch_play(app_id, country, n):
     from google_play_scraper import reviews, Sort
     lang = {"us": "en", "gb": "en", "de": "de", "ru": "ru", "jp": "ja", "kr": "ko"}.get(country, "en")
     result, _ = reviews(app_id, lang=lang, country=country, count=n, sort=Sort.NEWEST)
-    return [{"text": r["content"], "score": r["score"], "thumbs": r.get("thumbsUpCount", 0)}
+    return [{"text": r["content"], "score": r["score"], "thumbs": r.get("thumbsUpCount", 0),"date":str(r.get("at", ""))[:10]}
             for r in result if r["score"] <= 3]
 
 
@@ -94,6 +106,7 @@ def main():
     ap.add_argument("--play", help="Play appId")
     ap.add_argument("--country", default="us")
     ap.add_argument("--n", type=int, default=300)
+    ap.add_argument("--days",type=int,default=90)
     args = ap.parse_args()
 
     if not args.ios and not args.play:
@@ -104,7 +117,8 @@ def main():
         bad += fetch_ios(args.ios, args.country, args.n)
     if args.play:
         bad += fetch_play(args.play, args.country, args.n)
-    bad = [r for r in bad if r["text"]]
+    cutoff=(sc.now_utc()-__import__('datetime').timedelta(days=args.days)).strftime('%Y-%m-%d')
+    bad = [r for r in bad if r["text"] and r.get('date','')>=cutoff]
     if not bad:
         sys.exit("1-3★ отзывов не найдено")
 
@@ -119,9 +133,9 @@ def main():
             print(f"   [{t['score']}★ 👍{t['thumbs']}] {txt}")
         print()
     print(f"Некластеризованный остаток: {len(rest)}")
-    print("→ Каждый кластер = фича/фикс твоего MVP; размер = приоритет.")
+    print("Словарная группировка: не измеряет долю проблем среди всех пользователей; для CJK нет сегментации слов.")
+    print("→ Кластеры — гипотезы: проверь свежесть, контекст, повторяемость и готовность платить. Частота слова не равна приоритету MVP.")
 
 
 if __name__ == "__main__":
-    import time
     main()

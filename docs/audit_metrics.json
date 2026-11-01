@@ -1,0 +1,110 @@
+{
+  "method": "activity-v2",
+  "candidate_storefronts": 868,
+  "counts": {
+    "WEAK": 134,
+    "NO_RECENT_EVIDENCE": 414,
+    "ALIVE": 303,
+    "UNKNOWN": 17
+  },
+  "transitions": {
+    "WEAK → WEAK": 117,
+    "DEAD → NO_RECENT_EVIDENCE": 397,
+    "ALIVE → NO_RECENT_EVIDENCE": 17,
+    "ALIVE → ALIVE": 302,
+    "ALIVE → WEAK": 17,
+    "DEAD → UNKNOWN": 15,
+    "WEAK → ALIVE": 1,
+    "ALIVE → UNKNOWN": 2
+  },
+  "apps": 16499,
+  "snapshots": 50828,
+  "coverage": [
+    {
+      "country": "at",
+      "apps": 101
+    },
+    {
+      "country": "au",
+      "apps": 378
+    },
+    {
+      "country": "ca",
+      "apps": 261
+    },
+    {
+      "country": "ch",
+      "apps": 699
+    },
+    {
+      "country": "de",
+      "apps": 3151
+    },
+    {
+      "country": "dk",
+      "apps": 123
+    },
+    {
+      "country": "fi",
+      "apps": 322
+    },
+    {
+      "country": "fr",
+      "apps": 403
+    },
+    {
+      "country": "gb",
+      "apps": 3529
+    },
+    {
+      "country": "ie",
+      "apps": 286
+    },
+    {
+      "country": "jp",
+      "apps": 3892
+    },
+    {
+      "country": "kr",
+      "apps": 705
+    },
+    {
+      "country": "nl",
+      "apps": 301
+    },
+    {
+      "country": "no",
+      "apps": 699
+    },
+    {
+      "country": "nz",
+      "apps": 124
+    },
+    {
+      "country": "ru",
+      "apps": 2848
+    },
+    {
+      "country": "se",
+      "apps": 141
+    },
+    {
+      "country": "sg",
+      "apps": 402
+    },
+    {
+      "country": "tw",
+      "apps": 429
+    },
+    {
+      "country": "us",
+      "apps": 6543
+    }
+  ],
+  "history": {
+    "first": "2026-10-30T16:40:07Z",
+    "last": "2026-10-31T17:33:01Z"
+  },
+  "histories_7d": 0,
+  "adjacent_counter_drops": 1249
+}

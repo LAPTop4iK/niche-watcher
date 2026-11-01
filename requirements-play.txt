@@ -1,0 +1,2 @@
+# 1.2.2 passed live US/DE search. 1.2.7 returned malformed rows/parser errors on 2026-10-31.
+google-play-scraper==1.2.2

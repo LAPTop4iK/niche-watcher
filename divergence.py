@@ -3,7 +3,7 @@
 Divergence — динамика между прогонами: кросс-гео velocity и rank-дельты.
 
 1) Кросс-гео divergence: одно приложение набирает оценки в гео A и стоит в гео B
-   (та же языковая группа) = geo-gap с доказательством спроса фактом роста.
+   (та же языковая группа) = гипотеза для проверки; разные размеры рынков не доказывают geo-gap.
 2) Rank-дельты: кто поднялся/упал в выдаче одного запроса между двумя последними
    прогонами (rank пишется scanner'ом с 31.10.2026).
 
@@ -15,6 +15,8 @@ Divergence — динамика между прогонами: кросс-гео
 """
 
 import argparse
+import db_store
+from pathlib import Path
 import os
 import sqlite3
 import sys
@@ -25,45 +27,75 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
 
 
+def rank_movers(con,min_days=7):
+    """Compare complete query responses, with a baseline at least min_days old.
+
+    Missing baseline membership is unknown, rather than an invented low rank.
+    Duplicate snapshots and same-day retries cannot become separate endpoints.
+    """
+    import evidence
+    if not {'scan_runs','scan_queries'}<=evidence.tables(con):
+        return []
+    queries=defaultdict(list)
+    for run,geo,cat,query,finished,settings in con.execute("""SELECT q.run_id,q.country,q.category,q.query,q.finished_at,r.settings_json
+            FROM scan_queries q JOIN scan_runs r USING(run_id)
+            WHERE q.status='OK' AND r.source='itunes-search' ORDER BY q.finished_at DESC"""):
+        import json
+        limit=json.loads(settings).get('limit')
+        if limit is not None:
+            queries[(geo,cat,query,limit)].append((run,evidence.parse(finished)))
+    movers=[]
+    for (geo,cat,query,limit),runs in queries.items():
+        newest,stamp=runs[0]
+        baseline=next((run for run,date in runs[1:] if (stamp-date).total_seconds()>=min_days*86400),None)
+        if baseline is None:
+            continue
+        rows={}
+        for run in (newest,baseline):
+            rows[run]={r[0]:r[1:] for r in con.execute("""SELECT track_id,rank,app_name
+                FROM snapshots WHERE run_id=? AND country=? AND category=? AND query=?
+                AND rank IS NOT NULL""",(run,geo,cat,query))}
+        for tid,(rank,name) in rows[newest].items():
+            old=rows[baseline].get(tid)
+            if old and old[0]>20 and rank<=20 and rank<old[0]:
+                movers.append((old[0]-rank,geo,query,old[0],rank,name or str(tid),
+                               f'https://apps.apple.com/{geo}/app/id{tid}'))
+    return sorted(movers,reverse=True)
+
+
 def main():
     here = os.path.dirname(os.path.abspath(__file__))
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=os.path.join(here, "niches.db"))
     ap.add_argument("--markets", default=os.path.join(here, "markets.json"))
     ap.add_argument("--min-ratings", type=int, default=300)
-    ap.add_argument("--min-days", type=float, default=6.0)
+    ap.add_argument("--min-days", type=float, default=7.0)
     ap.add_argument("--out", default=os.path.join(here, "docs", "divergence.md"))
     args = ap.parse_args()
+    db_store.ensure(args.db)
 
     import json
     markets = json.load(open(args.markets, encoding="utf-8"))["markets"]
     lang_of = {g: v.get("lang", "en") for g, v in markets.items()}
 
-    con = sqlite3.connect(args.db)
-    # (track_id, country) -> (first_rc, last_rc, days, version_date, name, url, category)
-    series = con.execute(
-        """SELECT s.track_id, s.country, s.category, s.query,
-                  (SELECT rating_count FROM snapshots s2 WHERE s2.track_id = s.track_id
-                     AND s2.country = s.country ORDER BY scanned_at ASC LIMIT 1),
-                  (SELECT rating_count FROM snapshots s3 WHERE s3.track_id = s.track_id
-                     AND s3.country = s.country ORDER BY scanned_at DESC LIMIT 1),
-                  (julianday(MAX(s.scanned_at)) - julianday(MIN(s.scanned_at))),
-                  (SELECT version_date FROM snapshots s4 WHERE s4.track_id = s.track_id
-                     AND s4.country = s.country ORDER BY scanned_at DESC LIMIT 1),
-                  a.name, a.store_url
-           FROM snapshots s JOIN apps a ON a.track_id = s.track_id
-           GROUP BY s.track_id, s.country"""
-    ).fetchall()
+    con = sqlite3.connect(Path(args.db).resolve().as_uri()+'?mode=ro',uri=True)
+    import evidence
+    by_app = defaultdict(dict)
+    for r in evidence.latest(con):
+        tid, country, rc = r["track_id"], r["country"], r["rating_count"]
+        if rc is None or rc < args.min_ratings:
+            continue
+        vel, days = evidence.rating_velocity(con,tid,country,min_days=max(7,args.min_days))
+        if vel is None:
+            continue
+        by_app[tid][country] = dict(rc_first=rc-vel*days/30,rc_last=rc,days=days,
+            cat=r["category"],q=r["query"],name=r["name"],url=r["store_url"],last=r["scanned_at"])
     con.close()
 
-    by_app = defaultdict(dict)
-    for tid, country, cat, q, rc_first, rc_last, days, vd, name, url in series:
-        if rc_first is None or rc_last is None or (rc_last or 0) < args.min_ratings:
-            continue
-        by_app[tid][country] = dict(rc_first=rc_first, rc_last=rc_last, days=days or 0,
-                                    cat=cat, q=q, name=name, url=url)
-
-    lines = [f"# Divergence — {datetime.now(timezone.utc):%Y-%m-%d}\n"]
+    lines = [f"# Divergence — {datetime.now(timezone.utc):%Y-%m-%d}\n",
+             "Разница прироста оценок между странами — наблюдение, не доказательство свободного рынка "
+             "или миграции спроса. Окна могут различаться, страны имеют разный размер. "
+             "Rank — позиция в ответе iTunes API, не проверенная позиция на устройстве. Baseline одного запроса — не менее 7 дней назад.\n"]
 
     # 1) кросс-гео divergence
     div = []
@@ -75,8 +107,10 @@ def main():
             for gB, b in geos.items():
                 if gB == gA or lang_of.get(gA) != lang_of.get(gB) or b["days"] < args.min_days:
                     continue
+                if abs((sc.parse_iso(a["last"]) - sc.parse_iso(b["last"])).total_seconds()) > 86400 or abs(a["days"]-b["days"]) > 1:
+                    continue
                 vB = (b["rc_last"] - b["rc_first"]) / max(1, b["days"]) * 30.0
-                if vB <= vA * 0.3:  # в B растёт меньше трети от A
+                if 0 <= vB <= vA * 0.3:  # в B растёт меньше трети от A
                     div.append((vA, vB, gA, gB, a, b, tid))
     div.sort(key=lambda x: -(x[0] - x[1]))
     lines.append("## Кросс-гео divergence (растёт в A, стоит в B, same lang)\n")
@@ -90,28 +124,9 @@ def main():
         lines.append("_Пока пусто: нужно ≥2 прогона по гео (≈6–7 ноября)._")
 
     # 2) rank-дельты между двумя последними прогонами одного запроса
-    con = sqlite3.connect(args.db)
-    rank_rows = con.execute(
-        """SELECT s.category, s.query, s.country, s.track_id,
-                  (SELECT rank FROM snapshots s2 WHERE s2.track_id = s.track_id
-                     AND s2.category = s.category AND s2.query = s.query AND s2.country = s.country
-                     ORDER BY scanned_at DESC LIMIT 1 OFFSET 1),
-                  (SELECT rank FROM snapshots s3 WHERE s3.track_id = s.track_id
-                     AND s3.category = s.category AND s3.query = s.query AND s3.country = s.country
-                     ORDER BY scanned_at DESC LIMIT 1),
-                  a.name, a.store_url
-           FROM snapshots s JOIN apps a ON a.track_id = s.track_id
-           WHERE s.rank IS NOT NULL
-           GROUP BY s.category, s.query, s.country, s.track_id"""
-    ).fetchall()
+    con = sqlite3.connect(Path(args.db).resolve().as_uri()+'?mode=ro',uri=True)
+    movers=rank_movers(con,max(7,args.min_days))
     con.close()
-    movers = []
-    for cat, q, country, tid, r_old, r_new, name, url in rank_rows:
-        if r_old is None or r_new is None:
-            continue
-        if r_old > 50 and r_new <= 20 and r_new < r_old:  # ворвался в топ-20
-            movers.append((r_old - r_new, country, q, r_old, r_new, name, url))
-    movers.sort(reverse=True)
     lines.append("\n## Rank-дельты (ворвались в топ-20 выдачи)\n")
     lines.append("| Гео | Запрос | Было | Стало | Приложение |")
     lines.append("|---|---|---|---|---|")
@@ -119,7 +134,7 @@ def main():
         for d, country, q, r_old, r_new, name, url in movers[:15]:
             lines.append(f"| {country} | {q} | {r_old} | **{r_new}** | [{name[:34]}]({url}) |")
     else:
-        lines.append("_Пока пусто: нужен второй прогон с rank (с 31.10.2026)._")
+        lines.append("_Нет сопоставимых пересечений топ-20: нужны успешные ответы одного запроса с интервалом ≥7 дней._")
 
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as f:

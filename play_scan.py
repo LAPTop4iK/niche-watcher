@@ -15,6 +15,7 @@ import argparse
 import datetime as dt
 import json
 import os
+from pathlib import Path
 import sqlite3
 import sys
 import time
@@ -22,10 +23,15 @@ import time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
 
-try:
-    from google_play_scraper import search, app as gp_app
-except ImportError:
-    sys.exit("Нужен google-play-scraper:  pip3 install --user google-play-scraper")
+def search(*args,**kwargs):
+    from google_play_scraper import search as fetch
+    return fetch(*args,**kwargs)
+
+
+def gp_app(*args,**kwargs):
+    from google_play_scraper import app as fetch
+    return fetch(*args,**kwargs)
+
 
 PLAY_SCHEMA = """
 CREATE TABLE IF NOT EXISTS play_apps (
@@ -62,83 +68,117 @@ def months_since(ts):
 
 
 def main():
-    here = os.path.dirname(os.path.abspath(__file__))
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--seed", default=os.path.join(here, "seed_queries.json"))
-    ap.add_argument("--db", default=os.path.join(here, "niches.db"))
-    ap.add_argument("--categories", default=None)
-    ap.add_argument("--countries", default=None, help="us,de — иначе из seed")
-    ap.add_argument("--limit", type=int, default=20)
-    ap.add_argument("--min-rating-count", type=int, default=500)
-    ap.add_argument("--min-stale-months", type=int, default=18)
-    args = ap.parse_args()
-
-    seed = json.load(open(args.seed, encoding="utf-8"))
-    countries = [c.strip() for c in args.countries.split(",")] if args.countries else seed["countries"]
-    wanted = set(args.categories.split(",")) if args.categories else None
-
-    con = sqlite3.connect(args.db, timeout=30)
-    con.executescript(PLAY_SCHEMA)
-
-    zombies = []
-    analyzed = 0
-    for cat in seed["categories"]:
-        cid = cat["id"]
-        if wanted and cid not in wanted:
+    import scan_state
+    here=Path(__file__).resolve().parent
+    ap=argparse.ArgumentParser()
+    ap.add_argument('--seed',default=str(here/'seed_queries.json'))
+    ap.add_argument('--markets',default=str(here/'markets.json'))
+    ap.add_argument('--db',default=str(here/'niches.db'))
+    ap.add_argument('--countries',default='us,de')
+    ap.add_argument('--categories')
+    ap.add_argument('--limit',type=int,default=20)
+    ap.add_argument('--max-queries',type=int)
+    ap.add_argument('--min-rating-count',type=int,default=500)
+    ap.add_argument('--min-stale-months',type=int,default=18)
+    ap.add_argument('--run-id')
+    args=ap.parse_args()
+    if not 1<=args.limit<=30:
+        ap.error('limit must be 1..30')
+    seed=json.loads(Path(args.seed).read_text(encoding='utf-8'))
+    markets=json.loads(Path(args.markets).read_text(encoding='utf-8'))['markets']
+    countries=args.countries.split(',');wanted=set(args.categories.split(',')) if args.categories else None
+    if wanted and not wanted<={category['id'] for category in seed['categories']}:
+        ap.error('Unknown category')
+    if args.max_queries is not None and args.max_queries<1:
+        ap.error('max-queries must be positive')
+    if any(g not in markets for g in countries):
+        ap.error('Unknown country')
+    jobs=[]
+    for category in seed['categories']:
+        if not category.get('enabled',True) or (wanted and category['id'] not in wanted):
             continue
-        if not cat.get("enabled", True):
-            continue
-        for country in countries:
-            lang = {"us": "en", "gb": "en", "de": "de", "ru": "ru"}.get(country, "en")
-            for q in cat["queries"]:
-                try:
-                    hits = search(q, lang=lang, country=country, n_hits=args.limit)
-                except Exception as e:  # noqa: BLE001
-                    print(f"! {cid}/{country}/{q}: {e}", file=sys.stderr)
-                    time.sleep(3)
-                    continue
-                for h in hits:
-                    app_id = h["appId"]
-                    try:
-                        d = gp_app(app_id, lang=lang, country=country)
-                    except Exception:  # noqa: BLE001
+        for geo in countries:
+            queries=category['queries'];lang=markets[geo].get('lang','en')
+            if isinstance(queries,dict):
+                queries=queries.get(lang) or queries.get('en',[])
+            jobs.extend((geo,category['id'],query) for query in queries)
+    jobs=list(dict.fromkeys(jobs))
+    if args.max_queries is not None:
+        jobs=jobs[:args.max_queries]
+    if not jobs:
+        ap.error('No enabled query jobs')
+    cache={};candidates={};analyzed=0
+    with scan_state.writer_lock(args.db):
+        con=sc.open_db(args.db);con.executescript(PLAY_SCHEMA)
+        existing={r[1] for r in con.execute('PRAGMA table_info(play_snapshots)')}
+        for name,kind in {'run_id':'TEXT','currency':'TEXT','price_amount':'REAL'}.items():
+            if name not in existing:
+                con.execute(f'ALTER TABLE play_snapshots ADD COLUMN {name} {kind}')
+        import importlib.metadata
+        try:
+            library_version=importlib.metadata.version('google-play-scraper')
+        except importlib.metadata.PackageNotFoundError:
+            library_version='not-installed'
+        run_id=scan_state.start_run(con,jobs,{'source':'google-play','limit':args.limit,'library_version':library_version},args.run_id)
+        done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))}
+        for country,category,query in jobs:
+            if (country,category,query) in done:
+                continue
+            scan_state.begin_query(con,run_id,country,category,query)
+            lang=markets[country].get('lang','en');lang={'nb':'no'}.get(lang,lang)
+            try:
+                hits=search(query,lang=lang,country=country,n_hits=args.limit)
+                if not isinstance(hits,list) or any(not isinstance(h,dict) or not isinstance(h.get('appId'),str) or not h['appId'] for h in hits):
+                    raise RuntimeError('Malformed Play search entries; not a successful empty result')
+                resolved=[];failed=[];seen=set()
+                for hit in hits:
+                    app_id=hit['appId']
+                    if app_id in seen:
                         continue
-                    time.sleep(0.7)
-                    analyzed += 1
-                    stale_m = months_since(d.get("updated"))
-                    now = sc.iso(sc.now_utc())
-                    con.execute(
-                        """INSERT INTO play_apps (app_id, title, developer, installs, price, genre, first_seen, last_seen)
-                           VALUES (?,?,?,?,?,?,?,?)
-                           ON CONFLICT(app_id) DO UPDATE SET last_seen=excluded.last_seen""",
-                        (app_id, d.get("title"), d.get("developer"), d.get("installs"),
-                         d.get("price"), d.get("genre"), now, now),
-                    )
-                    con.execute(
-                        """INSERT INTO play_snapshots (app_id, country, category, query, scanned_at,
-                           updated_at, stale_days, rating, ratings_count, installs)
-                           VALUES (?,?,?,?,?,?,?,?,?,?)""",
-                        (app_id, country, cid, q, now,
-                         dt.datetime.fromtimestamp(d["updated"], dt.timezone.utc).strftime("%Y-%m-%d") if d.get("updated") else None,
-                         int(stale_m * 30.44) if stale_m is not None else None,
-                         d.get("score"), d.get("ratings"), d.get("installs")),
-                    )
-                    if (stale_m is not None and stale_m >= args.min_stale_months
-                            and (d.get("ratings") or 0) >= args.min_rating_count):
-                        zombies.append((stale_m, d.get("ratings") or 0, d.get("title"),
-                                        d.get("developer"), country, d.get("installs"),
-                                        d["updated"] and dt.datetime.fromtimestamp(d["updated"], dt.timezone.utc).strftime("%Y-%m-%d"),
-                                        f"https://play.google.com/store/apps/details?id={app_id}"))
-                time.sleep(1.2)
-        con.commit()
+                    seen.add(app_id);key=(app_id,country,lang)
+                    try:
+                        if key not in cache:
+                            cache[key]=gp_app(app_id,lang=lang,country=country);time.sleep(.7)
+                        resolved.append((app_id,cache[key]))
+                    except Exception as error:
+                        failed.append(f'{app_id}: {type(error).__name__}: {error}'[:220])
+                stored=0;new_candidates={}
+                con.execute('BEGIN')
+                for app_id,app in ([] if failed else resolved):
+                    now=sc.iso(sc.now_utc());age=months_since(app.get('updated'))
+                    updated=dt.datetime.fromtimestamp(app['updated'],dt.timezone.utc).strftime('%Y-%m-%d') if app.get('updated') else None
+                    con.execute('''INSERT INTO play_apps (app_id,title,developer,installs,price,genre,first_seen,last_seen)
+                        VALUES (?,?,?,?,?,?,?,?) ON CONFLICT(app_id) DO UPDATE SET title=excluded.title,
+                        developer=excluded.developer,installs=excluded.installs,price=excluded.price,
+                        genre=excluded.genre,last_seen=excluded.last_seen''',
+                        (app_id,app.get('title') or app_id,app.get('developer'),app.get('installs'),app.get('price'),app.get('genre'),now,now))
+                    con.execute('''INSERT INTO play_snapshots (app_id,country,category,query,scanned_at,updated_at,
+                        stale_days,rating,ratings_count,installs,run_id,currency,price_amount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)''',
+                        (app_id,country,category,query,now,updated,round(age*30.44) if age is not None else None,
+                         app.get('score'),app.get('ratings'),app.get('installs'),run_id,app.get('currency'),app.get('price')))
+                    stored+=1
+                    if age is not None and age>=args.min_stale_months and (app.get('ratings') or 0)>=args.min_rating_count:
+                        new_candidates[(app_id,country)]=app.get('title')
+                scan_state.end_query(con,run_id,country,category,query,'ERROR' if failed else 'OK',len(hits),stored,
+                                     f'{len(failed)} metadata failures: '+ '; '.join(failed[:2]) if failed else None)
+                analyzed+=stored;candidates.update(new_candidates)
+            except Exception as error:
+                con.rollback()
+                scan_state.end_query(con,run_id,country,category,query,'ERROR',error=f'{type(error).__name__}: {error}')
+            time.sleep(1.2)
+        status,ok,total=scan_state.finish_run(con,run_id)
+        analyzed=con.execute('SELECT COUNT(*) FROM play_snapshots WHERE run_id=?',(run_id,)).fetchone()[0]
+        candidate_count=con.execute('''WITH ranked AS (SELECT *,ROW_NUMBER() OVER
+            (PARTITION BY app_id,country ORDER BY scanned_at DESC,id DESC) rn
+            FROM play_snapshots WHERE run_id=?) SELECT COUNT(*) FROM ranked
+            WHERE rn=1 AND stale_days>=? AND ratings_count>=?''',
+            (run_id,args.min_stale_months*30.44,args.min_rating_count)).fetchone()[0]
+        con.close()
+    print(f'Play: {status}, queries {ok}/{total}, observations {analyzed}, candidates {candidate_count}')
+    print('Installs/ratings are store listing counters, not verified local demand or revenue.')
+    if status!='COMPLETE':
+        raise SystemExit('Play scan partial; results and errors are saved')
 
-    con.commit()
-    con.close()
-    zombies.sort(key=lambda z: (-(z[0] * min(z[1], 5000))))
-    print(f"\n== Play: проанализировано {analyzed}, зомби {len(zombies)}")
-    for z in zombies[:25]:
-        print(f"| {z[0]:5.0f} мес | {z[1]:>7} оценок | {z[2][:38]} | {z[3][:20]} | {z[4]} | {z[5]} | версия {z[6]} | {z[7]}")
 
-
-if __name__ == "__main__":
+if __name__=='__main__':
     main()

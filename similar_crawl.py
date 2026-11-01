@@ -1,148 +1,100 @@
 #!/usr/bin/env python3
+"""Collect App Store page links as discovery leads, never a verified similarity graph.
+
+Public pages can mix recommendations, a seller's portfolio and other links.
+Version age among these links does not measure niche weakness or buyer demand.
 """
-Similar Crawl — обход графа «You Might Also Like» на страницах App Store.
-
-Зачем: keyword-сканер находит ниши, которые ты умеешь назвать. Граф похожих
-приложений находит КЛАСТЕРЫ, которые ты назвать не умеешь: если вокруг зомби
-30% соседей тоже гнилые — это целая сгнившая ниша, а не одно приложение.
-Так закрывается слепая зона keyword-подхода (и то, что видят платные аналоги
-через «similar apps», только бесплатно).
-
-Использование:
-    python3 similar_crawl.py --seeds 443932954,1494386815 --depth 1
-    python3 similar_crawl.py --from-report report.md --depth 1 --top-seeds 5
-"""
-
 import argparse
-import json
-import os
+from pathlib import Path
 import re
 import statistics
 import sys
 import time
 import urllib.request
-from datetime import datetime, timezone, timedelta
-
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
+import scan_state
 
-PAGE_RE = re.compile(r"/app/[a-z0-9\-%]+/id(\d+)", re.I)
-
-
-def page_ids(track_id, country="us"):
-    """ID приложений из блока похожих на странице приложения."""
-    url = f"https://apps.apple.com/{country}/app/id{track_id}"
-    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=25) as r:
-        html = r.read().decode("utf-8", "replace")
-    ids = []
-    for m in PAGE_RE.finditer(html):
-        tid = m.group(1)
-        if tid not in ids:
-            ids.append(tid)
-    return ids[1:]  # первый id — само приложение
+PAGE_RE=re.compile(r'/app/(?:[^\s"<>/?#]+/)?id(\d+)',re.I)
 
 
-def stale_months(version_date):
-    if not version_date:
+def extract_ids(html,exclude=None):
+    return list(dict.fromkeys(tid for tid in PAGE_RE.findall(html) if tid!=str(exclude)))
+
+
+def page_ids(track_id,country='us'):
+    req=urllib.request.Request(f'https://apps.apple.com/{country}/app/id{track_id}',headers={'User-Agent':'Mozilla/5.0'})
+    with urllib.request.urlopen(req,timeout=25) as response:
+        return extract_ids(response.read().decode('utf-8','replace'),track_id)
+
+
+def report_seeds(text,country,limit):
+    # New reports contain /app/id123; older ones may contain /app/title/id123.
+    pattern=re.compile(r'https://apps\.apple\.com/'+re.escape(country)+r'/app/(?:[^\s"<>/?#)]+/)?id(\d+)',re.I)
+    return list(dict.fromkeys(pattern.findall(text)))[:limit]
+
+
+def stale_months(value):
+    try:
+        return (sc.now_utc()-sc.parse_iso(value)).total_seconds()/86400/30.44
+    except (ValueError,TypeError,AttributeError):
         return None
-    d = datetime.strptime(version_date[:10], "%Y-%m-%d").replace(tzinfo=timezone.utc)
-    return (datetime.now(timezone.utc) - d).days / 30.44
 
 
 def main():
-    here = os.path.dirname(os.path.abspath(__file__))
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--seeds", default=None, help="track id,id")
-    ap.add_argument("--from-report", default=None, help="взять топ-N зомби из report.md")
-    ap.add_argument("--top-seeds", type=int, default=5)
-    ap.add_argument("--depth", type=int, default=1, help="1 = только соседи, 2 = соседи соседей (медленно)")
-    ap.add_argument("--country", default="us")
-    ap.add_argument("--db", default=os.path.join(here, "niches.db"))
-    ap.add_argument("--out", default=os.path.join(here, "clusters_report.md"))
-    ap.add_argument("--min-stale-months", type=float, default=18)
-    args = ap.parse_args()
-
-    seeds = []
-    if args.seeds:
-        seeds += [s.strip() for s in args.seeds.split(",") if s.strip()]
+    ap=argparse.ArgumentParser();ap.add_argument('--seeds');ap.add_argument('--from-report');ap.add_argument('--top-seeds',type=int,default=5);ap.add_argument('--depth',type=int,default=1);ap.add_argument('--country',default='us');ap.add_argument('--db',default='niches.db');ap.add_argument('--out',default='clusters_report.md');ap.add_argument('--min-stale-months',type=float,default=18);args=ap.parse_args()
+    if not 1<=args.depth<=2:
+        raise SystemExit('depth must be 1 or 2')
+    seeds=[s.strip() for s in (args.seeds or '').split(',') if s.strip()]
+    if any(not s.isdigit() for s in seeds):
+        raise SystemExit('Seeds must be numeric app IDs')
     if args.from_report:
-        txt = open(args.from_report, encoding="utf-8").read()
-        found = re.findall(r"/app/[a-z0-9\-%]+/id(\d+)", txt)
-        seen = set()
-        for f in found:
-            if f not in seen:
-                seen.add(f)
-                seeds.append(f)
-            if len(seeds) >= args.top_seeds:
+        seeds+=report_seeds(Path(args.from_report).read_text(),args.country,args.top_seeds)
+    frontier=list(dict.fromkeys(seeds));visited=set();results=[];coverage=[];failed=False
+    if not frontier:
+        raise SystemExit('No seed IDs for this storefront')
+    with scan_state.writer_lock(args.db):
+        con=sc.open_db(args.db)
+        for depth in range(args.depth):
+            jobs=[(args.country,'similar-graph',f'links-of-{tid}') for tid in frontier]
+            if not jobs:
                 break
-
-    visited = set()
-    con = sc.open_db(args.db)
-    results = []
-
-    frontier = list(dict.fromkeys(seeds))
-    for depth in range(args.depth):
-        nxt = []
-        for tid in frontier:
-            if tid in visited:
-                continue
-            visited.add(tid)
-            try:
-                nb = page_ids(tid, args.country)
-            except Exception as e:  # noqa: BLE001
-                print(f"! seed {tid}: {e}", file=sys.stderr)
-                continue
-            time.sleep(0.8)
-            print(f"[{tid}] соседей: {len(nb)}")
-            # lookup соседей батчем
-            rows = []
-            for i in range(0, len(nb), 100):
-                chunk = nb[i:i + 100]
-                data = sc.fetch_json(
-                    "https://itunes.apple.com/lookup?id=" + ",".join(chunk)
-                    + f"&country={args.country}&entity=software"
-                )
-                rows.extend(data.get("results", []))
-                time.sleep(sc.REQUEST_DELAY)
-            stale = []
-            for r in rows:
-                sm = stale_months(r.get("currentVersionReleaseDate", ""))
-                if sm is None:
-                    continue
-                app = sc.normalize(r, args.country, "similar-graph", f"neighbors-of-{tid}")
-                if (r.get("userRatingCount") or 0) >= 10:
-                    sc.upsert_app(con, app)
-                    sc.insert_snapshot(con, app)
-                if sm >= args.min_stale_months:
-                    stale.append((sm, r))
-            con.commit()
-            results.append({
-                "seed": tid,
-                "neighbors": len(rows),
-                "stale": len(stale),
-                "stale_pct": 100.0 * len(stale) / max(1, len(rows)),
-                "median_age": statistics.median([s for s, _ in [(stale_months(r.get("currentVersionReleaseDate", "")), 0) for r in rows if stale_months(r.get("currentVersionReleaseDate", ""))]] or [0]),
-                "top_stale": sorted(stale, key=lambda x: -(x[1].get("userRatingCount") or 0))[:4],
-            })
-            nxt += nb
-        frontier = [n for n in dict.fromkeys(nxt) if n not in visited][:40]
-
-    con.close()
-    results.sort(key=lambda r: -r["stale_pct"])
-    lines = [
-        f"# Similar-Graph Decay — {sc.iso(sc.now_utc())[:10]}\n",
-        f"Глубина {args.depth}, гео {args.country}. Порог гнилости {args.min_stale_months} мес.\n",
-        "| Seed | Соседей | Гнилых | % гнилых | Медианный возраст | Топ-гнилые соседи |",
-        "|---|---|---|---|---|---|",
-    ]
-    for r in results:
-        tops = "; ".join(f"{a['trackName'][:26]} ({a.get('userRatingCount') or 0}★, {s:.0f} мес)" for s, a in r["top_stale"])
-        lines.append(f"| {r['seed']} | {r['neighbors']} | {r['stale']} | {r['stale_pct']:.0f}% | {r['median_age']:.0f} мес | {tops} |")
-    with open(args.out, "w", encoding="utf-8") as f:
-        f.write("\n".join(lines) + "\n")
-    print(f"\n== отчёт: {args.out}")
+            run=scan_state.start_run(con,jobs,{'source':'apple-page-links','depth':depth+1})
+            nxt=[]
+            for country,category,query in jobs:
+                tid=query.removeprefix('links-of-');visited.add(tid)
+                scan_state.begin_query(con,run,country,category,query)
+                try:
+                    ids=page_ids(tid,country);raw=[];time.sleep(sc.REQUEST_DELAY)
+                    for i in range(0,len(ids),100):
+                        data=sc.fetch_json('https://itunes.apple.com/lookup?id='+','.join(ids[i:i+100])+f'&country={country}&entity=software')
+                        if not isinstance(data.get('results'),list):
+                            raise RuntimeError('Malformed lookup')
+                        raw.extend(data['results']);time.sleep(sc.REQUEST_DELAY)
+                    unique={str(r['trackId']):r for r in raw if r.get('trackId')}
+                    missing=set(ids)-set(unique)
+                    for r in unique.values():
+                        app=sc.normalize(r,country,category,query);app['run_id']=run
+                        sc.upsert_app(con,app);sc.insert_snapshot(con,app)
+                    ages=[age for r in unique.values() if (age:=stale_months(r.get('currentVersionReleaseDate'))) is not None and age>=0]
+                    stale=sum(age>=args.min_stale_months for age in ages)
+                    results.append((tid,len(ids),len(unique),len(ages),stale,statistics.median(ages) if ages else None,len(missing)))
+                    scan_state.end_query(con,run,country,category,query,'ERROR' if missing else 'OK',len(ids),len(unique),f'{len(missing)} unresolved IDs' if missing else None)
+                    nxt+=ids
+                except Exception as error:
+                    con.rollback();scan_state.end_query(con,run,country,category,query,'ERROR',error=str(error))
+                    print(f'Page links {tid}: {error}',file=sys.stderr)
+            status,ok,total=scan_state.finish_run(con,run);coverage.append(f'{status} {ok}/{total}');failed|=status!='COMPLETE'
+            frontier=[tid for tid in dict.fromkeys(nxt) if tid not in visited][:40]
+        con.close()
+    lines=['# Ссылки со страниц App Store — идеи для проверки',f'\nГео {args.country}; глубина {args.depth}; покрытие: '+', '.join(coverage)+'.',
+        '\nЭто все обнаруженные ссылки страницы, а не проверенный блок похожих приложений. Состав зависит от рекомендаций и портфеля продавца. Доля старых версий не доказывает слабую конкуренцию, спрос или прибыль.',
+        '\n| Seed | Ссылок | Разрешены | Датированы | Версия ≥18 мес | Медиана возраста, мес | Не разрешены |','|---|---:|---:|---:|---:|---:|---:|']
+    lines[3]=lines[3].replace('≥18',f'≥{args.min_stale_months:g}')
+    for tid,n,resolved,dated,stale,median,missing in results:
+        lines.append(f'| {tid} | {n} | {resolved} | {dated} | {stale} | {median:.1f} | {missing} |' if median is not None else f'| {tid} | {n} | {resolved} | 0 | 0 | — | {missing} |')
+    Path(args.out).write_text('\n'.join(lines)+'\n');print('Page-link observations:',len(results),'→',args.out)
+    if failed:
+        raise SystemExit('Page-link scan partial; see query ledger')
 
 
-if __name__ == "__main__":
-    main()
+if __name__=='__main__':main()
