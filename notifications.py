@@ -1,5 +1,6 @@
 """Durable Telegram outbox. A failed delivery remains pending for the next run."""
 from datetime import datetime,timezone,timedelta
+import re
 import sqlite3
 
 SCHEMA='''CREATE TABLE IF NOT EXISTS notification_outbox (
@@ -23,6 +24,37 @@ def enqueue(con,event_key,payload):
     con.execute("INSERT INTO notification_outbox (event_key,created_at,payload) VALUES (?,?,?) ON CONFLICT(event_key) DO UPDATE SET payload=excluded.payload WHERE notification_outbox.status='PENDING'",
                 (event_key,now(),payload))
     con.commit()
+
+
+def enqueue_candidates(con,candidates,build_message):
+    """One summary, deduplicated by app/storefront across legacy batch sizes.
+
+    Existing PENDING groups already own their items and will be retried by flush.
+    Legacy keys contain all member IDs, so no new receipt table is required.
+    """
+    prepare(con)
+    con.execute('BEGIN IMMEDIATE')
+    try:
+        covered=set()
+        for key, in con.execute("SELECT event_key FROM notification_outbox WHERE event_key LIKE 'candidates:%' AND status IN ('PENDING','SENT')"):
+            for item in key[len('candidates:'):].split(','):
+                if re.fullmatch(r'\d+:[a-z]{2}',item):
+                    covered.add(item)
+        remaining={}
+        for row in candidates:
+            item=f"{int(row['track_id'])}:{row['country'].lower()}"
+            if item not in covered:
+                remaining.setdefault(item,row)
+        if remaining:
+            key='candidates:'+','.join(sorted(remaining))
+            payload=build_message(list(remaining.values()))
+            con.execute('INSERT INTO notification_outbox (event_key,created_at,payload) VALUES (?,?,?)',
+                        (key,now(),payload))
+        con.commit()
+        return len(remaining)
+    except Exception:
+        con.rollback()
+        raise
 
 
 def flush(con,send,limit=10):

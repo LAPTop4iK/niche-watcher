@@ -295,28 +295,39 @@ def download_price_label(row):
     return f"загрузка {price:g} {row.get('currency') or '(валюта неизвестна)'}"
 
 
-def build_alert_message(new, total_zombies, print_mode=False):
-    """Красивый digest: ссылки на сторы, флаги, velocity, свежесть, риски, ссылка на дашборд."""
+def build_alert_message(new, total_zombies, print_mode=False, as_of=None):
+    """One bounded scan summary. Examples are not a ranking of profitable niches."""
+    from zoneinfo import ZoneInfo
     e = (lambda s: s) if print_mode else html.escape
-    lines = [f"🔭 <b>Niche Watcher</b> — новые кандидаты: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
-    lines.append("Срез: "+iso(now_utc()))
-    for i, a in enumerate(new[:12], 1):
-        vel = f" · {a['velocity_30d']:+.0f}/30д" if a["velocity_30d"] is not None else ""
-        rev = f" · 📩 отзыв {a['recent_reviews'][0]}" if a.get("recent_reviews") else ""
-        port = " · ⚠️портфель" if (a.get("seller_apps") or 0) > 8 else ""
-        native = " · ? ОС" if a.get("native_risk") else ""
-        link = f'<a href="{html.escape(a["store_url"], quote=True)}">{e(a["name"][:120])}</a>' if not print_mode else a["name"]
-        rating = f"{a['avg_rating']:.1f}★" if a.get("avg_rating") else "—"
-        lines.append(
-            f"{i}. <b>{link}</b> {flag_emoji(a['country'])}\n"
-            f"   {a['rating_count']:,} оценок · {rating} · "
-            f"<b>{a['stale_months']:.0f} мес</b> без обновл. · {e(download_price_label(a))}{vel}{rev}{port}{native}"
-        )
-    if len(new) > 12:
-        lines.append(f"… и ещё {len(new) - 12} — в дашборде")
-    lines.append("\nСтарая версия и отзывы — повод проверить боль; платежи и доход не установлены.")
-    lines.append(f'\n<a href="{telegram_dashboard_url()}">Открыть дашборд</a>')
-    return "\n".join(lines)
+    stamp=as_of or now_utc()
+    if isinstance(stamp,str):stamp=parse_iso(stamp)
+    display_time=stamp.astimezone(ZoneInfo('Europe/Warsaw')).strftime('%d.%m.%Y %H:%M')
+    def render(limit):
+        shown=new[:limit]
+        lines=["🔭 <b>Niche Watcher — новые наблюдения</b>",
+               f"Старые версии, впервые подходящие под фильтр: <b>{len(new)}</b> app×страна.",
+               f"Всего старых версий в этом скане: {total_zombies} app×страна.",
+               f"Сбор завершён: {display_time} (Варшава).",
+               f"\nПоказано {len(shown)} из {len(new)} — примеры для ручной проверки, не рейтинг доходности."]
+        for a in shown:
+            name=e(a['name'][:100])
+            url=f"https://apps.apple.com/{a['country']}/app/id{a['track_id']}"
+            label=name if print_mode else f'<a href="{html.escape(url,quote=True)}">{name}</a>'
+            rating=f"{a['avg_rating']:.1f}★" if a.get('avg_rating') else '—'
+            lines.append(f"\n• <b>{label}</b> {flag_emoji(a['country'])}\n"
+                         f"  {a['rating_count']:,} оценок · {rating} · версия не обновлялась {a['stale_months']:.0f} мес\n"
+                         f"  {e(download_price_label(a))}")
+        if len(new)>len(shown):
+            lines.append(f"\nЕщё {len(new)-len(shown)} новых записей — в дашборде.")
+        lines.append("\nВозраст версии не доказывает живую боль или доход. Свежую активность, жалобы и платежи нужно проверить отдельно.")
+        lines.append(f'\n<a href="{telegram_dashboard_url()}">Открыть дашборд</a>')
+        return '\n'.join(lines)
+    for limit in range(min(6,len(new)),-1,-1):
+        message=render(limit)
+        # Keep even heavily escaped Unicode names within one transport message.
+        if len(message)<=3800 and len(message.encode('utf-16-le'))//2<=3800:
+            return message
+    raise ValueError('Telegram summary header exceeds its message budget')
 
 
 # ---------------------------------------------------------------- отчёт
@@ -678,18 +689,20 @@ def run_scan(args,seed,markets,countries,wanted):
     if con and not args.no_alerts:
         import notifications
         new=[a for a in zombies if not was_flagged_before(con,a['track_id'],args.min_stale_months,args.min_rating_count,run_start_iso,country=a['country'])]
-        messages=[]
-        for offset in range(0,len(new),12):
-            batch=new[offset:offset+12]
-            identity=','.join(f"{a['track_id']}:{a['country']}" for a in batch)
-            messages.append((f'candidates:{identity}',build_alert_message(batch,len(zombies))))
-        if not messages:
-            messages=[(f'heartbeat:{run_id}',f'🔭 Niche Watcher: сбор {run_status} {ok}/{expected}; кандидатов {len(zombies)}. Активность и платежи проверяются отдельно. <a href="{telegram_dashboard_url()}">Дашборд</a>')]
-        for key,message in messages:
+        finished=con.execute('SELECT finished_at FROM scan_runs WHERE run_id=?',(run_id,)).fetchone()[0]
+        if new:
+            build=lambda items:build_alert_message(items,len(zombies),as_of=finished)
+            if args.print_alert:
+                print('TG PREVIEW:',build(new))
+            else:
+                queued=notifications.enqueue_candidates(con,new,build)
+                print(f'Telegram summary: {queued} new app/storefront items; {len(new)-queued} already queued or delivered',flush=True)
+        else:
+            message=f'🔭 Niche Watcher: сбор {run_status} {ok}/{expected}; кандидатов {len(zombies)}. Активность и платежи проверяются отдельно. <a href="{telegram_dashboard_url()}">Дашборд</a>'
             if args.print_alert:
                 print('TG PREVIEW:',message)
             else:
-                notifications.enqueue(con,key,message)
+                notifications.enqueue(con,f'heartbeat:{run_id}',message)
         if not args.print_alert and os.environ.get('TG_BOT_TOKEN') and os.environ.get('TG_CHAT_ID'):
             delivered,failed=notifications.flush(con,send_telegram)
             print(f'Telegram acknowledged {delivered}; pending failures {failed}',flush=True)

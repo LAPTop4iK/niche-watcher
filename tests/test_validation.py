@@ -239,6 +239,39 @@ class Durability(Fixtures):
         self.assertEqual(notifications.flush(con,lambda p:self.fail('already sent')),(0,0))
         self.assertEqual(con.execute('SELECT status,attempts FROM notification_outbox').fetchone(),('SENT',2))
 
+    def test_candidate_receipts_cover_legacy_groups_pending_items_and_new_country(self):
+        con=sqlite3.connect(':memory:')
+        rows=[dict(track_id=i,country='us') for i in range(1,19)]
+        for batch in (rows[:12],rows[12:]):
+            key='candidates:'+','.join(f"{r['track_id']}:us" for r in batch)
+            notifications.enqueue(con,key,'legacy')
+        self.assertEqual(notifications.flush(con,lambda p:True),(2,0))
+        never=lambda items:self.fail('legacy members already delivered')
+        self.assertEqual(notifications.enqueue_candidates(con,list(reversed(rows)),never),0)
+        incoming=[*rows,dict(track_id=19,country='us'),dict(track_id=19,country='gb')]
+        built=[]
+        def build(items):built.extend(items);return 'one summary'
+        self.assertEqual(notifications.enqueue_candidates(con,incoming,build),2)
+        self.assertEqual({(r['track_id'],r['country']) for r in built},{(19,'us'),(19,'gb')})
+        self.assertEqual(notifications.enqueue_candidates(con,list(reversed(incoming)),never),0)
+        self.assertEqual(notifications.flush(con,lambda p:True),(1,0))
+        self.assertEqual(con.execute('SELECT COUNT(*),SUM(attempts) FROM notification_outbox').fetchone(),(3,3))
+
+    def test_scanner_sends_one_summary_for_18_and_does_not_repeat_on_resume(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base=Path(folder);seed=base/'seed';markets=base/'markets'
+            seed.write_text(json.dumps({'categories':[{'id':'c','queries':{'en':['q']}}]}))
+            markets.write_text(json.dumps({'markets':{'us':{'lang':'en'}}}))
+            args=['scanner.py','--seed',str(seed),'--markets',str(markets),'--countries','us','--db',str(base/'db'),'--report',str(base/'report'),'--skip-reviews','--run-id','same-run','--quiet']
+            hits=[dict(trackId=i,trackName=f'App {i}',userRatingCount=600,currentVersionReleaseDate='2020-01-01T00:00:00Z') for i in range(1,19)]
+            with patch.object(sys,'argv',args),patch.object(sc,'search_apps',return_value=hits),patch.object(sc,'send_telegram',return_value=True) as send,patch.dict('os.environ',{'TG_BOT_TOKEN':'test','TG_CHAT_ID':'test'}),contextlib.redirect_stdout(io.StringIO()):
+                sc.main();sc.main()
+            self.assertEqual(send.call_count,1)
+            self.assertIn('<b>18</b> app×страна',send.call_args.args[0])
+            with sqlite3.connect(base/'db') as con:
+                self.assertEqual(con.execute('SELECT COUNT(*),SUM(attempts) FROM notification_outbox').fetchone(),(1,1))
+                self.assertEqual(con.execute('SELECT COUNT(*) FROM snapshots').fetchone()[0],18)
+
     def test_merge_preserves_run_coverage_and_sent_ack(self):
         with tempfile.TemporaryDirectory() as folder:
             paths=[str(Path(folder)/n) for n in ('a','b')]
@@ -295,6 +328,20 @@ class CompressedStorage(Fixtures):
 
 
 class Presentation(Fixtures):
+    def test_daily_summary_has_one_total_six_examples_and_a_bounded_unicode_size(self):
+        con=sc.open_db(':memory:')
+        apps=[sc.analyze(con,self.make(con,tid=i),18,500) for i in range(1,19)]
+        msg=sc.build_alert_message(apps,562,as_of='2026-11-01T14:08:41Z')
+        self.assertIn('<b>18</b> app×страна',msg)
+        self.assertIn('562 app×страна',msg);self.assertIn('Показано 6 из 18',msg)
+        self.assertEqual(msg.count('\n• '),6);self.assertNotIn('\n1.',msg)
+        self.assertIn('01.11.2026 15:08 (Варшава)',msg)
+        for a in apps:a['name']='&👩‍🔬'*60;a['store_url']='https://example.com/'+'x'*10000
+        msg=sc.build_alert_message(apps,562)
+        self.assertLessEqual(len(msg),3800)
+        self.assertLessEqual(len(msg.encode('utf-16-le'))//2,3800)
+        self.assertEqual(msg.count('Открыть дашборд'),1)
+
     def test_both_routes_share_evidence_without_excluding_high_rated_recent_apps(self):
         import demand_check as dc
         import tg_digest

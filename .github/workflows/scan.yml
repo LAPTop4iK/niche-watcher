@@ -211,8 +211,8 @@ jobs:
           retention-days: 30
 
   deploy-pages:
-    needs: [daily-scan, verify-pipeline]
-    if: always() && (github.event.schedule == '30 11 * * *' || (github.event_name == 'workflow_dispatch' && (needs.daily-scan.result == 'success' || needs.verify-pipeline.result == 'success')))
+    needs: [daily-scan, weekly-slot, weekly-charts, weekly-play, weekly-similar-crawl, verify-pipeline]
+    if: always() && (github.event.schedule == '30 11 * * *' || contains(needs.*.result, 'success'))
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
