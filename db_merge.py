@@ -8,6 +8,7 @@ import argparse
 import os
 import sqlite3
 import db_store
+import demand_history
 
 
 def columns(con, schema, table):
@@ -19,10 +20,12 @@ def merge(main_path, other_path):
     if not os.path.exists(other_path):
         raise FileNotFoundError(other_path)
     with sqlite3.connect(main_path, timeout=30) as con:
-        con.execute('ATTACH DATABASE ? AS src',(other_path,))
+        con.execute('ATTACH DATABASE ? AS src',(os.fspath(other_path),))
         source_tables={r[0]:r[1] for r in con.execute("SELECT name,sql FROM src.sqlite_master WHERE type='table'")}
+        # Preserve the destination cache before the latest-value merge can replace it.
+        demand_history.seed_existing(con)
         counts={}
-        for table in ('apps','scan_runs','scan_queries','snapshots','play_apps','play_snapshots','demand','study_members','study_reviews','notification_outbox'):
+        for table in ('apps','scan_runs','scan_queries','snapshots','play_apps','play_snapshots','demand_samples','demand','study_members','study_reviews','notification_outbox'):
             if table not in source_tables:
                 continue
             if not columns(con,'main',table):
@@ -39,7 +42,7 @@ def merge(main_path, other_path):
                 counts[table]=con.execute(f'''INSERT INTO main.{table} ({names})
                     SELECT {','.join('s.'+chr(34)+k+chr(34) for k in cols)} FROM src.{table} s
                     WHERE NOT EXISTS (SELECT 1 FROM main.{table} m WHERE {equals})''').rowcount
-            elif table in ('study_members','study_reviews'):
+            elif table in ('study_members','study_reviews','demand_samples'):
                 con.execute(f'INSERT OR IGNORE INTO main.{table} ({names}) SELECT {names} FROM src.{table}')
             elif table in ('scan_runs','scan_queries','notification_outbox'):
                 keys={'scan_runs':['run_id'],'scan_queries':['run_id','country','category','query'],
@@ -57,6 +60,9 @@ def merge(main_path, other_path):
                     condition="excluded.status='SENT' OR (notification_outbox.status!='SENT' AND COALESCE(excluded.last_attempt_at,excluded.created_at)>=COALESCE(notification_outbox.last_attempt_at,notification_outbox.created_at))"
                 con.execute(f'INSERT INTO main.{table} ({names}) SELECT {names} FROM src.{table} WHERE 1 ON CONFLICT({",".join(keys)}) DO UPDATE SET {update} WHERE {condition}')
             elif table=='demand':
+                cursor=con.execute('SELECT * FROM src.demand');fields=[d[0] for d in cursor.description]
+                for row in cursor.fetchall():
+                    demand_history.append(con,dict(zip(fields,row)),'merge-cache')
                 update=','.join(f'"{k}"=excluded."{k}"' for k in cols if k not in ('track_id','country'))
                 con.execute(f'INSERT INTO main.demand ({names}) SELECT {names} FROM src.demand WHERE 1 ON CONFLICT(track_id,country) DO UPDATE SET {update} WHERE excluded.checked_at>=demand.checked_at')
             else:

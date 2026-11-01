@@ -41,13 +41,14 @@ CREATE TABLE IF NOT EXISTS demand (
 
 
 class DemandFetch(tuple):
-    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None):
+    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None, raw_ref=None):
         result=super().__new__(cls,values)
         result.dates=dates or []
         result.scores=scores or []
         result.error=error
         result.ids=ids or []
         result.versions=versions or []
+        result.raw_ref=raw_ref
         return result
 
 
@@ -55,6 +56,7 @@ def fetch_demand(track_id, country):
     """One dated RSS sample; failures and malformed feeds remain unknown."""
     try:
         data=sc.fetch_json(f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page=1/json")
+        raw_ref=getattr(data,'raw_ref',None)
         if not isinstance(data,dict) or not isinstance(data.get('feed'),dict):
             raise ValueError('Malformed RSS feed')
         entries=data['feed'].get('entry') or []
@@ -79,19 +81,21 @@ def fetch_demand(track_id, country):
             ids.append(e.get('id',{}).get('label'))
             versions.append(e.get('im:version',{}).get('label'))
         if not dates:
-            return DemandFetch((None,None,None,None,'EMPTY'))
+            return DemandFetch((None,None,None,None,'EMPTY'),raw_ref=raw_ref)
         r60=sum((now-evidence.parse(d)).total_seconds() <= 60*86400 for d in dates)
         r90=sum((now-evidence.parse(d)).total_seconds() <= 90*86400 for d in dates)
-        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions)
+        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions,raw_ref=raw_ref)
     except Exception as exc:
-        return DemandFetch((None,None,None,None,'ERROR'),error=f'{type(exc).__name__}: {exc}')
+        import raw_archive
+        if isinstance(exc,raw_archive.ArchiveError):raise
+        return DemandFetch((None,None,None,None,'ERROR'),error=f'{type(exc).__name__}: {exc}',raw_ref=locals().get('raw_ref'))
 
 
 def prepare(con):
     con.executescript(DEMAND_SCHEMA)
     fields={'fetch_status':'TEXT','method_version':'TEXT','review_dates_json':'TEXT',
             'review_scores_json':'TEXT','sample_size':'INTEGER','sample_capped':'INTEGER','fetch_error':'TEXT',
-            'review_ids_json':'TEXT','review_versions_json':'TEXT'}
+            'review_ids_json':'TEXT','review_versions_json':'TEXT','collection_policy':'TEXT'}
     existing={r[1] for r in con.execute('PRAGMA table_info(demand)')}
     for name,kind in fields.items():
         if name not in existing:
@@ -99,7 +103,22 @@ def prepare(con):
     con.commit()
 
 
-def store_result(con,tid,country,result):
+def store_result(con,tid,country,result,policy=None):
+    import demand_history
+    con.execute('SAVEPOINT review_measurement')
+    try:
+        demand_history.preserve_current(con,tid,country)
+        _store_result(con,tid,country,result,policy)
+        payload=demand_history.as_dict(con.execute('SELECT * FROM demand WHERE track_id=? AND country=?',(tid,country)))
+        demand_history.append(con,payload,'live-fetch',getattr(result,'raw_ref',None))
+        con.execute('RELEASE review_measurement')
+    except Exception:
+        con.execute('ROLLBACK TO review_measurement');con.execute('RELEASE review_measurement')
+        raise
+    con.commit()
+
+
+def _store_result(con,tid,country,result,policy):
     lr,r60,r90,bad,status=result
     vel,days=velocity(con,tid,country)
     state=evidence.classify(vel,lr,r90,status)
@@ -107,19 +126,19 @@ def store_result(con,tid,country,result):
     con.execute('''INSERT INTO demand
         (track_id,country,checked_at,last_review,r60,r90,bad_share,vel_30d,verdict,
          fetch_status,method_version,review_dates_json,review_scores_json,sample_size,sample_capped,fetch_error,
-         review_ids_json,review_versions_json)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
+         review_ids_json,review_versions_json,collection_policy)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
         checked_at=excluded.checked_at,last_review=excluded.last_review,r60=excluded.r60,r90=excluded.r90,
         bad_share=excluded.bad_share,vel_30d=excluded.vel_30d,verdict=excluded.verdict,
         fetch_status=excluded.fetch_status,method_version=excluded.method_version,
         review_dates_json=excluded.review_dates_json,review_scores_json=excluded.review_scores_json,
         sample_size=excluded.sample_size,sample_capped=excluded.sample_capped,fetch_error=excluded.fetch_error,
-        review_ids_json=excluded.review_ids_json,review_versions_json=excluded.review_versions_json''',
+        review_ids_json=excluded.review_ids_json,review_versions_json=excluded.review_versions_json,
+        collection_policy=excluded.collection_policy''',
         (tid,country,sc.iso(sc.now_utc()),lr,r60,r90,bad,vel,state,status,evidence.METHOD,
          json.dumps(dates) if dates else None,json.dumps(scores) if scores else None,
          len(dates) if dates else None,int(len(dates)>=50),getattr(result,'error',None),
-         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None))
-    con.commit()
+         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None,policy))
 
 
 def follow_run(con,run_id,delay,workers=2,controls=20):
@@ -180,6 +199,71 @@ def zombie_tracks(con, min_stale=18.0, min_ratings=500, limit=None, track=None):
 
 def velocity(con, track_id, country):
     return evidence.rating_velocity(con, track_id, country)
+
+
+def exploration_stratum(row,now):
+    ratings=row.get('rating_count')
+    rating_band='unknown' if ratings is None else '0-49' if ratings<50 else '50-499' if ratings<500 else '500+'
+    try:
+        age=(now-evidence.parse(row['version_date'])).total_seconds()/86400/30.44
+        age_band='unknown' if age<0 else '<12mo' if age<12 else '12-18mo' if age<18 else '18mo+'
+    except (ValueError,TypeError,KeyError,AttributeError):age_band='unknown'
+    price=row.get('price');price_band='unknown' if price is None else 'paid' if price>0 else 'free'
+    return '|'.join((rating_band,age_band,price_band))
+
+
+def wide_review_sample(rows,cached,per_country,countries=None,now=None,exclude=()):
+    """Explore observed search results without selecting on review outcomes.
+
+    Round-robin rating/age/price strata and query families, with daily rotation.
+    This deliberately overrepresents small strata; it is not a market census.
+    """
+    now=now or sc.now_utc();pools={};excluded=set(exclude)
+    for row in rows:
+        geo=row['country'];key=(row['track_id'],geo)
+        if key in excluded or (countries is not None and geo not in countries):continue
+        categories=[c for c in row.get('categories',[]) if not c.startswith('chart:') and c!='similar-graph']
+        if not categories:continue
+        try:
+            if not 0<=(now-evidence.parse(row['scanned_at'])).total_seconds()<=14*86400:continue
+        except (ValueError,TypeError,KeyError,AttributeError):continue
+        previous=cached.get(key,{})
+        try:new_version=evidence.parse(previous['checked_at'])<evidence.parse(row['version_date'])
+        except (ValueError,TypeError,KeyError,AttributeError):new_version=False
+        try:
+            if (now-evidence.parse(previous['checked_at'])).total_seconds()<(1 if previous.get('fetch_status')=='ERROR' else 7)*86400 and not new_version:continue
+        except (ValueError,TypeError,KeyError,AttributeError):pass
+        # Assign multiply discovered apps to one family independently of outcomes.
+        category=min(categories,key=lambda c:hashlib.sha256(f'{now:%Y-%m-%d}:{key}:{c}'.encode()).digest())
+        group=(bool(previous),exploration_stratum(row,now),category)
+        pools.setdefault(geo,{}).setdefault(group,[]).append(key)
+    selected=[]
+    for geo,groups in sorted(pools.items()):
+        rotations={}
+        for known in (False,True):
+            strata={};served={}
+            for (has_cache,stratum,category),keys in groups.items():
+                if has_cache!=known:continue
+                keys.sort(key=lambda k:hashlib.sha256(f'{now:%Y-%m-%d}:{k}'.encode()).digest())
+                strata.setdefault(stratum,{})[category]=keys
+            order=sorted(strata,key=lambda s:hashlib.sha256(f'{now:%Y-%m-%d}:{geo}:{s}'.encode()).digest())
+            rotation=[]
+            while any(any(c.values()) for c in strata.values()):
+                for stratum in order:
+                    categories=strata[stratum]
+                    available=[c for c,keys in categories.items() if keys]
+                    if not available:continue
+                    # Within each stratum, rotate query families before repeating one.
+                    category=min(available,key=lambda c:(served.get((stratum,c),0),
+                        hashlib.sha256(f'{now:%Y-%m-%d}:{geo}:{c}'.encode()).digest()))
+                    rotation.append(categories[category].pop())
+                    served[(stratum,category)]=served.get((stratum,category),0)+1
+            rotations[known]=rotation
+        for i in range(per_country):
+            pool=rotations.get(bool(i%2)) or rotations.get(not bool(i%2))
+            if not pool:break
+            selected.append(pool.pop(0))
+    return selected
 
 
 def updated_review_sample(rows,cached,per_country,countries=None,now=None):
@@ -282,15 +366,16 @@ def main():
     ap.add_argument("--track")
     ap.add_argument("--delay", type=float, default=1.2)
     ap.add_argument('--explore-updated',type=int,default=0,metavar='N',help='до N версий <18 мес на страну; отдельная ротационная выборка, не контроль исследования')
+    ap.add_argument('--explore-wide',type=int,default=0,metavar='N',help='до N поисковых app×country на страну: малые/крупные, старые/свежие, free/paid; не контроль исследования')
     ap.add_argument('--countries',help='страны для --explore-updated; по умолчанию все')
     ap.add_argument('--tier',type=int,choices=[1,2],help='tier из markets.json для --explore-updated')
     ap.add_argument('--slot',type=int,choices=[1,2,3,4])
     ap.add_argument("--out", default=os.path.join(HERE, "demand_report.md"))
     args = ap.parse_args()
-    if not 0<=args.explore_updated<=200:
-        ap.error('explore-updated должен быть 0..200')
-    if args.explore_updated and (args.follow_run or args.cached_only or args.track or args.limit):
-        ap.error('explore-updated запускается отдельно от follow/cached/track/limit')
+    if not 0<=args.explore_updated<=200 or not 0<=args.explore_wide<=200 or args.explore_updated+args.explore_wide>200:
+        ap.error('общий бюджет explore должен быть 0..200 на страну')
+    if (args.explore_updated or args.explore_wide) and (args.follow_run or args.cached_only or args.track or args.limit):
+        ap.error('explore запускается отдельно от follow/cached/track/limit')
     db_store.ensure(args.db)
 
     con = sqlite3.connect(__import__("pathlib").Path(args.db).resolve().as_uri()+"?mode=ro",uri=True,timeout=30) if args.cached_only else sqlite3.connect(args.db,timeout=30)
@@ -298,7 +383,7 @@ def main():
         write_cached_report(con, args.out)
         con.close()
         return
-    if args.explore_updated:
+    if args.explore_updated or args.explore_wide:
         import scan_state
         markets=json.load(open(os.path.join(HERE,'markets.json')))['markets']
         countries=set(args.countries.split(',')) if args.countries else {geo for geo,m in markets.items()
@@ -306,10 +391,14 @@ def main():
         if not countries or not countries<=set(markets):ap.error('Нужны страны из markets.json')
         with scan_state.writer_lock(args.db):
             prepare(con)
-            keys=updated_review_sample(evidence.latest(con),evidence.demand_map(con),args.explore_updated,countries)
-            print(f'UPDATED DISCOVERY: {len(keys)} RSS checks, max {args.explore_updated}/country; not a statistical control',flush=True)
+            rows=evidence.latest(con);cached=evidence.demand_map(con);now=sc.now_utc()
+            targeted=updated_review_sample(rows,cached,args.explore_updated,countries,now)
+            broad=wide_review_sample(rows,cached,args.explore_wide,countries,now,exclude=targeted)
+            keys=targeted+broad;targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}
+            print(f'DISCOVERY: {len(keys)} RSS checks, max {args.explore_updated}+{args.explore_wide}/country; not a statistical control',flush=True)
             for i,(tid,geo) in enumerate(keys,1):
-                store_result(con,tid,geo,fetch_demand(tid,geo))
+                policy='updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
+                store_result(con,tid,geo,fetch_demand(tid,geo),policy=policy)
                 if i%25==0:print(f'UPDATED {i}/{len(keys)}',flush=True)
                 time.sleep(args.delay)
         con.close()

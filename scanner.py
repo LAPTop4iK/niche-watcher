@@ -26,6 +26,8 @@ import sqlite3
 import sys
 import time
 import scan_state
+import raw_archive
+import urllib.error
 import urllib.parse
 import urllib.request
 from collections import Counter
@@ -64,8 +66,14 @@ def fetch_json(url, quiet=False):
                 url, headers={"User-Agent": "niche-decay-scanner/1.0"}
             )
             with urllib.request.urlopen(req, timeout=HTTP_TIMEOUT) as resp:
-                return json.loads(resp.read().decode("utf-8", "replace"))
+                body=resp.read()
+                ref=raw_archive.capture(url,body,getattr(resp,'status',200),getattr(resp,'headers',{}))
+                return raw_archive.attach_ref(json.loads(body.decode("utf-8", "replace")),ref)
+        except raw_archive.ArchiveError:
+            raise
         except Exception as e:  # noqa: BLE001 — сетевые ошибки любые
+            if isinstance(e,urllib.error.HTTPError):
+                raw_archive.capture(url,e.read(),e.code,e.headers)
             last_err = e
             is_429 = getattr(e, "code", None) == 429
             # 429 у iTunes требует длинной паузы (окно лимита ~минута), прочее — обычный backoff

@@ -1,0 +1,28 @@
+{
+  "checked_at": "2026-11-01T15:38:41.222647+00:00",
+  "status": "PASS",
+  "replay": {
+    "reference_run": "audit-20261031",
+    "queries": 2426,
+    "observations": 97872,
+    "sha256": "56170996ad3f68ed10fae86fdda5575f5395116e031bbf317eeaf82226ef91ac",
+    "empty_database": true,
+    "resume_without_duplicates": true,
+    "network_requests": 0,
+    "hypothesis_fields_equal": [
+      "activity_comparison",
+      "old_minus_fresh_pp",
+      "matched_old_minus_fresh_pp",
+      "age_share_correlation",
+      "lifetime_ratings_vs_recent_reviews_spearman",
+      "sensitivity",
+      "discovery_vs_launch"
+    ],
+    "configuration": "Recorded jobs; independent of the current seed"
+  },
+  "base_code_sha": "f405aa9b97a2ccfda125de2b0df2bd9dca1d84a1",
+  "tested_uncommitted_changes": true,
+  "tests_passed": 82,
+  "sqlite_validation": "PASS; includes immutable history and as-of context",
+  "messages_sent": 0
+}

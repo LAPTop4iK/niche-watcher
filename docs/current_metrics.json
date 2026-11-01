@@ -124,13 +124,13 @@
   "adjacent_counter_drops": 3055,
   "research_lanes": {
     "stale": 1173,
-    "recent_pain": 581
+    "recent_pain": 582
   },
   "recent_version_review_coverage": {
     "search": {
       "eligible": 9672,
-      "rss_usable": 929,
-      "complaint_records": 465
+      "rss_usable": 930,
+      "complaint_records": 466
     },
     "charts": {
       "eligible": 9349,
@@ -144,8 +144,8 @@
     },
     "all": {
       "eligible": 17966,
-      "rss_usable": 1068,
-      "complaint_records": 581
+      "rss_usable": 1069,
+      "complaint_records": 582
     }
   }
 }

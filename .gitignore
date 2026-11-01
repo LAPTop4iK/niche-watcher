@@ -11,3 +11,4 @@ __pycache__/
 /niches.db
 .niche-pack-*
 .niche-restore-*
+/.data/

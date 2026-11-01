@@ -1,10 +1,10 @@
 # Кандидаты для исследования
 
-Метод activity-v3. Дата 2026-11-01T15:09:03+00:00. Всего 1754 app×country. Это не список прибыльных ниш.
+Метод activity-v3. Дата 2026-11-01T15:39:12+00:00. Всего 1755 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес с хотя бы одним свежим отзывом 1–2★. Отзыв требует чтения и проверки; это ещё не подтверждённая боль. Сначала свежая активность и сочетание платной загрузки с жалобами. Цена не подтверждает текущие продажи. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
-Версии <18 мес: пригодный RSS 1068/17966 app×страна; с жалобами 581. Это охват проверок, а не частота проблем на рынке.
+Версии <18 мес: пригодный RSS 1069/17966 app×страна; с жалобами 582. Это охват проверок, а не частота проблем на рынке.
 
 | Приложение | Страна | Направление | Сигнал | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |
 |---|---|---|---|---:|---|---:|---:|---|
@@ -358,8 +358,8 @@
 | [Discord – Talk, Play, Hang Out](https://apps.apple.com/dk/app/id985746746) | dk | Версия <18 мес + жалобы | ALIVE | 44911 | free | 23 | 6 | 2026-10-26 |
 | [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/us/app/id1164088669) | us | Версия ≥18 мес | ALIVE | 9989 | — | 23 | 15 | 2024-09-17 |
 | [Trafiko: Körkort](https://apps.apple.com/se/app/id1553065037) | se | Версия <18 мес + жалобы | ALIVE | 14764 | free | 23 | 4 | 2026-10-27 |
-| [DeepSeek - AI Assistant](https://apps.apple.com/au/app/id6737597349) | au | Версия <18 мес + жалобы | ALIVE | 1010 | free | 23 | 14 | 2026-10-23 |
 | [Zapmap: EV charging points map](https://apps.apple.com/gb/app/id964082746) | gb | Версия <18 мес + жалобы | ALIVE | 46762 | — | 22 | 12 | 2026-10-29 |
+| [DeepSeek - AI Assistant](https://apps.apple.com/au/app/id6737597349) | au | Версия <18 мес + жалобы | ALIVE | 1010 | free | 22 | 14 | 2026-10-23 |
 | [Sleep Cycle - Suivi de Sommeil](https://apps.apple.com/fr/app/id320606217) | fr | Версия <18 мес + жалобы | ALIVE | 6430 | free | 21 | 9 | 2026-10-25 |
 | [GasBuddy: Find Cheap Gas](https://apps.apple.com/ca/app/id406719683) | ca | Версия <18 мес + жалобы | ALIVE | 93807 | free | 20 | 12 | 2026-10-30 |
 | [My Love - Relationship Counter](https://apps.apple.com/se/app/id409609608) | se | Версия ≥18 мес | ALIVE | 6288 | free | 20 | 4 | 2023-05-08 |
@@ -380,6 +380,7 @@
 | [Aqua credit card](https://apps.apple.com/gb/app/id1059355733) | gb | Версия <18 мес + жалобы | ALIVE | 217075 | — | 18 | 4 | 2026-10-28 |
 | [Justin Guitar Lessons & Songs](https://apps.apple.com/gb/app/id1176125504) | gb | Версия <18 мес + жалобы | ALIVE | 7286 | free | 18 | 10 | 2026-10-19 |
 | [Radio Garden Live](https://apps.apple.com/us/app/id1339670993) | us | Версия ≥18 мес | ALIVE | 2309 | — | 18 | 6 | 2023-10-21 |
+| [Namaz App: Learn Salah Prayer](https://apps.apple.com/us/app/id1447056625) | us | Версия <18 мес + жалобы | ALIVE | 14905 | — | 18 | 3 | 2026-10-15 |
 | [MyFitnessPal: Calorie Counter](https://apps.apple.com/sa/app/id341232718) | sa | Версия <18 мес + жалобы | ALIVE | 26490 | free | 17 | 10 | 2026-10-27 |
 | [Gas Prices Near You](https://apps.apple.com/us/app/id581748070) | us | Версия <18 мес + жалобы | ALIVE | 7798 | free | 17 | 14 | 2026-08-19 |
 | [TalkU: Unlimited Calls + Texts](https://apps.apple.com/us/app/id863809868) | us | Версия ≥18 мес | ALIVE | 22234 | — | 17 | 14 | 2021-11-05 |
@@ -569,7 +570,6 @@
 | [Hours Tracker: Time Calculator](https://apps.apple.com/au/app/id1468092377) | au | Версия ≥18 мес | ALIVE | 5193 | free | 6 | 1 | 2024-09-02 |
 | [Remini - AI Foto Verbeteren](https://apps.apple.com/nl/app/id1470373330) | nl | Версия <18 мес + жалобы | ALIVE | 3390 | free | 6 | 2 | 2026-10-10 |
 | [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | ru | Версия ≥18 мес | ALIVE | 630 | — | 6 | 6 | 2022-03-15 |
-| [ONE PLUS COFFEE](https://apps.apple.com/ru/app/id1500867136) | ru | Версия <18 мес + жалобы | ALIVE | 3165 | — | 6 | 3 | 2026-10-08 |
 | [Moises: Die App für Musiker](https://apps.apple.com/ch/app/id1515796612) | ch | Версия <18 мес + жалобы | ALIVE | 553 | free | 6 | 1 | 2026-10-27 |
 | [FP3級学科試験対策問題集](https://apps.apple.com/jp/app/id1537244601) | jp | Версия ≥18 мес | ALIVE | 13311 | — | 6 | 3 | 2025-03-29 |
 | [Themes: Color Widgets, Icons](https://apps.apple.com/us/app/id1537362606) | us | Версия ≥18 мес | ALIVE | 27868 | free | 6 | 6 | 2022-08-05 |
@@ -605,6 +605,7 @@
 | [Gesünder leben: myFoodDoctor](https://apps.apple.com/de/app/id1493411240) | de | Версия <18 мес + жалобы | ALIVE | 1358 | — | 5 | 4 | 2026-10-26 |
 | [Portrait:Make Avatar Character](https://apps.apple.com/us/app/id1494275997) | us | Версия ≥18 мес | ALIVE | 27693 | — | 5 | 3 | 2024-04-09 |
 | [ビデオマスタープロ](https://apps.apple.com/jp/app/id1500098830) | jp | Версия ≥18 мес | ALIVE | 3152 | — | 5 | 4 | 2024-11-25 |
+| [ONE PLUS COFFEE](https://apps.apple.com/ru/app/id1500867136) | ru | Версия <18 мес + жалобы | ALIVE | 3165 | — | 5 | 2 | 2026-10-08 |
 | [Widgetsmith](https://apps.apple.com/jp/app/id1523682319) | jp | Версия <18 мес + жалобы | ALIVE | 141475 | — | 5 | 2 | 2026-09-28 |
 | [Color Widgets](https://apps.apple.com/hk/app/id1531594277) | hk | Версия <18 мес + жалобы | ALIVE | 3936 | free | 5 | 2 | 2026-09-15 |
 | [IDOLY PRIDE アイドリープライド](https://apps.apple.com/jp/app/id1535925293) | jp | Версия <18 мес + жалобы | ALIVE | 24127 | free | 5 | 1 | 2026-10-28 |

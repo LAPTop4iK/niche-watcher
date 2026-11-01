@@ -1,0 +1,147 @@
+{
+  "checked_at": "2026-11-01T15:38:07Z",
+  "budget": "No new paid services",
+  "scope": "Bounded pilot, not a full rescan",
+  "history": {
+    "samples": 2335,
+    "apps": 1638,
+    "first": "2026-10-31T19:03:59Z",
+    "last": "2026-11-01T15:38:07Z",
+    "origins": {
+      "frozen-study": 5,
+      "legacy-cache": 2322,
+      "live-fetch": 8
+    }
+  },
+  "raw_archive": {
+    "fetches": 11,
+    "objects": 9,
+    "body_bytes": 264571,
+    "gzip_bytes": 54864,
+    "first": "2026-11-01T15:36:55.485117+00:00",
+    "last": "2026-11-01T15:38:07.915676+00:00"
+  },
+  "search": {
+    "query": "construction calculator",
+    "country": "us",
+    "returned": 10,
+    "description_fields": 10,
+    "release_notes_fields": 9,
+    "language_fields": 10
+  },
+  "review_checks": [
+    {
+      "track_id": 596040849,
+      "country": "us",
+      "stratum": "0-49|18mo+|paid",
+      "status": "OK",
+      "review_count": 2,
+      "raw_ref": {
+        "event_id": "618b2243b6a04e2b96f21246d6afc227",
+        "sha256": "2d61b156eeec9a28cfc59a6f73c59cd49b50ceddd8efa4ecea937d846895ab64",
+        "object": "objects/2d/2d61b156eeec9a28cfc59a6f73c59cd49b50ceddd8efa4ecea937d846895ab64.gz",
+        "fetched_at": "2026-11-01T15:37:43.328936+00:00"
+      }
+    },
+    {
+      "track_id": 1542456934,
+      "country": "us",
+      "stratum": "500+|<12mo|free",
+      "status": "OK",
+      "review_count": 50,
+      "raw_ref": {
+        "event_id": "f56c3d955e9146878e35d7597c15c524",
+        "sha256": "e5810e8e2ddf51c00c59fe3d8a1ec3f981ba25eef870d9a1ad910ed0ae57b57d",
+        "object": "objects/e5/e5810e8e2ddf51c00c59fe3d8a1ec3f981ba25eef870d9a1ad910ed0ae57b57d.gz",
+        "fetched_at": "2026-11-01T15:37:46.830956+00:00"
+      }
+    },
+    {
+      "track_id": 1508769974,
+      "country": "us",
+      "stratum": "0-49|12-18mo|free",
+      "status": "EMPTY",
+      "review_count": 0,
+      "raw_ref": {
+        "event_id": "f5f6f71a0c914530ad28c4e857e9bedb",
+        "sha256": "8f986993ffd1ac96cf4197e63433d124228829357a63fd62415ce70db5acab02",
+        "object": "objects/8f/8f986993ffd1ac96cf4197e63433d124228829357a63fd62415ce70db5acab02.gz",
+        "fetched_at": "2026-11-01T15:37:50.231120+00:00"
+      }
+    },
+    {
+      "track_id": 320141628,
+      "country": "us",
+      "stratum": "0-49|18mo+|unknown",
+      "status": "OK",
+      "review_count": 2,
+      "raw_ref": {
+        "event_id": "fa80009d50664fd897641460807a6506",
+        "sha256": "ad93fa55f1155d7a30d173bb8a1694acc89e85d0aa22c500ed345641d14b32d1",
+        "object": "objects/ad/ad93fa55f1155d7a30d173bb8a1694acc89e85d0aa22c500ed345641d14b32d1.gz",
+        "fetched_at": "2026-11-01T15:37:53.644640+00:00"
+      }
+    },
+    {
+      "track_id": 1447056625,
+      "country": "us",
+      "stratum": "500+|<12mo|unknown",
+      "status": "OK",
+      "review_count": 50,
+      "raw_ref": {
+        "event_id": "97b70c9a13c6414e9a22863da3f923cf",
+        "sha256": "c438edd59e6e4f7606aee7dc36eb97dcc9f3fe66f592ec4cf780b8ce65ce91cd",
+        "object": "objects/c4/c438edd59e6e4f7606aee7dc36eb97dcc9f3fe66f592ec4cf780b8ce65ce91cd.gz",
+        "fetched_at": "2026-11-01T15:37:57.175703+00:00"
+      }
+    },
+    {
+      "track_id": 1446170416,
+      "country": "us",
+      "stratum": "50-499|<12mo|unknown",
+      "status": "OK",
+      "review_count": 9,
+      "raw_ref": {
+        "event_id": "6e073c732a314bcf91af8695716e977a",
+        "sha256": "d0e061f76d58acfbe4a2606d64da59454ac11337cce988af202c0a1dcda8513b",
+        "object": "objects/d0/d0e061f76d58acfbe4a2606d64da59454ac11337cce988af202c0a1dcda8513b.gz",
+        "fetched_at": "2026-11-01T15:38:00.912409+00:00"
+      }
+    },
+    {
+      "track_id": 6480532447,
+      "country": "us",
+      "stratum": "0-49|<12mo|unknown",
+      "status": "OK",
+      "review_count": 1,
+      "raw_ref": {
+        "event_id": "6c7d97cb1e8a4706955d06b3a5c4636c",
+        "sha256": "7bd38b492c3b98fe4d3deb643c79cfad2de84b42ee0c7305f8eb5a224df9735f",
+        "object": "objects/7b/7bd38b492c3b98fe4d3deb643c79cfad2de84b42ee0c7305f8eb5a224df9735f.gz",
+        "fetched_at": "2026-11-01T15:38:04.379132+00:00"
+      }
+    },
+    {
+      "track_id": 642285909,
+      "country": "us",
+      "stratum": "50-499|18mo+|paid",
+      "status": "OK",
+      "review_count": 50,
+      "raw_ref": {
+        "event_id": "35a4c6c49a68447d9c6843b8f82dc44a",
+        "sha256": "843c9ebe6192cf679ebe4f5f00bfc9fcddc4b9c8f6033a65ca3dbff4bae67bd2",
+        "object": "objects/84/843c9ebe6192cf679ebe4f5f00bfc9fcddc4b9c8f6033a65ca3dbff4bae67bd2.gz",
+        "fetched_at": "2026-11-01T15:38:07.915676+00:00"
+      }
+    }
+  ],
+  "frozen_study_unchanged": true,
+  "frozen_digests": {
+    "study_members": "f52e1297c3fcb93298a9991563bfe153219eb56512830f91f8411266fd88514d",
+    "study_reviews": "0c9ac45022e765855e3a4fc497bf7e82a106d6981806cd26fea056f33789bac0"
+  },
+  "messages_sent": 0,
+  "quick_check": "ok",
+  "imported_in_successful_attempt": 0,
+  "preserved_legacy_samples": 2327
+}

@@ -41,9 +41,19 @@ python3 -m http.server 8765 --bind 127.0.0.1 --directory dashboard
 python3 scanner.py --categories construction --countries us --no-alerts
 python3 review_clusters.py --ios 1494386815 --country us --days 90 --out /tmp/candidate-reviews.json
 
-# Отдельная ограниченная разведка жалоб обновляемых версий (не контроль исследования).
-python3 demand_check.py --explore-updated 20 --countries us,de --delay 1.5
+# Ограниченная разведка обновляемых версий и широкой выборки (не контроль исследования).
+python3 demand_check.py --explore-updated 10 --explore-wide 10 --countries us,de --delay 1.5
+
+# Локальный сбор с сохранением полных ответов, включая тексты и пока не используемые поля.
+python3 collect.py scanner --countries us --categories construction --no-alerts
+python3 raw_archive.py
 ```
+
+Наблюдения не отбрасываются из-за текущей гипотезы. История RSS накапливается в
+`demand_samples`; полный локальный архив хранится отдельно от Git, с пределом 5 GiB.
+Облачный сбор сохраняет разобранную историю, но не полные HTTP-ответы. Что собираем,
+что пока неизвестно и как проверяем заработок: [стратегия данных](docs/data_strategy.md)
+и [реестр гипотез](research_hypotheses.json). Новых платных сервисов нет.
 
 `--run-id` нельзя повторно использовать с другими запросами, странами или лимитом.
 Новый ID начинает новое наблюдение. Каждый запрос сохраняется отдельно, поэтому

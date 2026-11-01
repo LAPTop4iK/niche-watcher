@@ -25,7 +25,7 @@ class StorageGitTests(unittest.TestCase):
         base=Path(folder);origin=base/'origin';seed=base/'seed';seed.mkdir()
         self.git(base,'init','--bare',str(origin));self.git(seed,'init','-b','main')
         self.git(seed,'config','user.name','test');self.git(seed,'config','user.email','test@example.test')
-        for name in ('ci_save.sh','db_store.py','db_merge.py'):
+        for name in ('ci_save.sh','db_store.py','db_merge.py','demand_history.py'):
             shutil.copy(ROOT/name,seed/name)
         (seed/'.gitignore').write_text('niches.db\n__pycache__/\n')
         # Persistence integration only; report rendering is tested separately.

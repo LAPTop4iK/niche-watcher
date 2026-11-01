@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "purpose": "Collect broadly; test explicit hypotheses. No measured competitor revenue or validated profit prediction.",
+  "frame": "Observed Apple search app×storefront records from the configured query set, not the App Store population",
+  "hypotheses": [
+    {
+      "id": "H-stale-pain",
+      "question": "Does an older product leave a repeated, reachable, payable problem unresolved?",
+      "unit": "app×storefront×measurement time; cluster countries by app",
+      "requires": ["version/release dates", "dated review text and IDs", "current activity", "manual reproduction", "buyer and channel", "payment experiment"],
+      "failure_evidence": "Complaints concern older versions, cannot be reproduced, require inaccessible supply, or reachable users do not pay at a viable acquisition cost.",
+      "status": "exploratory; age/activity association alone is insufficient"
+    },
+    {
+      "id": "H-maintained-pain",
+      "question": "Do current versions of maintained products leave the same valuable task underserved?",
+      "unit": "dated complaint×installed version×app×storefront",
+      "requires": ["review version", "release date and notes", "review text", "repeated distinct review IDs", "reproduction and interviews", "payment experiment"],
+      "failure_evidence": "The issue is fixed, is platform policy, is isolated noise, or solving it does not change willingness to switch/pay.",
+      "status": "exploratory; date after release does not prove matching installed version"
+    },
+    {
+      "id": "H-small-paid",
+      "question": "Do apps below 500 ratings expose paid specialist tasks missed by the current queue?",
+      "unit": "app×storefront×time, stratified by ratings/age/download price",
+      "requires": ["all observed small apps", "local price/currency", "full description", "review text", "identified buyer", "distribution test", "own net receipts and costs"],
+      "failure_evidence": "A paid price has no current buyers, demand is too small, or attainable contribution cannot cover delivery/support/acquisition.",
+      "status": "exploratory; paid listing is not observed sales"
+    },
+    {
+      "id": "H-local-gap",
+      "question": "Is a specific local task underserved where comparable users have demonstrated willingness to pay?",
+      "unit": "task×storefront×time; compare the same query, limits and source",
+      "requires": ["localized queries and relevance review", "local price/currency/languages", "comparable time series", "local complaint text", "local buyer validation"],
+      "failure_evidence": "The difference comes from localization/ranking/source coverage, local regulation/workflow, or users prefer an existing substitute.",
+      "status": "exploratory; geo divergence is not a transfer of demand"
+    },
+    {
+      "id": "H-market-entry",
+      "question": "Does observed chart or keyword turnover correspond to attainable distribution for a new entrant?",
+      "unit": "same feed/query×storefront×time with unchanged collection limit",
+      "requires": ["dated rank observations", "comparable limits", "release/seller history", "own acquisition/activation/retention/payment cohort"],
+      "failure_evidence": "Turnover is collection noise, publisher cross-promotion, seasonal advertising, or does not translate into an attainable channel.",
+      "status": "awaiting sufficient time series; turnover alone does not prove openness"
+    },
+    {
+      "id": "H-free-funnel",
+      "question": "Can a free useful app generate incremental profitable customers for a paid product?",
+      "unit": "own acquisition cohort with attributed downstream purchases and a comparison",
+      "requires": ["attributed outbound visits", "paid conversions", "net receipts/refunds", "acquisition and serving costs", "retention", "holdout or other credible counterfactual"],
+      "failure_evidence": "Free users do not create incremental paid contribution after acquisition, service and support costs.",
+      "status": "not testable from competitor ratings; requires an instrumented launch"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import sqlite3
 import evidence
+import demand_history
 
 
 def validate(con,require_complete=False,required_run=None):
@@ -21,6 +22,20 @@ def validate(con,require_complete=False,required_run=None):
         checks.append('Foreign keys')
     if con.execute('SELECT 1 FROM snapshots WHERE country IS NULL OR track_id IS NULL OR rating_count<0 LIMIT 1').fetchone():
         errors.append('Invalid snapshot keys or negative count')
+    if 'demand_samples' in evidence.tables(con):
+        before=len(errors)
+        for identity,tid,geo,checked,payload,context in con.execute('SELECT sample_id,track_id,country,checked_at,payload_json,snapshot_json FROM demand_samples'):
+            try:
+                d=json.loads(payload);stamp=evidence.parse(checked)
+                if (d['track_id'],d['country'],d['checked_at'])!=(tid,geo,checked) or demand_history.sample_identity(d)!=identity:
+                    raise ValueError('Payload does not match immutable sample identity')
+                if context:
+                    snapshot=json.loads(context)
+                    if (snapshot['track_id'],snapshot['country'])!=(tid,geo) or evidence.parse(snapshot['scanned_at'])>stamp:
+                        raise ValueError('Context is from another record or the future')
+            except (ValueError,TypeError,KeyError,AttributeError) as exc:
+                errors.append(f'Review history {identity}: {exc}')
+        if len(errors)==before:checks.append('Review history identities and as-of context')
     if {'scan_runs','scan_queries'}<=evidence.tables(con):
         for run_id,expected,status,payload in con.execute('SELECT run_id,expected_queries,status,settings_json FROM scan_runs'):
             try:

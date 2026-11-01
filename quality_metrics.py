@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import sqlite3
 import evidence
+import demand_history
 import scanner as sc
 
 ROOT=Path(__file__).resolve().parent
@@ -41,6 +42,16 @@ def build(con,now=None,rows=None,queue=None):
                     id_geos[(r['track_id'],str(identity))].add(r['country'])
     counts['eligible']=len(eligible);counts['metadata_not_fresh']=len(eligible)-counts['metadata_fresh']
     counts['rss_not_usable']=len(eligible)-counts['rss_usable']
+    broad_counts=Counter();strata=Counter()
+    # Full observed search frame, deliberately separate from the >=500 UI queue.
+    from demand_check import exploration_stratum
+    for r in base:
+        strata[exploration_stratum(r,now)]+=1
+        d=cache.get((r['track_id'],r['country']))
+        broad_counts['checked_at_least_once']+=int(bool(d))
+        if d:
+            a=evidence.assess(con,r,d,now)
+            broad_counts['rss_usable_now']+=int(a['fetch_status']=='OK')
     for name in ('rss_usable','rss_missing','rss_error','rss_empty','rss_stale','rss_unknown','rss_recent_capped','rss_with_review_versions','rss_with_review_ids'):
         counts.setdefault(name,0)
     pain=[r for r in queue if r['lane']=='recent_pain' and 'search' in r['sources']]
@@ -74,6 +85,10 @@ def build(con,now=None,rows=None,queue=None):
     return dict(computed_at=now.isoformat(),scope='Current keyword-search memberships; counts before the optional title filter',
         unit='app×storefront, not independent users',search_records=len(base),search_unique_apps=len({r['track_id'] for r in base}),
         queries=dict(query_counts),freshness_days=evidence.MAX_AGE_DAYS,review_coverage=dict(counts),
+        collection=dict(search_records=len(base),below_500_ratings=sum((r.get('rating_count') or 0)<500 for r in base),
+            strata=dict(strata),**dict(broad_counts),history=demand_history.stats(con),
+            raw_capture='Opt-in local archive only; complete HTTP bodies are not persisted by CI',
+            note='Exploration strata are not weighted estimates of the App Store population'),
         last_search_query_at=max((r['finished_at'] for r in latest.values() if r['status']=='OK'),default=None),
         recent_pain_timing=pain_timing,
         cross_geo_review_ids=dict(apps_comparable=multi_geo,shared_ids=sum(len(geos)>=2 for geos in id_geos.values()) if multi_geo else None,
