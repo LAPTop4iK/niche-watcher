@@ -7,6 +7,7 @@ import sqlite3
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 import db_store
 import scanner as sc
 
@@ -116,6 +117,40 @@ class StorageGitTests(unittest.TestCase):
                 names={r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='index'")}
             self.assertIn('idx_snap_store_time',names)
 
+    def test_release_outage_stores_the_checkpoint_in_git_and_the_next_save_recovers(self):
+        with tempfile.TemporaryDirectory() as folder:
+            origin,(clone,_)=self.repos(folder)
+            healthy=dict(self.env(folder),NICHE_CHECKPOINT_DIR=os.environ['NICHE_CHECKPOINT_DIR'])
+            store=Path(healthy['NICHE_CHECKPOINT_DIR']);self.add(clone,2)
+            store.chmod(0o555)  # Reads still work, as with a missing token on a public repo.
+            try:
+                subprocess.run(['bash','ci_save.sh','outage'],cwd=clone,env=healthy,check=True,capture_output=True)
+            finally:
+                store.chmod(0o755)
+            final=Path(folder)/'after-outage';self.git(Path(folder),'clone',str(origin),str(final))
+            self.assertEqual(self.git(final,'ls-files','niches.db.xz'),'niches.db.xz')
+            self.assertEqual(self.git(final,'ls-files','niches.db.checkpoint.json'),'')
+            self.assertTrue(db_store.ensure(final/'niches.db'))
+            with sqlite3.connect(final/'niches.db') as con:
+                self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,2})
+            self.add(clone,3)
+            subprocess.run(['bash','ci_save.sh','recovered'],cwd=clone,env=healthy,check=True,capture_output=True)
+            final=Path(folder)/'after-recovery';self.git(Path(folder),'clone',str(origin),str(final))
+            self.assertEqual(self.git(final,'ls-files','niches.db.xz'),'')
+            self.assertTrue(db_store.ensure(final/'niches.db'))
+            with sqlite3.connect(final/'niches.db') as con:
+                self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,2,3})
+
+    def test_old_archive_without_later_columns_can_still_be_restored(self):
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'old.db'
+            with sqlite3.connect(path) as con:
+                con.execute('CREATE TABLE snapshots(id INTEGER PRIMARY KEY,track_id INTEGER,country TEXT,scanned_at TEXT)')
+            db_store.restore_indexes(path)
+            with sqlite3.connect(path) as con:
+                names={r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='index'")}
+            self.assertEqual(names,{'idx_snap_track_time','idx_snap_store_time'})
+
     def test_checkpoint_that_does_not_match_its_pointer_is_rejected(self):
         with tempfile.TemporaryDirectory() as folder:
             base=Path(folder);os.environ['NICHE_CHECKPOINT_DIR']=str(base/'store')
@@ -125,6 +160,28 @@ class StorageGitTests(unittest.TestCase):
             (base/'store'/entry['asset']).write_bytes(b'tampered')
             with self.assertRaises(ValueError):db_store.ensure(base/'niches.db')
             self.assertFalse((base/'niches.db').exists())
+
+    def test_release_is_created_once_and_a_parallel_creator_is_tolerated(self):
+        failure=subprocess.CalledProcessError(1,'gh')
+        with tempfile.TemporaryDirectory() as folder,patch.dict(os.environ,GITHUB_REPOSITORY='o/r'):
+            os.environ.pop('NICHE_CHECKPOINT_DIR',None)
+            path=Path(folder)/'niches-abc.db.xz';path.write_bytes(b'x')
+            with patch.object(db_store,'gh',side_effect=[failure,failure,'','']) as gh:
+                db_store.upload(path)
+            commands=[call.args[:2] for call in gh.call_args_list]
+            self.assertEqual(commands,[('release','view'),('release','create'),('release','view'),('release','upload')])
+            self.assertIn('o/r',gh.call_args_list[-1].args)
+            with patch.object(db_store,'gh',side_effect=['','']) as gh:
+                db_store.upload(path)
+            self.assertEqual([call.args[1] for call in gh.call_args_list],['view','upload'])
+
+    def test_failed_upload_leaves_the_pointer_untouched(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base=Path(folder);pointer=base/'pointer.json';pointer.write_text('previous')
+            archive=base/'a.xz';archive.write_bytes(b'x')
+            with patch.object(db_store,'upload',side_effect=OSError('offline')),self.assertRaises(OSError):
+                db_store.publish(archive,pointer)
+            self.assertEqual(pointer.read_text(),'previous')
 
     def test_prune_keeps_the_current_checkpoint(self):
         with tempfile.TemporaryDirectory() as folder:

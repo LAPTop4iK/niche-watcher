@@ -80,7 +80,7 @@ class FreshnessAndSampling(Fixtures):
             scan_state.begin_query(con,run,*job);scan_state.end_query(con,run,*job,'OK',1,1);scan_state.finish_run(con,run)
         dc.prepare(con)
         with patch.object(sc,'now_utc',return_value=now):
-            dc.store_result(con,1,'us',dc.DemandFetch(('2026-10-30',50,50,100,'OK'),['2026-10-30']*50,[1]*50))
+            dc.store_result(con,1,'us',dc.DemandFetch(('2026-10-30',50,50,100,'OK'),['2026-10-30']*50,[1]*50,capped=True))
         q=quality_metrics.build(con,now)
         self.assertEqual((q['queries']['fresh_ok'],q['queries']['at_limit']),(1,1))
         self.assertEqual(q['review_coverage']['rss_recent_capped'],1)
@@ -652,6 +652,53 @@ class ReviewCollection(Fixtures):
         with patch.object(sc,'now_utc',return_value=later):demand_check.store_result(con,1,'us',empty)
         self.assertEqual(status(),'EMPTY')
 
+    def test_failed_refresh_keeps_a_valid_sample_and_goes_to_history(self):
+        import demand_check as dc
+        con=sc.open_db(':memory:');dc.prepare(con)
+        good=dc.DemandFetch(('2026-10-30T00:00:00Z',1,1,100,'OK'),['2026-10-30T00:00:00Z'],[1],ids=['a'],versions=['1'])
+        first=datetime(2026,10,31,tzinfo=timezone.utc);later=datetime(2026,11,5,tzinfo=timezone.utc);expired=datetime(2026,11,20,tzinfo=timezone.utc)
+        row=lambda:con.execute('SELECT fetch_status,r90,checked_at FROM demand').fetchone()
+        with patch.object(sc,'now_utc',return_value=first):dc.store_result(con,1,'us',good)
+        kept=row()
+        for failure in (dc.DemandFetch((None,None,None,None,'ERROR'),error='offline'),dc.DemandFetch((None,None,None,None,'EMPTY'))):
+            with patch.object(sc,'now_utc',return_value=later):dc.store_result(con,1,'us',failure)
+            self.assertEqual(row(),kept)
+        statuses=[json.loads(r[0]).get('fetch_status') for r in con.execute('SELECT payload_json FROM demand_samples')]
+        self.assertEqual(sorted(statuses),['EMPTY','ERROR','OK'])
+        import validate_data
+        self.assertEqual(validate_data.validate(con)[1],[])
+        with patch.object(sc,'now_utc',return_value=expired):dc.store_result(con,1,'us',dc.DemandFetch((None,None,None,None,'ERROR'),error='offline'))
+        self.assertEqual(row()[0],'ERROR')
+
+    def test_capped_sample_with_a_duplicate_across_pages_is_still_a_lower_bound(self):
+        import demand_check as dc
+        now=datetime(2026,11,1,tzinfo=timezone.utc);con=sc.open_db(':memory:');dc.prepare(con)
+        row=self.make(con,version='2026-01-01T00:00:00Z')
+        dates=[f'2026-10-{1+i%28:02d}T00:00:00Z' for i in range(249)]
+        with patch.object(sc,'now_utc',return_value=now):
+            dc.store_result(con,1,'us',dc.DemandFetch((dates[-1],249,249,0,'OK'),dates,[5]*249,capped=True))
+        cached=evidence.demand_map(con)[(1,'us')]
+        self.assertTrue(evidence.assess(con,evidence.latest(con)[0],cached,now)['recent_sample_capped'])
+
+    def test_velocity_works_on_a_table_without_run_id(self):
+        con=sqlite3.connect(':memory:')
+        con.execute('CREATE TABLE snapshots(track_id INTEGER,country TEXT,scanned_at TEXT,rating_count INTEGER)')
+        con.executemany('INSERT INTO snapshots VALUES (1,?,?,?)',[('us','2026-10-01T00:00:00Z',1000),('us','2026-10-10T00:00:00Z',1100)])
+        self.assertAlmostEqual(evidence.rating_velocity(con,1,'us')[0],100/9*30)
+
+    def test_page_links_report_defaults_to_one_file_per_storefront(self):
+        import similar_crawl
+        with tempfile.TemporaryDirectory() as folder:
+            db=str(Path(folder)/'db');cwd=Path.cwd()
+            try:
+                import os
+                os.chdir(folder)
+                with patch.object(sys,'argv',['similar_crawl.py','--seeds','1','--country','gb','--db',db]),patch.object(similar_crawl,'page_ids',return_value=[]),patch.object(sc,'REQUEST_DELAY',0),patch.object(similar_crawl.time,'sleep'):
+                    similar_crawl.main()
+                self.assertTrue((Path(folder)/'clusters_report_gb.md').exists())
+            finally:
+                os.chdir(cwd)
+
     def test_queue_refresh_takes_complaints_first_and_oldest_within_budget(self):
         import demand_check
         now=datetime(2026,10,31,tzinfo=timezone.utc)
@@ -663,6 +710,7 @@ class ReviewCollection(Fixtures):
                 (5,'us'):dict(checked_at='2026-10-01T00:00:00Z',review_scores_json='[5]')}
         rows=[row(1),row(2),row(3),row(4),row(5,'2020-01-01T00:00:00Z')]
         self.assertEqual(demand_check.queue_refresh_sample(rows,cached,3,None,now),[(3,'us'),(2,'us'),(5,'us')])
+        self.assertEqual(demand_check.queue_refresh_sample(rows,cached,1,None,now,queued=[(2,'us')]),[(2,'us')])
 
     def test_chart_keeps_resolved_apps_when_one_id_is_delisted(self):
         with tempfile.TemporaryDirectory() as folder:

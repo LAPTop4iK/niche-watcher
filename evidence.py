@@ -153,9 +153,9 @@ def counter_noise(value):
 
 def rating_series(con,track_id,country):
     """One point per scan, newest first: an app appears once per query it matched."""
-    scans={}
-    for run_id,stamp,count in con.execute('''SELECT run_id,scanned_at,rating_count FROM snapshots
-            WHERE track_id=? AND country=? AND rating_count IS NOT NULL''',(track_id,country)):
+    scans={};columns={r[1] for r in con.execute('PRAGMA table_info(snapshots)')}
+    for run_id,stamp,count in con.execute(f'''SELECT {'run_id' if 'run_id' in columns else 'NULL'},scanned_at,rating_count
+            FROM snapshots WHERE track_id=? AND country=? AND rating_count IS NOT NULL''',(track_id,country)):
         scan=scans.setdefault(run_id or stamp,dict(stamp=stamp,values=[]))
         scan['stamp']=max(scan['stamp'],stamp);scan['values'].append(count)
     return sorted(((parse(s['stamp']),statistics.median(s['values']),min(s['values']),max(s['values']))
@@ -254,9 +254,7 @@ def assess(con,row,cached=None,now=None):
             r7=sum(0<=(now-parse(stamp)).total_seconds()<=7*86400 for stamp in dates)
             r30=sum(0<=(now-parse(stamp)).total_seconds()<=30*86400 for stamp in dates)
             sample_span=(max(map(parse,dates))-min(map(parse,dates))).total_seconds()/86400 if dates else None
-            # Pages hold 50 reviews: a whole number of them all inside the window
-            # means the fetch stopped at its page cap, not at the window edge.
-            capped_recent=len(dates)>=50 and len(recent)==len(dates) and len(dates)%50==0
+            capped_recent=bool(d.get('sample_capped')) and len(recent)==len(dates)
             versions=json.loads(d.get('review_versions_json') or '[]')
             ids=json.loads(d.get('review_ids_json') or '[]')
             if isinstance(versions,list) and len(versions)==len(dates):

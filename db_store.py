@@ -17,6 +17,7 @@ from pathlib import Path
 import shutil
 import sqlite3
 import subprocess
+import sys
 import tempfile
 import time
 import urllib.request
@@ -55,7 +56,11 @@ def local_store():
 
 
 def gh(*args):
-    return subprocess.run(['gh',*args],check=True,capture_output=True,text=True).stdout
+    result=subprocess.run(['gh',*args],capture_output=True,text=True)
+    if result.returncode:
+        print('gh:',result.stderr.strip(),file=sys.stderr)
+        raise subprocess.CalledProcessError(result.returncode,'gh')
+    return result.stdout
 
 
 def upload(path):
@@ -102,9 +107,9 @@ def digest(path):
 
 def restore_indexes(path):
     with sqlite3.connect(path) as con:
-        tables={r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
         for name,(table,columns) in INDEXES.items():
-            if table in tables:
+            present={r[1] for r in con.execute(f'PRAGMA table_info({table})')}
+            if set(columns.split(','))<=present:  # An old archive lacks later columns.
                 con.execute(f'CREATE INDEX IF NOT EXISTS {name} ON {table}({columns})')
 
 

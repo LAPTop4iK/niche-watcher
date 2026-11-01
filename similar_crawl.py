@@ -41,9 +41,10 @@ def stale_months(value):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--seeds');ap.add_argument('--from-report');ap.add_argument('--top-seeds',type=int,default=5);ap.add_argument('--depth',type=int,default=1);ap.add_argument('--country',default='us');ap.add_argument('--db',default='niches.db');ap.add_argument('--out',default='clusters_report.md');ap.add_argument('--min-stale-months',type=float,default=18);args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--seeds');ap.add_argument('--from-report');ap.add_argument('--top-seeds',type=int,default=5);ap.add_argument('--depth',type=int,default=1);ap.add_argument('--country',default='us');ap.add_argument('--db',default='niches.db');ap.add_argument('--out');ap.add_argument('--min-stale-months',type=float,default=18);args=ap.parse_args()
     if not 1<=args.depth<=2:
         raise SystemExit('depth must be 1 or 2')
+    args.out=args.out or f'clusters_report_{args.country}.md'  # One report per storefront.
     seeds=[s.strip() for s in (args.seeds or '').split(',') if s.strip()]
     if any(not s.isdigit() for s in seeds):
         raise SystemExit('Seeds must be numeric app IDs')
@@ -78,7 +79,8 @@ def main():
                     ages=[age for r in unique.values() if (age:=stale_months(r.get('currentVersionReleaseDate'))) is not None and age>=0]
                     stale=sum(age>=args.min_stale_months for age in ages)
                     results.append((tid,len(ids),len(unique),len(ages),stale,statistics.median(ages) if ages else None,len(missing)))
-                    scan_state.end_query(con,run,country,category,query,'ERROR' if missing else 'OK',len(ids),len(unique),f'{len(missing)} unresolved IDs' if missing else None)
+                    # Page links include apps absent from this storefront; the rest stay a valid observation.
+                    scan_state.end_query(con,run,country,category,query,'OK',len(ids),len(unique),f'{len(missing)} unresolved IDs' if missing else None)
                     nxt+=ids
                 except Exception as error:
                     con.rollback();scan_state.end_query(con,run,country,category,query,'ERROR',error=str(error))

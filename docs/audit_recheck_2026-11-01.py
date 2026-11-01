@@ -181,6 +181,18 @@ def velocity_blocking(con):
         within_run=dict(decreases=int((diff<0).sum()),increases=int((diff>0).sum())))
 
 
+def velocity_current(con):
+    """The same series under evidence.rating_velocity, with a 1-hour floor on the baseline."""
+    by=collections.defaultdict(lambda:[0,0])
+    for tid,geo,first,last,top in con.execute('''SELECT track_id,country,MIN(scanned_at),MAX(scanned_at),MAX(rating_count)
+            FROM snapshots WHERE rating_count IS NOT NULL GROUP BY 1,2''').fetchall():
+        if (evidence.parse(last)-evidence.parse(first)).total_seconds()<86400:
+            continue
+        band='<500' if top<500 else '500-5k' if top<5000 else '5k-50k' if top<50000 else '50k+'
+        by[band][0]+=1;by[band][1]+=evidence.rating_velocity(con,tid,geo,min_days=1/24)[0] is None
+    return {k:dict(series=v[0],blocked=v[1],share=round(v[1]/v[0],3)) for k,v in sorted(by.items())}
+
+
 def truncation(con):
     total=con.execute('SELECT COUNT(*) FROM scan_queries WHERE run_id=?',BASE_RUN).fetchone()[0]
     counts={str(n):con.execute('SELECT COUNT(*) FROM scan_queries WHERE run_id=? AND result_count>=?',(STUDY,n)).fetchone()[0] for n in (35,45,50)}
@@ -229,12 +241,12 @@ def seed_fallback():
 
 def funnel(con,now):
     queue,_=evidence.research_queue(con,now);q=pd.DataFrame(queue);stale=q[q.lane=='stale'].copy()
-    ranks=pd.read_sql_query("""SELECT track_id,country,MIN(rank) best_rank FROM snapshots WHERE run_id IS NOT NULL
+    ranks=pd.read_sql_query("""SELECT track_id,country,MIN(rank) audit_rank FROM snapshots WHERE run_id IS NOT NULL
         AND category NOT LIKE 'chart:%' AND category!='similar-graph' GROUP BY 1,2""",con)
     stale=stale.merge(ranks,how='left',on=['track_id','country'])
     step=lambda f:dict(rows=len(f),apps=int(f.track_id.nunique()))
     search=stale[stale.sources.map(lambda x:'search' in x)];alive=search[search.verdict=='ALIVE']
-    top=alive[alive.best_rank<=10];title=top[top.title_match]
+    top=alive[alive.audit_rank<=10];title=top[top.title_match]
     grossing=pd.read_sql_query("SELECT track_id,country,version_date,rank,rating_count,scanned_at FROM snapshots WHERE query='topgrossingapplications'",con)
     keys=set(zip(grossing.track_id,grossing.country))
     search=search.assign(grossing=[k in keys for k in zip(search.track_id,search.country)])
@@ -244,8 +256,8 @@ def funnel(con,now):
     pool_age=[(now-evidence.parse(r['version_date'])).total_seconds()/86400/30.44 for r in pool]
     return dict(lanes=q.lane.value_counts().to_dict(),funnel=dict(stale=step(stale),search=step(search),alive=step(alive),rank_top10=step(top),title_match=step(title)),
         recent_pain_title_match=round(float(q[q.lane=='recent_pain'].title_match.mean()),3),stale_title_match=round(float(stale.title_match.mean()),3),
-        stale_search_rank=dict(top10=round(float((search.best_rank<=10).mean()),3),top3=round(float((search.best_rank<=3).mean()),3),median=float(search.best_rank.median())),
-        shortlist=title.sort_values('r90',ascending=False)[['name','country','rating_count','r90','best_rank']].head(28).to_dict('records'),
+        stale_search_rank=dict(top10=round(float((search.audit_rank<=10).mean()),3),top3=round(float((search.audit_rank<=3).mean()),3),median=float(search.audit_rank.median())),
+        shortlist=title.sort_values('r90',ascending=False)[['name','country','rating_count','r90','audit_rank']].head(28).to_dict('records'),
         grossing=dict(rows=len(grossing),countries=sorted(grossing.country.unique()),genres=16,observed=[grossing.scanned_at.min(),grossing.scanned_at.max()],
             stale_share=round(float((grossing.age>=18).mean()),3),stale_share_top50=round(float((grossing[grossing['rank']<=50].age>=18).mean()),3),
             under_3mo_share=round(float((grossing.age<3).mean()),3),search_pool_stale_share=round(float(np.mean(np.array(pool_age)>=18)),3)),
@@ -299,7 +311,7 @@ def main():
     args=ap.parse_args();now=evidence.parse(args.now)
     con=sqlite3.connect(Path(args.db).resolve().as_uri()+'?mode=ro',uri=True)
     data=dict(computed_for=args.now,counts=dict(apps=con.execute('SELECT COUNT(*) FROM apps').fetchone()[0],snapshots=con.execute('SELECT COUNT(*) FROM snapshots').fetchone()[0]),
-        study=study(con),pain_base_rate=pain_base_rate(con,now),velocity=velocity_blocking(con),truncation=truncation(con),
+        study=study(con),pain_base_rate=pain_base_rate(con,now),velocity=velocity_blocking(con),velocity_current=velocity_current(con),truncation=truncation(con),
         serp_noise=serp_noise(con),serp_trace=serp_trace(con),seed_fallback=seed_fallback(),funnel=funnel(con,now),storage=storage(args.db))
     if args.live:
         data['live']=live(con)

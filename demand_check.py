@@ -167,14 +167,27 @@ def store_result(con,tid,country,result,policy=None):
     con.execute('SAVEPOINT review_measurement')
     try:
         demand_history.preserve_current(con,tid,country)
-        _store_result(con,tid,country,result,policy)
-        payload=demand_history.as_dict(con.execute('SELECT * FROM demand WHERE track_id=? AND country=?',(tid,country)))
+        if keeps_valid_sample(con,tid,country,result[-1]):
+            payload=dict(track_id=tid,country=country,checked_at=sc.iso(sc.now_utc()),fetch_status=result[-1],
+                         fetch_error=getattr(result,'error',None),method_version=evidence.METHOD,collection_policy=policy)
+        else:
+            _store_result(con,tid,country,result,policy)
+            payload=demand_history.as_dict(con.execute('SELECT * FROM demand WHERE track_id=? AND country=?',(tid,country)))
         demand_history.append(con,payload,'live-fetch',getattr(result,'raw_ref',None))
         con.execute('RELEASE review_measurement')
     except Exception:
         con.execute('ROLLBACK TO review_measurement');con.execute('RELEASE review_measurement')
         raise
     con.commit()
+
+
+def keeps_valid_sample(con,tid,country,status):
+    """A failed refresh goes to history only: it must not erase a fresh measurement,
+    least of all for queue rows, which the refresh selects from that very sample."""
+    if status=='OK':
+        return False
+    row=con.execute('SELECT fetch_status,checked_at FROM demand WHERE track_id=? AND country=?',(tid,country)).fetchone()
+    return bool(row) and row[0]=='OK' and (sc.now_utc()-evidence.parse(row[1])).total_seconds()<=evidence.MAX_AGE_DAYS*86400
 
 
 def empty_confirmed(con,tid,country):
@@ -275,13 +288,13 @@ def recheck_seconds(previous):
     return EMPTY_CONFIRM_SECONDS if status=='EMPTY_UNCONFIRMED' else 86400 if status=='ERROR' else 7*86400
 
 
-def queue_refresh_sample(rows,cached,per_country,countries=None,now=None):
+def queue_refresh_sample(rows,cached,per_country,countries=None,now=None,queued=()):
     """Re-measure search rows before RSS expires, oldest first.
 
-    Rows with complaints come ahead of other old versions: only they leave the
-    recent-version lane once the 14-day freshness window closes.
+    Rows already in the recent-version lane go first: they leave the queue once
+    the 14-day freshness window closes. Other complaints follow, then old versions.
     """
-    now=now or sc.now_utc();pools={}
+    now=now or sc.now_utc();pools={};queued=set(queued)
     for row in rows:
         key=(row['track_id'],row['country']);previous=cached.get(key)
         if not previous or (row.get('rating_count') or 0)<500 or (countries is not None and row['country'] not in countries):
@@ -295,8 +308,8 @@ def queue_refresh_sample(rows,cached,per_country,countries=None,now=None):
             continue
         complaints=any(isinstance(s,(int,float)) and s<=2 for s in scores)
         if age>=REFRESH_AFTER_DAYS and (complaints or evidence.is_candidate(row,now)):
-            pools.setdefault(row['country'],[]).append((not complaints,-age,key))
-    return [key for _,items in sorted(pools.items()) for _,_,key in sorted(items)[:per_country]]
+            pools.setdefault(row['country'],[]).append((key not in queued,not complaints,-age,key))
+    return [item[-1] for _,items in sorted(pools.items()) for item in sorted(items)[:per_country]]
 
 
 def exploration_stratum(row,now):
@@ -492,7 +505,8 @@ def main():
         with scan_state.writer_lock(args.db):
             prepare(con)
             rows=evidence.latest(con);cached=evidence.demand_map(con);now=sc.now_utc()
-            refresh=queue_refresh_sample(rows,cached,args.refresh_queue,countries,now)
+            queued=[(r['track_id'],r['country']) for r in evidence.research_queue(con,now)[0] if r['lane']=='recent_pain']
+            refresh=queue_refresh_sample(rows,cached,args.refresh_queue,countries,now,queued)
             targeted=updated_review_sample(rows,cached,args.explore_updated,countries,now,exclude=refresh)
             broad=wide_review_sample(rows,cached,args.explore_wide,countries,now,exclude=refresh+targeted)
             keys=refresh+targeted+broad;refresh=set(refresh);targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}

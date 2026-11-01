@@ -43,7 +43,8 @@ class HistoryTests(unittest.TestCase):
         rows=con.execute('SELECT payload_json FROM demand_samples ORDER BY checked_at').fetchall()
         self.assertEqual(len(rows),2);self.assertEqual(rows[0][0],original[0])
         self.assertEqual(json.loads(rows[0][0])['collection_policy'],'wide-v1:small')
-        self.assertEqual(con.execute('SELECT fetch_status FROM demand').fetchone()[0],'ERROR')
+        self.assertEqual(json.loads(rows[1][0])['fetch_status'],'ERROR')
+        self.assertEqual(con.execute('SELECT fetch_status FROM demand').fetchone()[0],'OK')
         self.assertEqual(json.loads(original[1])['scanned_at'],'2026-10-31T00:00:00Z')
         con.close()
 

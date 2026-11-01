@@ -32,7 +32,7 @@ for scan_attempt in 1 2 3; do
   # rather than silently reverting upstream code or using old loaded modules.
   python3 - <<'PY'
 import subprocess
-allowed={'niches.db','niches.db.gz','niches.db.checkpoint.json','report.md','report_t2.md','demand_report.md','geo_gap_report.md','charts_report.md','clusters_report_us.md','clusters_report_gb.md','docs/scoreboard.md','docs/divergence.md','docs/hypotheses.json','docs/hypotheses.md','docs/current_metrics.json','docs/data_quality.json','docs/telegram_preview.txt'}
+allowed={'niches.db','niches.db.gz','niches.db.xz','niches.db.checkpoint.json','report.md','report_t2.md','demand_report.md','geo_gap_report.md','charts_report.md','clusters_report_us.md','clusters_report_gb.md','docs/scoreboard.md','docs/divergence.md','docs/hypotheses.json','docs/hypotheses.md','docs/current_metrics.json','docs/data_quality.json','docs/telegram_preview.txt'}
 def git(*args):return set(subprocess.check_output(['git',*args],text=True).splitlines())
 changed=git('diff','--name-only','HEAD','FETCH_HEAD')|git('diff','--name-only','HEAD')|git('ls-files','--others','--exclude-standard')
 if changed-allowed:
@@ -40,15 +40,18 @@ if changed-allowed:
 PY
   # The checkpoint is outside the checkout. Decode origin anew on every retry.
   rm -f "$scan_checkpoint"/origin.db*
-  if git show 'FETCH_HEAD:niches.db.checkpoint.json' > "$scan_checkpoint/origin.db.checkpoint.json" 2>/dev/null; then
+  scan_origin=""
+  for scan_format in checkpoint.json xz gz; do
+    if git show "FETCH_HEAD:niches.db.$scan_format" > "$scan_checkpoint/origin.db.$scan_format" 2>/dev/null; then
+      scan_origin="$scan_format"
+      break
+    fi
+    rm -f "$scan_checkpoint/origin.db.$scan_format"
+  done
+  if [[ -n "$scan_origin" ]]; then
     python3 db_store.py restore --db "$scan_checkpoint/origin.db"
   else
-    rm -f "$scan_checkpoint/origin.db.checkpoint.json"
-    if git show 'FETCH_HEAD:niches.db.gz' > "$scan_checkpoint/origin.db.gz" 2>/dev/null; then
-      python3 db_store.py restore --db "$scan_checkpoint/origin.db"
-    else
-      git show 'FETCH_HEAD:niches.db' > "$scan_checkpoint/origin.db"
-    fi
+    git show 'FETCH_HEAD:niches.db' > "$scan_checkpoint/origin.db"
   fi
   python3 db_merge.py --main "$scan_checkpoint/local.db" --other "$scan_checkpoint/origin.db"
   # Source code is identical; generated files are captured/rebuilt below.
@@ -61,10 +64,19 @@ PY
   done
   # The asset goes up before the pointer: Git never names a missing checkpoint.
   python3 db_store.py pack --db "$scan_checkpoint/local.db" --out "$scan_checkpoint/niches.db.xz"
-  python3 db_store.py publish --archive "$scan_checkpoint/niches.db.xz" --pointer niches.db.checkpoint.json
-  git rm -f --cached --ignore-unmatch niches.db niches.db.gz
-  rm -f niches.db.gz
-  git add -A
+  if python3 db_store.py publish --archive "$scan_checkpoint/niches.db.xz" --pointer niches.db.checkpoint.json; then
+    git rm -f --cached --ignore-unmatch niches.db niches.db.gz niches.db.xz
+    rm -f niches.db.gz niches.db.xz
+    git add -A
+  else
+    # Collected data outranks a clean history: one blob in Git until the Release recovers.
+    echo "::warning::Release unavailable; this checkpoint goes through Git"
+    git rm -f --cached --ignore-unmatch niches.db niches.db.gz niches.db.checkpoint.json
+    rm -f niches.db.gz niches.db.checkpoint.json
+    cp "$scan_checkpoint/niches.db.xz" niches.db.xz
+    git add -A
+    git add -f niches.db.xz
+  fi
   if ! git diff --cached --quiet; then
     git commit -m "${1:-scan checkpoint}"
   fi
