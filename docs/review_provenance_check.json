@@ -1,0 +1,99 @@
+{
+  "checked_at": "2026-11-01T14:47:49.004907+00:00",
+  "sample": "Bounded provenance check; selected existing complaint leads, not a random sample",
+  "states": {
+    "OK": 10
+  },
+  "checks": [
+    {
+      "track_id": 1161307849,
+      "country": "us",
+      "name": "TipTracker - track your income",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 1252497129,
+      "country": "us",
+      "name": "PictureThis - Plant Identifier",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 1252497129,
+      "country": "at",
+      "name": "PictureThis: Blumen und Bäume",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 1469372414,
+      "country": "us",
+      "name": "Bookshelf: Book Tracker & List",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 777280890,
+      "country": "us",
+      "name": "My Tide Times - Tables & Chart",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 908897183,
+      "country": "us",
+      "name": "OBD2 Scanner | OBD Auto Doctor",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 1664719450,
+      "country": "us",
+      "name": "Fudget: Monthly Budget Planner",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 1667996582,
+      "country": "us",
+      "name": "Quizard AI: Homework Helper",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 6739746345,
+      "country": "us",
+      "name": "Daily Bible Verse Widget",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    },
+    {
+      "track_id": 364165557,
+      "country": "us",
+      "name": "Small World - The Board Game",
+      "status": "OK",
+      "sample_size": 50,
+      "ids_known": 50,
+      "versions_known": 50
+    }
+  ]
+}

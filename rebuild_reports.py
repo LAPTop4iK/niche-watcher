@@ -51,6 +51,7 @@ def main():
                   ['geo_gap.py','--db',str(snapshot)],['divergence.py','--db',str(snapshot)],
                   ['hypotheses.py','--db',str(snapshot)],
                   ['audit_metrics.py','--db',str(snapshot),'--out',str(ROOT/'docs/current_metrics.json')],
+                  ['quality_metrics.py','--db',str(snapshot),'--out',str(ROOT/'docs/data_quality.json')],
                   ['dashboard.py','--db',str(snapshot)]]
         for command in commands:
             subprocess.run([sys.executable,*command],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)

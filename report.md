@@ -1,19 +1,19 @@
 # Кандидаты для исследования
 
-Метод activity-v3. Дата 2026-11-01T14:13:36+00:00. Всего 1753 app×country. Это не список прибыльных ниш.
+Метод activity-v3. Дата 2026-11-01T15:02:54+00:00. Всего 1754 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес с хотя бы одним свежим отзывом 1–2★. Отзыв требует чтения и проверки; это ещё не подтверждённая боль. Сначала свежая активность и сочетание платной загрузки с жалобами. Цена не подтверждает текущие продажи. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
-Версии <18 мес: пригодный RSS 1068/17967 app×страна; с жалобами 581. Это охват проверок, а не частота проблем на рынке.
+Версии <18 мес: пригодный RSS 1068/17966 app×страна; с жалобами 581. Это охват проверок, а не частота проблем на рынке.
 
 | Приложение | Страна | Направление | Сигнал | Оценок | Цена загрузки | R90 ≥ | Свежие 1–2★ | Версия от |
 |---|---|---|---|---:|---|---:|---:|---|
 | [iSolunar™ Hunt & Fish Times](https://apps.apple.com/us/app/id365780014) | us | Версия ≥18 мес | ALIVE | 3588 | 5.99 USD | 3 | 1 | 2024-08-14 |
 | [PromptSmart Pro - Teleprompter](https://apps.apple.com/au/app/id894811756) | au | Версия <18 мес + жалобы | ALIVE | 515 | 49.99 AUD | 2 | 2 | 2026-10-29 |
 | [Carly OBD2 Scanner](https://apps.apple.com/de/app/id467344155) | de | Версия <18 мес + жалобы | ALIVE | 32738 | free | 50 | 45 | 2026-10-22 |
-| [PictureThis - Plant Identifier](https://apps.apple.com/us/app/id1252497129) | us | Версия <18 мес + жалобы | ALIVE | 1121756 | free | 50 | 20 | 2026-10-29 |
+| [PictureThis - Plant Identifier](https://apps.apple.com/us/app/id1252497129) | us | Версия <18 мес + жалобы | ALIVE | 1121756 | free | 50 | 21 | 2026-10-29 |
 | [인아웃 - 다이어트 코치 & 식단, 운동, 체중 기록](https://apps.apple.com/kr/app/id1599210729) | kr | Версия <18 мес + жалобы | ALIVE | 57368 | free | 50 | 19 | 2026-10-02 |
-| [PawChamp－Dog & Puppy Training](https://apps.apple.com/ca/app/id6736829352) | ca | Версия <18 мес + жалобы | ALIVE | 1674 | free | 48 | 15 | 2026-10-30 |
+| [PawChamp－Dog & Puppy Training](https://apps.apple.com/ca/app/id6736829352) | ca | Версия <18 мес + жалобы | ALIVE | 1674 | free | 47 | 15 | 2026-10-30 |
 | [ボイスレコーダー - AI文字起こし＆ボイスメモ録音アプリ](https://apps.apple.com/jp/app/id779128258) | jp | Версия <18 мес + жалобы | ALIVE | 38465 | free | 39 | 6 | 2026-10-11 |
 | [Wallpapers・Dynamic Island](https://apps.apple.com/us/app/id6472042742) | us | Версия ≥18 мес | ALIVE | 1588 | free | 38 | 8 | 2024-09-02 |
 | [Экзамен ПДД: билеты ГИБДД 2026](https://apps.apple.com/ru/app/id407204781) | ru | Версия <18 мес + жалобы | ALIVE | 483348 | free | 35 | 16 | 2025-12-24 |
@@ -380,7 +380,6 @@
 | [Aqua credit card](https://apps.apple.com/gb/app/id1059355733) | gb | Версия <18 мес + жалобы | ALIVE | 217075 | — | 18 | 4 | 2026-10-28 |
 | [Justin Guitar Lessons & Songs](https://apps.apple.com/gb/app/id1176125504) | gb | Версия <18 мес + жалобы | ALIVE | 7286 | free | 18 | 10 | 2026-10-19 |
 | [Radio Garden Live](https://apps.apple.com/us/app/id1339670993) | us | Версия ≥18 мес | ALIVE | 2309 | — | 18 | 6 | 2023-10-21 |
-| [Edits: Montage vidéo](https://apps.apple.com/fr/app/id6738967378) | fr | Версия <18 мес + жалобы | ALIVE | 8484 | free | 18 | 2 | 2026-10-27 |
 | [MyFitnessPal: Calorie Counter](https://apps.apple.com/sa/app/id341232718) | sa | Версия <18 мес + жалобы | ALIVE | 26490 | free | 17 | 10 | 2026-10-27 |
 | [Gas Prices Near You](https://apps.apple.com/us/app/id581748070) | us | Версия <18 мес + жалобы | ALIVE | 7798 | free | 17 | 14 | 2026-08-19 |
 | [TalkU: Unlimited Calls + Texts](https://apps.apple.com/us/app/id863809868) | us | Версия ≥18 мес | ALIVE | 22234 | — | 17 | 14 | 2021-11-05 |
@@ -389,6 +388,7 @@
 | [Honda リモート操作](https://apps.apple.com/jp/app/id1475870683) | jp | Версия <18 мес + жалобы | ALIVE | 39425 | — | 17 | 8 | 2026-09-17 |
 | [Meta AI](https://apps.apple.com/no/app/id1558240027) | no | Версия <18 мес + жалобы | ALIVE | 2359 | free | 17 | 3 | 2026-10-30 |
 | [Lean Compteur Calorie Scan IMC](https://apps.apple.com/fr/app/id6738668646) | fr | Версия <18 мес + жалобы | ALIVE | 1124 | free | 17 | 2 | 2026-10-05 |
+| [Edits: Montage vidéo](https://apps.apple.com/fr/app/id6738967378) | fr | Версия <18 мес + жалобы | ALIVE | 8484 | free | 17 | 2 | 2026-10-27 |
 | [Google Переводчик](https://apps.apple.com/ru/app/id414706506) | ru | Версия <18 мес + жалобы | ALIVE | 28709 | free | 16 | 11 | 2026-10-26 |
 | [DoneDeal: Cars For Sale](https://apps.apple.com/ie/app/id428330596) | ie | Версия <18 мес + жалобы | ALIVE | 48689 | free | 16 | 3 | 2026-10-26 |
 | [Hinge Dating App: Meet & Date](https://apps.apple.com/no/app/id595287172) | no | Версия <18 мес + жалобы | ALIVE | 1563 | free | 16 | 8 | 2026-10-29 |
@@ -400,7 +400,6 @@
 | [myQuran — Коран на русском](https://apps.apple.com/ru/app/id879248035) | ru | Версия ≥18 мес | ALIVE | 6968 | — | 15 | 2 | 2018-02-19 |
 | [Tractive GPS voor kat en hond](https://apps.apple.com/nl/app/id921588809) | nl | Версия <18 мес + жалобы | ALIVE | 8702 | free | 15 | 3 | 2026-10-27 |
 | [POOLプール-写真・動画の保存シェアの鍵付きアルバムアプリ](https://apps.apple.com/jp/app/id963929502) | jp | Версия ≥18 мес | ALIVE | 53562 | — | 15 | 7 | 2022-10-09 |
-| [Calculator](https://apps.apple.com/gb/app/id1069511488) | gb | Версия <18 мес + жалобы | ALIVE | 1240 | free | 15 | 5 | 2026-10-19 |
 | [Watch](https://apps.apple.com/de/app/id1069511734) | de | Версия <18 мес + жалобы | ALIVE | 1470 | free | 15 | 14 | 2026-09-17 |
 | [ВКлючайся!](https://apps.apple.com/ru/app/id1357517067) | ru | Версия ≥18 мес | ALIVE | 698 | — | 15 | 8 | 2021-12-30 |
 | [Grow Food－готовая полезная еда](https://apps.apple.com/ru/app/id1368736005) | ru | Версия <18 мес + жалобы | ALIVE | 9354 | free | 15 | 9 | 2026-10-26 |
@@ -414,6 +413,7 @@
 | [Strava：跑步、騎乘、健行](https://apps.apple.com/tw/app/id426826309) | tw | Версия <18 мес + жалобы | ALIVE | 10667 | free | 14 | 8 | 2026-10-26 |
 | [Google Chrome](https://apps.apple.com/fi/app/id535886823) | fi | Версия <18 мес + жалобы | ALIVE | 17421 | free | 14 | 6 | 2026-10-27 |
 | [VLC media player](https://apps.apple.com/ru/app/id650377962) | ru | Версия <18 мес + жалобы | ALIVE | 851 | free | 14 | 4 | 2026-04-24 |
+| [Calculator](https://apps.apple.com/gb/app/id1069511488) | gb | Версия <18 мес + жалобы | ALIVE | 1240 | free | 14 | 5 | 2026-10-19 |
 | [Дни Рождения + Важные Даты](https://apps.apple.com/ru/app/id1231593938) | ru | Версия ≥18 мес | ALIVE | 3077 | — | 14 | 4 | 2024-01-16 |
 | [withDR](https://apps.apple.com/jp/app/id1470542607) | jp | Версия ≥18 мес | ALIVE | 622 | — | 14 | 13 | 2025-03-17 |
 | [Offline Music Player-MP3&Video](https://apps.apple.com/de/app/id1563131490) | de | Версия ≥18 мес | ALIVE | 3321 | — | 14 | 12 | 2022-12-07 |
@@ -542,7 +542,6 @@
 | [貨幣轉換器 即時匯率 貨幣換算 貨幣匯率](https://apps.apple.com/tw/app/id1457309557) | tw | Версия <18 мес + жалобы | ALIVE | 66835 | free | 7 | 2 | 2026-10-19 |
 | [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/gb/app/id1474069627) | gb | Версия ≥18 мес | ALIVE | 3490 | free | 7 | 3 | 2024-10-01 |
 | [dua.com: Date & Meet Albanians](https://apps.apple.com/de/app/id1482271331) | de | Версия <18 мес + жалобы | ALIVE | 4414 | — | 7 | 4 | 2026-10-09 |
-| [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | ru | Версия ≥18 мес | ALIVE | 630 | — | 7 | 7 | 2022-03-15 |
 | [메모위젯 (할일 & 포토위젯)](https://apps.apple.com/kr/app/id1531991191) | kr | Версия <18 мес + жалобы | ALIVE | 11921 | free | 7 | 1 | 2026-10-07 |
 | [Hypic - 고화질 카메라 & 자연스러운 AI 보정](https://apps.apple.com/kr/app/id1644042837) | kr | Версия <18 мес + жалобы | ALIVE | 1118 | free | 7 | 5 | 2026-10-27 |
 | [Plaud: AI Work Companion](https://apps.apple.com/nl/app/id6450364080) | nl | Версия <18 мес + жалобы | ALIVE | 1102 | free | 7 | 1 | 2026-10-26 |
@@ -569,6 +568,7 @@
 | [ペットのおうち](https://apps.apple.com/jp/app/id1453486794) | jp | Версия ≥18 мес | ALIVE | 1877 | — | 6 | 4 | 2025-01-23 |
 | [Hours Tracker: Time Calculator](https://apps.apple.com/au/app/id1468092377) | au | Версия ≥18 мес | ALIVE | 5193 | free | 6 | 1 | 2024-09-02 |
 | [Remini - AI Foto Verbeteren](https://apps.apple.com/nl/app/id1470373330) | nl | Версия <18 мес + жалобы | ALIVE | 3390 | free | 6 | 2 | 2026-10-10 |
+| [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | ru | Версия ≥18 мес | ALIVE | 630 | — | 6 | 6 | 2022-03-15 |
 | [ONE PLUS COFFEE](https://apps.apple.com/ru/app/id1500867136) | ru | Версия <18 мес + жалобы | ALIVE | 3165 | — | 6 | 3 | 2026-10-08 |
 | [Moises: Die App für Musiker](https://apps.apple.com/ch/app/id1515796612) | ch | Версия <18 мес + жалобы | ALIVE | 553 | free | 6 | 1 | 2026-10-27 |
 | [FP3級学科試験対策問題集](https://apps.apple.com/jp/app/id1537244601) | jp | Версия ≥18 мес | ALIVE | 13311 | — | 6 | 3 | 2025-03-29 |
@@ -626,7 +626,6 @@
 | [Cocktail Flow - Drink Recipes](https://apps.apple.com/us/app/id486811622) | us | Версия ≥18 мес | ALIVE | 21400 | — | 4 | 2 | 2019-12-14 |
 | [Google Drive – online backup](https://apps.apple.com/fi/app/id507874739) | fi | Версия <18 мес + жалобы | ALIVE | 42646 | free | 4 | 3 | 2026-10-26 |
 | [Amazon Music: Songs & Podcasts](https://apps.apple.com/ie/app/id510855668) | ie | Версия <18 мес + жалобы | ALIVE | 4134 | free | 4 | 2 | 2026-10-26 |
-| [FlightStats](https://apps.apple.com/us/app/id572700574) | us | Версия ≥18 мес | ALIVE | 79636 | free | 4 | 1 | 2024-10-30 |
 | [楽器チューナー Lite by Piascore](https://apps.apple.com/jp/app/id635828559) | jp | Версия ≥18 мес | ALIVE | 6240 | free | 4 | 1 | 2025-04-24 |
 | [Home and Dry](https://apps.apple.com/gb/app/id654608885) | gb | Версия ≥18 мес | ALIVE | 853 | — | 4 | 1 | 2024-02-09 |
 | [Invoice Zip - Invoice Maker](https://apps.apple.com/au/app/id679572722) | au | Версия <18 мес + жалобы | ALIVE | 2123 | free | 4 | 1 | 2026-08-04 |
@@ -671,6 +670,7 @@
 | [GuitarTuna: Gitarre Stimmgerät](https://apps.apple.com/at/app/id527588389) | at | Версия <18 мес + жалобы | ALIVE | 1546 | free | 3 | 1 | 2026-10-21 |
 | [Lapse It](https://apps.apple.com/us/app/id539108382) | us | Версия ≥18 мес | ALIVE | 1115 | free | 3 | 2 | 2019-10-24 |
 | [Telepromptr](https://apps.apple.com/us/app/id572401027) | us | Версия ≥18 мес | ALIVE | 1350 | free | 3 | 3 | 2024-12-12 |
+| [FlightStats](https://apps.apple.com/us/app/id572700574) | us | Версия ≥18 мес | ALIVE | 79636 | free | 3 | 1 | 2024-10-30 |
 | [Athan Pro - Muslim Bönetider](https://apps.apple.com/se/app/id743843090) | se | Версия <18 мес + жалобы | ALIVE | 2972 | free | 3 | 1 | 2026-10-20 |
 | [FlixBus: goedkope bustickets](https://apps.apple.com/nl/app/id778437357) | nl | Версия <18 мес + жалобы | ALIVE | 14730 | free | 3 | 1 | 2026-10-28 |
 | [AnyFont](https://apps.apple.com/us/app/id821560738) | us | Версия ≥18 мес | ALIVE | 26183 | — | 3 | 2 | 2024-07-31 |
@@ -1125,6 +1125,7 @@
 | [Audiobooks - Librivox library](https://apps.apple.com/au/app/id737369671) | au | Версия ≥18 мес | UNKNOWN | 529 | free | — | — | 2024-03-23 |
 | [Spanish Translator Offline](https://apps.apple.com/us/app/id984498840) | us | Версия ≥18 мес | UNKNOWN | 20485 | free | — | — | 2022-11-22 |
 | [Leap Day](https://apps.apple.com/au/app/id1083451870) | au | Версия ≥18 мес | UNKNOWN | 1084 | free | — | — | 2022-05-23 |
+| [AWC Faces](https://apps.apple.com/us/app/id1186317560) | us | Версия ≥18 мес | UNKNOWN | 1190 | free | — | — | 2025-05-02 |
 | [The Chaplet of Divine Mercy](https://apps.apple.com/us/app/id1242649186) | us | Версия ≥18 мес | UNKNOWN | 573 | free | — | — | 2020-02-27 |
 | [AKC.TV](https://apps.apple.com/us/app/id1337327217) | us | Версия ≥18 мес | UNKNOWN | 4035 | free | — | — | 2024-07-10 |
 | [英語翻訳機-英文翻訳と英語勉強翻訳辞書](https://apps.apple.com/jp/app/id1455452760) | jp | Версия ≥18 мес | UNKNOWN | 30663 | free | — | — | 2019-03-14 |

@@ -57,9 +57,9 @@ def enqueue_candidates(con,candidates,build_message):
         raise
 
 
-def flush(con,send,limit=10):
+def flush(con,send,limit=10,event_key=None):
     prepare(con)
-    rows=con.execute("SELECT event_key,payload FROM notification_outbox WHERE status='PENDING' ORDER BY created_at,event_key LIMIT ?",(limit,)).fetchall()
+    rows=con.execute("SELECT event_key,payload FROM notification_outbox WHERE status='PENDING' AND (? IS NULL OR event_key=?) ORDER BY created_at,event_key LIMIT ?",(event_key,event_key,limit)).fetchall()
     delivered=failed=0
     for key,payload in rows:
         try:

@@ -32,7 +32,7 @@ for scan_attempt in 1 2 3; do
   # rather than silently reverting upstream code or using old loaded modules.
   python3 - <<'PY'
 import subprocess
-allowed={'niches.db','niches.db.gz','report.md','report_t2.md','demand_report.md','geo_gap_report.md','charts_report.md','clusters_report.md','docs/scoreboard.md','docs/divergence.md','docs/hypotheses.json','docs/hypotheses.md','docs/current_metrics.json','docs/telegram_preview.txt'}
+allowed={'niches.db','niches.db.gz','report.md','report_t2.md','demand_report.md','geo_gap_report.md','charts_report.md','clusters_report.md','docs/scoreboard.md','docs/divergence.md','docs/hypotheses.json','docs/hypotheses.md','docs/current_metrics.json','docs/data_quality.json','docs/telegram_preview.txt'}
 def git(*args):return set(subprocess.check_output(['git',*args],text=True).splitlines())
 changed=git('diff','--name-only','HEAD','FETCH_HEAD')|git('diff','--name-only','HEAD')|git('ls-files','--others','--exclude-standard')
 if changed-allowed:

@@ -1,17 +1,17 @@
 {
   "method": "activity-v3",
-  "candidate_storefronts": 1172,
+  "candidate_storefronts": 1173,
   "counts": {
     "WEAK": 172,
     "NO_RECENT_EVIDENCE": 623,
     "ALIVE": 355,
-    "UNKNOWN": 22
+    "UNKNOWN": 23
   },
   "transitions": {
     "WEAK → WEAK": 169,
     "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 621,
     "ALIVE → ALIVE": 355,
-    "MISSING → UNKNOWN": 19,
+    "MISSING → UNKNOWN": 20,
     "ALIVE → WEAK": 3,
     "WEAK → NO_RECENT_EVIDENCE": 2,
     "UNKNOWN → UNKNOWN": 3
@@ -123,12 +123,12 @@
   "histories_7d": 0,
   "adjacent_counter_drops": 3055,
   "research_lanes": {
-    "stale": 1172,
+    "stale": 1173,
     "recent_pain": 581
   },
   "recent_version_review_coverage": {
     "search": {
-      "eligible": 9673,
+      "eligible": 9672,
       "rss_usable": 929,
       "complaint_records": 465
     },
@@ -143,7 +143,7 @@
       "complaint_records": 1
     },
     "all": {
-      "eligible": 17967,
+      "eligible": 17966,
       "rss_usable": 1068,
       "complaint_records": 581
     }

@@ -11,6 +11,7 @@ from pathlib import Path
 import sqlite3
 import evidence
 import scoreboard
+import quality_metrics
 
 HERE=Path(__file__).resolve().parent
 
@@ -33,6 +34,7 @@ def build_data(db):
         bounds=con.execute('SELECT MIN(scanned_at),MAX(scanned_at) FROM snapshots').fetchone()
         groups=[dict(category=cat,country=geo,**a) for cat,geo,a in scoreboard.build(con)]
         runs=evidence.coverage(con)
+        quality=quality_metrics.build(con,rows=latest,queue=candidates)
     markets=json.loads((HERE/'markets.json').read_text())['markets']
     seen={r['country'] for r in coverage}
     seed=json.loads((HERE/'seed_queries.json').read_text())['categories']
@@ -40,7 +42,7 @@ def build_data(db):
         observed=sorted({c for r in latest for c in r['categories'] if not c.startswith('chart:') and c!='similar-graph'}),
         note='Поисковые направления в нашем конфиге; не полный перечень категорий App Store.')
     return dict(candidates=candidates,counts=Counter(r['verdict'] for r in candidates),labels=evidence.LABELS,
-                lanes=evidence.LANES,research_coverage=research_coverage,directions=directions,
+                lanes=evidence.LANES,research_coverage=research_coverage,directions=directions,quality=quality,
                 source_coverage={kind:sorted(geos) for kind,geos in source_coverage.items()},coverage=coverage,missing=sorted(set(markets)-seen),napps=napps,observations=observations,
                 first=bounds[0],last=bounds[1],groups=groups,runs=runs,method=evidence.METHOD,
                 built=datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'))

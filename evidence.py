@@ -164,19 +164,42 @@ def assess(con,row,cached=None,now=None):
             status='STALE'
     except (KeyError,ValueError,AttributeError,TypeError):
         review_age=None;status='UNKNOWN'
-    r90=d.get('r90');bad_recent=None
+    r90=d.get('r90');bad_recent=None;r7=r30=None;bad_after_version=None;bad_current_version=None
+    try:rss_after_version=parse(d['checked_at'])>=parse(row['version_date'])
+    except (KeyError,ValueError,TypeError,AttributeError):rss_after_version=None
+    version_known=id_known=sample_span=None;capped_recent=None
     if d.get('review_dates_json'):
         try:
             dates=json.loads(d['review_dates_json'])
             scores=json.loads(d.get('review_scores_json') or '[]')
+            if not isinstance(dates,list) or not isinstance(scores,list):
+                raise ValueError('Invalid review arrays')
             recent=[i for i,stamp in enumerate(dates) if 0<=(now-parse(stamp)).total_seconds()<=90*86400]
             r90=len(recent)
+            r7=sum(0<=(now-parse(stamp)).total_seconds()<=7*86400 for stamp in dates)
+            r30=sum(0<=(now-parse(stamp)).total_seconds()<=30*86400 for stamp in dates)
+            sample_span=(max(map(parse,dates))-min(map(parse,dates))).total_seconds()/86400 if dates else None
+            capped_recent=len(dates)>=50 and len(recent)>=50
+            versions=json.loads(d.get('review_versions_json') or '[]')
+            ids=json.loads(d.get('review_ids_json') or '[]')
+            if isinstance(versions,list) and len(versions)==len(dates):
+                version_known=sum(bool(v) for v in versions)
+            if isinstance(ids,list) and len(ids)==len(dates):
+                id_known=sum(bool(v) for v in ids)
             if len(scores)==len(dates):
+                if any(not isinstance(s,(int,float)) or not 1<=s<=5 for s in scores):
+                    raise ValueError('Invalid review score')
                 bad_recent=sum(scores[i]<=2 for i in recent)
+                try:
+                    version_date=parse(row['version_date'])
+                    bad_after_version=sum(scores[i]<=2 and parse(dates[i])>=version_date for i in recent)
+                except (KeyError,ValueError,TypeError,AttributeError):pass
+                if version_known and row.get('version'):
+                    bad_current_version=sum(scores[i]<=2 and versions[i]==row['version'] for i in recent)
         except (ValueError,TypeError,AttributeError):
             status='ERROR';r90=None
     if status!='OK':
-        bad_recent=None  # stale/error samples cannot qualify a current pain signal
+        bad_recent=bad_after_version=bad_current_version=r7=r30=None
     state=classify(vel,d.get('last_review'),r90,status,now)
     reasons=[f'{vel:+.1f} оценок/30д за {days:.1f} дней наблюдений' if vel is not None else
              f'Надёжный прирост пока недоступен; история {days:.1f} дн.']
@@ -186,10 +209,24 @@ def assess(con,row,cached=None,now=None):
         reasons.append(f'Отзывы: {status}; отсутствие данных не означает отсутствие спроса')
     if snapshot_age is None or snapshot_age>MAX_AGE_DAYS:
         reasons.append('Метаданные требуют обновления')
+    if status=='OK' and (bad_recent or 0)>0:
+        if rss_after_version is False:
+            reasons.append('RSS собран до последнего выпуска; нужен новый срез, прежде чем оценивать текущую версию')
+        if bad_after_version==0:
+            reasons.append('Все свежие 1–2★ предшествуют последнему обновлению; текущую проблему нужно перепроверить')
+        elif bad_after_version is not None:
+            reasons.append(f'1–2★ по времени после публикации версии: {bad_after_version}; это ещё не доказательство неисправленной ошибки')
+        if bad_current_version is not None:
+            reasons.append(f'1–2★ с совпадающей строкой версии: {bad_current_version}; версия известна у {version_known} записей RSS')
+    if status=='OK' and capped_recent:
+        reasons.append('Все последние 50 отзывов попали в 90 дней: окно усечено, это нижняя граница числа отзывов')
     return dict(verdict=state,label=LABELS[state],velocity=vel,days=days,r90=r90,
                 last_review=d.get('last_review'),checked_at=d.get('checked_at'),fetch_status=status,
                 snapshot_age_days=snapshot_age,sample_size=d.get('sample_size'),
-                bad_recent_count=bad_recent,reasons=reasons,method=METHOD)
+                bad_recent_count=bad_recent,bad_after_version_count=bad_after_version,
+                bad_current_version_count=bad_current_version,review_version_known_count=version_known,
+                review_id_known_count=id_known,r7=r7,r30=r30,recent_sample_capped=capped_recent,
+                sample_span_days=sample_span,rss_age_days=review_age,rss_collected_after_version=rss_after_version,reasons=reasons,method=METHOD)
 
 
 def research_queue(con,now=None):

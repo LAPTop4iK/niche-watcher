@@ -50,7 +50,8 @@ def iso(dt):
 
 
 def parse_iso(s):
-    return datetime.strptime(s, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+    parsed=datetime.fromisoformat(s.replace('Z','+00:00'))
+    return parsed.astimezone(timezone.utc) if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
 
 
 # ---------------------------------------------------------------- HTTP
@@ -203,8 +204,8 @@ def was_flagged_before(con, track_id, min_stale_months, min_ratings, before_iso=
 # ---------------------------------------------------------------- анализ
 
 def months_between(a, b):
-    """Полных месяцев между датами (грубо, по дням)."""
-    return (b - a).days / 30.44
+    """Age in 30.44-day months; compare before rounding for display."""
+    return (b - a).total_seconds() / 86400 / 30.44
 
 
 def analyze(con, app, min_stale_months, min_ratings):
@@ -355,29 +356,14 @@ def is_native_risk(name, query):
     return text in NATIVE_RISK_KEYWORDS
 
 
-def fetch_recent_reviews(track_id, country="us"):
-    """(дата последнего отзыва, число отзывов за 60 дней) через RSS — сигнал живого спроса."""
+def fetch_recent_reviews(track_id, country="us", con=None):
+    """Legacy display adapter; use the same exact dated sample as the demand layer."""
     try:
-        url = f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page=1/json"
-        data = fetch_json(url)
-        entries = (data.get("feed") or {}).get("entry") or []
-        if isinstance(entries, dict):
-            entries = [entries]
-        dates = []
-        for e in entries:
-            if "im:rating" not in e:
-                continue
-            lbl = e.get("updated", {}).get("label", "")
-            if lbl:
-                dates.append(lbl[:10])
-        if not dates:
-            return None
-        cutoff = (now_utc() - timedelta(days=60)).strftime("%Y-%m-%d")
-        recent60 = sum(1 for d in dates if d >= cutoff)
-        rated = [e2 for e2 in entries if "im:rating" in e2]
-        bad = sum(1 for e2 in rated if int(e2["im:rating"]["label"]) <= 2)
-        bad_share = round(100.0 * bad / len(rated)) if rated else None
-        return dates[0], recent60, bad_share
+        from demand_check import fetch_demand,prepare,store_result
+        result=fetch_demand(track_id,country)
+        if con is not None:
+            prepare(con);store_result(con,track_id,country,result)
+        return (result[0],result[1],None) if result[-1]=='OK' else None
     except Exception:  # noqa: BLE001 — отзывные данные не критичны для прогона
         return None
 
@@ -389,7 +375,7 @@ def fmt_row(a):
     port = a.get("seller_apps")
     port_s = f"{a['seller'][:22]}{'' if port is None else f' ({port})'}"
     rev = a.get("recent_reviews")
-    rev_s = (f"{rev[0]} ({rev[1]})" + (f" 💔{rev[2]}%" if rev and rev[2] is not None else "")) if rev else "-"
+    rev_s = f"{rev[0]} (R60 ≥ {rev[1]}, выборка RSS)" if rev else "-"
     warn = " ⚠️портфель" if (port or 0) > 8 else ""
     native = " ? ОС" if a.get("native_risk") else ""
     return (
@@ -552,11 +538,15 @@ def main():
         return run_scan(args,seed,markets,countries,wanted)
 
 
-def run_scan(args,seed,markets,countries,wanted):
-    con = None if args.dry_run else open_db(args.db)
+def planned_jobs(seed,markets,countries,wanted=None):
     jobs=[(geo,c["id"],q) for c in seed["categories"] if c.get("enabled",True) and (not wanted or c["id"] in wanted)
           for geo in countries for q in (c["queries"].get(markets[geo].get("lang","en")) or c["queries"]["en"])]
-    jobs=list(dict.fromkeys(jobs))
+    return list(dict.fromkeys(jobs))
+
+
+def run_scan(args,seed,markets,countries,wanted):
+    con = None if args.dry_run else open_db(args.db)
+    jobs=planned_jobs(seed,markets,countries,wanted)
     run_id=scan_state.start_run(con,jobs,{"limit":args.limit,"storage_min_ratings":0},args.run_id) if con else None
     done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))} if con else set()
     print(f"RUN {run_id}: {len(jobs)} queries, already complete {len(done)}",flush=True)
@@ -657,7 +647,7 @@ def run_scan(args,seed,markets,countries,wanted):
 
     # свежесть отзывов для топ-кандидатов (спрос жив?) — 12 запросов RSS
     for a in ([] if args.skip_reviews else zombies[:12]):
-        a["recent_reviews"] = fetch_recent_reviews(a["track_id"], a["country"])
+        a["recent_reviews"] = fetch_recent_reviews(a["track_id"], a["country"],con)
         time.sleep(0.6)
 
     watchlist = sorted(

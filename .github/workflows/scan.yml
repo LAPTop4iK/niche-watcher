@@ -17,9 +17,9 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: "scan: collect tier 1; verify: clean replay + bounded live checks"
+        description: "scan: collect; verify: read-only checks; report: send one current summary"
         type: choice
-        options: [scan, verify]
+        options: [scan, verify, report]
         default: scan
 
 # Serialize runs even when a previous scan overruns its nominal time slot.
@@ -33,7 +33,7 @@ permissions:
 
 jobs:
   daily-scan:
-    if: github.event.schedule == '17 6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'verify')
+    if: github.event.schedule == '17 6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'scan')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -210,8 +210,42 @@ jobs:
           path: /tmp/pipeline-verification.json
           retention-days: 30
 
+  send-report:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'report'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Send the explicitly requested summary only
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 send_report.py --send --event-key "requested-summary:${{ github.run_id }}" --out /tmp/telegram-report-receipt.json
+      - name: Retain delivery receipt
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: telegram-report-receipt
+          path: /tmp/telegram-report-receipt.json
+          retention-days: 30
+      - name: Save delivery acknowledgement
+        if: always()
+        run: bash ci_save.sh "requested report receipt $(date -u +%F)"
+      - name: Retain data if saving fails
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: recovery-${{ github.job }}-${{ github.run_attempt }}
+          path: niches.db
+          retention-days: 7
+
   deploy-pages:
-    needs: [daily-scan, weekly-slot, weekly-charts, weekly-play, weekly-similar-crawl, verify-pipeline]
+    needs: [daily-scan, weekly-slot, weekly-charts, weekly-play, weekly-similar-crawl, verify-pipeline, send-report]
     if: always() && (github.event.schedule == '30 11 * * *' || contains(needs.*.result, 'success'))
     runs-on: ubuntu-latest
     timeout-minutes: 20

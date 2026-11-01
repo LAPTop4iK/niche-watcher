@@ -130,10 +130,11 @@ def main():
         for model in models:
             rev=model_revenue(geo,mk,d,model,args.installs,args.price,conv=args.conversion,conv_top=args.conv_top)
             per=rev/args.installs
-            acquisition=mk['cpi_usd'] if args.acquisition_cost is None else args.acquisition_cost
-            contribution=per-args.variable_cost-acquisition
+            acquisition=args.acquisition_cost
+            contribution=per-args.variable_cost-acquisition if acquisition is not None else None
             print(f'{geo} {model}: поступления ${rev:,.0f}; ${per:.3f}/установку; '
-                  f'после заданных переменных затрат и CPI ${contribution:+.3f}/уст.')
+                  +(f'после заданных переменных затрат и CPI ${contribution:+.3f}/уст.' if contribution is not None else
+                    'вклад не рассчитан: задайте --acquisition-cost, включая 0 для сценария органики.'))
     print('\nЭто не прибыль: не учтены труд, налоги и неуказанные расходы. '
           'Срок окупаемости без временного ряда платежей неизвестен. '
           'Hybrid: взаимоисключающие доли рекламной и подписочной воронок 50/50 — только допущение.')

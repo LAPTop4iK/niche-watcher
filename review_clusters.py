@@ -87,6 +87,7 @@ def fetch_ios(track_id, country, n):
             if int(e["im:rating"]["label"]) <= 3:
                 out.append({"text": e.get("content", {}).get("label", ""),
                             "review_id":identity,"platform":"ios","app_id":str(track_id),"country":country,
+                            "app_version":e.get('im:version',{}).get('label'),
                             "source_url":f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page={page}/json",
                             "score": int(e["im:rating"]["label"]),
                             "thumbs": 0,"date":e.get("updated",{}).get("label","")})

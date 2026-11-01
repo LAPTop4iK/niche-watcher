@@ -41,11 +41,13 @@ CREATE TABLE IF NOT EXISTS demand (
 
 
 class DemandFetch(tuple):
-    def __new__(cls, values, dates=None, scores=None, error=None):
+    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None):
         result=super().__new__(cls,values)
         result.dates=dates or []
         result.scores=scores or []
         result.error=error
+        result.ids=ids or []
+        result.versions=versions or []
         return result
 
 
@@ -60,7 +62,7 @@ def fetch_demand(track_id, country):
             entries=[entries]
         if not isinstance(entries,list):
             raise ValueError('Malformed RSS entries')
-        dates,scores,seen=[],[],set()
+        dates,scores,ids,versions,seen=[],[],[],[],set()
         now=sc.now_utc()
         for e in entries:
             if not isinstance(e,dict) or 'im:rating' not in e:
@@ -74,11 +76,13 @@ def fetch_demand(track_id, country):
             if identity in seen:
                 continue
             seen.add(identity);dates.append(date.isoformat());scores.append(score)
+            ids.append(e.get('id',{}).get('label'))
+            versions.append(e.get('im:version',{}).get('label'))
         if not dates:
             return DemandFetch((None,None,None,None,'EMPTY'))
         r60=sum((now-evidence.parse(d)).total_seconds() <= 60*86400 for d in dates)
         r90=sum((now-evidence.parse(d)).total_seconds() <= 90*86400 for d in dates)
-        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores)
+        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions)
     except Exception as exc:
         return DemandFetch((None,None,None,None,'ERROR'),error=f'{type(exc).__name__}: {exc}')
 
@@ -86,7 +90,8 @@ def fetch_demand(track_id, country):
 def prepare(con):
     con.executescript(DEMAND_SCHEMA)
     fields={'fetch_status':'TEXT','method_version':'TEXT','review_dates_json':'TEXT',
-            'review_scores_json':'TEXT','sample_size':'INTEGER','sample_capped':'INTEGER','fetch_error':'TEXT'}
+            'review_scores_json':'TEXT','sample_size':'INTEGER','sample_capped':'INTEGER','fetch_error':'TEXT',
+            'review_ids_json':'TEXT','review_versions_json':'TEXT'}
     existing={r[1] for r in con.execute('PRAGMA table_info(demand)')}
     for name,kind in fields.items():
         if name not in existing:
@@ -101,16 +106,19 @@ def store_result(con,tid,country,result):
     dates=getattr(result,'dates',[]);scores=getattr(result,'scores',[])
     con.execute('''INSERT INTO demand
         (track_id,country,checked_at,last_review,r60,r90,bad_share,vel_30d,verdict,
-         fetch_status,method_version,review_dates_json,review_scores_json,sample_size,sample_capped,fetch_error)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
+         fetch_status,method_version,review_dates_json,review_scores_json,sample_size,sample_capped,fetch_error,
+         review_ids_json,review_versions_json)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
         checked_at=excluded.checked_at,last_review=excluded.last_review,r60=excluded.r60,r90=excluded.r90,
         bad_share=excluded.bad_share,vel_30d=excluded.vel_30d,verdict=excluded.verdict,
         fetch_status=excluded.fetch_status,method_version=excluded.method_version,
         review_dates_json=excluded.review_dates_json,review_scores_json=excluded.review_scores_json,
-        sample_size=excluded.sample_size,sample_capped=excluded.sample_capped,fetch_error=excluded.fetch_error''',
+        sample_size=excluded.sample_size,sample_capped=excluded.sample_capped,fetch_error=excluded.fetch_error,
+        review_ids_json=excluded.review_ids_json,review_versions_json=excluded.review_versions_json''',
         (tid,country,sc.iso(sc.now_utc()),lr,r60,r90,bad,vel,state,status,evidence.METHOD,
          json.dumps(dates) if dates else None,json.dumps(scores) if scores else None,
-         len(dates) if dates else None,int(len(dates)>=50),getattr(result,'error',None)))
+         len(dates) if dates else None,int(len(dates)>=50),getattr(result,'error',None),
+         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None))
     con.commit()
 
 
@@ -180,7 +188,7 @@ def updated_review_sample(rows,cached,per_country,countries=None,now=None):
     Alternate overdue refreshes and unseen records, round-robin by query family.
     Daily hashing rotates choices within a family. This is not a market sample.
     """
-    now=now or sc.now_utc();pools={};title_hints={}
+    now=now or sc.now_utc();pools={};title_hints={};version_refresh={}
     from relevance import relevant
     for row in rows:
         geo=row['country'];key=(row['track_id'],geo)
@@ -194,9 +202,11 @@ def updated_review_sample(rows,cached,per_country,countries=None,now=None):
         except (ValueError,TypeError,KeyError):
             continue
         previous=cached.get(key,{})
+        try:version_refresh[key]=evidence.parse(previous['checked_at'])<evidence.parse(row['version_date'])
+        except (ValueError,TypeError,KeyError,AttributeError):version_refresh[key]=False
         try:
             age=(now-evidence.parse(previous['checked_at'])).total_seconds()/86400
-            if age<(1 if previous.get('fetch_status')=='ERROR' else 7):
+            if age<(1 if previous.get('fetch_status')=='ERROR' else 7) and not version_refresh[key]:
                 continue
         except (ValueError,TypeError,KeyError):
             pass
@@ -209,11 +219,12 @@ def updated_review_sample(rows,cached,per_country,countries=None,now=None):
     for geo,kinds in sorted(pools.items()):
         rotations={}
         for known,categories in kinds.items():
+            order=sorted(categories,key=lambda category:hashlib.sha256(f'{now:%Y-%m-%d}:{geo}:{category}'.encode()).hexdigest())
             for category,keys in categories.items():
-                keys.sort(key=lambda key:(int(title_hints[key]),hashlib.sha256(f'{now:%Y-%m-%d}:{key}'.encode()).hexdigest()))
+                keys.sort(key=lambda key:(int(title_hints[key]),int(version_refresh[key]),hashlib.sha256(f'{now:%Y-%m-%d}:{key}'.encode()).hexdigest()))
             rotation=[]
             while any(categories.values()):
-                for category in sorted(categories):
+                for category in order:
                     if categories[category]:rotation.append(categories[category].pop())
             rotations[known]=rotation
         for i in range(per_country):

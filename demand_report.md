@@ -1,8 +1,8 @@
 # Demand Report — свежая активность, не доказательство платежей
 
-Метод activity-v3. Пересчёт 2026-11-01T14:13:32Z. Кандидатов: 1172.
+Метод activity-v3. Пересчёт 2026-11-01T15:02:52Z. Кандидатов: 1173.
 
-ALIVE: 355 · WEAK: 172 · UNKNOWN: 22 · NO_RECENT_EVIDENCE: 623
+ALIVE: 355 · WEAK: 172 · UNKNOWN: 23 · NO_RECENT_EVIDENCE: 623
 
 ALIVE: ≥2 свежих письменных отзыва за 90 дней либо надёжный прирост оценок за ≥7 дней в одной стране. Это эвристика для исследования. NO_RECENT_EVIDENCE означает отсутствие свежего сигнала у приложения, а не смерть ниши. Ошибки и пустой RSS = UNKNOWN.
 
@@ -132,7 +132,6 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | jp | [無音カメラ - むおんかめら & 高画質カメラ](https://apps.apple.com/jp/app/id1418399798) | 11,647 | — | 2026-10-25T00:13:11+00:00 | 7 |
 | us | [Video Teleprompter](https://apps.apple.com/us/app/id1444106389) | 6,634 | — | 2026-10-29 | 7 |
 | gb | [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/gb/app/id1474069627) | 3,490 | — | 2026-10-26 | 7 |
-| ru | [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | 630 | — | 2026-10-21T12:56:47+00:00 | 7 |
 | jp | [時計 ウィジェット 秒針アナログ時計 - Clock SD](https://apps.apple.com/jp/app/id1542354832) | 8,623 | — | 2026-10-27 | 7 |
 | us | [ScanCoin: identify & check](https://apps.apple.com/us/app/id6445847779) | 8,539 | — | 2026-10-17T22:54:23+00:00 | 7 |
 | us | [Rock ID - Stone Identifier](https://apps.apple.com/us/app/id6469999508) | 3,151 | — | 2026-10-24T21:14:16+00:00 | 7 |
@@ -158,6 +157,7 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | jp | [ずっしーの音感トレーニング](https://apps.apple.com/jp/app/id1453413519) | 3,344 | — | 2026-10-10T12:41:19+00:00 | 6 |
 | jp | [ペットのおうち](https://apps.apple.com/jp/app/id1453486794) | 1,877 | — | 2026-10-22T01:28:18+00:00 | 6 |
 | au | [Hours Tracker: Time Calculator](https://apps.apple.com/au/app/id1468092377) | 5,193 | — | 2026-10-23 | 6 |
+| ru | [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | 630 | — | 2026-10-21T12:56:47+00:00 | 6 |
 | jp | [FP3級学科試験対策問題集](https://apps.apple.com/jp/app/id1537244601) | 13,311 | — | 2026-10-25 | 6 |
 | us | [Themes: Color Widgets, Icons](https://apps.apple.com/us/app/id1537362606) | 27,868 | — | 2026-10-20T19:20:06+00:00 | 6 |
 | jp | [オカモトセルフ](https://apps.apple.com/jp/app/id1584584831) | 1,245 | — | 2026-09-26 | 6 |
@@ -194,7 +194,6 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | gb | [UK Tax Calculators 2024-2025](https://apps.apple.com/gb/app/id460977743) | 977 | — | 2026-10-21 | 4 |
 | us | [Cocktail Flow - Drink Recipes](https://apps.apple.com/us/app/id486811622) | 21,400 | — | 2026-09-13 | 4 |
 | ru | [Купи батон! - Список покупок](https://apps.apple.com/ru/app/id491297400) | 30,394 | — | 2026-10-22T01:39:09+00:00 | 4 |
-| us | [FlightStats](https://apps.apple.com/us/app/id572700574) | 79,636 | — | 2026-09-24T02:38:57+00:00 | 4 |
 | jp | [楽器チューナー Lite by Piascore](https://apps.apple.com/jp/app/id635828559) | 6,240 | — | 2026-10-30 | 4 |
 | gb | [Home and Dry](https://apps.apple.com/gb/app/id654608885) | 853 | — | 2026-10-22 | 4 |
 | au | [MOON - Current Moon Phase](https://apps.apple.com/au/app/id660036257) | 1,397 | — | 2026-10-05 | 4 |
@@ -234,6 +233,7 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | us | [Mega Photo Pro](https://apps.apple.com/us/app/id529170920) | 792 | — | 2026-10-17 | 3 |
 | us | [Lapse It](https://apps.apple.com/us/app/id539108382) | 1,115 | — | 2026-10-17 | 3 |
 | us | [Telepromptr](https://apps.apple.com/us/app/id572401027) | 1,350 | — | 2026-10-06T13:17:30+00:00 | 3 |
+| us | [FlightStats](https://apps.apple.com/us/app/id572700574) | 79,636 | — | 2026-09-24T02:38:57+00:00 | 3 |
 | us | [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | 1,422 | — | 2026-09-30 | 3 |
 | us | [YoWindow Weather](https://apps.apple.com/us/app/id606193225) | 1,044 | — | 2026-10-29 | 3 |
 | us | [Tunable – Tuner & Metronome](https://apps.apple.com/us/app/id608540795) | 6,859 | — | 2026-10-09 | 3 |
@@ -546,7 +546,7 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | us | [Bug ID - Insect Identifier](https://apps.apple.com/us/app/id6499542846) | 843 | — | 2026-08-20 | 1 |
 | ru | [ShareMe: Fast File Sharing](https://apps.apple.com/ru/app/id6503259288) | 3,132 | — | 2026-09-04 | 1 |
 
-## Недостаточно данных (22)
+## Недостаточно данных (23)
 
 | Гео | Приложение | Оценок | Vel/30д | Посл. отзыв | R90 ≥ |
 |---|---|---|---|---|---|
@@ -558,6 +558,7 @@ RSS ограничен последними ~50 отзывами: R90 — ниж
 | au | [Audiobooks - Librivox library](https://apps.apple.com/au/app/id737369671) | 529 | — | — | — |
 | us | [Spanish Translator Offline](https://apps.apple.com/us/app/id984498840) | 20,485 | — | — | — |
 | au | [Leap Day](https://apps.apple.com/au/app/id1083451870) | 1,084 | — | — | — |
+| us | [AWC Faces](https://apps.apple.com/us/app/id1186317560) | 1,190 | — | — | — |
 | us | [The Chaplet of Divine Mercy](https://apps.apple.com/us/app/id1242649186) | 573 | — | — | — |
 | us | [AKC.TV](https://apps.apple.com/us/app/id1337327217) | 4,035 | — | — | — |
 | jp | [英語翻訳機-英文翻訳と英語勉強翻訳辞書](https://apps.apple.com/jp/app/id1455452760) | 30,663 | — | — | — |

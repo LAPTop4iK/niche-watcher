@@ -31,6 +31,73 @@ class Fixtures(unittest.TestCase):
 
 
 class FreshnessAndSampling(Fixtures):
+    def test_scanner_reuses_its_review_request_and_persists_provenance(self):
+        import demand_check as dc
+        con=sc.open_db(':memory:');self.make(con)
+        result=dc.DemandFetch(('2026-10-30',1,1,100,'OK'),['2026-10-30'],[1],ids=['known-id'],versions=['1.0'])
+        with patch.object(dc,'fetch_demand',return_value=result) as fetch:
+            display=sc.fetch_recent_reviews(1,'us',con)
+        self.assertEqual(fetch.call_count,1)
+        self.assertIsNone(display[2])
+        self.assertEqual(json.loads(con.execute('SELECT review_ids_json FROM demand').fetchone()[0]),['known-id'])
+
+    def test_review_version_and_release_timing_are_distinct_and_legacy_is_unknown(self):
+        import demand_check as dc
+        import quality_metrics
+        now=datetime(2026,11,1,tzinfo=timezone.utc);con=sc.open_db(':memory:')
+        app=self.make(con,version='2026-10-20T00:00:00Z');con.execute("UPDATE snapshots SET version='2.0'")
+        self.make(con,tid=2,version='2026-10-31T00:00:00Z');con.execute("UPDATE snapshots SET version='3.0' WHERE track_id=2")
+        dates=['2026-10-18','2026-10-21','2026-10-22','2026-10-30','2026-07-31']
+        with patch.object(sc,'now_utc',return_value=now):
+            dc.prepare(con)
+            dc.store_result(con,1,'us',dc.DemandFetch(('2026-10-30',4,4,0,'OK'),dates,[1,1,2,5,1],ids=['a','b','c','d','e'],versions=['1.0','1.0','2.0','2.0','1.0']))
+            dc.store_result(con,2,'us',dc.DemandFetch(('2026-10-30',1,1,100,'OK'),['2026-10-30'],[1],ids=['f'],versions=['2.0']))
+        con.execute("UPDATE demand SET checked_at='2026-10-30T01:00:00Z' WHERE track_id=2")
+        cache=evidence.demand_map(con);row=evidence.latest(con)[0]
+        a=evidence.assess(con,row,cache[(1,'us')],now)
+        self.assertEqual((a['r7'],a['r30'],a['r90']),(1,4,4))
+        self.assertEqual((a['bad_recent_count'],a['bad_after_version_count'],a['bad_current_version_count']),(3,2,1))
+        self.assertEqual(a['review_id_known_count'],5)
+        queue,_=evidence.research_queue(con,now)
+        before=next(r for r in queue if r['track_id']==2)
+        self.assertEqual(before['bad_after_version_count'],0)
+        self.assertTrue(any('предшествуют' in reason for reason in before['reasons']))
+        q=quality_metrics.build(con,now,queue=queue)
+        self.assertEqual(q['recent_pain_timing']['only_before_release'],1)
+        self.assertEqual(q['recent_pain_timing']['rss_before_release'],1)
+        legacy=dict(cache[(1,'us')]);legacy.pop('review_versions_json')
+        self.assertIsNone(evidence.assess(con,row,legacy,now)['bad_current_version_count'])
+
+    def test_query_caps_and_failed_latest_attempt_are_not_full_market_coverage(self):
+        import quality_metrics
+        import demand_check as dc
+        con=sc.open_db(':memory:');now=datetime(2026,11,1,tzinfo=timezone.utc)
+        job=('us','construction','concrete calculator')
+        with patch.object(scan_state,'now',return_value='2026-10-31T00:00:00Z'):
+            run=scan_state.start_run(con,[job],{'limit':1})
+            self.make(con,run_id=run)
+            scan_state.begin_query(con,run,*job);scan_state.end_query(con,run,*job,'OK',1,1);scan_state.finish_run(con,run)
+        dc.prepare(con)
+        with patch.object(sc,'now_utc',return_value=now):
+            dc.store_result(con,1,'us',dc.DemandFetch(('2026-10-30',50,50,100,'OK'),['2026-10-30']*50,[1]*50))
+        q=quality_metrics.build(con,now)
+        self.assertEqual((q['queries']['fresh_ok'],q['queries']['at_limit']),(1,1))
+        self.assertEqual(q['review_coverage']['rss_recent_capped'],1)
+        self.assertIsNone(q['cross_geo_review_ids']['shared_ids'])
+        with patch.object(scan_state,'now',return_value='2026-10-31T01:00:00Z'):
+            failed=scan_state.start_run(con,[job],{'limit':1})
+            scan_state.begin_query(con,failed,*job);scan_state.end_query(con,failed,*job,'ERROR');scan_state.finish_run(con,failed)
+        q=quality_metrics.build(con,now)
+        self.assertEqual((q['queries']['fresh_ok'],q['queries']['error']),(0,1))
+
+    def test_age_threshold_matches_scanner_without_day_rounding(self):
+        from datetime import timedelta
+        now=datetime(2026,11,1,tzinfo=timezone.utc)
+        con=sc.open_db(':memory:');app=self.make(con,version=(now-timedelta(days=547,hours=23)).isoformat())
+        with patch.object(sc,'now_utc',return_value=now):a=sc.analyze(con,app,18,500)
+        self.assertTrue(a['is_zombie'])
+        self.assertTrue(evidence.is_candidate(evidence.latest(con)[0],now))
+
     def test_old_velocity_is_not_current_when_rss_missing(self):
         con=sc.open_db(':memory:')
         self.make(con,count=1000,date='2026-01-01T00:00:00Z')
@@ -208,6 +275,23 @@ class DigestScope(Fixtures):
 
 
 class Durability(Fixtures):
+    def test_requested_report_sends_only_its_event_once_and_records_message_id(self):
+        import send_report
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'db';con=sc.open_db(path);self.make(con)
+            notifications.enqueue(con,'unrelated','must stay pending');con.close()
+            receipt=Path(folder)/'receipt.json'
+            response=dict(ok=True,result=dict(message_id=71,date=1793538000))
+            with patch.dict('os.environ',{'TG_BOT_TOKEN':'fake','TG_CHAT_ID':'fake'}),patch.object(send_report.tg_setup,'call',return_value=response) as call:
+                first=send_report.deliver(path,'requested:one',receipt,True)
+                second=send_report.deliver(path,'requested:one',receipt,True)
+            self.assertEqual(call.call_count,1)
+            self.assertEqual((first['status'],first['messages_sent'],first['telegram_message_id']),('SENT',1,71))
+            self.assertEqual(second['messages_sent'],0)
+            self.assertEqual(first['payload_sha256'],second['payload_sha256'])
+            with sqlite3.connect(path) as con:
+                self.assertEqual(con.execute("SELECT status FROM notification_outbox WHERE event_key='unrelated'").fetchone()[0],'PENDING')
+
     def test_resume_rejects_changed_configuration(self):
         con=sc.open_db(':memory:');jobs=[('us','c','q')]
         scan_state.start_run(con,jobs,{'limit':50},'run')
@@ -420,6 +504,9 @@ class DiscoveryAndReplay(Fixtures):
         self.assertTrue(all(geo=='us' for _,geo in selected))
         self.assertIn((1,'us'),selected);self.assertNotIn((6,'us'),selected);self.assertNotIn((7,'us'),selected)
         self.assertTrue({1,2}.issubset({tid for tid,_ in selected}))
+        con.execute("UPDATE snapshots SET version_date='2026-10-31T12:00:00Z' WHERE track_id=6")
+        after_update=dc.updated_review_sample(evidence.latest(con),cached,3,{'us'},now)
+        self.assertIn((6,'us'),after_update)  # a new release overrides the seven-day cooldown
 
     def test_clean_replay_uses_original_jobs_after_current_config_expands(self):
         import verify_pipeline
@@ -437,6 +524,14 @@ class DiscoveryAndReplay(Fixtures):
 
 
 class SourceAndMath(unittest.TestCase):
+    def test_economics_does_not_silently_treat_country_cpi_as_observed_cost(self):
+        markets,defaults=rm.load();markets['us']['cpi_usd']=999999
+        output=io.StringIO()
+        with patch.object(rm,'load',return_value=(markets,defaults)),patch.object(sys,'argv',['revenue_model.py','--model','sub']),contextlib.redirect_stdout(output):
+            rm.main()
+        self.assertIn('вклад не рассчитан',output.getvalue())
+        self.assertNotIn('999999',output.getvalue())
+
     def test_relevance_supports_scripts_and_rejects_generic_false_positive(self):
         self.assertFalse(sc.is_native_risk('Concrete Calculator','concrete calculator'))
         self.assertTrue(sc.is_native_risk('Calculator','calculator'))
