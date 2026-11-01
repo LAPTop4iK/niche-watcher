@@ -1,0 +1,50 @@
+{
+  "app_id": "1252497129",
+  "app_name": "PictureThis - Plant Identifier",
+  "country": "us",
+  "captured_at": "2026-11-01T01:17:14.847362+00:00",
+  "source_url": "https://itunes.apple.com/us/rss/customerreviews/id=1252497129/sortby=mostrecent/page=1/json",
+  "requested_latest_reviews": 50,
+  "returned_recent_reviews_1_to_3_stars": 24,
+  "window_days": 90,
+  "examples": [
+    {
+      "review_id": "14724511880",
+      "date": "2026-10-28T23:13:49-07:00",
+      "score": 1,
+      "paraphrase": "Автор сообщает о непонятных условиях списания и возврата; сам платёж не проверен."
+    },
+    {
+      "review_id": "14715029293",
+      "date": "2026-10-26T13:31:25-07:00",
+      "score": 2,
+      "paraphrase": "Сохранение растения и повторные входы неудобны по сообщению автора."
+    },
+    {
+      "review_id": "14706917295",
+      "date": "2026-10-24T13:37:45-07:00",
+      "score": 1,
+      "paraphrase": "Недостаточная точность распознавания разновидностей японского клёна."
+    },
+    {
+      "review_id": "14694271851",
+      "date": "2026-10-21T11:25:22-07:00",
+      "score": 3,
+      "paraphrase": "Автор сообщает о медленном запуске; измерений на устройстве нет."
+    },
+    {
+      "review_id": "14690143147",
+      "date": "2026-10-20T10:24:09-07:00",
+      "score": 3,
+      "paraphrase": "Нужны только напоминания о поливе без AI; заявленная автором цена кажется высокой."
+    },
+    {
+      "review_id": "14681331855",
+      "date": "2026-10-18T05:10:28-07:00",
+      "score": 1,
+      "paraphrase": "Автору не подходит согласование напоминаний о поливе и удобрении."
+    }
+  ],
+  "scope": "Selected dated negative reviews; no app-device reproduction, payment verification or market prevalence estimate",
+  "hypothesis": "Test a simpler plant-care/reminder workflow with a clear price, after checking alternatives and willingness to pay; not a build recommendation"
+}
