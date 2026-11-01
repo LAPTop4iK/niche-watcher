@@ -9,6 +9,7 @@ __pycache__/
 *.db-shm
 
 /niches.db
+/niches.db.xz
 .niche-pack-*
 .niche-restore-*
 /.data/

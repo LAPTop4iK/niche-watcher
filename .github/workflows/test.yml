@@ -1,7 +1,7 @@
 name: validation
 on:
   push:
-    paths: ['niches.db.gz', 'ci_save.sh', 'seed_queries.json', 'markets.json', 'requirements-play.txt', '**.py', 'tests/**', '.github/workflows/**', 'dashboard_template.html', 'dashboard.js', 'dashboard.css']
+    paths: ['niches.db.checkpoint.json', 'ci_save.sh', 'seed_queries.json', 'markets.json', 'requirements-play.txt', '**.py', 'tests/**', '.github/workflows/**', 'dashboard_template.html', 'dashboard.js', 'dashboard.css']
   pull_request: {}
 permissions:
   contents: read

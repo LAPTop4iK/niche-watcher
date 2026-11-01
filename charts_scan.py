@@ -84,6 +84,7 @@ def main():
                 ids=fetch_rss_chart(feed,country,gid,args.top)
                 raw=lookup_ids(ids,country);positions={tid:i+1 for i,tid in enumerate(ids)}
                 baseline=previous_ids(con,country,category,feed,sc.iso(sc.now_utc()-timedelta(days=7)),args.top)
+                raw=list({r['trackId']:r for r in raw if r.get('trackId')}.values())
                 for r in raw:
                     app=sc.normalize(r,country,category,feed,positions.get(r['trackId']));app['run_id']=run_id
                     sc.upsert_app(con,app);sc.insert_snapshot(con,app)
@@ -93,7 +94,8 @@ def main():
                              entered=len(set(ids)-baseline) if baseline is not None else None,
                              exited=len(baseline-set(ids)) if baseline is not None else None)
                 rows.append(stats)
-                scan_state.end_query(con,run_id,country,category,feed,'ERROR' if missing else 'OK',len(ids),len(raw),f'{len(missing)} unresolved IDs' if missing else None)
+                # Delisted IDs are expected in a chart; the resolved part stays a valid observation.
+                scan_state.end_query(con,run_id,country,category,feed,'OK',len(ids),len(raw),f'{len(missing)} unresolved IDs' if missing else None)
             except RuntimeError as error:
                 scan_state.end_query(con,run_id,country,category,feed,'ERROR',error=str(error))
                 print(f'Chart error {country}/{category}/{feed}: {error}',file=sys.stderr)

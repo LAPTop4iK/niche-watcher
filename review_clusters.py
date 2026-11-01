@@ -62,6 +62,7 @@ def fetch_ios(track_id, country, n):
     out = []
     seen=set()
     total_seen=0
+    holes=0
     for page in range(1, min(10, max(1, (n + 49) // 50)) + 1):
         try:
             data = sc.fetch_json(
@@ -91,7 +92,11 @@ def fetch_ios(track_id, country, n):
                             "source_url":f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page={page}/json",
                             "score": int(e["im:rating"]["label"]),
                             "thumbs": 0,"date":e.get("updated",{}).get("label","")})
-        if rated == 0:
+        if total_seen>=n:
+            break
+        # An empty page can be temporary; the following page may still hold reviews.
+        holes=0 if rated else holes+1
+        if holes==2:
             break
         time.sleep(1)
     return out

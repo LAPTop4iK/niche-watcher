@@ -23,6 +23,11 @@ import evidence
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+RSS_PAGE_SIZE=50
+RSS_MAX_PAGES=5  # Apple serves ten; five bound the budget, a capped sample is flagged.
+RSS_WINDOW_DAYS=90
+EMPTY_CONFIRM_SECONDS=600
+REFRESH_AFTER_DAYS=6  # A tier-2 storefront is scanned weekly; the next pass would miss 14 days.
 
 DEMAND_SCHEMA = """
 CREATE TABLE IF NOT EXISTS demand (
@@ -41,7 +46,7 @@ CREATE TABLE IF NOT EXISTS demand (
 
 
 class DemandFetch(tuple):
-    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None, raw_ref=None):
+    def __new__(cls, values, dates=None, scores=None, error=None, ids=None, versions=None, raw_ref=None, capped=False):
         result=super().__new__(cls,values)
         result.dates=dates or []
         result.scores=scores or []
@@ -49,53 +54,93 @@ class DemandFetch(tuple):
         result.ids=ids or []
         result.versions=versions or []
         result.raw_ref=raw_ref
+        result.capped=capped
         return result
 
 
-def fetch_demand(track_id, country):
-    """One dated RSS sample; failures and malformed feeds remain unknown."""
+def rss_page(track_id,country,page):
+    data=sc.fetch_json(f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page={page}/json")
+    raw_ref=getattr(data,'raw_ref',None)
+    if not isinstance(data,dict) or not isinstance(data.get('feed'),dict):
+        raise ValueError('Malformed RSS feed')
+    entries=data['feed'].get('entry') or []
+    if isinstance(entries,dict):
+        entries=[entries]
+    if not isinstance(entries,list):
+        raise ValueError('Malformed RSS entries')
+    return entries,raw_ref
+
+
+def fetch_demand(track_id, country, pages=RSS_MAX_PAGES, pause=1.0):
+    """A dated RSS sample; failures and malformed feeds remain unknown.
+
+    The next page is read only while a whole page stays inside the window. Apple
+    can return an empty page for minutes, so one hole neither ends the sample nor
+    proves its end; the sample is then flagged as capped.
+    """
+    raw_ref=None
     try:
-        data=sc.fetch_json(f"https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page=1/json")
-        raw_ref=getattr(data,'raw_ref',None)
-        if not isinstance(data,dict) or not isinstance(data.get('feed'),dict):
-            raise ValueError('Malformed RSS feed')
-        entries=data['feed'].get('entry') or []
-        if isinstance(entries,dict):
-            entries=[entries]
-        if not isinstance(entries,list):
-            raise ValueError('Malformed RSS entries')
         dates,scores,ids,versions,seen=[],[],[],[],set()
-        now=sc.now_utc()
-        for e in entries:
-            if not isinstance(e,dict) or 'im:rating' not in e:
-                continue
-            score=int(e['im:rating']['label'])
-            stamp=e.get('updated',{}).get('label','')
-            date=evidence.parse(stamp)
-            if not 1 <= score <= 5 or date > now:
-                raise ValueError('Invalid review date or rating')
-            identity=e.get('id',{}).get('label') or json.dumps(e,sort_keys=True)
-            if identity in seen:
-                continue
-            seen.add(identity);dates.append(date.isoformat());scores.append(score)
-            ids.append(e.get('id',{}).get('label'))
-            versions.append(e.get('im:version',{}).get('label'))
+        now=sc.now_utc();capped=False;holes=0
+        for page in range(1,pages+1):
+            try:
+                entries,reference=rss_page(track_id,country,page)
+            except (RuntimeError,ValueError):
+                if page==1:
+                    raise
+                capped=True
+                break
+            if page==1:
+                raw_ref=reference
+            elif reference and raw_ref:
+                raw_ref=dict(raw_ref,later_pages=[*raw_ref.get('later_pages',[]),reference])
+            rated=0;inside=True
+            for e in entries:
+                if not isinstance(e,dict) or 'im:rating' not in e:
+                    continue
+                score=int(e['im:rating']['label'])
+                stamp=e.get('updated',{}).get('label','')
+                date=evidence.parse(stamp)
+                if not 1 <= score <= 5 or date > now:
+                    raise ValueError('Invalid review date or rating')
+                identity=e.get('id',{}).get('label') or json.dumps(e,sort_keys=True)
+                rated+=1
+                inside=inside and (now-date).total_seconds()<=RSS_WINDOW_DAYS*86400
+                if identity in seen:
+                    continue
+                seen.add(identity);dates.append(date.isoformat());scores.append(score)
+                ids.append(e.get('id',{}).get('label'))
+                versions.append(e.get('im:version',{}).get('label'))
+            if not rated and page==1:
+                break
+            if rated:
+                holes=0
+            else:
+                holes+=1;capped=True
+                if holes==2:
+                    break
+            if rated and (rated<RSS_PAGE_SIZE or not inside):
+                break
+            if page==pages:
+                capped=True
+                break
+            time.sleep(pause)
         if not dates:
             return DemandFetch((None,None,None,None,'EMPTY'),raw_ref=raw_ref)
         r60=sum((now-evidence.parse(d)).total_seconds() <= 60*86400 for d in dates)
         r90=sum((now-evidence.parse(d)).total_seconds() <= 90*86400 for d in dates)
-        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions,raw_ref=raw_ref)
+        return DemandFetch((max(dates,key=evidence.parse),r60,r90,round(100*sum(v<=2 for v in scores)/len(scores)),'OK'),dates,scores,ids=ids,versions=versions,raw_ref=raw_ref,capped=capped)
     except Exception as exc:
         import raw_archive
         if isinstance(exc,raw_archive.ArchiveError):raise
-        return DemandFetch((None,None,None,None,'ERROR'),error=f'{type(exc).__name__}: {exc}',raw_ref=locals().get('raw_ref'))
+        return DemandFetch((None,None,None,None,'ERROR'),error=f'{type(exc).__name__}: {exc}',raw_ref=raw_ref)
 
 
 def prepare(con):
     con.executescript(DEMAND_SCHEMA)
     fields={'fetch_status':'TEXT','method_version':'TEXT','review_dates_json':'TEXT',
             'review_scores_json':'TEXT','sample_size':'INTEGER','sample_capped':'INTEGER','fetch_error':'TEXT',
-            'review_ids_json':'TEXT','review_versions_json':'TEXT','collection_policy':'TEXT'}
+            'review_ids_json':'TEXT','review_versions_json':'TEXT','collection_policy':'TEXT','alive_path':'TEXT'}
     existing={r[1] for r in con.execute('PRAGMA table_info(demand)')}
     for name,kind in fields.items():
         if name not in existing:
@@ -118,27 +163,35 @@ def store_result(con,tid,country,result,policy=None):
     con.commit()
 
 
+def empty_confirmed(con,tid,country):
+    """A second empty answer at least ten minutes later; one may be a transient hole."""
+    row=con.execute('SELECT fetch_status,checked_at FROM demand WHERE track_id=? AND country=?',(tid,country)).fetchone()
+    return bool(row) and row[0] in ('EMPTY','EMPTY_UNCONFIRMED') and (sc.now_utc()-evidence.parse(row[1])).total_seconds()>=EMPTY_CONFIRM_SECONDS
+
+
 def _store_result(con,tid,country,result,policy):
     lr,r60,r90,bad,status=result
+    if status=='EMPTY' and not empty_confirmed(con,tid,country):
+        status='EMPTY_UNCONFIRMED'
     vel,days=velocity(con,tid,country)
-    state=evidence.classify(vel,lr,r90,status)
+    state,path=evidence.activity(vel,lr,r90,status)
     dates=getattr(result,'dates',[]);scores=getattr(result,'scores',[])
     con.execute('''INSERT INTO demand
         (track_id,country,checked_at,last_review,r60,r90,bad_share,vel_30d,verdict,
          fetch_status,method_version,review_dates_json,review_scores_json,sample_size,sample_capped,fetch_error,
-         review_ids_json,review_versions_json,collection_policy)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
+         review_ids_json,review_versions_json,collection_policy,alive_path)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(track_id,country) DO UPDATE SET
         checked_at=excluded.checked_at,last_review=excluded.last_review,r60=excluded.r60,r90=excluded.r90,
         bad_share=excluded.bad_share,vel_30d=excluded.vel_30d,verdict=excluded.verdict,
         fetch_status=excluded.fetch_status,method_version=excluded.method_version,
         review_dates_json=excluded.review_dates_json,review_scores_json=excluded.review_scores_json,
         sample_size=excluded.sample_size,sample_capped=excluded.sample_capped,fetch_error=excluded.fetch_error,
         review_ids_json=excluded.review_ids_json,review_versions_json=excluded.review_versions_json,
-        collection_policy=excluded.collection_policy''',
+        collection_policy=excluded.collection_policy,alive_path=excluded.alive_path''',
         (tid,country,sc.iso(sc.now_utc()),lr,r60,r90,bad,vel,state,status,evidence.METHOD,
          json.dumps(dates) if dates else None,json.dumps(scores) if scores else None,
-         len(dates) if dates else None,int(len(dates)>=50),getattr(result,'error',None),
-         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None,policy))
+         len(dates) if dates else None,int(bool(getattr(result,'capped',False))),getattr(result,'error',None),
+         json.dumps(getattr(result,'ids',[])) or None,json.dumps(getattr(result,'versions',[])) or None,policy,path))
 
 
 def follow_run(con,run_id,delay,workers=2,controls=20):
@@ -201,6 +254,35 @@ def velocity(con, track_id, country):
     return evidence.rating_velocity(con, track_id, country)
 
 
+def recheck_seconds(previous):
+    status=previous.get('fetch_status')
+    return EMPTY_CONFIRM_SECONDS if status=='EMPTY_UNCONFIRMED' else 86400 if status=='ERROR' else 7*86400
+
+
+def queue_refresh_sample(rows,cached,per_country,countries=None,now=None):
+    """Re-measure search rows before RSS expires, oldest first.
+
+    Rows with complaints come ahead of other old versions: only they leave the
+    recent-version lane once the 14-day freshness window closes.
+    """
+    now=now or sc.now_utc();pools={}
+    for row in rows:
+        key=(row['track_id'],row['country']);previous=cached.get(key)
+        if not previous or (row.get('rating_count') or 0)<500 or (countries is not None and row['country'] not in countries):
+            continue
+        if not any(not c.startswith('chart:') and c!='similar-graph' for c in row.get('categories',[])):
+            continue
+        try:
+            age=(now-evidence.parse(previous['checked_at'])).total_seconds()/86400
+            scores=json.loads(previous.get('review_scores_json') or '[]')
+        except (ValueError,TypeError,KeyError,AttributeError):
+            continue
+        complaints=any(isinstance(s,(int,float)) and s<=2 for s in scores)
+        if age>=REFRESH_AFTER_DAYS and (complaints or evidence.is_candidate(row,now)):
+            pools.setdefault(row['country'],[]).append((not complaints,-age,key))
+    return [key for _,items in sorted(pools.items()) for _,_,key in sorted(items)[:per_country]]
+
+
 def exploration_stratum(row,now):
     ratings=row.get('rating_count')
     rating_band='unknown' if ratings is None else '0-49' if ratings<50 else '50-499' if ratings<500 else '500+'
@@ -231,7 +313,7 @@ def wide_review_sample(rows,cached,per_country,countries=None,now=None,exclude=(
         try:new_version=evidence.parse(previous['checked_at'])<evidence.parse(row['version_date'])
         except (ValueError,TypeError,KeyError,AttributeError):new_version=False
         try:
-            if (now-evidence.parse(previous['checked_at'])).total_seconds()<(1 if previous.get('fetch_status')=='ERROR' else 7)*86400 and not new_version:continue
+            if (now-evidence.parse(previous['checked_at'])).total_seconds()<recheck_seconds(previous) and not new_version:continue
         except (ValueError,TypeError,KeyError,AttributeError):pass
         # Assign multiply discovered apps to one family independently of outcomes.
         category=min(categories,key=lambda c:hashlib.sha256(f'{now:%Y-%m-%d}:{key}:{c}'.encode()).digest())
@@ -266,17 +348,17 @@ def wide_review_sample(rows,cached,per_country,countries=None,now=None,exclude=(
     return selected
 
 
-def updated_review_sample(rows,cached,per_country,countries=None,now=None):
+def updated_review_sample(rows,cached,per_country,countries=None,now=None,exclude=()):
     """Budgeted discovery sample, separate from the frozen scientific control.
 
     Alternate overdue refreshes and unseen records, round-robin by query family.
     Daily hashing rotates choices within a family. This is not a market sample.
     """
-    now=now or sc.now_utc();pools={};title_hints={};version_refresh={}
+    now=now or sc.now_utc();pools={};title_hints={};version_refresh={};excluded=set(exclude)
     from relevance import relevant
     for row in rows:
         geo=row['country'];key=(row['track_id'],geo)
-        if countries is not None and geo not in countries:
+        if key in excluded or (countries is not None and geo not in countries):
             continue
         if not evidence.is_candidate(row,now,min_stale=0) or evidence.is_candidate(row,now):
             continue
@@ -289,8 +371,7 @@ def updated_review_sample(rows,cached,per_country,countries=None,now=None):
         try:version_refresh[key]=evidence.parse(previous['checked_at'])<evidence.parse(row['version_date'])
         except (ValueError,TypeError,KeyError,AttributeError):version_refresh[key]=False
         try:
-            age=(now-evidence.parse(previous['checked_at'])).total_seconds()/86400
-            if age<(1 if previous.get('fetch_status')=='ERROR' else 7) and not version_refresh[key]:
+            if (now-evidence.parse(previous['checked_at'])).total_seconds()<recheck_seconds(previous) and not version_refresh[key]:
                 continue
         except (ValueError,TypeError,KeyError):
             pass
@@ -335,10 +416,11 @@ def write_cached_report(con, path):
     lines = ["# Demand Report — свежая активность, не доказательство платежей\n",
              f"Метод {evidence.METHOD}. Пересчёт {sc.iso(sc.now_utc())}. Кандидатов: {len(rows)}.\n",
              " · ".join(f"{k}: {counts[k]}" for k in evidence.LABELS) + "\n",
-             "ALIVE: ≥2 свежих письменных отзыва за 90 дней либо надёжный прирост оценок "
-             "за ≥7 дней в одной стране. Это эвристика для исследования. NO_RECENT_EVIDENCE "
+             "ALIVE: ≥2 свежих письменных отзыва за 90 дней либо прирост оценок сверх шума счётчика "
+             "за ≥7 дней в одной стране. Пути разной чувствительности: сравнивать периоды только внутри одного. "
+             "Это эвристика для исследования. NO_RECENT_EVIDENCE "
              "означает отсутствие свежего сигнала у приложения, а не смерть ниши. Ошибки и пустой RSS = UNKNOWN.\n",
-             "RSS ограничен последними ~50 отзывами: R90 — нижняя граница; ни отзывы, ни "
+             f"RSS ограничен {RSS_MAX_PAGES} страницами по {RSS_PAGE_SIZE} отзывов: R90 — нижняя граница; ни отзывы, ни "
              "возраст версии не подтверждают выручку, поломку продукта или возможность перехватить пользователей.\n"]
     for state, label in evidence.LABELS.items():
         lines += [f"\n## {label} ({counts[state]})\n",
@@ -367,14 +449,16 @@ def main():
     ap.add_argument("--delay", type=float, default=1.2)
     ap.add_argument('--explore-updated',type=int,default=0,metavar='N',help='до N версий <18 мес на страну; отдельная ротационная выборка, не контроль исследования')
     ap.add_argument('--explore-wide',type=int,default=0,metavar='N',help='до N поисковых app×country на страну: малые/крупные, старые/свежие, free/paid; не контроль исследования')
+    ap.add_argument('--refresh-queue',type=int,default=0,metavar='N',help='до N строк очереди на страну: обновить RSS раньше, чем он устареет')
     ap.add_argument('--countries',help='страны для --explore-updated; по умолчанию все')
     ap.add_argument('--tier',type=int,choices=[1,2],help='tier из markets.json для --explore-updated')
     ap.add_argument('--slot',type=int,choices=[1,2,3,4])
     ap.add_argument("--out", default=os.path.join(HERE, "demand_report.md"))
     args = ap.parse_args()
-    if not 0<=args.explore_updated<=200 or not 0<=args.explore_wide<=200 or args.explore_updated+args.explore_wide>200:
-        ap.error('общий бюджет explore должен быть 0..200 на страну')
-    if (args.explore_updated or args.explore_wide) and (args.follow_run or args.cached_only or args.track or args.limit):
+    if min(args.explore_updated,args.explore_wide,args.refresh_queue)<0 or args.explore_updated+args.explore_wide+args.refresh_queue>200:
+        ap.error('общий бюджет explore и refresh должен быть 0..200 на страну')
+    batch=args.explore_updated or args.explore_wide or args.refresh_queue
+    if batch and (args.follow_run or args.cached_only or args.track or args.limit):
         ap.error('explore запускается отдельно от follow/cached/track/limit')
     db_store.ensure(args.db)
 
@@ -383,7 +467,7 @@ def main():
         write_cached_report(con, args.out)
         con.close()
         return
-    if args.explore_updated or args.explore_wide:
+    if batch:
         import scan_state
         markets=json.load(open(os.path.join(HERE,'markets.json')))['markets']
         countries=set(args.countries.split(',')) if args.countries else {geo for geo,m in markets.items()
@@ -392,13 +476,14 @@ def main():
         with scan_state.writer_lock(args.db):
             prepare(con)
             rows=evidence.latest(con);cached=evidence.demand_map(con);now=sc.now_utc()
-            targeted=updated_review_sample(rows,cached,args.explore_updated,countries,now)
-            broad=wide_review_sample(rows,cached,args.explore_wide,countries,now,exclude=targeted)
-            keys=targeted+broad;targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}
-            print(f'DISCOVERY: {len(keys)} RSS checks, max {args.explore_updated}+{args.explore_wide}/country; not a statistical control',flush=True)
+            refresh=queue_refresh_sample(rows,cached,args.refresh_queue,countries,now)
+            targeted=updated_review_sample(rows,cached,args.explore_updated,countries,now,exclude=refresh)
+            broad=wide_review_sample(rows,cached,args.explore_wide,countries,now,exclude=refresh+targeted)
+            keys=refresh+targeted+broad;refresh=set(refresh);targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}
+            print(f'DISCOVERY: {len(keys)} RSS checks, max {args.refresh_queue}+{args.explore_updated}+{args.explore_wide}/country; not a statistical control',flush=True)
             for i,(tid,geo) in enumerate(keys,1):
-                policy='updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
-                store_result(con,tid,geo,fetch_demand(tid,geo),policy=policy)
+                policy='queue-refresh-v1' if (tid,geo) in refresh else 'updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
+                store_result(con,tid,geo,fetch_demand(tid,geo,pause=args.delay),policy=policy)
                 if i%25==0:print(f'UPDATED {i}/{len(keys)}',flush=True)
                 time.sleep(args.delay)
         con.close()

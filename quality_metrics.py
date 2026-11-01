@@ -61,6 +61,8 @@ def build(con,now=None,rows=None,queue=None):
         rss_before_release=sum(r.get('rss_collected_after_version') is False for r in pain),
         same_version_positive=sum((r.get('bad_current_version_count') or 0)>0 for r in pain),
         version_unknown=sum(r.get('bad_current_version_count') is None for r in pain))
+    # The two ALIVE paths have different sensitivity: compare periods per path only.
+    alive_paths=Counter(r.get('alive_path') for r in queue if r['lane']=='stale' and r['verdict']=='ALIVE')
     seed=sc.load_seed(ROOT/'seed_queries.json');markets=json.loads((ROOT/'markets.json').read_text())['markets']
     planned=set(sc.planned_jobs(seed,markets,list(markets)));latest={};limits={};query_counts=Counter()
     if {'scan_runs','scan_queries'}<=evidence.tables(con):
@@ -90,7 +92,7 @@ def build(con,now=None,rows=None,queue=None):
             raw_capture='Opt-in local archive only; complete HTTP bodies are not persisted by CI',
             note='Exploration strata are not weighted estimates of the App Store population'),
         last_search_query_at=max((r['finished_at'] for r in latest.values() if r['status']=='OK'),default=None),
-        recent_pain_timing=pain_timing,
+        recent_pain_timing=pain_timing,alive_paths=dict(alive_paths),
         cross_geo_review_ids=dict(apps_comparable=multi_geo,shared_ids=sum(len(geos)>=2 for geos in id_geos.values()) if multi_geo else None,
             note='Only collected review IDs; repeated countries do not establish independent people or demand'),
         competitor_revenue_observed=False,

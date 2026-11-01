@@ -52,6 +52,39 @@ class EvidenceTests(unittest.TestCase):
             self.snap(rc,f'2026-10-{day}T00:00:00Z')
         self.assertIsNone(evidence.rating_velocity(self.con,1,'us')[0])
 
+    def test_replica_noise_within_a_run_is_not_a_counter_reset(self):
+        for run,day,counts in [('a','01',(260100,260008)),('b','10',(260092,260300))]:
+            for i,rc in enumerate(counts):
+                app=sc.normalize(dict(trackId=1,trackName='App',userRatingCount=rc,currentVersionReleaseDate='2020-01-01T00:00:00Z'),'us','test',f'query{i}')
+                app.update(scanned_at=f'2026-10-{day}T00:00:0{i}Z',run_id=run)
+                sc.upsert_app(self.con,app);sc.insert_snapshot(self.con,app)
+        self.assertEqual(evidence.rating_velocity(self.con,1,'us')[0],0.0)
+
+    def test_small_drop_is_noise_and_only_a_reset_blocks(self):
+        self.snap(100000,'2026-10-01T00:00:00Z')
+        self.snap(99900,'2026-10-10T00:00:00Z')
+        self.assertEqual(evidence.rating_velocity(self.con,1,'us')[0],0.0)
+        self.snap(90000,'2026-10-12T00:00:00Z')
+        self.assertIsNone(evidence.rating_velocity(self.con,1,'us')[0])
+
+    def test_creeping_drop_is_caught_across_scans(self):
+        for day,rc in [('01',1000),('04',996),('07',992),('10',988)]:
+            self.snap(rc,f'2026-10-{day}T00:00:00Z')
+        self.assertIsNone(evidence.rating_velocity(self.con,1,'us')[0])
+
+    def test_alive_path_records_which_evidence_fired(self):
+        now=datetime(2026,10,31,tzinfo=timezone.utc)
+        self.assertEqual(evidence.activity(5,None,None,'UNKNOWN',now),('ALIVE','velocity'))
+        self.assertEqual(evidence.activity(None,'2026-10-30',2,'OK',now),('ALIVE','rss'))
+        self.assertEqual(evidence.activity(5,'2026-10-30',2,'OK',now),('ALIVE','rss+velocity'))
+        self.assertEqual(evidence.activity(0.0,'2026-10-30',1,'OK',now),('WEAK',None))
+
+    def test_one_new_rating_is_not_activity(self):
+        self.snap(1000,'2026-10-01T00:00:00Z')
+        self.snap(1001,'2026-10-10T00:00:00Z')
+        vel,_=evidence.rating_velocity(self.con,1,'us')
+        self.assertEqual(evidence.activity(vel,None,None,'UNKNOWN'),('UNKNOWN',None))
+
     def test_errors_empty_and_old_reviews_are_distinct(self):
         now=datetime(2026,10,31,tzinfo=timezone.utc)
         self.assertEqual(evidence.classify(None,None,None,'ERROR',now),'UNKNOWN')

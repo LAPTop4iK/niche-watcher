@@ -1,4 +1,5 @@
 """Exercise CI persistence against local bare Git remotes, never GitHub."""
+import json
 import os
 from pathlib import Path
 import shutil
@@ -13,6 +14,9 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 class StorageGitTests(unittest.TestCase):
+    def setUp(self):
+        self.addCleanup(os.environ.pop,'NICHE_CHECKPOINT_DIR',None)
+
     def git(self,path,*args):
         return subprocess.check_output(['git',*args],cwd=path,stderr=subprocess.STDOUT,text=True).strip()
 
@@ -30,7 +34,8 @@ class StorageGitTests(unittest.TestCase):
         (seed/'.gitignore').write_text('niches.db\n__pycache__/\n')
         # Persistence integration only; report rendering is tested separately.
         (seed/'rebuild_reports.py').write_text("import sqlite3,sys\nfrom pathlib import Path\nwith sqlite3.connect(sys.argv[2]) as c:\n assert c.execute('pragma quick_check').fetchone()[0]=='ok'\n Path('report.md').write_text(str(c.execute('select count(*) from apps').fetchone()[0]))\n")
-        self.add(seed,1);db_store.pack(seed/'niches.db')
+        self.add(seed,1);os.environ['NICHE_CHECKPOINT_DIR']=str(base/'store')
+        db_store.publish(db_store.pack(seed/'niches.db'),seed/'niches.db.checkpoint.json');(seed/'niches.db.xz').unlink()
         self.git(seed,'add','-A');self.git(seed,'commit','-m','initial');self.git(seed,'remote','add','origin',str(origin));self.git(seed,'push','origin','main')
         self.git(base,'--git-dir',str(origin),'symbolic-ref','HEAD','refs/heads/main')
         clones=[]
@@ -45,9 +50,9 @@ class StorageGitTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as folder:
             base=Path(folder);local=base/'local';incoming=base/'incoming'
             local.mkdir();incoming.mkdir()
-            self.add(local,1);db_store.pack(local/'niches.db');self.add(local,2)
+            self.add(local,1);self.add(local,2)
             self.add(incoming,1);self.add(incoming,3)
-            db_store.pack(incoming/'niches.db',local/'niches.db.gz')
+            db_store.pack(incoming/'niches.db',local/'niches.db.xz')
             db_store.sync(local/'niches.db')
             with sqlite3.connect(local/'niches.db') as con:
                 self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,2,3})
@@ -63,7 +68,9 @@ class StorageGitTests(unittest.TestCase):
             final=Path(folder)/'final';self.git(Path(folder),'clone',str(origin),str(final));db_store.ensure(final/'niches.db')
             with sqlite3.connect(final/'niches.db') as con:
                 self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,2,3})
-            self.assertEqual(self.git(final,'ls-files','niches.db'),'')
+            self.assertEqual(self.git(final,'ls-files','niches.db','niches.db.gz'),'')
+            pointer=json.loads((final/'niches.db.checkpoint.json').read_text())
+            self.assertEqual(db_store.digest(Path(os.environ['NICHE_CHECKPOINT_DIR'])/pointer['asset']),pointer['sha256'])
             self.assertEqual((final/'report.md').read_text(),'3')
 
     def test_upstream_code_change_preserves_local_collected_database(self):
@@ -79,3 +86,51 @@ class StorageGitTests(unittest.TestCase):
             with sqlite3.connect(local/'niches.db') as con:
                 self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,3})
             self.assertEqual(self.git(upstream,'rev-parse','HEAD'),self.git(Path(folder),'--git-dir',str(origin),'rev-parse','main'))
+
+    def test_git_keeps_a_pointer_instead_of_a_new_binary_blob_per_save(self):
+        with tempfile.TemporaryDirectory() as folder:
+            origin,(clone,_)=self.repos(folder)
+            self.add(clone,2)
+            subprocess.run(['bash','ci_save.sh','first'],cwd=clone,env=self.env(folder),check=True,capture_output=True)
+            tracked=self.git(clone,'ls-files').split('\n')
+            self.assertIn('niches.db.checkpoint.json',tracked)
+            self.assertFalse(any(name.endswith(('.gz','.xz','.db')) for name in tracked))
+
+    def test_first_save_migrates_the_legacy_archive_out_of_git(self):
+        with tempfile.TemporaryDirectory() as folder:
+            origin,(clone,other)=self.repos(folder)
+            self.git(clone,'config','user.name','test');self.git(clone,'config','user.email','test@example.test')
+            self.git(clone,'rm','-q','niches.db.checkpoint.json')
+            archive=clone/'niches.db.gz'
+            with sqlite3.connect(clone/'niches.db') as con:pass
+            import gzip
+            archive.write_bytes(gzip.compress((clone/'niches.db').read_bytes()))
+            self.git(clone,'add','-f','niches.db.gz');self.git(clone,'commit','-m','legacy state');self.git(clone,'push','origin','main')
+            self.add(clone,2)
+            subprocess.run(['bash','ci_save.sh','migrate'],cwd=clone,env=self.env(folder),check=True,capture_output=True)
+            final=Path(folder)/'final';self.git(Path(folder),'clone',str(origin),str(final))
+            self.assertEqual(self.git(final,'ls-files','niches.db.gz'),'')
+            self.assertTrue(db_store.ensure(final/'niches.db'))
+            with sqlite3.connect(final/'niches.db') as con:
+                self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,2})
+                names={r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='index'")}
+            self.assertIn('idx_snap_store_time',names)
+
+    def test_checkpoint_that_does_not_match_its_pointer_is_rejected(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base=Path(folder);os.environ['NICHE_CHECKPOINT_DIR']=str(base/'store')
+            source=base/'a';source.mkdir();self.add(source,1)
+            pointer=base/'niches.db.checkpoint.json'
+            entry=db_store.publish(db_store.pack(source/'niches.db'),pointer)
+            (base/'store'/entry['asset']).write_bytes(b'tampered')
+            with self.assertRaises(ValueError):db_store.ensure(base/'niches.db')
+            self.assertFalse((base/'niches.db').exists())
+
+    def test_prune_keeps_the_current_checkpoint(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base=Path(folder);os.environ['NICHE_CHECKPOINT_DIR']=str(base/'store');(base/'store').mkdir()
+            for i in range(5):
+                path=base/'store'/f'c{i}.xz';path.write_bytes(b'x');os.utime(path,(i,i))
+            removed=db_store.prune(keep=2,protect={'c0.xz'})
+            self.assertEqual(sorted(removed),['c1.xz','c2.xz'])
+            self.assertEqual(sorted(p.name for p in (base/'store').iterdir()),['c0.xz','c3.xz','c4.xz'])

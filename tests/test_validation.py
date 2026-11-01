@@ -108,7 +108,7 @@ class FreshnessAndSampling(Fixtures):
 
     def test_category_uses_current_metadata(self):
         con=sc.open_db(':memory:')
-        self.make(con,category='construction',date='2026-10-01T00:00:00Z')
+        self.make(con,category='construction',date='2026-10-20T00:00:00Z')
         self.make(con,category='diy',date='2026-10-30T00:00:00Z',version='2026-10-29T00:00:00Z')
         rows=evidence.latest(con,by_category=True)
         self.assertEqual({r['category'] for r in rows},{'construction','diy'})
@@ -231,6 +231,39 @@ class FreshnessAndSampling(Fixtures):
         self.make(con,date='2026-10-10T00:00:00Z',count=1010)
         self.assertIsNone(evidence.rating_velocity(con,1,'us')[0])
 
+    def test_unjournaled_membership_expires_but_journaled_chart_stays(self):
+        con=sc.open_db(':memory:')
+        self.make(con,tid=1,date='2026-10-01T00:00:00Z')
+        self.make(con,tid=2,category='chart:utilities',query='topfreeapplications',date='2026-10-01T00:00:00Z')
+        self.make(con,tid=3,date='2026-10-30T00:00:00Z')
+        memberships=evidence.query_memberships(con)
+        self.assertEqual({key[0] for key in memberships},{2,3})
+
+    def test_narrower_run_does_not_replace_a_current_wider_serp(self):
+        con=sc.open_db(':memory:')
+        wide=scan_state.start_run(con,[('us','construction','concrete calculator')],{'limit':50})
+        scan_state.begin_query(con,wide,'us','construction','concrete calculator')
+        self.make(con,tid=1,run_id=wide,date='2026-10-30T00:00:00Z');self.make(con,tid=2,run_id=wide,date='2026-10-30T00:00:00Z')
+        scan_state.end_query(con,wide,'us','construction','concrete calculator','OK',2,2)
+        narrow=scan_state.start_run(con,[('us','construction','concrete calculator')],{'limit':25})
+        scan_state.begin_query(con,narrow,'us','construction','concrete calculator')
+        self.make(con,tid=1,run_id=narrow,date='2026-10-31T00:00:00Z')
+        scan_state.end_query(con,narrow,'us','construction','concrete calculator','OK',1,1)
+        self.assertEqual(evidence.coverage_map(con)[('us','construction','concrete calculator')],wide)
+        self.assertEqual({key[0] for key in evidence.query_memberships(con)},{1,2})
+
+    def test_other_entity_frame_never_replaces_the_software_serp(self):
+        con=sc.open_db(':memory:')
+        base=scan_state.start_run(con,[('us','construction','concrete calculator')],{'limit':50})
+        scan_state.begin_query(con,base,'us','construction','concrete calculator')
+        self.make(con,tid=1,run_id=base,date='2026-10-30T00:00:00Z')
+        scan_state.end_query(con,base,'us','construction','concrete calculator','OK',1,1)
+        other=scan_state.start_run(con,[('us','construction','concrete calculator')],{'limit':50,'entity':'software,iPadSoftware'})
+        scan_state.begin_query(con,other,'us','construction','concrete calculator')
+        self.make(con,tid=2,run_id=other,date='2026-10-31T00:00:00Z')
+        scan_state.end_query(con,other,'us','construction','concrete calculator','OK',1,1)
+        self.assertEqual({key[0] for key in evidence.query_memberships(con)},{1})
+
     def test_reset_before_nearest_baseline_does_not_become_recovery_growth(self):
         con=sc.open_db(':memory:')
         self.make(con,date='2026-09-25T00:00:00Z',count=1000)
@@ -241,7 +274,7 @@ class FreshnessAndSampling(Fixtures):
     def test_conflicting_baseline_does_not_get_hidden_by_early_return(self):
         con=sc.open_db(':memory:')
         self.make(con,date='2026-10-01T00:00:00Z',count=1000)
-        self.make(con,date='2026-10-01T00:00:00Z',count=995)
+        self.make(con,date='2026-10-01T00:00:00Z',count=900)
         self.make(con,date='2026-10-10T00:00:00Z',count=1020)
         self.assertIsNone(evidence.rating_velocity(con,1,'us')[0])
 
@@ -442,7 +475,7 @@ class Presentation(Fixtures):
         con.execute("UPDATE demand SET checked_at='2026-09-01T00:00:00Z' WHERE track_id=4")
         queue,coverage=evidence.research_queue(con,now)
         self.assertEqual({r['track_id']:r['lane'] for r in queue},{1:'stale',2:'recent_pain'})
-        self.assertEqual(coverage['search'],dict(eligible=4,rss_usable=2,complaint_records=1))
+        self.assertEqual(coverage['search'],dict(eligible=4,rss_usable=2,complaint_records=1,lost_to_stale_rss=1))
         # Telegram uses the same qualifying rule; missing/outdated data is not pain.
         with patch.object(evidence,'research_queue',return_value=(queue,coverage)):
             message=tg_digest.build_message(con)
@@ -470,6 +503,72 @@ class Presentation(Fixtures):
             self.assertEqual(data['source_coverage']['charts'],['de','us'])
             both=next(r for r in data['candidates'] if r['track_id']==1)
             self.assertEqual(both['sources'],['charts','search'])
+
+
+class ReviewCollection(Fixtures):
+    def page(self,count,start=0,stamp='2026-10-30T00:00:00Z'):
+        return {'feed':{'entry':[{'id':{'label':f'r{i}'},'im:rating':{'label':'1'},'im:version':{'label':'2.0'},
+            'updated':{'label':stamp},'content':{'label':'crash on start'}} for i in range(start,start+count)]}}
+
+    def fetch(self,responses,**kwargs):
+        now=datetime(2026,10,31,tzinfo=timezone.utc)
+        with patch.object(sc,'fetch_json',side_effect=responses) as mocked,patch.object(sc,'now_utc',return_value=now):
+            import demand_check
+            return demand_check.fetch_demand(1,'us',pause=0,**kwargs),mocked.call_count
+
+    def test_next_page_only_while_a_whole_page_stays_inside_the_window(self):
+        result,calls=self.fetch([self.page(50),self.page(20,50)])
+        self.assertEqual((len(result.dates),calls,result.capped),(70,2,False))
+        result,calls=self.fetch([self.page(50,stamp='2026-01-01T00:00:00Z')])
+        self.assertEqual((len(result.dates),calls,result.capped),(50,1,False))
+
+    def test_empty_page_is_skipped_and_flagged_not_treated_as_the_end(self):
+        result,calls=self.fetch([self.page(50),self.page(0),self.page(10,100)])
+        self.assertEqual((len(result.dates),calls,result.capped),(60,3,True))
+
+    def test_page_cap_is_flagged_as_a_lower_bound(self):
+        result,calls=self.fetch([self.page(50,i*50) for i in range(3)],pages=3)
+        self.assertEqual((len(result.dates),calls,result.capped),(150,3,True))
+
+    def test_failed_later_page_keeps_the_sample_and_flags_it(self):
+        result,_=self.fetch([self.page(50),RuntimeError('offline')])
+        self.assertEqual((result[-1],len(result.dates),result.capped),('OK',50,True))
+
+    def test_empty_is_confirmed_only_by_a_second_attempt_ten_minutes_later(self):
+        import demand_check
+        con=sc.open_db(':memory:');demand_check.prepare(con)
+        empty=demand_check.DemandFetch((None,None,None,None,'EMPTY'))
+        first=datetime(2026,10,31,tzinfo=timezone.utc);soon=first.replace(minute=5);later=first.replace(minute=16)
+        status=lambda:con.execute('SELECT fetch_status FROM demand').fetchone()[0]
+        with patch.object(sc,'now_utc',return_value=first):demand_check.store_result(con,1,'us',empty)
+        self.assertEqual(status(),'EMPTY_UNCONFIRMED')
+        with patch.object(sc,'now_utc',return_value=soon):demand_check.store_result(con,1,'us',empty)
+        self.assertEqual(status(),'EMPTY_UNCONFIRMED')
+        with patch.object(sc,'now_utc',return_value=later):demand_check.store_result(con,1,'us',empty)
+        self.assertEqual(status(),'EMPTY')
+
+    def test_queue_refresh_takes_complaints_first_and_oldest_within_budget(self):
+        import demand_check
+        now=datetime(2026,10,31,tzinfo=timezone.utc)
+        row=lambda tid,version='2026-06-01T00:00:00Z':dict(track_id=tid,country='us',rating_count=1000,categories=['c'],version_date=version)
+        cached={(1,'us'):dict(checked_at='2026-10-20T00:00:00Z',review_scores_json='[5]'),
+                (2,'us'):dict(checked_at='2026-10-22T00:00:00Z',review_scores_json='[1]'),
+                (3,'us'):dict(checked_at='2026-10-20T00:00:00Z',review_scores_json='[2]'),
+                (4,'us'):dict(checked_at='2026-10-29T00:00:00Z',review_scores_json='[1]'),
+                (5,'us'):dict(checked_at='2026-10-01T00:00:00Z',review_scores_json='[5]')}
+        rows=[row(1),row(2),row(3),row(4),row(5,'2020-01-01T00:00:00Z')]
+        self.assertEqual(demand_check.queue_refresh_sample(rows,cached,3,None,now),[(3,'us'),(2,'us'),(5,'us')])
+
+    def test_chart_keeps_resolved_apps_when_one_id_is_delisted(self):
+        with tempfile.TemporaryDirectory() as folder:
+            db=str(Path(folder)/'db');out=str(Path(folder)/'r.md')
+            with patch.object(charts_scan,'GENRES',{6002:'Utilities'}),patch.object(charts_scan,'FEEDS',['toppaidapplications']),\
+                 patch.object(charts_scan,'fetch_rss_chart',return_value=[1,2]),patch.object(charts_scan,'lookup_ids',return_value=[dict(trackId=1,trackName='A',userRatingCount=10,currentVersionReleaseDate='2024-01-01T00:00:00Z')]),\
+                 patch.object(sys,'argv',['charts_scan.py','--countries','us','--db',db,'--out',out]),patch.object(sc,'REQUEST_DELAY',0),patch.object(charts_scan.time,'sleep'):
+                charts_scan.main()
+            with sqlite3.connect(db) as con:
+                row=con.execute('SELECT status,result_count,stored_count,error FROM scan_queries').fetchone()
+            self.assertEqual(row,('OK',2,1,'1 unresolved IDs'))
 
 
 class DiscoveryAndReplay(Fixtures):

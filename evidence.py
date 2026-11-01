@@ -1,9 +1,10 @@
 """Observable activity, provenance and conservative treatment of missing data."""
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 import json
 import sqlite3
+import statistics
 
-METHOD = 'activity-v3'
+METHOD = 'activity-v4'
 LABELS = {'ALIVE':'Есть свежая активность','WEAK':'Слабый сигнал',
           'UNKNOWN':'Недостаточно данных','NO_RECENT_EVIDENCE':'Нет свежих сигналов'}
 LANES = {'stale':'Версия ≥18 мес', 'recent_pain':'Версия <18 мес + жалобы'}
@@ -19,26 +20,57 @@ def tables(con):
     return {r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'")}
 
 
+def run_frames(con):
+    frames={}
+    for run_id,payload in con.execute('SELECT run_id,settings_json FROM scan_runs'):
+        settings=json.loads(payload)
+        frames[run_id]=(settings.get('limit',settings.get('top')),settings.get('entity','software'))
+    return frames
+
+
+def coverage_map(con):
+    """Latest complete SERP per query; a narrower run cannot replace a current wider one."""
+    if not {'scan_runs','scan_queries'} <= tables(con):
+        return {}
+    frames=run_frames(con);kept={}
+    for run_id,geo,cat,query,finished in con.execute('''SELECT q.run_id,q.country,q.category,q.query,q.finished_at
+            FROM scan_queries q JOIN scan_runs r USING(run_id) WHERE q.status='OK'
+              AND r.source IN ('itunes-search','apple-charts','apple-page-links')
+            ORDER BY q.finished_at,r.started_at'''):
+        limit,entity=frames[run_id];key=(geo,cat,query);previous=kept.get(key)
+        if entity!='software':
+            continue  # Another result frame is stored but never replaces this one.
+        if previous and limit is not None and previous[1] is not None and limit<previous[1]:
+            try:
+                if (parse(finished)-parse(previous[2])).total_seconds()<=MAX_AGE_DAYS*86400:
+                    continue
+            except (TypeError,ValueError,AttributeError):
+                continue
+        kept[key]=(run_id,limit,finished)
+    return {key:value[0] for key,value in kept.items()}
+
+
 def query_memberships(con,all_queries=False):
     """Use the latest successful completed SERP, including empty SERPs.
 
     A disappeared result is not kept as a current competitor merely because
     it appeared months ago. Incomplete queries do not erase the previous sample.
+    Search results older than MAX_AGE_DAYS before the newest observation expire:
+    a query without a journal or one dropped from the seed has no way to be
+    superseded. Charts and page links have their own rotation and stay.
     """
-    coverage={}
-    if {'scan_runs','scan_queries'} <= tables(con):
-        for row in con.execute('''SELECT q.run_id,q.country,q.category,q.query FROM scan_queries q
-            JOIN scan_runs r USING(run_id) WHERE q.status='OK'
-              AND r.source IN ('itunes-search','apple-charts','apple-page-links')
-            ORDER BY q.finished_at,r.started_at'''):
-            coverage[(row[1],row[2],row[3])]=row[0]
+    coverage=coverage_map(con)
     columns={r[1] for r in con.execute('PRAGMA table_info(snapshots)')}
     run_column='run_id' if 'run_id' in columns else 'NULL'
+    newest=con.execute('SELECT MAX(scanned_at) FROM snapshots').fetchone()[0]
+    cutoff=(parse(newest)-timedelta(days=MAX_AGE_DAYS)).strftime('%Y-%m-%dT%H:%M:%SZ') if newest else ''
     memberships={}
-    for tid,geo,cat,query,run_id in con.execute(f'''SELECT track_id,country,category,query,{run_column}
+    for tid,geo,cat,query,run_id,stamp in con.execute(f'''SELECT track_id,country,category,query,{run_column},scanned_at
             FROM snapshots ORDER BY scanned_at DESC,id DESC'''):
         key=(geo,cat,query)
         if key in coverage and coverage[key]!=run_id:
+            continue
+        if stamp<cutoff and not cat.startswith('chart:') and cat!='similar-graph':
             continue
         queries=memberships.setdefault((tid,geo),{}).setdefault(cat,[])
         if query not in queries:
@@ -91,51 +123,70 @@ def is_candidate(row,now=None,min_stale=18,min_ratings=500):
         return False
 
 
+def counter_noise(value):
+    """API replicas disagree on one counter; only larger moves are real changes."""
+    return max(3,0.005*value)
+
+
+def rating_series(con,track_id,country):
+    """One point per scan, newest first: an app appears once per query it matched."""
+    scans={}
+    for run_id,stamp,count in con.execute('''SELECT run_id,scanned_at,rating_count FROM snapshots
+            WHERE track_id=? AND country=? AND rating_count IS NOT NULL''',(track_id,country)):
+        scan=scans.setdefault(run_id or stamp,dict(stamp=stamp,values=[]))
+        scan['stamp']=max(scan['stamp'],stamp);scan['values'].append(count)
+    return sorted(((parse(s['stamp']),statistics.median(s['values']),min(s['values']),max(s['values']))
+                   for s in scans.values()),reverse=True)
+
+
 def rating_velocity(con,track_id,country,min_days=7,max_days=45):
-    # Group equal timestamps before choosing either endpoint. Otherwise a
-    # conflicting second row at the baseline could be hidden by an early return.
-    rows=con.execute('''SELECT scanned_at,MIN(rating_count),MAX(rating_count) FROM snapshots
-        WHERE track_id=? AND country=? AND rating_count IS NOT NULL GROUP BY scanned_at
-        ORDER BY scanned_at DESC''',(track_id,country)).fetchall()
-    if not rows:
+    """Growth per 30 days; 0.0 means within counter noise, None means unusable."""
+    series=rating_series(con,track_id,country)
+    if not series:
         return None,0.0
-    end,count=parse(rows[0][0]),rows[0][1]
-    observed=(end-parse(rows[-1][0])).total_seconds()/86400
-    previous=count;baseline=None
-    for stamp,low,high in rows:
-        days=(end-parse(stamp)).total_seconds()/86400
+    end,count=series[0][0],series[0][1]
+    observed=(end-series[-1][0]).total_seconds()/86400
+    floor=count;baseline=None
+    for stamp,value,low,high in series:
+        days=(end-stamp).total_seconds()/86400
         if days>max_days:
             break
-        if low!=high or high>previous:
+        # A reset just before the chosen baseline can masquerade as new ratings
+        # during recovery, so the entire recent window is inspected before growth.
+        if high-low>counter_noise(high) or value-floor>counter_noise(value):
             return None,observed
-        previous=low
+        floor=min(floor,value)
         if days>=min_days and baseline is None:
-            baseline=(low,days)
-    # A reset just before the chosen baseline can masquerade as new ratings
-    # during recovery. Inspect the entire recent window before returning growth.
+            baseline=(value,days)
     if baseline is not None:
-        low,days=baseline
-        return (count-low)/days*30,days
+        value,days=baseline
+        return ((count-value)/days*30 if count-value>counter_noise(count) else 0.0),days
     return None,observed
 
 
-def classify(vel,last_review,r90,fetch_status='OK',now=None):
+def activity(vel,last_review,r90,fetch_status='OK',now=None):
+    """Verdict and its evidence path. The paths differ in sensitivity, so periods
+    are comparable only within one path."""
     now=now or datetime.now(timezone.utc)
-    if vel is not None and vel>=1:
-        return 'ALIVE'
+    grew=vel is not None and vel>=1
+    verdict=None
     if fetch_status!='OK' or not isinstance(r90,int) or r90<0:
-        return 'UNKNOWN'
-    try:
-        age=(now-parse(last_review)).total_seconds()/86400
-    except (TypeError,ValueError,AttributeError):
-        return 'UNKNOWN'
-    if age<0:
-        return 'UNKNOWN'
-    if age<=90 and r90>=2:
-        return 'ALIVE'
-    if age<=90 and r90>=1:
-        return 'WEAK'
-    return 'NO_RECENT_EVIDENCE'
+        verdict='UNKNOWN'
+    else:
+        try:
+            age=(now-parse(last_review)).total_seconds()/86400
+        except (TypeError,ValueError,AttributeError):
+            verdict='UNKNOWN'
+        else:
+            verdict=('UNKNOWN' if age<0 else 'ALIVE' if age<=90 and r90>=2 else
+                     'WEAK' if age<=90 and r90>=1 else 'NO_RECENT_EVIDENCE')
+    if verdict=='ALIVE':
+        return 'ALIVE','rss+velocity' if grew else 'rss'
+    return ('ALIVE','velocity') if grew else (verdict,None)
+
+
+def classify(vel,last_review,r90,fetch_status='OK',now=None):
+    return activity(vel,last_review,r90,fetch_status,now)[0]
 
 
 def demand_map(con):
@@ -179,7 +230,9 @@ def assess(con,row,cached=None,now=None):
             r7=sum(0<=(now-parse(stamp)).total_seconds()<=7*86400 for stamp in dates)
             r30=sum(0<=(now-parse(stamp)).total_seconds()<=30*86400 for stamp in dates)
             sample_span=(max(map(parse,dates))-min(map(parse,dates))).total_seconds()/86400 if dates else None
-            capped_recent=len(dates)>=50 and len(recent)>=50
+            # Pages hold 50 reviews: a whole number of them all inside the window
+            # means the fetch stopped at its page cap, not at the window edge.
+            capped_recent=len(dates)>=50 and len(recent)==len(dates) and len(dates)%50==0
             versions=json.loads(d.get('review_versions_json') or '[]')
             ids=json.loads(d.get('review_ids_json') or '[]')
             if isinstance(versions,list) and len(versions)==len(dates):
@@ -198,11 +251,15 @@ def assess(con,row,cached=None,now=None):
                     bad_current_version=sum(scores[i]<=2 and versions[i]==row['version'] for i in recent)
         except (ValueError,TypeError,AttributeError):
             status='ERROR';r90=None
+    expired_complaints=status=='STALE' and (bad_recent or 0)>0
     if status!='OK':
         bad_recent=bad_after_version=bad_current_version=r7=r30=None
-    state=classify(vel,d.get('last_review'),r90,status,now)
-    reasons=[f'{vel:+.1f} оценок/30д за {days:.1f} дней наблюдений' if vel is not None else
+    state,path=activity(vel,d.get('last_review'),r90,status,now)
+    reasons=[f'{vel:+.1f} оценок/30д за {days:.1f} дней наблюдений' if vel else
+             f'Изменение счётчика в пределах шума за {days:.1f} дн.' if vel==0 else
              f'Надёжный прирост пока недоступен; история {days:.1f} дн.']
+    if path:
+        reasons.append({'rss':'Основание активности: свежие отзывы','velocity':'Основание активности: прирост оценок сверх шума','rss+velocity':'Основание активности: отзывы и прирост оценок'}[path])
     if d.get('last_review'):
         reasons.append(f"Последний отзыв {str(d['last_review'])[:10]}; R90 ≥ {r90 if r90 is not None else 'неизвестно'} (выборка RSS)")
     if status!='OK':
@@ -219,14 +276,14 @@ def assess(con,row,cached=None,now=None):
         if bad_current_version is not None:
             reasons.append(f'1–2★ с совпадающей строкой версии: {bad_current_version}; версия известна у {version_known} записей RSS')
     if status=='OK' and capped_recent:
-        reasons.append('Все последние 50 отзывов попали в 90 дней: окно усечено, это нижняя граница числа отзывов')
-    return dict(verdict=state,label=LABELS[state],velocity=vel,days=days,r90=r90,
+        reasons.append('Все полученные отзывы попали в 90 дней: окно усечено, это нижняя граница числа отзывов')
+    return dict(verdict=state,alive_path=path,label=LABELS[state],velocity=vel,days=days,r90=r90,
                 last_review=d.get('last_review'),checked_at=d.get('checked_at'),fetch_status=status,
                 snapshot_age_days=snapshot_age,sample_size=d.get('sample_size'),
                 bad_recent_count=bad_recent,bad_after_version_count=bad_after_version,
                 bad_current_version_count=bad_current_version,review_version_known_count=version_known,
                 review_id_known_count=id_known,r7=r7,r30=r30,recent_sample_capped=capped_recent,
-                sample_span_days=sample_span,rss_age_days=review_age,rss_collected_after_version=rss_after_version,reasons=reasons,method=METHOD)
+                sample_span_days=sample_span,rss_age_days=review_age,expired_complaints=expired_complaints,rss_collected_after_version=rss_after_version,reasons=reasons,method=METHOD)
 
 
 def research_queue(con,now=None):
@@ -239,7 +296,7 @@ def research_queue(con,now=None):
     from relevance import relevant
     now=now or datetime.now(timezone.utc)
     cached=demand_map(con);queue=[]
-    coverage={kind:dict(eligible=0,rss_usable=0,complaint_records=0) for kind in ('search','charts','links','all')}
+    coverage={kind:dict(eligible=0,rss_usable=0,complaint_records=0,lost_to_stale_rss=0) for kind in ('search','charts','links','all')}
     for row in latest(con):
         if not row['categories'] or (row['rating_count'] or 0)<500:
             continue
@@ -263,7 +320,9 @@ def research_queue(con,now=None):
                 continue
             row.update(assess(con,row,d,now))
             usable=row['fetch_status']=='OK' and row['snapshot_age_days'] is not None and 0<=row['snapshot_age_days']<=MAX_AGE_DAYS
-            for kind in kinds:coverage[kind]['rss_usable']+=int(usable)
+            for kind in kinds:
+                coverage[kind]['rss_usable']+=int(usable)
+                coverage[kind]['lost_to_stale_rss']+=int(row['expired_complaints'])
             if not usable or not (row['bad_recent_count'] or 0)>0:
                 continue
             for kind in kinds:coverage[kind]['complaint_records']+=1

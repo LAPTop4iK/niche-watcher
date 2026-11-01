@@ -19,11 +19,12 @@ def build_message(con,now=None):
     if not con.in_transaction:con.execute('BEGIN')
     rows=evidence.latest(con)
     queue,coverage=evidence.research_queue(con,now)
+    lost=coverage['search']['lost_to_stale_rss']
     queue=[r for r in queue if 'search' in r['sources']]
     quality=quality_metrics.build(con,now,rows,queue)
     candidates=[r for r in queue if r['lane']=='stale']
     recent=[r for r in queue if r['lane']=='recent_pain']
-    counts=Counter(r['verdict'] for r in candidates);q=quality['queries'];c=quality['review_coverage'];p=quality['recent_pain_timing']
+    counts=Counter(r['verdict'] for r in candidates);q=quality['queries'];c=quality['review_coverage'];p=quality['recent_pain_timing'];paths=quality['alive_paths']
     geos=len({r['country'] for r in rows if any(not cat.startswith('chart:') and cat!='similar-graph' for cat in r['categories'])})
     last=quality['last_search_query_at']
     last_label=evidence.parse(last).astimezone(ZoneInfo('Europe/Warsaw')).strftime('%d.%m.%Y %H:%M') if last else 'нет журнала запросов'
@@ -45,10 +46,11 @@ def build_message(con,now=None):
                f'Пригодный RSS: {c["rss_usable"]}/{c["eligible"]} записей с ≥500 оценок. У {c["rss_recent_capped"]} все 50 отзывов попали в 90 дней: счётчики усечены.',
                f'\n<b>Версия ≥18 мес, ≥500 оценок</b>: {len(candidates)}',
                f'Активность: {counts["ALIVE"]} · слабый сигнал: {counts["WEAK"]} · нет свежего сигнала: {counts["NO_RECENT_EVIDENCE"]} · неизвестно: {counts["UNKNOWN"]}.',
-               'Активность: ≥2 записи RSS/90д либо пригодный прирост оценок; это не оплаты.',
+               f'Активность: ≥2 записи RSS/90д ({paths.get("rss",0)}), прирост оценок сверх шума ({paths.get("velocity",0)}), оба пути ({paths.get("rss+velocity",0)}); это не оплаты, периоды сравнивать внутри пути.',
                f'\n<b>Версия &lt;18 мес + свежие 1–2★</b>: {len(recent)}',
                f'Есть жалобы по времени после обновления: {p["after_release"]}; только до него: {p["only_before_release"]}. Это не доказательство сохранения или исправления бага.',
                f'RSS собран ещё до обновления у {p["rss_before_release"]} из них: нужна повторная проверка. Версия отзыва известна в {c["rss_with_review_versions"]} срезах.']
+        if lost:lines.append(f'Выпали из очереди из-за устаревшего RSS: {lost}. Это потеря покрытия, а не исчезновение жалоб.')
         if old or new:lines.append('\n<b>Примеры для проверки — не рейтинг заработка</b>\nR30 — записи RSS за 30 дней, нижняя граница.')
         for r in (old[:limit]+new[:limit]):
             url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
@@ -60,7 +62,7 @@ def build_message(con,now=None):
             lines.append(f'\nНадёжный положительный прирост оценок найден у {len(growing)} записей; это не установки или оплаты.')
             for r in sorted(growing,key=lambda r:-r['velocity'])[:1]:
                 lines.append(f"• {html.escape(r['name'][:70])} {sc.flag_emoji(r['country'])}: {r['velocity']:+.0f}/30д, окно {r['days']:.1f} дн.")
-        else:lines.append('\nНадёжного положительного прироста пока нет. Недостаток истории не означает нулевой рост.')
+        else:lines.append('\nПрироста оценок сверх шума счётчика пока нет. При истории меньше 7 дней он не измеряется, это не нулевой рост.')
         lines.append('\nОплаты и выручка конкурентов неизвестны. Следующий шаг: прочитать жалобы → проверить продукт и альтернативы → проверить предложение оплатой.')
         lines.append(f'\n<a href="{sc.telegram_dashboard_url()}">Открыть дашборд</a>')
         return '\n'.join(lines)

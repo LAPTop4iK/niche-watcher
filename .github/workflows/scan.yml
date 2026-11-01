@@ -48,10 +48,14 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 scanner.py --report report.md
-      - name: Explore recent-version complaints and broader search strata (same 20/country budget)
-        run: python3 demand_check.py --explore-updated 10 --explore-wide 10 --tier 1 --delay 1.5
+      - name: Refresh the queue, explore recent-version complaints and broader search strata
+        # A partial scan or a failed Telegram delivery must not cost this step.
+        if: ${{ !cancelled() }}
+        run: python3 demand_check.py --refresh-queue 30 --explore-updated 10 --explore-wide 10 --tier 1 --delay 1.5
       - name: Save collected data
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
@@ -80,10 +84,14 @@ jobs:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
         run: python3 scanner.py --tier 2 --slot ${{ steps.slot.outputs.n }} --report report_t2.md
-      - name: Explore recent-version complaints and broader search strata (same 20/country budget)
-        run: python3 demand_check.py --explore-updated 10 --explore-wide 10 --tier 2 --slot ${{ steps.slot.outputs.n }} --delay 1.5
+      - name: Refresh the queue, explore recent-version complaints and broader search strata
+        # A partial scan or a failed Telegram delivery must not cost this step.
+        if: ${{ !cancelled() }}
+        run: python3 demand_check.py --refresh-queue 30 --explore-updated 10 --explore-wide 10 --tier 2 --slot ${{ steps.slot.outputs.n }} --delay 1.5
       - name: Save collected data
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
@@ -108,6 +116,8 @@ jobs:
         run: python3 charts_scan.py --countries us,jp,gb,au,de,tw,ch,no,se,dk,sa,ae
       - name: Save collected data
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
@@ -135,6 +145,8 @@ jobs:
         run: python3 play_reviews.py --from-db 5 || true
       - name: Save collected data
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
@@ -156,9 +168,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: App Store page-link discovery (US)
-        run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 --country us || true
+        run: python3 similar_crawl.py --from-report report.md --top-seeds 5 --depth 1 --country us --out clusters_report_us.md || true
       - name: App Store page-link discovery (GB)
-        run: python3 similar_crawl.py --from-report report.md --top-seeds 3 --depth 1 --country gb || true
+        run: python3 similar_crawl.py --from-report report.md --top-seeds 3 --depth 1 --country gb --out clusters_report_gb.md || true
       - name: Demand check (recent activity, errors stay unknown)
         run: python3 demand_check.py --delay 1.5
       - name: Research queue
@@ -173,6 +185,8 @@ jobs:
 
       - name: Save collected data
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "${{ github.job }} $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
@@ -235,6 +249,8 @@ jobs:
           retention-days: 30
       - name: Save delivery acknowledgement
         if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: bash ci_save.sh "requested report receipt $(date -u +%F)"
       - name: Retain data if saving fails
         if: failure()
