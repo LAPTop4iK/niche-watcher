@@ -286,10 +286,19 @@ def send_telegram(text):
     return ok
 
 
+def download_price_label(row):
+    price=row.get('price')
+    if price is None:
+        return 'цена загрузки неизвестна'
+    if price==0:
+        return 'бесплатная загрузка'
+    return f"загрузка {price:g} {row.get('currency') or '(валюта неизвестна)'}"
+
+
 def build_alert_message(new, total_zombies, print_mode=False):
     """Красивый digest: ссылки на сторы, флаги, velocity, свежесть, риски, ссылка на дашборд."""
     e = (lambda s: s) if print_mode else html.escape
-    lines = [f"🧟 <b>Niche Watcher</b> — новые кандидаты: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
+    lines = [f"🔭 <b>Niche Watcher</b> — новые кандидаты: <b>{len(new)}</b> (всего в прогоне: {total_zombies})", ""]
     lines.append("Срез: "+iso(now_utc()))
     for i, a in enumerate(new[:12], 1):
         vel = f" · {a['velocity_30d']:+.0f}/30д" if a["velocity_30d"] is not None else ""
@@ -301,13 +310,12 @@ def build_alert_message(new, total_zombies, print_mode=False):
         lines.append(
             f"{i}. <b>{link}</b> {flag_emoji(a['country'])}\n"
             f"   {a['rating_count']:,} оценок · {rating} · "
-            f"<b>{a['stale_months']:.0f} мес</b> без обновл.{vel}{rev}{port}{native}"
+            f"<b>{a['stale_months']:.0f} мес</b> без обновл. · {e(download_price_label(a))}{vel}{rev}{port}{native}"
         )
     if len(new) > 12:
-        lines.append(f"… и ещё {len(new) - 12} — см. отчёт")
+        lines.append(f"… и ещё {len(new) - 12} — в дашборде")
     lines.append("\nСтарая версия и отзывы — повод проверить боль; платежи и доход не установлены.")
-    lines.append(f"📊 <a href=\"{telegram_dashboard_url()}\">дашборд с динамикой</a> · "
-                 f"отчёт: report.md в репо")
+    lines.append(f'\n<a href="{telegram_dashboard_url()}">Открыть дашборд</a>')
     return "\n".join(lines)
 
 

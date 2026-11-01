@@ -5,6 +5,7 @@ import db_store
 from collections import Counter
 from datetime import datetime,timezone
 import json
+import hashlib
 import os
 from pathlib import Path
 import sqlite3
@@ -22,7 +23,11 @@ def build_data(db):
         latest=evidence.latest(con)
         cached=evidence.demand_map(con)
         candidates=[]
+        source_coverage={kind:set() for kind in ('search','charts','links','all')}
         for r in latest:
+            r['sources']=sorted({'charts' if c.startswith('chart:') else 'links' if c=='similar-graph' else 'search' for c in r['categories']})
+            for kind in [*r['sources'],'all']:
+                source_coverage[kind].add(r['country'])
             if evidence.is_candidate(r):
                 r.update(evidence.assess(con,r,cached.get((r['track_id'],r['country']))))
                 r['store_url']=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
@@ -37,7 +42,7 @@ def build_data(db):
     markets=json.loads((HERE/'markets.json').read_text())['markets']
     seen={r['country'] for r in coverage}
     return dict(candidates=candidates,counts=Counter(r['verdict'] for r in candidates),labels=evidence.LABELS,
-                coverage=coverage,missing=sorted(set(markets)-seen),napps=napps,observations=observations,
+                source_coverage={kind:sorted(geos) for kind,geos in source_coverage.items()},coverage=coverage,missing=sorted(set(markets)-seen),napps=napps,observations=observations,
                 first=bounds[0],last=bounds[1],groups=groups,runs=runs,method=evidence.METHOD,
                 built=datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC'))
 
@@ -58,7 +63,7 @@ def main():
     template=(HERE/'dashboard_template.html').read_text()
     (output/"style.css").write_text((HERE/"dashboard.css").read_text())
     (output/"app.js").write_text((HERE/"dashboard.js").read_text())
-    (output/'index.html').write_text(template.replace('__DATA__',payload))
+    (output/'index.html').write_text(template.replace('__DATA__',payload).replace('__ASSET_VERSION__',hashlib.sha256(((HERE/'dashboard.js').read_bytes()+(HERE/'dashboard.css').read_bytes())).hexdigest()[:12]))
     (output/'data.json').write_text(json.dumps(data,ensure_ascii=False,indent=2))
     print(f'dashboard → {output}; {len(data["candidates"])} app/storefront candidates; {dict(data["counts"])}')
 

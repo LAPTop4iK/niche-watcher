@@ -294,6 +294,30 @@ class CompressedStorage(Fixtures):
             self.assertFalse(path.exists())
 
 
+class Presentation(Fixtures):
+    def test_alert_footer_has_one_dashboard_link_and_no_filename_domain(self):
+        import tg_digest
+        con=sc.open_db(':memory:');app=self.make(con)
+        alert=sc.build_alert_message([sc.analyze(con,app,18,500)],1)
+        self.assertNotIn('report.md',alert)
+        self.assertNotIn('с динамикой',alert)
+        self.assertEqual(alert.count('Открыть дашборд'),1)
+        self.assertEqual(tg_digest.build_message(con).count('Открыть дашборд'),1)
+
+    def test_dashboard_keeps_source_coverage_separate(self):
+        import dashboard
+        with tempfile.TemporaryDirectory() as folder:
+            path=Path(folder)/'db';con=sc.open_db(path)
+            self.make(con,country='us',category='construction')
+            self.make(con,country='us',category='chart:music')
+            self.make(con,tid=2,country='de',category='chart:music')
+            con.commit();con.close();data=dashboard.build_data(path)
+            self.assertEqual(data['source_coverage']['search'],['us'])
+            self.assertEqual(data['source_coverage']['charts'],['de','us'])
+            both=next(r for r in data['candidates'] if r['track_id']==1)
+            self.assertEqual(both['sources'],['charts','search'])
+
+
 class SourceAndMath(unittest.TestCase):
     def test_relevance_supports_scripts_and_rejects_generic_false_positive(self):
         self.assertFalse(sc.is_native_risk('Concrete Calculator','concrete calculator'))

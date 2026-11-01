@@ -53,8 +53,8 @@ def build_message(con):
         for r in active:
             url=f"https://apps.apple.com/{r['country']}/app/id{r['track_id']}"
             lines.append(f"• <a href=\"{url}\">{html.escape(r['name'][:120])}</a> {sc.flag_emoji(r['country'])}: "
-                         f"R90 ≥ {r['r90'] or 0}; свежие 1–2★: {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'}")
-    lines.append(f'\n📊 <a href="{sc.telegram_dashboard_url()}">Доказательства и следующий шаг</a>')
+                         f"{html.escape(sc.download_price_label(r))}; R90 ≥ {r['r90'] or 0}; свежие 1–2★: {r['bad_recent_count'] if r['bad_recent_count'] is not None else '—'}")
+    lines.append(f'\n<a href="{sc.telegram_dashboard_url()}">Открыть дашборд</a>')
     return '\n'.join(lines)
 
 

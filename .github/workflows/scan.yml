@@ -14,7 +14,13 @@ on:
     - cron: "17 10 * * 4"    # Чт 10:17: charts + play (после slot 08:17 — БД пишет одна джоба за раз)
     - cron: "17 8 * * 6"     # Сб: similar-graph crawl
     - cron: "30 11 * * *"    # ежедневно: deploy Pages
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "scan: collect tier 1; verify: clean replay + bounded live checks"
+        type: choice
+        options: [scan, verify]
+        default: scan
 
 # Serialize runs even when a previous scan overruns its nominal time slot.
 concurrency:
@@ -27,7 +33,7 @@ permissions:
 
 jobs:
   daily-scan:
-    if: github.event.schedule == '17 6 * * *' || github.event_name == 'workflow_dispatch'
+    if: github.event.schedule == '17 6 * * *' || (github.event_name == 'workflow_dispatch' && inputs.mode != 'verify')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -172,9 +178,37 @@ jobs:
           path: niches.db
           retention-days: 7
 
+  verify-pipeline:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'verify'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Regression checks
+        run: python3 -m unittest discover -s tests -v
+      - name: Clean replay, live source matrix and read-only Telegram checks
+        env:
+          TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: python3 -u verify_pipeline.py --live --telegram-readonly --out /tmp/pipeline-verification.json
+      - name: Keep verification result
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pipeline-verification
+          path: /tmp/pipeline-verification.json
+          retention-days: 30
+
   deploy-pages:
-    needs: daily-scan
-    if: always() && (github.event.schedule == '30 11 * * *' || (github.event_name == 'workflow_dispatch' && needs.daily-scan.result == 'success'))
+    needs: [daily-scan, verify-pipeline]
+    if: always() && (github.event.schedule == '30 11 * * *' || (github.event_name == 'workflow_dispatch' && (needs.daily-scan.result == 'success' || needs.verify-pipeline.result == 'success')))
     runs-on: ubuntu-latest
     timeout-minutes: 20
     permissions:
