@@ -1,0 +1,43 @@
+{
+  "checked_at": "2026-11-01T15:44:14.298597+00:00",
+  "status": "PASS",
+  "code_sha": "33e5a37e0c09421adf8a26681c439e8d69d6e3f8",
+  "replay": {
+    "reference_run": "audit-20261031",
+    "queries": 2426,
+    "observations": 97872,
+    "sha256": "56170996ad3f68ed10fae86fdda5575f5395116e031bbf317eeaf82226ef91ac",
+    "empty_database": true,
+    "resume_without_duplicates": true,
+    "network_requests": 0,
+    "hypothesis_fields_equal": [
+      "activity_comparison",
+      "old_minus_fresh_pp",
+      "matched_old_minus_fresh_pp",
+      "age_share_correlation",
+      "lifetime_ratings_vs_recent_reviews_spearman",
+      "sensitivity",
+      "discovery_vs_launch"
+    ],
+    "configuration": "Recorded jobs; independent of the current seed"
+  },
+  "live": {
+    "queries": 48,
+    "countries": 24,
+    "categories": 25,
+    "results": 451,
+    "stored": 451,
+    "limit_per_query": 10,
+    "rss_status": "OK",
+    "scope": "One query per country and per active category; not a new full market survey"
+  },
+  "telegram": {
+    "bot_verified": true,
+    "chat_verified": true,
+    "messages_sent": 0
+  },
+  "workflow_url": "https://github.com/LAPTop4iK/niche-watcher/actions/runs/41322706666",
+  "push_validation_url": "https://github.com/LAPTop4iK/niche-watcher/actions/runs/41322699941",
+  "tests_passed": 82,
+  "pages_deployment": "success; public UI verified in browser"
+}
