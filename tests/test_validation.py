@@ -465,7 +465,7 @@ class Presentation(Fixtures):
         import tg_digest
         con=sc.open_db(':memory:');now=datetime(2026,11,1,tzinfo=timezone.utc)
         self.make(con,tid=1,name='Old app')
-        self.make(con,tid=2,name='Recent pain',version='2026-10-01T00:00:00Z')
+        self.make(con,tid=2,name='Recent pain concrete calculator',version='2026-10-01T00:00:00Z')
         self.make(con,tid=3,name='Not checked',version='2026-10-01T00:00:00Z')
         self.make(con,tid=4,name='Stale RSS',version='2026-10-01T00:00:00Z')
         self.make(con,tid=5,name='No complaint',version='2026-10-01T00:00:00Z')
@@ -508,9 +508,9 @@ class Presentation(Fixtures):
 
 
 class QueueSignals(Fixtures):
-    def reviewed(self,con,tid,scores,versions=None,themes=None,version='2.0'):
+    def reviewed(self,con,tid,scores,versions=None,themes=None,version='2.0',name='Concrete Calculator',category='construction'):
         import demand_check as dc
-        self.make(con,tid=tid,version='2026-10-01T00:00:00Z');con.execute('UPDATE snapshots SET version=? WHERE track_id=?',(version,tid))
+        self.make(con,tid=tid,version='2026-10-01T00:00:00Z',name=name,category=category);con.execute('UPDATE snapshots SET version=? WHERE track_id=?',(version,tid))
         dates=[f'2026-10-{10+i:02d}T00:00:00Z' for i in range(len(scores))]
         now=datetime(2026,11,1,tzinfo=timezone.utc)
         with patch.object(sc,'now_utc',return_value=now):
@@ -530,6 +530,29 @@ class QueueSignals(Fixtures):
         self.assertGreater(queue[0]['pain_excess'],0)
         self.assertEqual(queue[0]['pain_theme'],'crash')
         self.assertEqual(coverage['search']['any_complaint'],4)
+
+    def test_pain_from_search_needs_the_query_in_the_title(self):
+        con=sc.open_db(':memory:')
+        self.reviewed(con,9,[5]*20)
+        self.reviewed(con,1,[1,1,1,5],name='Instagram')
+        self.reviewed(con,2,[1,1,1,5],name='Concrete Calculator Pro')
+        now=self.reviewed(con,3,[1,1,1,5],name='Chipotle',category='chart:food & drink')
+        # A chart membership keeps the row in its own source; the unrelated search hit is not counted.
+        self.make(con,tid=3,version='2026-10-01T00:00:00Z',name='Chipotle');con.execute("UPDATE snapshots SET version='2.0'")
+        queue,coverage=evidence.research_queue(con,now)
+        self.assertEqual({r['track_id']:r['sources'] for r in queue},{2:['search'],3:['charts']})
+        self.assertEqual((coverage['search']['complaint_records'],coverage['charts']['complaint_records']),(1,1))
+
+    def test_apple_own_apps_never_enter_the_queue(self):
+        con=sc.open_db(':memory:')
+        self.reviewed(con,9,[5]*20)
+        self.reviewed(con,1,[1,1,1,5])
+        self.make(con,tid=2,name='Concrete Calculator Remote')
+        self.make(con,tid=3,name='Applebee’s Concrete Calculator')
+        now=self.reviewed(con,4,[1,1,1,5],name='Concrete Calculator Watch')
+        con.execute("UPDATE snapshots SET seller_name='Apple Distribution International' WHERE track_id IN (2,4)")
+        con.execute("UPDATE snapshots SET seller_name='Applebee''s Holdings, LLC' WHERE track_id=3")
+        self.assertEqual(sorted(r['track_id'] for r in evidence.research_queue(con,now)[0]),[1,3])
 
     def test_pain_with_captured_text_needs_a_repeated_theme(self):
         con=sc.open_db(':memory:')
@@ -562,6 +585,23 @@ class QueueSignals(Fixtures):
             scan_state.begin_query(con,run,*job);scan_state.end_query(con,run,*job,'OK',count,0)
         q=quality_metrics.build(con,datetime.now(timezone.utc))['queries']
         self.assertEqual((q['at_limit'],q['likely_truncated']),(0,1))
+
+    def test_next_slot_takes_the_group_scanned_longest_ago(self):
+        con=sc.open_db(':memory:')
+        markets=dict(us=dict(tier=1),fr=dict(tier=2,week_slot=1),no=dict(tier=2,week_slot=2),sa=dict(tier=2,week_slot=3),kr=dict(tier=2,week_slot=4))
+        self.assertEqual(sc.next_slot(con,markets),1)
+        def scan(geo,stamp,source='itunes-search'):
+            run=scan_state.start_run(con,[(geo,'c','q')],dict(source=source))
+            scan_state.begin_query(con,run,geo,'c','q');scan_state.end_query(con,run,geo,'c','q','OK',1,1)
+            con.execute('UPDATE scan_queries SET finished_at=? WHERE run_id=?',(stamp,run))
+        scan('us','2026-11-02T18:00:00Z');scan('fr','2026-11-02T18:00:00Z')
+        self.assertEqual(sc.next_slot(con,markets),2)
+        for geo in ('no','sa','kr'):scan(geo,'2026-11-01T01:00:00Z')
+        # A run that starts a day late takes the group it missed instead of the weekday's.
+        scan('no','2026-11-03T18:00:00Z')
+        # A chart pass over a group is not its search scan.
+        scan('sa','2026-11-04T10:00:00Z','apple-charts')
+        self.assertEqual(sc.next_slot(con,markets),3)
 
     def test_title_hint_finds_cjk_words_without_spaces(self):
         self.assertTrue(relevant('燃費記録アプリ','燃費 記録'))
@@ -711,6 +751,17 @@ class ReviewCollection(Fixtures):
         rows=[row(1),row(2),row(3),row(4),row(5,'2020-01-01T00:00:00Z')]
         self.assertEqual(demand_check.queue_refresh_sample(rows,cached,3,None,now),[(3,'us'),(2,'us'),(5,'us')])
         self.assertEqual(demand_check.queue_refresh_sample(rows,cached,1,None,now,queued=[(2,'us')]),[(2,'us')])
+
+    def test_queue_refresh_measures_unchecked_old_versions_before_rechecks(self):
+        import demand_check
+        now=datetime(2026,10,31,tzinfo=timezone.utc)
+        row=lambda tid,version='2020-01-01T00:00:00Z',**extra:dict(track_id=tid,country='us',rating_count=1000,categories=['c'],version_date=version,**extra)
+        cached={(1,'us'):dict(checked_at='2026-10-01T00:00:00Z',review_scores_json='[1]'),
+                (2,'us'):dict(checked_at='2026-10-20T00:00:00Z',review_scores_json='[1]')}
+        rows=[row(1),row(2,'2026-06-01T00:00:00Z'),row(3),row(4,'2026-06-01T00:00:00Z'),row(5,seller='Apple Inc.'),
+              dict(row(6),categories=['chart:music'])]
+        # Recent-version lane first, then old versions never measured, then other rechecks.
+        self.assertEqual(demand_check.queue_refresh_sample(rows,cached,3,None,now,queued=[(2,'us')]),[(2,'us'),(3,'us'),(1,'us')])
 
     def test_chart_keeps_resolved_apps_when_one_id_is_delisted(self):
         with tempfile.TemporaryDirectory() as folder:

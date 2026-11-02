@@ -1,8 +1,10 @@
 name: niche-scan
 
 # Ежедневно 06:17 UTC — tier-1 рынки (us,jp,gb,au,ca,de,tw).
-# Пн-Чт 08:17 UTC — tier-2 по слотам (week_slot из markets.json): одна группа в день,
-#   каждый гео сканируется раз в неделю в свой день; сопоставимость velocity проверяется отдельно.
+# Пн-Чт 08:17 UTC — tier-2 по слотам (week_slot из markets.json): одна группа за запуск,
+#   та, чью поисковую выдачу сканировали дольше всех. GitHub запускает расписание с опозданием
+#   на часы, поэтому день недели запуска группу не определяет: поздний или упавший запуск
+#   не пропускает и не повторяет группу. Сопоставимость velocity проверяется отдельно.
 # Чт — отдельные charts (12 гео) и Play задания; Сб — similar-graph crawl.
 # Ежедневно 11:30 UTC — деплой дашборда на GitHub Pages.
 # Секреты: TG_BOT_TOKEN, TG_CHAT_ID.
@@ -10,7 +12,7 @@ name: niche-scan
 on:
   schedule:
     - cron: "17 6 * * *"     # daily tier-1
-    - cron: "17 8 * * 1-4"   # Пн-Чт: tier-2 слот дня
+    - cron: "17 8 * * 1-4"   # Пн-Чт: tier-2, самый давний слот
     - cron: "17 10 * * 4"    # Чт 10:17: charts + play (после slot 08:17 — БД пишет одна джоба за раз)
     - cron: "17 8 * * 6"     # Сб: similar-graph crawl
     - cron: "30 11 * * *"    # ежедневно: deploy Pages
@@ -76,9 +78,12 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
-      - name: Resolve slot (1-4, Пн-Чт)
+      - name: Resolve slot (the tier-2 group scanned longest ago)
         id: slot
-        run: echo "n=$(date +%u)" >> "$GITHUB_OUTPUT"
+        run: |
+          n=$(python3 scanner.py --next-slot)
+          echo "Slot $n"
+          echo "n=$n" >> "$GITHUB_OUTPUT"
       - name: Run scanner (tier 2, slot)
         env:
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}

@@ -292,14 +292,22 @@ def queue_refresh_sample(rows,cached,per_country,countries=None,now=None,queued=
     """Re-measure search rows before RSS expires, oldest first.
 
     Rows already in the recent-version lane go first: they leave the queue once
-    the 14-day freshness window closes. Other complaints follow, then old versions.
+    the 14-day freshness window closes. Old versions never measured follow: a new
+    query finds them daily, the scan checks only a dozen, and they would stay
+    UNKNOWN until the weekly full pass. Other complaints follow, then old versions.
     """
     now=now or sc.now_utc();pools={};queued=set(queued)
     for row in rows:
         key=(row['track_id'],row['country']);previous=cached.get(key)
-        if not previous or (row.get('rating_count') or 0)<500 or (countries is not None and row['country'] not in countries):
+        if (row.get('rating_count') or 0)<500 or (countries is not None and row['country'] not in countries):
             continue
         if not any(not c.startswith('chart:') and c!='similar-graph' for c in row.get('categories',[])):
+            continue
+        if evidence.PLATFORM_SELLER.match(row.get('seller') or ''):
+            continue
+        if not previous:
+            if evidence.is_candidate(row,now):
+                pools.setdefault(row['country'],[]).append((True,False,True,0,key))
             continue
         try:
             age=(now-evidence.parse(previous['checked_at'])).total_seconds()/86400
@@ -308,7 +316,7 @@ def queue_refresh_sample(rows,cached,per_country,countries=None,now=None,queued=
             continue
         complaints=any(isinstance(s,(int,float)) and s<=2 for s in scores)
         if age>=REFRESH_AFTER_DAYS and (complaints or evidence.is_candidate(row,now)):
-            pools.setdefault(row['country'],[]).append((key not in queued,not complaints,-age,key))
+            pools.setdefault(row['country'],[]).append((key not in queued,True,not complaints,-age,key))
     return [item[-1] for _,items in sorted(pools.items()) for item in sorted(items)[:per_country]]
 
 
@@ -512,7 +520,7 @@ def main():
             keys=refresh+targeted+broad;refresh=set(refresh);targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}
             print(f'DISCOVERY: {len(keys)} RSS checks, max {args.refresh_queue}+{args.explore_updated}+{args.explore_wide}/country; not a statistical control',flush=True)
             for i,(tid,geo) in enumerate(keys,1):
-                policy='queue-refresh-v1' if (tid,geo) in refresh else 'updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
+                policy='queue-refresh-v2' if (tid,geo) in refresh else 'updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
                 store_result(con,tid,geo,fetch_demand(tid,geo,pause=args.delay),policy=policy)
                 if i%25==0:print(f'UPDATED {i}/{len(keys)}',flush=True)
                 time.sleep(args.delay)

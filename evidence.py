@@ -1,6 +1,7 @@
 """Observable activity, provenance and conservative treatment of missing data."""
 from datetime import datetime, timedelta, timezone
 import json
+import re
 import sqlite3
 import statistics
 
@@ -11,6 +12,8 @@ LANES = {'stale':'Версия ≥18 мес', 'recent_pain':'Версия <18 м
 MAX_AGE_DAYS=14
 PAIN_MIN_REVIEWS=3
 PAIN_PRIOR=20  # Pseudo-reviews pulling a small sample towards its category share.
+# Apple's own apps (Watch, Apple Store, iTunes Remote) ship with the platform: not a niche to enter.
+PLATFORM_SELLER=re.compile(r'Apple (Inc\b|Distribution International\b|Pty\b|Services Pte\b)')
 
 
 def parse(value):
@@ -344,7 +347,7 @@ def research_queue(con,now=None):
     cached=demand_map(con);queue=[];reviewed=[];positions=best_positions(con)
     coverage={kind:dict(eligible=0,rss_usable=0,any_complaint=0,complaint_records=0,lost_to_stale_rss=0) for kind in ('search','charts','links','all')}
     for row in latest(con):
-        if not row['categories'] or (row['rating_count'] or 0)<500:
+        if not row['categories'] or (row['rating_count'] or 0)<500 or PLATFORM_SELLER.match(row.get('seller') or ''):
             continue
         try:
             age=(now-parse(row['version_date'])).total_seconds()/86400/30.44
@@ -392,6 +395,12 @@ def research_queue(con,now=None):
         count=row['bad_current_version_count'] if row['bad_current_version_count'] is not None else row['bad_after_version_count']
         if (count or 0)<PAIN_MIN_REVIEWS or row['pain_excess']<=0 or (row['theme_known'] and not row['pain_theme']):
             continue
+        # A recent release qualifies through its own complaints, so an unrelated
+        # search hit (Instagram for "tide chart") would bring only its size here.
+        sources=[s for s in row['sources'] if s!='search' or row['title_match']]
+        if not sources:
+            continue
+        row['sources']=sources
         for kind in [*row['sources'],'all']:coverage[kind]['complaint_records']+=1
         row['store_url']=f"https://apps.apple.com/{row['country']}/app/id{row['track_id']}"
         queue.append(row)

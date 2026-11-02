@@ -40,7 +40,7 @@ def build_message(con,now=None):
     growing=[r for r in candidates if r['velocity'] is not None and r['velocity']>0]
     def render(limit):
         lines=['🔭 <b>Niche Watcher — сводка наблюдений</b>',
-               f'Поиск App Store · стран с наблюдениями: {geos}. Карточка = приложение × страна; запросы считаются отдельно. До фильтра названий.',
+               f'Поиск App Store · стран с наблюдениями: {geos}. Карточка = приложение × страна; запросы считаются отдельно. Старые версии — до фильтра названий.',
                f'Последнее наблюдение: {last_label} (Варшава); даты стран различаются.',
                f'\n<b>Качество данных</b>\nПригодные запросы за 14 дней: {q["fresh_ok"]}/{q["expected"]}. Выдача, вероятно, усечена (≥35 из 50): {q["likely_truncated"]}/{q["limit_known"]}; рынок шире.',
                f'Пригодный RSS: {c["rss_usable"]}/{c["eligible"]} записей с ≥500 оценок. У {c["rss_recent_capped"]} все полученные отзывы попали в 90 дней: счётчики усечены.',
@@ -48,7 +48,7 @@ def build_message(con,now=None):
                f'Активность: {counts["ALIVE"]} · слабый сигнал: {counts["WEAK"]} · нет свежего сигнала: {counts["NO_RECENT_EVIDENCE"]} · неизвестно: {counts["UNKNOWN"]}.',
                f'Активность: ≥2 записи RSS/90д ({paths.get("rss",0)}), прирост оценок сверх шума ({paths.get("velocity",0)}), оба пути ({paths.get("rss+velocity",0)}); это не оплаты, периоды сравнивать внутри пути.',
                f'Воронка: поиск {f["search"]["records"]} → активность {f["alive"]["records"]} → топ-10 {f["top10"]["records"]} → запрос в названии {f["title_match"]["records"]} ({f["title_match"]["apps"]} приложений).',
-               f'\n<b>Версия &lt;18 мес + 1–2★ выше базы категории</b>: {len(recent)}',
+               f'\n<b>Версия &lt;18 мес + 1–2★ выше базы категории, запрос в названии</b>: {len(recent)}',
                f'Есть жалобы по времени после обновления: {p["after_release"]}; только до него: {p["only_before_release"]}. Это не доказательство сохранения или исправления бага.',
                f'RSS собран ещё до обновления у {p["rss_before_release"]} из них: нужна повторная проверка. Версия отзыва известна в {c["rss_with_review_versions"]} срезах.']
         if lost:lines.append(f'Выпали из очереди из-за устаревшего RSS: {lost}. Это потеря покрытия, а не исчезновение жалоб.')

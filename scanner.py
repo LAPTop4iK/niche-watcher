@@ -510,7 +510,8 @@ def main():
     ap.add_argument("--report", default=os.path.join(here, "report.md"))
     ap.add_argument("--countries", default=None, help="us,de — перекрывает markets.json")
     ap.add_argument("--tier", type=int, default=1, help="1 = ежедневные рынки, 2 = еженедельные (из markets.json)")
-    ap.add_argument("--slot", type=int, default=None, help="недельный слот 1-4 для tier-2 (day-of-week)")
+    ap.add_argument("--slot", type=int, default=None, help="недельный слот 1-4 для tier-2 (week_slot из markets.json)")
+    ap.add_argument("--next-slot", action="store_true", help="напечатать слот tier-2, просканированный раньше остальных, и выйти")
     ap.add_argument("--categories", default=None, help="construction,auto — фильтр категорий")
     ap.add_argument("--limit", type=int, default=50, help="результатов на запрос (max 200)")
     ap.add_argument("--entity", default="software", choices=["software","software,iPadSoftware"], help="другая рамка хранится, но не заменяет основную выдачу")
@@ -528,6 +529,11 @@ def main():
     seed = load_seed(args.seed)
     with open(args.markets, encoding="utf-8") as f:
         markets = json.load(f)["markets"]
+    if args.next_slot:
+        con = open_db(args.db)
+        print(next_slot(con, markets))
+        con.close()
+        return
     countries = (
         [c.strip() for c in args.countries.split(",")] if args.countries
         else [c for c, v in markets.items()
@@ -554,6 +560,20 @@ def planned_jobs(seed,markets,countries,wanted=None):
     jobs=[(geo,c["id"],q) for c in seed["categories"] if c.get("enabled",True) and (not wanted or c["id"] in wanted)
           for geo in countries for q in (c["queries"].get(markets[geo].get("lang","en")) or c["queries"]["en"])]
     return list(dict.fromkeys(jobs))
+
+
+def next_slot(con,markets):
+    """Tier-2 group whose search results are oldest; never-scanned groups first, ties by number.
+    A scheduled run starts hours late, so its weekday cannot name the group."""
+    slots={}
+    for geo,m in markets.items():
+        if m.get("tier",2)==2 and m.get("week_slot"):
+            slots.setdefault(m["week_slot"],[]).append(geo)
+    def last_scan(geos):
+        marks=",".join("?"*len(geos))
+        return con.execute(f"""SELECT MAX(q.finished_at) FROM scan_queries q JOIN scan_runs r USING(run_id)
+            WHERE r.source='itunes-search' AND q.status='OK' AND q.country IN ({marks})""",geos).fetchone()[0] or ""
+    return min(sorted(slots),key=lambda slot:last_scan(slots[slot]))
 
 
 def job_frames(seed,markets,jobs):
