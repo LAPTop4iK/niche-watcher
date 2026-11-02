@@ -1,6 +1,6 @@
 {
   "method": "activity-v4",
-  "computed_at": "2026-11-01T21:20:08.864963+00:00",
+  "computed_at": "2026-11-02T16:41:38.735466+00:00",
   "analysis_asof": "2026-11-01T00:11:56+00:00",
   "study_id": "audit-20261031",
   "missing_outcome_bounds_pp": [
@@ -35,7 +35,7 @@
   "matched_old_minus_fresh_pp": -26.705248531436446,
   "age_share_correlation": {
     "cells": 472,
-    "pearson": -0.5634264538433729,
+    "pearson": -0.563426453843374,
     "interpretation": "Structural dependence between disjoint age shares; not an opportunity signal"
   },
   "lifetime_ratings_vs_recent_reviews_spearman": 0.4833441716068246,
