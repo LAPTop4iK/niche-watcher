@@ -1,61 +1,62 @@
 {
-  "computed_at": "2026-11-02T16:41:55.193758+00:00",
+  "computed_at": "2026-11-02T18:37:33.446393+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
-  "search_records": 92445,
-  "search_unique_apps": 22129,
+  "search_records": 95242,
+  "search_unique_apps": 23644,
   "queries": {
-    "ok": 1569,
-    "fresh_ok": 1569,
-    "limit_known": 1569,
-    "at_limit": 95,
-    "likely_truncated": 1321,
+    "ok": 1674,
+    "fresh_ok": 1674,
+    "limit_known": 1674,
+    "at_limit": 98,
+    "likely_truncated": 1401,
     "expected": 1942,
-    "missing": 373,
+    "missing": 268,
     "error": 0,
     "running": 0,
     "fallback_language": 0
   },
   "freshness_days": 14,
   "review_coverage": {
-    "metadata_fresh": 10706,
-    "rss_missing": 8874,
-    "rss_usable": 1808,
-    "rss_recent_capped": 80,
-    "rss_with_review_versions": 106,
-    "rss_with_review_ids": 106,
+    "metadata_fresh": 10995,
+    "rss_missing": 9115,
+    "rss_usable": 1855,
+    "rss_recent_capped": 76,
+    "rss_with_review_versions": 177,
+    "rss_with_review_ids": 177,
     "rss_empty": 24,
-    "eligible": 10706,
+    "rss_empty_unconfirmed": 1,
+    "eligible": 10995,
     "metadata_not_fresh": 0,
-    "rss_not_usable": 8898,
+    "rss_not_usable": 9140,
     "rss_error": 0,
     "rss_stale": 0,
     "rss_unknown": 0
   },
   "collection": {
-    "search_records": 92445,
-    "below_500_ratings": 81739,
+    "search_records": 95242,
+    "below_500_ratings": 84247,
     "strata": {
-      "500+|<12mo|free": 9289,
-      "0-49|<12mo|free": 49966,
-      "50-499|<12mo|free": 7206,
-      "500+|18mo+|free": 792,
-      "50-499|<12mo|paid": 225,
-      "0-49|<12mo|paid": 4004,
-      "500+|<12mo|paid": 159,
+      "500+|<12mo|free": 9546,
+      "0-49|<12mo|free": 51730,
+      "50-499|<12mo|free": 7446,
+      "500+|18mo+|free": 815,
+      "50-499|<12mo|paid": 228,
+      "0-49|<12mo|paid": 4101,
+      "500+|<12mo|paid": 161,
       "500+|<12mo|unknown": 164,
-      "0-49|18mo+|free": 13123,
-      "50-499|18mo+|free": 1382,
-      "0-49|18mo+|paid": 1587,
-      "50-499|18mo+|paid": 131,
+      "0-49|18mo+|free": 13396,
+      "50-499|18mo+|free": 1410,
+      "0-49|18mo+|paid": 1612,
+      "50-499|18mo+|paid": 136,
       "500+|18mo+|paid": 51,
-      "50-499|12-18mo|paid": 14,
-      "0-49|12-18mo|paid": 361,
+      "50-499|12-18mo|paid": 12,
+      "0-49|12-18mo|paid": 367,
       "50-499|<12mo|unknown": 87,
-      "0-49|12-18mo|free": 3136,
+      "0-49|12-18mo|free": 3184,
       "0-49|18mo+|unknown": 31,
-      "500+|12-18mo|free": 226,
-      "50-499|12-18mo|free": 339,
+      "500+|12-18mo|free": 233,
+      "50-499|12-18mo|free": 360,
       "0-49|<12mo|unknown": 104,
       "50-499|18mo+|unknown": 27,
       "500+|18mo+|unknown": 18,
@@ -66,59 +67,59 @@
       "0-49|unknown|free": 11,
       "0-49|unknown|unknown": 1
     },
-    "checked_at_least_once": 1888,
-    "rss_usable_now": 1845,
+    "checked_at_least_once": 1974,
+    "rss_usable_now": 1914,
     "history": {
-      "samples": 2487,
-      "apps": 1735,
+      "samples": 2599,
+      "apps": 1789,
       "first": "2026-10-31T19:03:59Z",
-      "last": "2026-11-02T16:40:10Z",
+      "last": "2026-11-02T18:35:49Z",
       "origins": {
         "frozen-study": 5,
         "legacy-cache": 2322,
-        "live-fetch": 160
+        "live-fetch": 272
       }
     },
     "raw_capture": "Opt-in local archive only; complete HTTP bodies are not persisted by CI",
     "note": "Exploration strata are not weighted estimates of the App Store population"
   },
-  "last_search_query_at": "2026-11-02T16:35:30Z",
+  "last_search_query_at": "2026-11-02T18:32:33Z",
   "recent_pain_timing": {
-    "total": 490,
-    "after_release": 167,
-    "only_before_release": 323,
+    "total": 503,
+    "after_release": 169,
+    "only_before_release": 334,
     "timing_unknown": 0,
-    "rss_before_release": 2,
-    "same_version_positive": 12,
-    "version_unknown": 441
+    "rss_before_release": 1,
+    "same_version_positive": 17,
+    "version_unknown": 426
   },
   "alive_paths": {
-    "rss": 352
+    "rss": 356
   },
   "queue_funnel": {
     "stale": {
-      "records": 1185,
-      "apps": 847
+      "records": 1208,
+      "apps": 863
     },
     "search": {
-      "records": 861,
-      "apps": 559
+      "records": 884,
+      "apps": 576
     },
     "alive": {
-      "records": 194,
-      "apps": 155
+      "records": 198,
+      "apps": 159
     },
     "top10": {
-      "records": 69,
-      "apps": 56
+      "records": 70,
+      "apps": 57
     },
     "title_match": {
       "records": 35,
-      "apps": 30
+      "apps": 29
     }
   },
   "cross_geo_review_ids": {
-    "apps_comparable": 5,
+    "apps_comparable": 12,
     "shared_ids": 0,
     "note": "Only collected review IDs; repeated countries do not establish independent people or demand"
   },
