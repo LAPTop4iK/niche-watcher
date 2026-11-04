@@ -16,7 +16,7 @@
 | ai_identifiers | us | 305 | 6 | 5 | 1 | 0 | 0 | 1 |
 | construction | us | 269 | 17 | 4 | 4 | 8 | 1 | 0 |
 | widgets_watch | jp | 93 | 10 | 4 | 1 | 5 | 0 | 0 |
-| religious | sa | 174 | 8 | 3 | 5 | 0 | 0 | 1 |
+| religious | sa | 180 | 8 | 3 | 5 | 0 | 0 | 1 |
 | aviation_marine | us | 247 | 10 | 3 | 3 | 4 | 0 | 2 |
 | diy_home | gb | 271 | 17 | 3 | 3 | 11 | 0 | 2 |
 | driving_ed | us | 198 | 11 | 3 | 3 | 5 | 0 | 0 |
@@ -34,7 +34,7 @@
 | widgets_watch | gb | 186 | 14 | 2 | 2 | 10 | 0 | 1 |
 | diy_home | ru | 99 | 10 | 2 | 1 | 7 | 0 | 2 |
 | driving_ed | de | 64 | 3 | 2 | 1 | 0 | 0 | 1 |
-| finance_tools | sa | 181 | 8 | 2 | 1 | 5 | 0 | 1 |
+| finance_tools | sa | 180 | 9 | 2 | 1 | 6 | 0 | 1 |
 | fitness_calc | ru | 52 | 7 | 2 | 1 | 4 | 0 | 0 |
 | music_practice | de | 135 | 13 | 2 | 1 | 10 | 0 | 1 |
 | auto | jp | 184 | 2 | 2 | 0 | 0 | 0 | 3 |
@@ -62,7 +62,8 @@
 | photo_video_utils | ru | 104 | 11 | 1 | 1 | 9 | 0 | 0 |
 | widgets_watch | ru | 193 | 10 | 1 | 1 | 8 | 0 | 3 |
 | ai_identifiers | gb | 325 | 3 | 1 | 0 | 2 | 0 | 0 |
-| ai_identifiers | hk | 313 | 1 | 1 | 0 | 0 | 0 | 0 |
+| ai_identifiers | hk | 380 | 4 | 1 | 0 | 3 | 0 | 0 |
+| ai_tools | hk | 289 | 2 | 1 | 0 | 1 | 0 | 1 |
 | ai_tools | ru | 80 | 1 | 1 | 0 | 0 | 0 | 0 |
 | ai_tools | tw | 303 | 1 | 1 | 0 | 0 | 0 | 1 |
 | auto | tw | 130 | 2 | 1 | 0 | 1 | 0 | 1 |
@@ -80,10 +81,12 @@
 | boardgames | se | 216 | 1 | 1 | 0 | 0 | 0 | 0 |
 | books_media | fr | 184 | 1 | 1 | 0 | 0 | 0 | 1 |
 | books_media | se | 145 | 1 | 1 | 0 | 0 | 0 | 3 |
-| construction | sa | 83 | 1 | 1 | 0 | 0 | 0 | 0 |
+| construction | sa | 80 | 1 | 1 | 0 | 0 | 0 | 0 |
 | cooking | tw | 55 | 2 | 1 | 0 | 1 | 0 | 0 |
 | diy_home | no | 97 | 1 | 1 | 0 | 0 | 0 | 1 |
 | driving_ed | at | 66 | 1 | 1 | 0 | 0 | 0 | 1 |
+| driving_ed | il | 220 | 6 | 1 | 0 | 5 | 0 | 4 |
+| driving_ed | sa | 231 | 4 | 1 | 0 | 3 | 0 | 6 |
 | finance_tools | au | 317 | 1 | 1 | 0 | 0 | 0 | 1 |
 | finance_tools | ca | 313 | 4 | 1 | 0 | 3 | 0 | 0 |
 | finance_tools | fr | 141 | 4 | 1 | 0 | 3 | 0 | 0 |
@@ -99,8 +102,5 @@
 | needlework | de | 96 | 1 | 1 | 0 | 0 | 0 | 0 |
 | parenting | ca | 184 | 4 | 1 | 0 | 3 | 0 | 0 |
 | parenting | kr | 118 | 2 | 1 | 0 | 1 | 0 | 0 |
+| parenting | sa | 127 | 2 | 1 | 0 | 1 | 0 | 3 |
 | pet_care | gb | 207 | 2 | 1 | 0 | 1 | 0 | 0 |
-| pet_care | jp | 290 | 2 | 1 | 0 | 1 | 0 | 1 |
-| pet_care | ru | 90 | 2 | 1 | 0 | 1 | 0 | 0 |
-| photo_video_utils | nl | 260 | 1 | 1 | 0 | 0 | 0 | 2 |
-| religious | au | 188 | 1 | 1 | 0 | 0 | 0 | 0 |

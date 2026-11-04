@@ -1,4 +1,4 @@
-# Niche Decay Scan — 2026-11-03
+# Niche Decay Scan — 2026-11-04
 
 Зомби: версия старше 18 мес И оценок >= 500.
 Velocity — прирост оценок за 30 дней (нужны 2+ прогона с интервалом >= 7 дней).
@@ -10,76 +10,92 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
 |---|---|---|---|---|---|---|---|---|
 
-| [MetService Marine](https://apps.apple.com/nz/app/metservice-marine/id783127076?uo=4) | Meteorological Service (1) | nz |   6670 | 4.6 | 2023-03-08 | 44 мес | n/a | 2026-10-23T20:32:12+00:00 (R60 ≥ 1, выборка RSS) |
-| [Piano - Sånger och Noter](https://apps.apple.com/se/app/piano-s%C3%A5nger-och-noter/id890740165?uo=4) | Yokee Music LTD (1) | se |   5787 | 4.5 | 2024-07-22 | 27 мес | n/a | 2026-10-23T19:35:10+00:00 (R60 ≥ 4, выборка RSS) |
-| [Bose SoundTouch](https://apps.apple.com/se/app/bose-soundtouch/id708379313?uo=4) | Bose Corporation (1) | se |   5425 | 4.5 | 2021-06-21 | 64 мес | n/a | 2026-07-06T18:15:43+00:00 (R60 ≥ 0, выборка RSS) |
-| [Biblio Library](https://apps.apple.com/se/app/biblio-library/id1286685079?uo=4) | Axiell Media AB Apps (1) | se |   3704 | 2.9 | 2024-06-03 | 29 мес | n/a | 2026-11-01T13:53:08+00:00 (R60 ≥ 1, выборка RSS) |
-| [Cowboy!](https://apps.apple.com/se/app/cowboy/id1442035289?uo=4) | Lion Studios LLC (2) | se |   3300 | 4.5 | 2019-08-27 | 86 мес | n/a | 2025-06-06T21:37:53+00:00 (R60 ≥ 0, выборка RSS) |
-| [Piano - Musik Spel](https://apps.apple.com/se/app/piano-musik-spel/id694133630?uo=4) | Gismart Ltd (8) | se |   3282 | 4.4 | 2024-08-26 | 26 мес | n/a | 2025-07-22T15:33:17+00:00 (R60 ≥ 0, выборка RSS) |
-| [Repair Master 3D](https://apps.apple.com/se/app/repair-master-3d/id1508589901?uo=4) | Rollic Games Oyun Yazi (1) | se |   3070 | 4.4 | 2022-03-30 | 55 мес | n/a | 2026-07-30T18:05:29+00:00 (R60 ≥ 0, выборка RSS) |
-| [Tide Times New Zealand](https://apps.apple.com/nz/app/tide-times-new-zealand/id1330419002?uo=4) | VERVE TECHNOLOGIES PTY (2) | nz |   2874 | 4.7 | 2025-04-25 | 18 мес | n/a | 2026-07-27T19:17:05+00:00 (R60 ≥ 0, выборка RSS) |
-| [Vägmärken Quiz Lite](https://apps.apple.com/se/app/v%C3%A4gm%C3%A4rken-quiz-lite/id1118751756?uo=4) | Trafikappar Sverige AB (5) | se |   2445 | 4.6 | 2023-08-26 | 38 мес | n/a | 2023-09-13T06:25:06+00:00 (R60 ≥ 0, выборка RSS) |
-| [Vädret: Sverige](https://apps.apple.com/se/app/v%C3%A4dret-sverige/id1158929797?uo=4) | Lucian Baciu (1) | se |   2430 | 4.5 | 2023-08-30 | 38 мес | n/a | 2026-03-29T09:27:18+00:00 (R60 ≥ 0, выборка RSS) |
-| [Road Code Learners Test NZ](https://apps.apple.com/nz/app/road-code-learners-test-nz/id1163987935?uo=4) | Will Walig (2) | nz |   2401 | 4.8 | 2023-02-02 | 45 мес | n/a | 2026-03-24T06:22:58+00:00 (R60 ≥ 0, выборка RSS) |
-| [Gitarr Stämmare - Stäm gitarr](https://apps.apple.com/se/app/gitarr-st%C3%A4mmare-st%C3%A4m-gitarr/id662890455?uo=4) | Gismart Ltd (8) | se |   2396 | 4.3 | 2024-08-15 | 27 мес | n/a | 2025-07-01T12:41:22+00:00 (R60 ≥ 0, выборка RSS) |
-| [Gacha Life](https://apps.apple.com/no/app/gacha-life/id1440430680?uo=4) | Lunime Inc. (1) | no |   2168 | 4.4 | 2019-06-24 | 88 мес | n/a | - |
-| [Slanke App](https://apps.apple.com/dk/app/slanke-app/id628571914?uo=4) | Per Aggeboe (1) | dk |   2109 | 4.5 | 2022-10-13 | 49 мес | n/a | - |
-| [Kappboom - Cool Wallpapers](https://apps.apple.com/se/app/kappboom-cool-wallpapers/id342643402?uo=4) | Kappboom Inc. (1) | se |   1968 | 4.5 | 2023-02-03 | 45 мес | n/a | - |
-| [Sejlguide til sikker sejlads](https://apps.apple.com/dk/app/sejlguide-til-sikker-sejlads/id1070753053?uo=4) | Simon Thamsen (1) | dk |   1791 | 4.6 | 2023-01-13 | 46 мес | n/a | - |
-| [My Dolphin Show](https://apps.apple.com/se/app/my-dolphin-show/id632016921?uo=4) | Key Games Network B.V. (1) | se |   1677 | 4.1 | 2021-08-02 | 63 мес | n/a | - |
-| [Väder Sverige XL  PRO](https://apps.apple.com/se/app/v%C3%A4der-sverige-xl-pro/id990822895?uo=4) | exovoid sarl (1) | se |   1498 | 4.4 | 2024-11-05 | 24 мес | n/a | - |
-| [Widgets Kit Teman & Ikoner](https://apps.apple.com/se/app/widgets-kit-teman-ikoner/id1571099447?uo=4) | Hangzhou Qianyan Techn (1) | se |   1414 | 4.6 | 2024-09-01 | 26 мес | n/a | - |
-| [Arono - Meals for weight loss](https://apps.apple.com/dk/app/arono-meals-for-weight-loss/id1248259312?uo=4) | Arono IVS (1) | dk |   1175 | 4.2 | 2022-03-07 | 56 мес | n/a | - |
-| [Rasmus Klump](https://apps.apple.com/dk/app/rasmus-klump/id422832937?uo=4) | Tivoli A/S (1) | dk |   1161 | 4.1 | 2025-04-07 | 19 мес | n/a | - |
-| [Teoriprøven Nå B-førerkort](https://apps.apple.com/no/app/teoripr%C3%B8ven-n%C3%A5-b-f%C3%B8rerkort/id1550722990?uo=4) | Onca Studios OU (3) | no |   1138 | 4.3 | 2023-10-02 | 37 мес | n/a | - |
-| [Tryg vei til lappen](https://apps.apple.com/no/app/tryg-vei-til-lappen/id1626060430?uo=4) | Tryg (1) | no |    947 | 4.7 | 2023-11-28 | 35 мес | n/a | - |
-| [FishTrack - Charts & Forecasts](https://apps.apple.com/nz/app/fishtrack-charts-forecasts/id952022603?uo=4) | Surfline/Wavetrak (3) | nz |    945 | 4.4 | 2024-10-09 | 25 мес | n/a | - |
-| [Hours Tracker: Time Calculator](https://apps.apple.com/nz/app/hours-tracker-time-calculator/id1468092377?uo=4) | SCRL AB (1) | nz |    944 | 4.5 | 2024-09-02 | 26 мес | n/a | - |
-| [locksmith widget - by sendit](https://apps.apple.com/nz/app/locksmith-widget-by-sendit/id1645384373?uo=4) | iconic hearts holdings (2) | nz |    872 | 4.7 | 2023-04-04 | 43 мес | n/a | - |
-| [Konverterare Lite](https://apps.apple.com/se/app/konverterare-lite/id611682160?uo=4) | DROXIC OOD (2) | se |    834 | 4.6 | 2019-10-08 | 85 мес | n/a | - |
-| [Klara Teoriprov Nu B-Körkort](https://apps.apple.com/se/app/klara-teoriprov-nu-b-k%C3%B6rkort/id1550751193?uo=4) | Onca Studios OU (3) | se |    800 | 4.5 | 2023-10-02 | 37 мес | n/a | - |
-| [Guitar: musical instruments](https://apps.apple.com/se/app/guitar-musical-instruments/id1365011081?uo=4) | MWM (7) | se |    793 | 4.2 | 2024-09-20 | 25 мес | n/a | - |
-| [Väder i Sverige](https://apps.apple.com/se/app/v%C3%A4der-i-sverige/id567167525?uo=4) | Tasmanic Editions (3) | se |    793 | 4.2 | 2021-05-07 | 66 мес | n/a | - |
-| [Class Timetable](https://apps.apple.com/nz/app/class-timetable/id425121147?uo=4) | Class Timetable LLC (1) | nz |    690 | 4.7 | 2024-09-23 | 25 мес | n/a | - |
-| [ÖVNINGSKÖR Privat](https://apps.apple.com/se/app/%C3%B6vningsk%C3%B6r-privat/id1326500391?uo=4) | Teoriappar Sverige AB (4) | se |    688 | 4.6 | 2025-02-06 | 21 мес | n/a | - |
-| [Hund översättare spel för hund](https://apps.apple.com/se/app/hund-%C3%B6vers%C3%A4ttare-spel-f%C3%B6r-hund/id1209845479?uo=4) | Dima Komar (1) | se |    650 | 4.4 | 2022-03-12 | 56 мес | n/a | - |
-| [My Dolphin Show](https://apps.apple.com/no/app/my-dolphin-show/id632016921?uo=4) | Key Games Network B.V. (1) | no |    633 | 3.8 | 2021-08-02 | 63 мес | n/a | - |
-| [Converter-Universal Conversion](https://apps.apple.com/se/app/converter-universal-conversion/id423521445?uo=4) | Trelleborg Sealing Sol (3) | se |    631 | 4.8 | 2025-04-03 | 19 мес | n/a | - |
-| [Class Timetable](https://apps.apple.com/ie/app/class-timetable/id425121147?uo=4) | Class Timetable LLC (1) | ie |    627 | 4.7 | 2024-09-23 | 25 мес | n/a | - |
-| [Guitar Tuner - Ukulele & Bass](https://apps.apple.com/no/app/guitar-tuner-ukulele-bass/id662890455?uo=4) | Gismart Ltd (8) | no |    618 | 4.3 | 2024-08-15 | 27 мес | n/a | - |
-| [Trafikkskilt Quiz Lite](https://apps.apple.com/no/app/trafikkskilt-quiz-lite/id1228516008?uo=4) | Trafikappar Sverige AB (5) | no |    599 | 4.6 | 2023-08-26 | 38 мес | n/a | - |
-| [SvampeGuide](https://apps.apple.com/dk/app/svampeguide/id833888116?uo=4) | Kristoffer Andreasen (2) | dk |    571 | 4.2 | 2017-09-21 | 109 мес | n/a | - |
-| [Widgets Kit App Icon Organizer](https://apps.apple.com/dk/app/widgets-kit-app-icon-organizer/id1571099447?uo=4) | Hangzhou Qianyan Techn (1) | dk |    555 | 4.5 | 2024-09-01 | 26 мес | n/a | - |
-| [Valp & kitty spelsalong](https://apps.apple.com/se/app/valp-kitty-spelsalong/id992944298?uo=4) | Les Placements R.A. In (1) | se |    552 | 4.3 | 2022-01-13 | 58 мес | n/a | - |
-| [FlightStats](https://apps.apple.com/ie/app/flightstats/id572700574?uo=4) | LNRS Data Services Lim (1) | ie |    551 | 4.7 | 2024-10-30 | 24 мес | n/a | - |
-| [FlightStats](https://apps.apple.com/nz/app/flightstats/id572700574?uo=4) | LNRS Data Services Lim (1) | nz |    542 | 4.7 | 2024-10-30 | 24 мес | n/a | - |
-| [Dog Translator: Game For Dogs](https://apps.apple.com/dk/app/dog-translator-game-for-dogs/id1209845479?uo=4) | Dima Komar (1) | dk |    520 | 4.3 | 2022-03-12 | 56 мес | n/a | - |
-| [Piano Keyboard & Music Tiles](https://apps.apple.com/nz/app/piano-keyboard-music-tiles/id694133630?uo=4) | Gismart Ltd (8) | nz |    504 | 4.4 | 2024-08-26 | 26 мес | n/a | - |
+| [Convert Image To PDF tools](https://apps.apple.com/sa/app/convert-image-to-pdf-tools/id1527885081?uo=4) | Abdullah Albalawi (1) | sa |  30461 | 4.5 | 2024-04-25 | 30 мес | n/a | 2026-10-12T13:07:59+00:00 (R60 ≥ 2, выборка RSS) |
+| [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/sa/app/muslim-muna-azkar-prayer-time/id1486560555?uo=4) | Sahiba Gulati (1) | sa |  15519 | 4.6 | 2024-04-24 | 30 мес | n/a | 2026-09-19T09:38:19+00:00 (R60 ≥ 1, выборка RSS) |
+| [Sibha سبحة](https://apps.apple.com/sa/app/sibha-%D8%B3%D8%A8%D8%AD%D8%A9/id981945441?uo=4) | Sameh Salama (1) | sa |   8103 | 4.6 | 2022-01-01 | 58 мес | n/a | 2026-08-18T14:38:41+00:00 (R60 ≥ 0, выборка RSS) |
+| [Video Master for Youtube](https://apps.apple.com/ae/app/video-master-for-youtube/id1500098621?uo=4) | Haruki Daunrodo (1) | ae |   6387 | 4.7 | 2024-11-25 | 23 мес | n/a | 2026-10-15T11:05:13+00:00 (R60 ≥ 1, выборка RSS) |
+| [לימוד תאוריה נוהג 2025](https://apps.apple.com/il/app/%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%A0%D7%95%D7%94%D7%92-2025/id794631390?uo=4) | Nahoum Huri (8) | il |   5666 | 4.2 | 2025-01-20 | 21 мес | n/a | 2026-10-13T03:31:59+00:00 (R60 ≥ 4, выборка RSS) |
+| [PrayWay: Western Wall Compass](https://apps.apple.com/il/app/prayway-western-wall-compass/id1141680325?uo=4) | Ethan Glick (2) | il |   5558 | 4.6 | 2020-06-04 | 77 мес | n/a | 2026-11-01T15:42:33+00:00 (R60 ≥ 44, выборка RSS) |
+| [Wallpapers HD & Themes for Me](https://apps.apple.com/sa/app/wallpapers-hd-themes-for-me/id749046891?uo=4) | Mosaic S.r.l. (6) | sa |   4902 | 4.6 | 2025-01-28 | 21 мес | n/a | 2024-10-17T10:57:35+00:00 (R60 ≥ 0, выборка RSS) |
+| [Slices: Relax Puzzle Game](https://apps.apple.com/sa/app/slices-relax-puzzle-game/id1263934706?uo=4) | AI GAMES FZ LLC (4) | sa |   4718 | 4.6 | 2024-02-27 | 32 мес | n/a | 2024-05-31T13:22:26+00:00 (R60 ≥ 0, выборка RSS) |
+| [Math Solver Homework helper](https://apps.apple.com/sa/app/math-solver-homework-helper/id1542525934?uo=4) | Nayer AbuAlSoud (1) | sa |   4210 | 4.4 | 2022-03-09 | 56 мес | n/a | 2024-02-19T00:24:07+00:00 (R60 ≥ 0, выборка RSS) |
+| [תאוריה - تيئوريا - Theory 2024](https://apps.apple.com/il/app/%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D8%AA%D9%8A%D8%A6%D9%88%D8%B1%D9%8A%D8%A7-theory-2024/id1317534953?uo=4) | UP System Business Sol (3) | il |   3855 | 4.4 | 2024-05-14 | 30 мес | n/a | 2024-06-11T10:07:13+00:00 (R60 ≥ 0, выборка RSS) |
+| [مصاريف](https://apps.apple.com/sa/app/%D9%85%D8%B5%D8%A7%D8%B1%D9%8A%D9%81/id463676434?uo=4) | SALLA APP COMPANY FOR  (1) | sa |   3395 | 4.6 | 2017-11-15 | 108 мес | n/a | 2026-10-25T19:17:25+00:00 (R60 ≥ 8, выборка RSS) |
+| [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/hk/app/%E5%85%A8%E8%83%BD%E6%8E%83%E6%8F%8F%E7%BF%BB%E8%AD%AF-%E5%9B%BE%E7%89%87%E8%BD%AC%E6%96%87%E5%AD%97%E6%8F%90%E5%8F%96%E7%BF%BB%E8%AF%91%E5%99%A8/id1362989622?uo=4) | 兴燕 曹 (2) | hk |   3136 | 4.8 | 2022-11-21 | 47 мес | n/a | 2026-10-24T10:34:32+00:00 (R60 ≥ 2, выборка RSS) |
+| [דפ"ר 90-הכנה לצו ראשון](https://apps.apple.com/il/app/%D7%93%D7%A4-%D7%A8-90-%D7%94%D7%9B%D7%A0%D7%94-%D7%9C%D7%A6%D7%95-%D7%A8%D7%90%D7%A9%D7%95%D7%9F/id954996010?uo=4) | Nahoum Huri (8) | il |   2988 | 4.1 | 2022-06-05 | 53 мес | n/a | - |
+| [Tasbeeh Counter - Pro](https://apps.apple.com/sa/app/tasbeeh-counter-pro/id6446180404?uo=4) | TARIK BULANIK (1) | sa |   2950 | 4.4 | 2023-04-04 | 43 мес | n/a | - |
+| [Rush Hour 3D: Car Game](https://apps.apple.com/ae/app/rush-hour-3d-car-game/id1535861636?uo=4) | AI GAMES FZ LLC (4) | ae |   2759 | 4.3 | 2024-12-18 | 23 мес | n/a | - |
+| [فطحل العرب - لعبة معلومات عامة](https://apps.apple.com/ae/app/%D9%81%D8%B7%D8%AD%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8-%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA-%D8%B9%D8%A7%D9%85%D8%A9/id1097968189?uo=4) | Finjan Games Ltd (2) | ae |   2621 | 4.7 | 2023-09-04 | 38 мес | n/a | - |
+| [مسبحة الكترونية](https://apps.apple.com/sa/app/%D9%85%D8%B3%D8%A8%D8%AD%D8%A9-%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9/id1160807236?uo=4) | Mohammed Nabil (1) | sa |   2247 | 4.5 | 2021-04-26 | 66 мес | n/a | - |
+| [لعبة اختبار الحماقة](https://apps.apple.com/sa/app/%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%82%D8%A9/id1324069028?uo=4) | Eyad Al Shafei (1) | sa |   1910 | 4.4 | 2023-08-10 | 39 мес | n/a | - |
+| [節拍器 - 節奏 樂器](https://apps.apple.com/hk/app/%E7%AF%80%E6%8B%8D%E5%99%A8-%E7%AF%80%E5%A5%8F-%E6%A8%82%E5%99%A8/id559798172?uo=4) | Gismart Ltd (5) | hk |   1909 | 4.2 | 2024-06-26 | 28 мес | n/a | - |
+| [اختبار الغباء | أثبت أنك عبقري](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%BA%D8%A8%D8%A7%D8%A1-%D8%A3%D8%AB%D8%A8%D8%AA-%D8%A3%D9%86%D9%83-%D8%B9%D8%A8%D9%82%D8%B1%D9%8A/id942404315?uo=4) | Tamatem Inc. (2) | sa |   1810 | 4.4 | 2020-10-12 | 73 мес | n/a | - |
+| [Offroad Car Simulator 2024](https://apps.apple.com/il/app/offroad-car-simulator-2024/id1578165378?uo=4) | RAPTY SOFT SRL (2) | il |   1802 | 3.5 | 2025-03-28 | 19 мес | n/a | - |
+| [حساب الخصم](https://apps.apple.com/sa/app/%D8%AD%D8%B3%D8%A7%D8%A8-%D8%A7%D9%84%D8%AE%D8%B5%D9%85/id699689993?uo=4) | Omar Mussa (1) | sa |   1728 | 4.7 | 2025-01-13 | 22 мес | n/a | - |
+| [لعبة تحدي صقور - العاب اونلاين](https://apps.apple.com/sa/app/%D9%84%D8%B9%D8%A8%D8%A9-%D8%AA%D8%AD%D8%AF%D9%8A-%D8%B5%D9%82%D9%88%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D8%A8-%D8%A7%D9%88%D9%86%D9%84%D8%A7%D9%8A%D9%86/id1227519431?uo=4) | Masaabeh Games (1) | sa |   1726 | 3.8 | 2023-03-01 | 44 мес | n/a | - |
+| [MyFatoorah   ماي فاتورة](https://apps.apple.com/sa/app/myfatoorah-%D9%85%D8%A7%D9%8A-%D9%81%D8%A7%D8%AA%D9%88%D8%B1%D8%A9/id1397541744?uo=4) | MyFatoorah (1) | sa |   1718 | 4.4 | 2025-03-25 | 19 мес | n/a | - |
+| [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/ae/app/muslim-muna-azkar-prayer-time/id1486560555?uo=4) | Sahiba Gulati (1) | ae |   1702 | 4.7 | 2024-04-24 | 30 мес | n/a | - |
+| [Facekit AI](https://apps.apple.com/sa/app/facekit-ai/id1491764607?uo=4) | KYR TEKNOLOJI LIMITED  (1) | sa |   1608 | 4.0 | 2020-03-24 | 79 мес | n/a | - |
+| [القرآن الكريم منبه الصلاة و القبلة](https://apps.apple.com/sa/app/%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85-%D9%85%D9%86%D8%A8%D9%87-%D8%A7%D9%84%D8%B5%D9%84%D8%A7%D8%A9-%D9%88-%D8%A7%D9%84%D9%82%D8%A8%D9%84%D8%A9-%D9%88-%D9%82%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B9%D9%8A%D9%82%D9%84%D9%8A/id880012069?uo=4) | Saed Hamdan (1) | sa |   1602 | 4.5 | 2017-04-08 | 115 мес | n/a | - |
+| [Teo - לימוד תאוריה - תאו](https://apps.apple.com/il/app/teo-%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%AA%D7%90%D7%95/id1352838102?uo=4) | tesla rol (1) | il |   1586 | 4.2 | 2018-11-01 | 96 мес | n/a | - |
+| [تحويل التاريخ](https://apps.apple.com/sa/app/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE/id683824799?uo=4) | Abdulmajeed Alshatri (1) | sa |   1405 | 4.7 | 2024-09-07 | 26 мес | n/a | - |
+| [识花神器-形色](https://apps.apple.com/hk/app/%E8%AF%86%E8%8A%B1%E7%A5%9E%E5%99%A8-%E5%BD%A2%E8%89%B2/id1387854964?uo=4) | 阳杰 刘 (1) | hk |   1397 | 4.5 | 2019-05-22 | 89 мес | n/a | - |
+| [اختبار الغباء ٢](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%BA%D8%A8%D8%A7%D8%A1-%D9%A2/id958675100?uo=4) | Tamatem Inc. (2) | sa |   1388 | 4.3 | 2015-03-09 | 140 мес | n/a | - |
+| [Water reminder & drink tracker](https://apps.apple.com/il/app/water-reminder-drink-tracker/id1417038587?uo=4) | Wachanga LTD (6) | il |   1294 | 4.6 | 2022-05-22 | 53 мес | n/a | - |
+| [植物识别-拍照识花草树木](https://apps.apple.com/hk/app/%E6%A4%8D%E7%89%A9%E8%AF%86%E5%88%AB-%E6%8B%8D%E7%85%A7%E8%AF%86%E8%8A%B1%E8%8D%89%E6%A0%91%E6%9C%A8/id1295026074?uo=4) | 地云 王 (1) | hk |   1292 | 4.6 | 2021-04-27 | 66 мес | n/a | - |
+| [Dua & Azkar](https://apps.apple.com/sa/app/dua-azkar/id454430015?uo=4) | Ahsanul Haque (1) | sa |   1222 | 4.8 | 2025-03-12 | 20 мес | n/a | - |
+| [Sibha سبحة](https://apps.apple.com/ae/app/sibha-%D8%B3%D8%A8%D8%AD%D8%A9/id981945441?uo=4) | Sameh Salama (1) | ae |   1183 | 4.8 | 2022-01-01 | 58 мес | n/a | - |
+| [植物识别-认识花草识别植物](https://apps.apple.com/hk/app/%E6%A4%8D%E7%89%A9%E8%AF%86%E5%88%AB-%E8%AE%A4%E8%AF%86%E8%8A%B1%E8%8D%89%E8%AF%86%E5%88%AB%E6%A4%8D%E7%89%A9/id1364832773?uo=4) | Shanghai Quentin netwo (4) | hk |   1090 | 4.5 | 2022-05-11 | 54 мес | n/a | - |
+| [نظرية التعلم - תאוריה בערבית](https://apps.apple.com/il/app/%D9%86%D8%B8%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%91%D7%A2%D7%A8%D7%91%D7%99%D7%AA/id1018875600?uo=4) | Nahoum Huri (8) | il |   1082 | 4.4 | 2017-10-19 | 109 мес | n/a | - |
+| [MuCharm ميوتشارم Home Shopping](https://apps.apple.com/sa/app/mucharm-%D9%85%D9%8A%D9%88%D8%AA%D8%B4%D8%A7%D8%B1%D9%85-home-shopping/id1322836266?uo=4) | JAVIS Holdings Limited (1) | sa |   1008 | 4.0 | 2022-05-25 | 53 мес | n/a | - |
+| [MyFatoorah   ماي فاتورة](https://apps.apple.com/ae/app/myfatoorah-%D9%85%D8%A7%D9%8A-%D9%81%D8%A7%D8%AA%D9%88%D8%B1%D8%A9/id1397541744?uo=4) | MyFatoorah (1) | ae |    851 | 4.6 | 2025-03-25 | 19 мес | n/a | - |
+| [Qibla +](https://apps.apple.com/sa/app/qibla/id1475861567?uo=4) | Abdulelah Hajjar (1) | sa |    839 | 4.5 | 2020-06-02 | 77 мес | n/a | - |
+| [健康AI：卡路里計算機和減肥增肌工具](https://apps.apple.com/hk/app/%E5%81%A5%E5%BA%B7ai-%E5%8D%A1%E8%B7%AF%E9%87%8C%E8%A8%88%E7%AE%97%E6%A9%9F%E5%92%8C%E6%B8%9B%E8%82%A5%E5%A2%9E%E8%82%8C%E5%B7%A5%E5%85%B7/id6740817413?uo=4) | XonLabs Limited (1) | hk |    830 | 4.7 | 2025-03-10 | 20 мес | n/a | - |
+| [KIA證件照製作-美顏自拍智能證件照換底色相機護照身份證件](https://apps.apple.com/hk/app/kia%E8%AD%89%E4%BB%B6%E7%85%A7%E8%A3%BD%E4%BD%9C-%E7%BE%8E%E9%A1%8F%E8%87%AA%E6%8B%8D%E6%99%BA%E8%83%BD%E8%AD%89%E4%BB%B6%E7%85%A7%E6%8F%9B%E5%BA%95%E8%89%B2%E7%9B%B8%E6%A9%9F%E8%AD%B7%E7%85%A7%E8%BA%AB%E4%BB%BD%E8%AD%89%E4%BB%B6/id1459017173?uo=4) | S Woo (1) | hk |    828 | 4.6 | 2023-12-19 | 35 мес | n/a | - |
+| [اختبار رخصة القيادة السعودي](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%B1%D8%AE%D8%B5%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A/id6474456531?uo=4) | Hadeel Aljarrah (1) | sa |    827 | 4.6 | 2024-05-20 | 30 мес | n/a | - |
+| [MagicWidgets - Photo Widgets](https://apps.apple.com/sa/app/magicwidgets-photo-widgets/id1533414094?uo=4) | DXPLORER TECHNOLOGY LI (1) | sa |    824 | 4.5 | 2024-09-25 | 25 мес | n/a | - |
+| [السبحة الإلكترونية - اذكر الله](https://apps.apple.com/sa/app/%D8%A7%D9%84%D8%B3%D8%A8%D8%AD%D8%A9-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D8%A7%D8%B0%D9%83%D8%B1-%D8%A7%D9%84%D9%84%D9%87/id381854946?uo=4) | Tamer Abdel-Baset (2) | sa |    819 | 4.5 | 2024-04-09 | 31 мес | n/a | - |
+| [Convert Image To PDF tools](https://apps.apple.com/ae/app/convert-image-to-pdf-tools/id1527885081?uo=4) | Abdullah Albalawi (1) | ae |    815 | 4.5 | 2024-04-25 | 30 мес | n/a | - |
+| [Period tracker, calendar](https://apps.apple.com/sa/app/period-tracker-calendar/id1522679787?uo=4) | Marina Berezina (1) | sa |    784 | 4.3 | 2023-12-27 | 34 мес | n/a | - |
+| [+ تحويل الفيديو الى ام بي ثري](https://apps.apple.com/sa/app/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%A7%D9%84%D9%89-%D8%A7%D9%85-%D8%A8%D9%8A-%D8%AB%D8%B1%D9%8A/id1071398940?uo=4) | Novix Technology Inc. (1) | sa |    783 | 4.3 | 2018-10-19 | 97 мес | n/a | - |
+| [Al-Moazin](https://apps.apple.com/sa/app/al-moazin/id637678038?uo=4) | Parfield Software, S.A (1) | sa |    721 | 4.0 | 2018-03-29 | 103 мес | n/a | - |
+| [Car Driving School Sim 2024](https://apps.apple.com/il/app/car-driving-school-sim-2024/id1612666094?uo=4) | BIMBIS SOFTWARE SRL (1) | il |    711 | 3.5 | 2025-01-13 | 22 мес | n/a | - |
+| [度量衡換算+](https://apps.apple.com/hk/app/%E5%BA%A6%E9%87%8F%E8%A1%A1%E6%8F%9B%E7%AE%97/id573539093?uo=4) | Biggo Limited (1) | hk |    709 | 4.6 | 2023-06-23 | 40 мес | n/a | - |
+| [Metronome - Rhythm & Tap Tempo](https://apps.apple.com/sa/app/metronome-rhythm-tap-tempo/id559798172?uo=4) | Gismart Ltd (5) | sa |    688 | 4.2 | 2024-06-26 | 28 мес | n/a | - |
+| [花卉识别-拍图像识别花花草草](https://apps.apple.com/hk/app/%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB-%E6%8B%8D%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E8%8A%B1%E8%8A%B1%E8%8D%89%E8%8D%89/id1385981273?uo=4) | Shanghai Quentin netwo (4) | hk |    679 | 4.5 | 2022-05-10 | 54 мес | n/a | - |
+| [דרך תאוריה](https://apps.apple.com/il/app/%D7%93%D7%A8%D7%9A-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94/id1470032905?uo=4) | Shay Barak (2) | il |    676 | 4.5 | 2025-04-07 | 19 мес | n/a | - |
+| [Photo PDF: Converter & Printer](https://apps.apple.com/sa/app/photo-pdf-converter-printer/id1555702588?uo=4) | Fitness Labs SRL (3) | sa |    657 | 4.4 | 2025-03-19 | 20 мес | n/a | - |
+| [Hadith حديث‎ - Sahih Bukhari](https://apps.apple.com/sa/app/hadith-%D8%AD%D8%AF%D9%8A%D8%AB-sahih-bukhari/id578547597?uo=4) | Pakistan Data Manageme (2) | sa |    655 | 4.5 | 2024-10-17 | 25 мес | n/a | - |
+| [Password Manager - Safe Lock](https://apps.apple.com/ae/app/password-manager-safe-lock/id1464513090?uo=4) | AppRover (4) | ae |    655 | 4.4 | 2024-08-20 | 26 мес | n/a | - |
+| [Calculator for Pad](https://apps.apple.com/sa/app/calculator-for-pad/id1494441803?uo=4) | Beijing Free Sight Tec (1) | sa |    654 | 3.9 | 2023-01-12 | 46 мес | n/a | - |
+| [吉他調音器 - 调音器 用于您的原 声吉他 和 电吉他](https://apps.apple.com/hk/app/%E5%90%89%E4%BB%96%E8%AA%BF%E9%9F%B3%E5%99%A8-%E8%B0%83%E9%9F%B3%E5%99%A8-%E7%94%A8%E4%BA%8E%E6%82%A8%E7%9A%84%E5%8E%9F-%E5%A3%B0%E5%90%89%E4%BB%96-%E5%92%8C-%E7%94%B5%E5%90%89%E4%BB%96/id662890455?uo=4) | Gismart Ltd (5) | hk |    564 | 4.5 | 2024-08-15 | 27 мес | n/a | - |
+| [Hadith حديث‎ - Sahih Bukhari](https://apps.apple.com/ae/app/hadith-%D8%AD%D8%AF%D9%8A%D8%AB-sahih-bukhari/id578547597?uo=4) | Pakistan Data Manageme (2) | ae |    522 | 4.7 | 2024-10-17 | 25 мес | n/a | - |
+| [Tuner Lite by Piascore](https://apps.apple.com/hk/app/tuner-lite-by-piascore/id635828559?uo=4) | Piascore, Inc. (2) | hk |    511 | 4.2 | 2025-04-24 | 18 мес | n/a | - |
 
 ## Watchlist (версия 9–18 мес, наблюдаю)
 
 | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
 |---|---|---|---|---|---|---|---|---|
-| [Res i STHLM](https://apps.apple.com/se/app/res-i-sthlm/id296171628?uo=4) | Nobina AB (1) | se |  80499 | 4.3 | 2025-07-07 | 16 мес | n/a | - |
-| [Truck Simulator : Ultimate](https://apps.apple.com/se/app/truck-simulator-ultimate/id1553900372?uo=4) | Zuuks Bilisim Hizmetle (3) | se |  13989 | 4.5 | 2026-01-28 | 9 мес | n/a | - |
-| [Driver Theory Test Ireland DTT](https://apps.apple.com/ie/app/driver-theory-test-ireland-dtt/id1032380181?uo=4) | Iteration Mobile S.L (7) | ie |  11099 | 4.6 | 2025-05-26 | 17 мес | n/a | - |
-| [My Home - Design Dreams](https://apps.apple.com/sg/app/my-home-design-dreams/id1413668881?uo=4) | ZenLife Games Pte. Ltd (1) | sg |   7211 | 4.7 | 2025-11-26 | 11 мес | n/a | - |
-| [Truck Simulator : Ultimate](https://apps.apple.com/dk/app/truck-simulator-ultimate/id1553900372?uo=4) | Zuuks Bilisim Hizmetle (3) | dk |   7158 | 4.5 | 2026-01-28 | 9 мес | n/a | - |
-| [Truck Simulator : Ultimate](https://apps.apple.com/no/app/truck-simulator-ultimate/id1553900372?uo=4) | Zuuks Bilisim Hizmetle (3) | no |   6905 | 4.5 | 2026-01-28 | 9 мес | n/a | - |
-| [Elpy](https://apps.apple.com/se/app/elpy/id1503304218?uo=4) | Ellos AB (1) | se |   6462 | 4.6 | 2025-06-30 | 16 мес | n/a | - |
-| [maneno - Read. Learn. Play](https://apps.apple.com/dk/app/maneno-read-learn-play/id1001909623?uo=4) | Knowlge ApS (1) | dk |   6207 | 4.5 | 2025-12-17 | 11 мес | n/a | - |
-| [Unit Converter - Best Unit App](https://apps.apple.com/sg/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | sg |   4369 | 4.7 | 2025-12-02 | 11 мес | n/a | - |
-| [Unit Converter - Best Unit App](https://apps.apple.com/nz/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | nz |   2784 | 4.7 | 2025-12-02 | 11 мес | n/a | - |
-| [Voice Recorder & Audio Editor](https://apps.apple.com/nz/app/voice-recorder-audio-editor/id685310398?uo=4) | TapMedia Ltd (2) | nz |   2752 | 4.6 | 2025-07-19 | 16 мес | n/a | - |
-| [DT Driving Tests Theory](https://apps.apple.com/nz/app/dt-driving-tests-theory/id913821658?uo=4) | DT Driver Training Ltd (1) | nz |   2750 | 4.6 | 2025-07-16 | 16 мес | n/a | - |
-| [Voice Recorder & Audio Editor](https://apps.apple.com/ie/app/voice-recorder-audio-editor/id685310398?uo=4) | TapMedia Ltd (2) | ie |   2543 | 4.6 | 2025-07-19 | 16 мес | n/a | - |
-| [Tides NZ](https://apps.apple.com/nz/app/tides-nz/id521561961?uo=4) | Loft Labs Interactive  (1) | nz |   2273 | 4.7 | 2026-01-04 | 10 мес | n/a | - |
-| [SwellMap Boat](https://apps.apple.com/nz/app/swellmap-boat/id965612543?uo=4) | Wesley Warner (1) | nz |   2202 | 4.6 | 2025-06-16 | 17 мес | n/a | - |
-| [Unit Converter - Best Unit App](https://apps.apple.com/ie/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | ie |   2002 | 4.7 | 2025-12-02 | 11 мес | n/a | - |
-| [Google Assistent](https://apps.apple.com/se/app/google-assistent/id1220976145?uo=4) | Google LLC (16) ⚠️портфель | se |   1852 | 4.5 | 2025-07-23 | 15 мес | n/a | - |
-| [Drink Water Reminder N Tracker](https://apps.apple.com/sg/app/drink-water-reminder-n-tracker/id870372885?uo=4) | Phoenix Games LLP (1) | sg |   1721 | 4.5 | 2025-09-20 | 13 мес | n/a | - |
-| [UNICORN 3D: Colour by Numbers](https://apps.apple.com/ie/app/unicorn-3d-colour-by-numbers/id1329514585?uo=4) | APPSYOULOVE LTD (2) | ie |   1676 | 4.6 | 2026-01-26 | 9 мес | n/a | - |
-| [PlantSnap Pro: Identify Plants](https://apps.apple.com/se/app/plantsnap-pro-identify-plants/id1234702272?uo=4) | PlantSnap, Inc. (2) | se |   1501 | 4.1 | 2026-01-19 | 9 мес | n/a | - |
+| [Tasbih Counter Lite: Dhikr App](https://apps.apple.com/sa/app/tasbih-counter-lite-dhikr-app/id1501329079?uo=4) | Deniz Duzbasti (1) | sa |  35654 | 4.6 | 2026-02-02 | 9 мес | n/a | - |
+| [Car Driving 2026 Traffic Racer](https://apps.apple.com/sa/app/car-driving-2026-traffic-racer/id1456304437?uo=4) | Xsa Software S.R.L. (2) | sa |  20322 | 3.3 | 2026-01-26 | 9 мес | n/a | - |
+| [حاسبة بلوت](https://apps.apple.com/sa/app/%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9-%D8%A8%D9%84%D9%88%D8%AA/id1269715386?uo=4) | Moayad Alrumayzan (1) | sa |  19886 | 4.3 | 2025-09-13 | 14 мес | n/a | - |
+| [Truck Simulator : Ultimate](https://apps.apple.com/il/app/truck-simulator-ultimate/id1553900372?uo=4) | Zuuks Bilisim Hizmetle (3) | il |  14736 | 3.9 | 2026-01-28 | 9 мес | n/a | - |
+| [אחראי משמרת](https://apps.apple.com/il/app/%D7%90%D7%97%D7%A8%D7%90%D7%99-%D7%9E%D7%A9%D7%9E%D7%A8%D7%AA/id1114349079?uo=4) | Maor Duani (1) | il |  14171 | 4.5 | 2025-09-15 | 14 мес | n/a | - |
+| [Tower Craft 3D - Idle Building](https://apps.apple.com/sa/app/tower-craft-3d-idle-building/id1500938520?uo=4) | AI GAMES FZ LLC (4) | sa |   7614 | 4.1 | 2026-01-21 | 9 мес | n/a | - |
+| [صلاتي حياتي-الصلاة والقبلة](https://apps.apple.com/sa/app/%D8%B5%D9%84%D8%A7%D8%AA%D9%8A-%D8%AD%D9%8A%D8%A7%D8%AA%D9%8A-%D8%A7%D9%84%D8%B5%D9%84%D8%A7%D8%A9-%D9%88%D8%A7%D9%84%D9%82%D8%A8%D9%84%D8%A9/id602516825?uo=4) | Ismail Alhmoud (2) | sa |   5573 | 4.2 | 2025-10-15 | 13 мес | n/a | - |
+| [Tasbih Counter Lite: Dhikr App](https://apps.apple.com/ae/app/tasbih-counter-lite-dhikr-app/id1501329079?uo=4) | Deniz Duzbasti (1) | ae |   5521 | 4.7 | 2026-02-02 | 9 мес | n/a | - |
+| [Drink Water Reminder N Tracker](https://apps.apple.com/sa/app/drink-water-reminder-n-tracker/id870372885?uo=4) | Phoenix Games LLP (1) | sa |   3506 | 4.5 | 2025-09-20 | 13 мес | n/a | - |
+| [Calorie Counter・Food Tracker](https://apps.apple.com/sa/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | sa |   3466 | 4.5 | 2025-10-01 | 13 мес | n/a | - |
+| [Ovulation & Fertility Tracker](https://apps.apple.com/sa/app/ovulation-fertility-tracker/id1511275528?uo=4) | KHANDAKER RAHMAN (1) | sa |   3146 | 4.2 | 2025-08-13 | 15 мес | n/a | - |
+| [Ovulation & Fertility Tracker](https://apps.apple.com/sa/app/ovulation-fertility-tracker/id1511275528?uo=4) | KHANDAKER RAHMAN (1) | sa |   3146 | 4.2 | 2025-08-13 | 15 мес | n/a | - |
+| [Gradient: You Look Like](https://apps.apple.com/ae/app/gradient-you-look-like/id1466097469?uo=4) | TICKET TO THE MOON, IN (1) | ae |   2800 | 4.5 | 2025-10-16 | 13 мес | n/a | - |
+| [Unit Converter - Best Unit App](https://apps.apple.com/hk/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | hk |   2681 | 4.6 | 2025-12-02 | 11 мес | n/a | - |
+| [منبه المياه - Water Reminder](https://apps.apple.com/sa/app/%D9%85%D9%86%D8%A8%D9%87-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-water-reminder/id1215408548?uo=4) | Romman Smart Applicati (5) | sa |   2607 | 4.2 | 2025-11-12 | 12 мес | n/a | - |
+| [Calorie Counter・Food Tracker](https://apps.apple.com/il/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | il |   2504 | 4.4 | 2025-10-01 | 13 мес | n/a | - |
+| [Calorie Counter・Food Tracker](https://apps.apple.com/il/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | il |   2504 | 4.4 | 2025-10-01 | 13 мес | n/a | - |
+| [Unit Converter - Best Unit App](https://apps.apple.com/sa/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | sa |   2079 | 4.7 | 2025-12-02 | 11 мес | n/a | - |
+| [My Daily Hadith](https://apps.apple.com/sa/app/my-daily-hadith/id938736266?uo=4) | Hadi App Ltd (1) | sa |   2004 | 4.8 | 2025-10-28 | 12 мес | n/a | - |
+| [UNICORN 3D: 獨角獸 像素塗色](https://apps.apple.com/hk/app/unicorn-3d-%E7%8D%A8%E8%A7%92%E7%8D%B8-%E5%83%8F%E7%B4%A0%E5%A1%97%E8%89%B2/id1329514585?uo=4) | APPSYOULOVE LTD (2) | hk |   1939 | 4.6 | 2026-01-26 | 9 мес | n/a | - |
 
 ## Состав выдачи по категориям
 
@@ -88,187 +104,134 @@ fresh = версия младше 12 мес; new = впервые найденн
 
 | Категория | Гео | Видно | Fresh% | New | Зомби% | Топ-продавец |
 |---|---|---|---|---|---|---|
-| driving_ed | se | 56 | 75% | 35 | 5% | Teoriappar Sverige (7%) |
-| driving_ed | no | 64 | 84% | 37 | 5% | Statens vegvesen (5%) |
-| aviation_marine | se | 87 | 86% | 26 | 3% | Mosaic S.r.l. (2%) |
-| widgets_watch | se | 91 | 86% | 29 | 3% | Apple Distribution (3%) |
-| music_practice | se | 125 | 72% | 2 | 3% | Gismart Ltd (6%) |
-| books_media | se | 44 | 98% | 14 | 2% | LEAN ASIA CO., LTD (5%) |
-| fitness_calc | dk | 92 | 85% | 19 | 2% | StepsApp GmbH (2%) |
-| pet_care | se | 92 | 87% | 23 | 2% | Ferran Espuna (2%) |
-| finance_tools | se | 96 | 84% | 2 | 2% | Zoho Corporation (2%) |
-| hunting_fishing | se | 108 | 77% | 7 | 2% | Eldar Sadykhov (4%) |
-| aviation_marine | dk | 55 | 82% | 23 | 2% | Jan Hansen (5%) |
-| widgets_watch | dk | 56 | 75% | 16 | 2% | Uladzislau Yanushk (5%) |
-| books_media | dk | 67 | 90% | 29 | 1% | Ereolen Go (4%) |
-| hunting_fishing | nz | 149 | 69% | 1 | 1% | K SOLUTION LLC (3%) |
-| music_practice | no | 76 | 76% | 0 | 1% | Gismart Ltd (5%) |
-| pet_care | dk | 79 | 87% | 22 | 1% | 倩 赵 (4%) |
-| ai_identifiers | dk | 85 | 78% | 22 | 1% | Uladzislau Yanushk (2%) |
-| travel_utils | se | 93 | 94% | 20 | 1% | Inner Grow Limited (2%) |
-| diy_home | no | 97 | 85% | 8 | 1% | Vladislav Zhirnov (6%) |
-| hunting_fishing | no | 102 | 74% | 9 | 1% | Ten Square Games S (3%) |
-| aviation_marine | nz | 243 | 68% | 7 | 1% | Calculated Industr (2%) |
-| parenting | nz | 169 | 78% | 0 | 1% | 倩 赵 (2%) |
-| music_practice | nz | 171 | 67% | 3 | 1% | Tim O's Studios, L (2%) |
-| driving_ed | nz | 173 | 76% | 3 | 1% | Deep River Develop (4%) |
-| parenting | ie | 174 | 76% | 3 | 1% | Rob de Knegt (2%) |
-| widgets_watch | nz | 204 | 61% | 3 | 0% | Aesthetic Apps & W (1%) |
-| travel_utils | ie | 221 | 72% | 1 | 0% | Duc Tang Van (3%) |
-| travel_utils | nz | 227 | 70% | 4 | 0% | Sing Fu Chan (2%) |
-| photo_video_utils | nz | 229 | 60% | 2 | 0% | Teleprompter Apps  (2%) |
-| finance_tools | nz | 317 | 69% | 16 | 0% | Tim O's Studios, L (1%) |
-| construction | no | 18 | 100% | 0 | 0% | Raj Vadodariya (6%) |
-| construction | dk | 44 | 93% | 0 | 0% | Vladislav Zhirnov (16%) |
-| construction | se | 6 | 100% | 0 | 0% | Raj Vadodariya (17%) |
-| construction | sg | 271 | 81% | 5 | 0% | Anna Filobok (2%) |
-| construction | ie | 211 | 70% | 1 | 0% | Calc Hub, LLC (3%) |
-| construction | nz | 223 | 71% | 2 | 0% | Phan Nhat Đang (3%) |
-| auto | no | 71 | 96% | 3 | 0% | LEAN ASIA CO., LTD (4%) |
-| auto | dk | 31 | 97% | 0 | 0% | LEAN ASIA CO., LTD (10%) |
-| auto | se | 53 | 96% | 0 | 0% | LEAN ASIA CO., LTD (9%) |
-| auto | sg | 268 | 76% | 6 | 0% | Google LLC (1%) |
-| auto | ie | 274 | 72% | 5 | 0% | Calc Hub, LLC (1%) |
-| auto | nz | 285 | 73% | 4 | 0% | LEAN ASIA CO., LTD (1%) |
-| needlework | no | 54 | 94% | 3 | 0% | PLAYCUS LIMITED (9%) |
-| needlework | dk | 40 | 100% | 0 | 0% | Diana Białogrzywa (10%) |
-| needlework | se | 45 | 98% | 0 | 0% | Diana Białogrzywa (9%) |
-| needlework | sg | 169 | 72% | 2 | 0% | PLAYCUS LIMITED (4%) |
-| needlework | ie | 178 | 71% | 2 | 0% | PLAYCUS LIMITED (4%) |
-| needlework | nz | 178 | 72% | 1 | 0% | PLAYCUS LIMITED (4%) |
-| hunting_fishing | dk | 93 | 72% | 5 | 0% | Eldar Sadykhov (4%) |
-| hunting_fishing | sg | 180 | 70% | 2 | 0% | K SOLUTION LLC (3%) |
-| hunting_fishing | ie | 164 | 73% | 1 | 0% | K SOLUTION LLC (3%) |
-| music_practice | dk | 88 | 70% | 0 | 0% | Tim O's Studios, L (3%) |
-| music_practice | sg | 141 | 73% | 1 | 0% | Gismart Ltd (2%) |
-| music_practice | ie | 167 | 60% | 3 | 0% | ManoMaya (2%) |
-| religious | no | 75 | 68% | 38 | 0% | Sand Apps Inc. (13%) |
-| religious | dk | 61 | 84% | 21 | 0% | Inspirations of Ch (5%) |
-| religious | se | 73 | 70% | 46 | 0% | Sand Apps Inc. (12%) |
-| religious | sg | 189 | 82% | 6 | 0% | Fatima Omer Apps L (3%) |
-| religious | ie | 184 | 68% | 1 | 0% | Fatima Omer Apps L (3%) |
-| religious | nz | 190 | 73% | 4 | 0% | Fatima Omer Apps L (3%) |
-| finance_tools | no | 102 | 73% | 2 | 0% | Thomas Pelster (12%) |
-| finance_tools | dk | 87 | 71% | 6 | 0% | Thomas Pelster (11%) |
-| finance_tools | sg | 296 | 72% | 14 | 0% | Rome Rock LLC (1%) |
-| finance_tools | ie | 298 | 66% | 12 | 0% | giang pham (1%) |
-| garden | no | 114 | 90% | 1 | 0% | Netflowers Inc. (4%) |
-| garden | dk | 46 | 93% | 1 | 0% | 倩 赵 (4%) |
-| garden | se | 48 | 92% | 0 | 0% | Draper Productions (4%) |
-| garden | sg | 160 | 92% | 1 | 0% | Glority Global Gro (1%) |
-| garden | ie | 191 | 70% | 1 | 0% | Calc Hub, LLC (3%) |
-| garden | nz | 199 | 71% | 4 | 0% | Glority Global Gro (2%) |
-| parenting | no | 88 | 81% | 1 | 0% | VISPER ARTS OOO (3%) |
-| parenting | dk | 121 | 86% | 0 | 0% | Wachanga LTD (2%) |
-| parenting | se | 128 | 91% | 0 | 0% | Aleksei Neiman (2%) |
-| parenting | sg | 163 | 85% | 6 | 0% | LEAN ASIA CO., LTD (2%) |
-| photo_video_utils | no | 53 | 79% | 2 | 0% | Lightray Innovatio (4%) |
-| photo_video_utils | dk | 60 | 78% | 5 | 0% | Lightray Innovatio (3%) |
-| photo_video_utils | se | 61 | 84% | 5 | 0% | ZeroPlay Ltd. (3%) |
-| photo_video_utils | sg | 196 | 73% | 3 | 0% | Chirag Gabani (3%) |
-| photo_video_utils | ie | 224 | 66% | 4 | 0% | Chirag Gabani (3%) |
-| cooking | no | 55 | 80% | 2 | 0% | Alexander Bergqvis (2%) |
-| cooking | dk | 53 | 94% | 1 | 0% | Linh Phan Nhat Kha (6%) |
-| cooking | se | 18 | 94% | 0 | 0% | Alexander Bergqvis (6%) |
-| cooking | sg | 291 | 79% | 9 | 0% | 海涛 黄 (2%) |
-| cooking | ie | 255 | 69% | 7 | 0% | Serhii Simkovskyi (2%) |
-| cooking | nz | 273 | 65% | 6 | 0% | Serhii Simkovskyi (2%) |
-| diy_home | dk | 90 | 83% | 3 | 0% | Phuc Pham (4%) |
-| diy_home | se | 40 | 88% | 1 | 0% | ExaMobile S.A. (5%) |
-| diy_home | sg | 222 | 78% | 8 | 0% | Phan Nhat Đang (2%) |
-| diy_home | ie | 253 | 66% | 5 | 0% | Mobile Card Games  (2%) |
-| diy_home | nz | 255 | 70% | 7 | 0% | Phan Nhat Đang (2%) |
-| fitness_calc | no | 89 | 90% | 27 | 0% | LEAN ASIA CO., LTD (3%) |
-| fitness_calc | se | 86 | 84% | 22 | 0% | Wachanga LTD (2%) |
-| fitness_calc | sg | 167 | 78% | 4 | 0% | Phuc Pham (1%) |
-| fitness_calc | ie | 163 | 62% | 1 | 0% | 7th Gear (2%) |
-| fitness_calc | nz | 171 | 59% | 1 | 0% | 7th Gear (2%) |
-| ai_tools | no | 59 | 90% | 12 | 0% | Google LLC (3%) |
-| ai_tools | dk | 52 | 92% | 11 | 0% | Mosaic S.r.l. (4%) |
-| ai_tools | se | 90 | 91% | 28 | 0% | Google LLC (2%) |
-| ai_tools | sg | 233 | 89% | 1 | 0% | Google LLC (2%) |
-| ai_tools | ie | 252 | 81% | 6 | 0% | Google LLC (1%) |
-| ai_tools | nz | 250 | 85% | 8 | 0% | Google LLC (1%) |
-| widgets_watch | no | 63 | 94% | 31 | 0% | Sunghyun Kim (3%) |
-| widgets_watch | sg | 195 | 70% | 0 | 0% | Aesthetic Apps & W (1%) |
-| widgets_watch | ie | 214 | 54% | 4 | 0% | FugaPiyo Inc. (2%) |
-| driving_ed | dk | 43 | 88% | 18 | 0% | Vemento AS (5%) |
-| driving_ed | sg | 173 | 79% | 1 | 0% | Deep River Develop (3%) |
-| driving_ed | ie | 194 | 79% | 5 | 0% | RAC Motoring Servi (3%) |
-| books_media | no | 34 | 100% | 4 | 0% | Shun Isayama (6%) |
-| books_media | sg | 100 | 89% | 4 | 0% | Google LLC (4%) |
-| books_media | ie | 112 | 87% | 2 | 0% | Oleg Brailean (3%) |
-| books_media | nz | 111 | 89% | 1 | 0% | Google LLC (3%) |
-| boardgames | no | 86 | 100% | 34 | 0% | Josh Pavey (23%) |
-| boardgames | dk | 86 | 100% | 39 | 0% | Josh Pavey (24%) |
-| boardgames | se | 93 | 95% | 31 | 0% | Josh Pavey (11%) |
-| boardgames | sg | 134 | 66% | 0 | 0% | Google LLC (2%) |
-| boardgames | ie | 134 | 60% | 2 | 0% | Timothy Cherna (1%) |
-| boardgames | nz | 142 | 65% | 0 | 0% | CMON Pte Ltd (2%) |
-| trades_pro | no | 56 | 88% | 35 | 0% | Egal Net di Ettore (4%) |
-| trades_pro | dk | 46 | 85% | 31 | 0% | Sergey Vavaev (4%) |
-| trades_pro | se | 85 | 75% | 54 | 0% | Sergey Vavaev (2%) |
-| trades_pro | sg | 215 | 84% | 5 | 0% | Carmel Software Co (4%) |
-| trades_pro | ie | 206 | 56% | 5 | 0% | V PUGAZHENTHI (3%) |
-| trades_pro | nz | 230 | 53% | 8 | 0% | V PUGAZHENTHI (3%) |
-| logistics_freight | no | 94 | 63% | 61 | 0% | Roxx Communication (4%) |
-| logistics_freight | dk | 87 | 63% | 46 | 0% | Mover Systems ApS (3%) |
-| logistics_freight | se | 97 | 67% | 61 | 0% | Roxx Communication (7%) |
-| logistics_freight | sg | 184 | 92% | 0 | 0% | Google LLC (3%) |
-| logistics_freight | ie | 201 | 70% | 5 | 0% | Calc Hub, LLC (3%) |
-| logistics_freight | nz | 219 | 74% | 5 | 0% | Phan Nhat Đang (3%) |
-| aviation_marine | no | 50 | 92% | 9 | 0% | Rivolu LLC (4%) |
-| aviation_marine | sg | 220 | 72% | 3 | 0% | The Other Hat (3%) |
-| aviation_marine | ie | 240 | 64% | 2 | 0% | Changrong Yao (2%) |
-| tax_regional | no | 46 | 91% | 8 | 0% | Phuc Pham (7%) |
-| tax_regional | dk | 19 | 84% | 4 | 0% | Kahler Development (5%) |
-| tax_regional | se | 30 | 90% | 13 | 0% | Julian Lau (3%) |
-| tax_regional | sg | 74 | 88% | 0 | 0% | SnowdropSoft Co.,L (3%) |
-| tax_regional | ie | 76 | 53% | 1 | 0% | Rayan Arman (3%) |
-| tax_regional | nz | 88 | 56% | 4 | 0% | Xentore Pty Ltd (2%) |
-| ai_identifiers | no | 53 | 85% | 9 | 0% | Glority Global Gro (4%) |
-| ai_identifiers | se | 58 | 84% | 16 | 0% | PlantSnap, Inc. (3%) |
-| ai_identifiers | sg | 322 | 77% | 3 | 0% | Next Vision Limite (2%) |
-| ai_identifiers | ie | 330 | 72% | 3 | 0% | Next Vision Limite (2%) |
-| ai_identifiers | nz | 328 | 73% | 5 | 0% | Next Vision Limite (2%) |
-| pet_care | no | 93 | 90% | 23 | 0% | Ferran Espuna (2%) |
-| pet_care | sg | 212 | 81% | 3 | 0% | Susan Andryk (1%) |
-| pet_care | ie | 188 | 73% | 2 | 0% | nove8 LTD (1%) |
-| pet_care | nz | 203 | 68% | 4 | 0% | nove8 LTD (1%) |
-| travel_utils | no | 61 | 93% | 6 | 0% | Phuc Pham (7%) |
-| travel_utils | dk | 64 | 91% | 8 | 0% | Phuc Pham (5%) |
-| travel_utils | sg | 219 | 75% | 4 | 0% | Duc Tang Van (3%) |
+| driving_ed | il | 62 | 73% | 37 | 10% | Nahoum Huri (13%) |
+| driving_ed | sa | 75 | 73% | 51 | 5% | Waheed Akhtar (4%) |
+| finance_tools | sa | 180 | 76% | 14 | 5% | EONSOFT (2%) |
+| religious | sa | 180 | 76% | 9 | 4% | Fatima Omer Apps L (3%) |
+| ai_identifiers | hk | 93 | 84% | 6 | 4% | BASAK GEDIK (5%) |
+| logistics_freight | sa | 31 | 84% | 20 | 3% | HD YAPIMCILIK VE T (6%) |
+| trades_pro | hk | 33 | 88% | 1 | 3% | Nanjing Yunxiaochu (15%) |
+| music_practice | hk | 112 | 63% | 6 | 3% | Qiaochu Zhu (4%) |
+| driving_ed | ae | 77 | 81% | 45 | 3% | Waheed Akhtar (4%) |
+| widgets_watch | sa | 92 | 82% | 31 | 2% | 翠玲 施 (3%) |
+| photo_video_utils | il | 95 | 80% | 13 | 2% | Teleprompter Apps  (5%) |
+| religious | ae | 177 | 78% | 14 | 2% | Imran Qureshi (3%) |
+| finance_tools | ae | 184 | 78% | 6 | 2% | Aleksei Neiman (2%) |
+| tax_regional | sa | 62 | 74% | 32 | 2% | Cosmic Production  (5%) |
+| parenting | sa | 127 | 89% | 11 | 2% | Aleksei Neiman (2%) |
+| religious | il | 79 | 90% | 4 | 1% | Ofir Malachi (3%) |
+| construction | sa | 80 | 81% | 0 | 1% | Vladislav Zhirnov (12%) |
+| fitness_calc | il | 80 | 91% | 36 | 1% | Wachanga LTD (2%) |
+| fitness_calc | hk | 85 | 86% | 7 | 1% | Leap Health Fitnes (4%) |
+| ai_tools | hk | 86 | 88% | 25 | 1% | SHANTANU PTE. LTD. (5%) |
+| fitness_calc | ae | 89 | 81% | 31 | 1% | Sameh Aly (2%) |
+| music_practice | sa | 91 | 73% | 20 | 1% | MWM (2%) |
+| hunting_fishing | sa | 92 | 75% | 60 | 1% | Ten Square Games S (4%) |
+| ai_tools | sa | 94 | 88% | 38 | 1% | Emanuele Floris (2%) |
+| finance_tools | hk | 120 | 74% | 5 | 1% | 良峰 侯 (3%) |
+| construction | ae | 70 | 90% | 1 | 0% | Vladislav Zhirnov (14%) |
+| construction | hk | 75 | 87% | 0 | 0% | Phuc Pham (7%) |
+| construction | il | 48 | 92% | 4 | 0% | Vladislav Zhirnov (27%) |
+| auto | sa | 79 | 97% | 6 | 0% | LEAN ASIA CO., LTD (5%) |
+| auto | ae | 77 | 97% | 3 | 0% | LEAN ASIA CO., LTD (5%) |
+| auto | hk | 134 | 80% | 6 | 0% | LEAN ASIA CO., LTD (4%) |
+| auto | il | 51 | 98% | 10 | 0% | Ferran Espuna (8%) |
+| needlework | sa | 57 | 81% | 9 | 0% | Piet Hein van Clee (4%) |
+| needlework | ae | 56 | 88% | 8 | 0% | Storax Inc. (4%) |
+| needlework | hk | 98 | 88% | 15 | 0% | BLANKZONET PTE. LT (2%) |
+| needlework | il | 26 | 100% | 0 | 0% | kota tada (4%) |
+| hunting_fishing | ae | 90 | 69% | 59 | 0% | Ten Square Games S (4%) |
+| hunting_fishing | hk | 71 | 76% | 5 | 0% | Solot Information  (4%) |
+| hunting_fishing | il | 56 | 80% | 33 | 0% | Bytwice srl (4%) |
+| music_practice | ae | 91 | 75% | 20 | 0% | MWM (2%) |
+| music_practice | il | 81 | 75% | 7 | 0% | Yousician Ltd (2%) |
+| religious | hk | 86 | 79% | 1 | 0% | Fatima Omer Apps L (2%) |
+| finance_tools | il | 134 | 88% | 13 | 0% | kota tada (7%) |
+| garden | sa | 79 | 97% | 30 | 0% | Hnat Danylevych (3%) |
+| garden | ae | 80 | 98% | 31 | 0% | Hnat Danylevych (2%) |
+| garden | hk | 74 | 97% | 6 | 0% | 帅 陈 (3%) |
+| garden | il | 64 | 98% | 22 | 0% | Phuc Pham (3%) |
+| parenting | ae | 131 | 82% | 6 | 0% | Aleksei Neiman (2%) |
+| parenting | hk | 84 | 81% | 5 | 0% | Nighp Software LLC (2%) |
+| parenting | il | 82 | 84% | 6 | 0% | VISPER ARTS OOO (2%) |
+| photo_video_utils | sa | 88 | 92% | 32 | 0% | Phuc Pham (3%) |
+| photo_video_utils | ae | 90 | 92% | 32 | 0% | Phuc Pham (3%) |
+| photo_video_utils | hk | 96 | 85% | 5 | 0% | Tasmanic Editions (3%) |
+| cooking | sa | 58 | 95% | 39 | 0% | LEAN ASIA CO., LTD (3%) |
+| cooking | ae | 55 | 95% | 36 | 0% | LEAN ASIA CO., LTD (4%) |
+| cooking | hk | 13 | 92% | 0 | 0% | Phuc Pham (15%) |
+| cooking | il | 56 | 93% | 45 | 0% | LEAN ASIA CO., LTD (5%) |
+| diy_home | sa | 78 | 86% | 1 | 0% | Phuc Pham (4%) |
+| diy_home | ae | 73 | 90% | 2 | 0% | Phuc Pham (5%) |
+| diy_home | hk | 81 | 78% | 1 | 0% | Jens Rieckhof (2%) |
+| diy_home | il | 48 | 92% | 19 | 0% | Zynga Inc. (8%) |
+| fitness_calc | sa | 90 | 86% | 39 | 0% | Sameh Aly (2%) |
+| ai_tools | ae | 92 | 84% | 36 | 0% | LYREBIRD STUDIO FZ (2%) |
+| ai_tools | il | 75 | 92% | 36 | 0% | 培 李 (3%) |
+| widgets_watch | ae | 91 | 81% | 31 | 0% | Zipo Apps Ltd. (4%) |
+| widgets_watch | hk | 96 | 88% | 17 | 0% | Xiamen ShenZhuo In (2%) |
+| widgets_watch | il | 56 | 82% | 12 | 0% | 翠玲 施 (4%) |
+| driving_ed | hk | 83 | 63% | 23 | 0% | Play With Games Lt (13%) |
+| books_media | sa | 64 | 100% | 38 | 0% | Aecio Lima (2%) |
+| books_media | ae | 64 | 100% | 37 | 0% | Muhammad Aman (2%) |
+| books_media | hk | 96 | 93% | 19 | 0% | EVERAPPZ SL (2%) |
+| books_media | il | 86 | 95% | 46 | 0% | Atech Consultancy  (7%) |
+| boardgames | sa | 90 | 94% | 40 | 0% | Hamad Almarri (2%) |
+| boardgames | ae | 87 | 92% | 42 | 0% | Keven Bauke (3%) |
+| boardgames | hk | 87 | 87% | 17 | 0% | zhenyu song (6%) |
+| boardgames | il | 50 | 100% | 15 | 0% | MOONSHOT MEDIA LIM (6%) |
+| trades_pro | sa | 57 | 86% | 24 | 0% | Vladislav Zhirnov (5%) |
+| trades_pro | ae | 55 | 89% | 21 | 0% | Vladislav Zhirnov (5%) |
+| trades_pro | il | 72 | 89% | 45 | 0% | Sergio Kirienko (3%) |
+| logistics_freight | ae | 29 | 86% | 18 | 0% | HD YAPIMCILIK VE T (7%) |
+| logistics_freight | hk | 51 | 76% | 12 | 0% | Yunnan Qiuniu Netw (4%) |
+| logistics_freight | il | 93 | 66% | 61 | 0% | Marusac Alexandru  (4%) |
+| aviation_marine | sa | 59 | 85% | 19 | 0% | Raja' Ibrahim (8%) |
+| aviation_marine | ae | 59 | 80% | 17 | 0% | Raja' Ibrahim (7%) |
+| aviation_marine | hk | 70 | 64% | 14 | 0% | kupaberu (9%) |
+| aviation_marine | il | 25 | 96% | 4 | 0% | Warin Winnicke (4%) |
+| tax_regional | ae | 59 | 75% | 29 | 0% | Cosmic Production  (5%) |
+| tax_regional | hk | 40 | 85% | 1 | 0% | YUTAKA KENJO (5%) |
+| tax_regional | il | 62 | 89% | 23 | 0% | EONSOFT (5%) |
+| ai_identifiers | sa | 86 | 98% | 34 | 0% | Glority Global Gro (2%) |
+| ai_identifiers | ae | 84 | 93% | 40 | 0% | AIBY Incorporated (2%) |
+| ai_identifiers | il | 96 | 89% | 20 | 0% | DIDEM URAS (3%) |
+| pet_care | sa | 61 | 90% | 18 | 0% | nove8 LTD (2%) |
+| pet_care | ae | 60 | 88% | 14 | 0% | Karol Jaworski (3%) |
+| pet_care | hk | 93 | 86% | 21 | 0% | Ferran Espuna (2%) |
+| pet_care | il | 65 | 80% | 25 | 0% | Star Focus, Inc. (2%) |
+| travel_utils | sa | 94 | 93% | 46 | 0% | NATIONAL INFORMATI (3%) |
+| travel_utils | ae | 88 | 90% | 48 | 0% | John Mollaghan (7%) |
+| travel_utils | hk | 95 | 86% | 22 | 0% | John Mollaghan (4%) |
+| travel_utils | il | 56 | 96% | 34 | 0% | Phuc Pham (5%) |
 
 ## Впервые найдены в API-выдаче (это не новые запуски)
 
 | Оценок | Приложение | Гео | Запрос | Версия от |
 |---|---|---|---|---|
-| 3,310 | [Folkbibeln](https://apps.apple.com/se/app/folkbibeln/id909572436?uo=4) | se | bibeln app | 2026-10-17 |
-| 1,791 | [Sejlguide til sikker sejlads](https://apps.apple.com/dk/app/sejlguide-til-sikker-sejlads/id1070753053?uo=4) | dk | sejlads | 2023-01-13 |
-| 1,609 | [Teoriprøven – bil](https://apps.apple.com/no/app/teoripr%C3%B8ven-bil/id1558362529?uo=4) | no | teoriprøven | 2026-10-30 |
-| 1,138 | [Teoriprøven Nå B-førerkort](https://apps.apple.com/no/app/teoripr%C3%B8ven-n%C3%A5-b-f%C3%B8rerkort/id1550722990?uo=4) | no | teoriprøven | 2023-10-02 |
-| 812 | [Testen.no: Øv til teoriprøven](https://apps.apple.com/no/app/testen-no-%C3%B8v-til-teoripr%C3%B8ven/id1668742722?uo=4) | no | teoriprøven | 2026-03-06 |
-| 571 | [SvampeGuide](https://apps.apple.com/dk/app/svampeguide/id833888116?uo=4) | dk | svampe app | 2017-09-21 |
+| 2,550 | [CalBuddy - מחשבון קלוריות](https://apps.apple.com/il/app/calbuddy-%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%95%D7%AA/id6745977666?uo=4) | il | מחשבון קלוריות | 2026-09-30 |
+| 889 | [קלוריה-מחשבון קלוריות ישראלי](https://apps.apple.com/il/app/%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%94-%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99/id6474908067?uo=4) | il | מחשבון קלוריות | 2026-03-03 |
+| 827 | [اختبار رخصة القيادة السعودي](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%B1%D8%AE%D8%B5%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A/id6474456531?uo=4) | sa | اختبار القيادة | 2024-05-20 |
 
 ## Низкий исторический рейтинг: проверить свежие жалобы
 
 | Оценок | Рейтинг | Приложение | Гео | Версия от |
 |---|---|---|---|---|
-| 14,722 | 2.9 | [UPS](https://apps.apple.com/se/app/ups/id336377331?uo=4) | se | 2026-10-23 |
-| 8,440 | 3.5 | [Telegram Messenger](https://apps.apple.com/sg/app/telegram-messenger/id686449807?uo=4) | sg | 2026-10-29 |
-| 8,440 | 3.5 | [Telegram Messenger](https://apps.apple.com/sg/app/telegram-messenger/id686449807?uo=4) | sg | 2026-10-29 |
-| 8,440 | 3.5 | [Telegram Messenger](https://apps.apple.com/sg/app/telegram-messenger/id686449807?uo=4) | sg | 2026-10-29 |
-| 6,783 | 3.2 | [UPS](https://apps.apple.com/dk/app/ups/id336377331?uo=4) | dk | 2026-10-23 |
-| 4,038 | 3.3 | [UPS](https://apps.apple.com/no/app/ups/id336377331?uo=4) | no | 2026-10-23 |
-| 3,810 | 4.0 | [DAZN: Stream Live Sports](https://apps.apple.com/dk/app/dazn-stream-live-sports/id1129523589?uo=4) | dk | 2026-10-28 |
-| 2,461 | 3.9 | [Google Translate](https://apps.apple.com/sg/app/google-translate/id414706506?uo=4) | sg | 2026-11-02 |
-| 2,461 | 3.9 | [Google Translate](https://apps.apple.com/sg/app/google-translate/id414706506?uo=4) | sg | 2026-11-02 |
-| 2,461 | 3.9 | [Google Translate](https://apps.apple.com/sg/app/google-translate/id414706506?uo=4) | sg | 2026-11-02 |
-| 2,372 | 3.9 | [GarageBand](https://apps.apple.com/sg/app/garageband/id408709785?uo=4) | sg | 2026-10-22 |
-| 2,114 | 3.4 | [Apple Store](https://apps.apple.com/se/app/apple-store/id375380948?uo=4) | se | 2026-07-22 |
-| 1,877 | 3.8 | [GarageBand](https://apps.apple.com/dk/app/garageband/id408709785?uo=4) | dk | 2026-10-22 |
-| 1,795 | 3.6 | [Apple Store](https://apps.apple.com/sg/app/apple-store/id375380948?uo=4) | sg | 2026-07-22 |
-| 1,543 | 2.5 | [SMHI Väder](https://apps.apple.com/se/app/smhi-v%C3%A4der/id437447379?uo=4) | se | 2026-09-01 |
+| 2,776,953 | 3.7 | [TikTok - Videos, Music & LIVE](https://apps.apple.com/sa/app/tiktok-videos-music-live/id835599320?uo=4) | sa | 2026-11-02 |
+| 2,776,953 | 3.7 | [TikTok - Videos, Music & LIVE](https://apps.apple.com/sa/app/tiktok-videos-music-live/id835599320?uo=4) | sa | 2026-11-02 |
+| 49,139 | 3.6 | [شرطة الأطفال - لعبة اتصال وهمي](https://apps.apple.com/sa/app/%D8%B4%D8%B1%D8%B7%D8%A9-%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%88%D9%87%D9%85%D9%8A/id913148751?uo=4) | sa | 2026-09-20 |
+| 21,167 | 3.6 | [نفاذ | NAFATH](https://apps.apple.com/sa/app/%D9%86%D9%81%D8%A7%D8%B0-nafath/id1598909871?uo=4) | sa | 2026-10-18 |
+| 20,322 | 3.3 | [Car Driving 2026 Traffic Racer](https://apps.apple.com/sa/app/car-driving-2026-traffic-racer/id1456304437?uo=4) | sa | 2026-01-26 |
+| 14,736 | 3.9 | [Truck Simulator : Ultimate](https://apps.apple.com/il/app/truck-simulator-ultimate/id1553900372?uo=4) | il | 2026-01-28 |
+| 9,943 | 3.7 | [Car Parking - Driving School](https://apps.apple.com/il/app/car-parking-driving-school/id1193550697?uo=4) | il | 2026-11-03 |
+| 9,943 | 3.7 | [Car Parking - Driving School](https://apps.apple.com/il/app/car-parking-driving-school/id1193550697?uo=4) | il | 2026-11-03 |
+| 9,734 | 3.9 | [Bus Simulator : Ultimate](https://apps.apple.com/il/app/bus-simulator-ultimate/id1461749632?uo=4) | il | 2026-05-22 |
+| 8,891 | 3.9 | [شرطة الأطفال - لعبة اتصال وهمي](https://apps.apple.com/ae/app/%D8%B4%D8%B1%D8%B7%D8%A9-%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%88%D9%87%D9%85%D9%8A/id913148751?uo=4) | ae | 2026-09-20 |
+| 7,806 | 3.6 | [Police Simulator: Patrol Cop](https://apps.apple.com/sa/app/police-simulator-patrol-cop/id6450002086?uo=4) | sa | 2026-10-19 |
+| 7,056 | 3.9 | [High School Driving Test 3D](https://apps.apple.com/sa/app/high-school-driving-test-3d/id966490697?uo=4) | sa | 2026-07-02 |
+| 5,185 | 3.6 | [Google 翻譯](https://apps.apple.com/hk/app/google-%E7%BF%BB%E8%AD%AF/id414706506?uo=4) | hk | 2026-11-02 |
+| 4,394 | 3.7 | [Applaydu: Talk & Play](https://apps.apple.com/il/app/applaydu-talk-play/id1476035637?uo=4) | il | 2026-11-02 |
+| 4,383 | 3.0 | [微博](https://apps.apple.com/hk/app/%E5%BE%AE%E5%8D%9A/id350962117?uo=4) | hk | 2026-10-29 |
 
 ## Легенда рисков
 
