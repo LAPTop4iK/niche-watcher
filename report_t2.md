@@ -1,4 +1,4 @@
-# Niche Decay Scan — 2026-11-04
+# Niche Decay Scan — 2026-11-05
 
 Зомби: версия старше 18 мес И оценок >= 500.
 Velocity — прирост оценок за 30 дней (нужны 2+ прогона с интервалом >= 7 дней).
@@ -10,92 +10,136 @@ Velocity — прирост оценок за 30 дней (нужны 2+ про�
 | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
 |---|---|---|---|---|---|---|---|---|
 
-| [Convert Image To PDF tools](https://apps.apple.com/sa/app/convert-image-to-pdf-tools/id1527885081?uo=4) | Abdullah Albalawi (1) | sa |  30461 | 4.5 | 2024-04-25 | 30 мес | n/a | 2026-10-12T13:07:59+00:00 (R60 ≥ 2, выборка RSS) |
-| [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/sa/app/muslim-muna-azkar-prayer-time/id1486560555?uo=4) | Sahiba Gulati (1) | sa |  15519 | 4.6 | 2024-04-24 | 30 мес | n/a | 2026-09-19T09:38:19+00:00 (R60 ≥ 1, выборка RSS) |
-| [Sibha سبحة](https://apps.apple.com/sa/app/sibha-%D8%B3%D8%A8%D8%AD%D8%A9/id981945441?uo=4) | Sameh Salama (1) | sa |   8103 | 4.6 | 2022-01-01 | 58 мес | n/a | 2026-08-18T14:38:41+00:00 (R60 ≥ 0, выборка RSS) |
-| [Video Master for Youtube](https://apps.apple.com/ae/app/video-master-for-youtube/id1500098621?uo=4) | Haruki Daunrodo (1) | ae |   6387 | 4.7 | 2024-11-25 | 23 мес | n/a | 2026-10-15T11:05:13+00:00 (R60 ≥ 1, выборка RSS) |
-| [לימוד תאוריה נוהג 2025](https://apps.apple.com/il/app/%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%A0%D7%95%D7%94%D7%92-2025/id794631390?uo=4) | Nahoum Huri (8) | il |   5666 | 4.2 | 2025-01-20 | 21 мес | n/a | 2026-10-13T03:31:59+00:00 (R60 ≥ 4, выборка RSS) |
-| [PrayWay: Western Wall Compass](https://apps.apple.com/il/app/prayway-western-wall-compass/id1141680325?uo=4) | Ethan Glick (2) | il |   5558 | 4.6 | 2020-06-04 | 77 мес | n/a | 2026-11-01T15:42:33+00:00 (R60 ≥ 44, выборка RSS) |
-| [Wallpapers HD & Themes for Me](https://apps.apple.com/sa/app/wallpapers-hd-themes-for-me/id749046891?uo=4) | Mosaic S.r.l. (6) | sa |   4902 | 4.6 | 2025-01-28 | 21 мес | n/a | 2024-10-17T10:57:35+00:00 (R60 ≥ 0, выборка RSS) |
-| [Slices: Relax Puzzle Game](https://apps.apple.com/sa/app/slices-relax-puzzle-game/id1263934706?uo=4) | AI GAMES FZ LLC (4) | sa |   4718 | 4.6 | 2024-02-27 | 32 мес | n/a | 2024-05-31T13:22:26+00:00 (R60 ≥ 0, выборка RSS) |
-| [Math Solver Homework helper](https://apps.apple.com/sa/app/math-solver-homework-helper/id1542525934?uo=4) | Nayer AbuAlSoud (1) | sa |   4210 | 4.4 | 2022-03-09 | 56 мес | n/a | 2024-02-19T00:24:07+00:00 (R60 ≥ 0, выборка RSS) |
-| [תאוריה - تيئوريا - Theory 2024](https://apps.apple.com/il/app/%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D8%AA%D9%8A%D8%A6%D9%88%D8%B1%D9%8A%D8%A7-theory-2024/id1317534953?uo=4) | UP System Business Sol (3) | il |   3855 | 4.4 | 2024-05-14 | 30 мес | n/a | 2024-06-11T10:07:13+00:00 (R60 ≥ 0, выборка RSS) |
-| [مصاريف](https://apps.apple.com/sa/app/%D9%85%D8%B5%D8%A7%D8%B1%D9%8A%D9%81/id463676434?uo=4) | SALLA APP COMPANY FOR  (1) | sa |   3395 | 4.6 | 2017-11-15 | 108 мес | n/a | 2026-10-25T19:17:25+00:00 (R60 ≥ 8, выборка RSS) |
-| [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/hk/app/%E5%85%A8%E8%83%BD%E6%8E%83%E6%8F%8F%E7%BF%BB%E8%AD%AF-%E5%9B%BE%E7%89%87%E8%BD%AC%E6%96%87%E5%AD%97%E6%8F%90%E5%8F%96%E7%BF%BB%E8%AF%91%E5%99%A8/id1362989622?uo=4) | 兴燕 曹 (2) | hk |   3136 | 4.8 | 2022-11-21 | 47 мес | n/a | 2026-10-24T10:34:32+00:00 (R60 ≥ 2, выборка RSS) |
-| [דפ"ר 90-הכנה לצו ראשון](https://apps.apple.com/il/app/%D7%93%D7%A4-%D7%A8-90-%D7%94%D7%9B%D7%A0%D7%94-%D7%9C%D7%A6%D7%95-%D7%A8%D7%90%D7%A9%D7%95%D7%9F/id954996010?uo=4) | Nahoum Huri (8) | il |   2988 | 4.1 | 2022-06-05 | 53 мес | n/a | - |
-| [Tasbeeh Counter - Pro](https://apps.apple.com/sa/app/tasbeeh-counter-pro/id6446180404?uo=4) | TARIK BULANIK (1) | sa |   2950 | 4.4 | 2023-04-04 | 43 мес | n/a | - |
-| [Rush Hour 3D: Car Game](https://apps.apple.com/ae/app/rush-hour-3d-car-game/id1535861636?uo=4) | AI GAMES FZ LLC (4) | ae |   2759 | 4.3 | 2024-12-18 | 23 мес | n/a | - |
-| [فطحل العرب - لعبة معلومات عامة](https://apps.apple.com/ae/app/%D9%81%D8%B7%D8%AD%D9%84-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8-%D9%84%D8%B9%D8%A8%D8%A9-%D9%85%D8%B9%D9%84%D9%88%D9%85%D8%A7%D8%AA-%D8%B9%D8%A7%D9%85%D8%A9/id1097968189?uo=4) | Finjan Games Ltd (2) | ae |   2621 | 4.7 | 2023-09-04 | 38 мес | n/a | - |
-| [مسبحة الكترونية](https://apps.apple.com/sa/app/%D9%85%D8%B3%D8%A8%D8%AD%D8%A9-%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9/id1160807236?uo=4) | Mohammed Nabil (1) | sa |   2247 | 4.5 | 2021-04-26 | 66 мес | n/a | - |
-| [لعبة اختبار الحماقة](https://apps.apple.com/sa/app/%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%AD%D9%85%D8%A7%D9%82%D8%A9/id1324069028?uo=4) | Eyad Al Shafei (1) | sa |   1910 | 4.4 | 2023-08-10 | 39 мес | n/a | - |
-| [節拍器 - 節奏 樂器](https://apps.apple.com/hk/app/%E7%AF%80%E6%8B%8D%E5%99%A8-%E7%AF%80%E5%A5%8F-%E6%A8%82%E5%99%A8/id559798172?uo=4) | Gismart Ltd (5) | hk |   1909 | 4.2 | 2024-06-26 | 28 мес | n/a | - |
-| [اختبار الغباء | أثبت أنك عبقري](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%BA%D8%A8%D8%A7%D8%A1-%D8%A3%D8%AB%D8%A8%D8%AA-%D8%A3%D9%86%D9%83-%D8%B9%D8%A8%D9%82%D8%B1%D9%8A/id942404315?uo=4) | Tamatem Inc. (2) | sa |   1810 | 4.4 | 2020-10-12 | 73 мес | n/a | - |
-| [Offroad Car Simulator 2024](https://apps.apple.com/il/app/offroad-car-simulator-2024/id1578165378?uo=4) | RAPTY SOFT SRL (2) | il |   1802 | 3.5 | 2025-03-28 | 19 мес | n/a | - |
-| [حساب الخصم](https://apps.apple.com/sa/app/%D8%AD%D8%B3%D8%A7%D8%A8-%D8%A7%D9%84%D8%AE%D8%B5%D9%85/id699689993?uo=4) | Omar Mussa (1) | sa |   1728 | 4.7 | 2025-01-13 | 22 мес | n/a | - |
-| [لعبة تحدي صقور - العاب اونلاين](https://apps.apple.com/sa/app/%D9%84%D8%B9%D8%A8%D8%A9-%D8%AA%D8%AD%D8%AF%D9%8A-%D8%B5%D9%82%D9%88%D8%B1-%D8%A7%D9%84%D8%B9%D8%A7%D8%A8-%D8%A7%D9%88%D9%86%D9%84%D8%A7%D9%8A%D9%86/id1227519431?uo=4) | Masaabeh Games (1) | sa |   1726 | 3.8 | 2023-03-01 | 44 мес | n/a | - |
-| [MyFatoorah   ماي فاتورة](https://apps.apple.com/sa/app/myfatoorah-%D9%85%D8%A7%D9%8A-%D9%81%D8%A7%D8%AA%D9%88%D8%B1%D8%A9/id1397541744?uo=4) | MyFatoorah (1) | sa |   1718 | 4.4 | 2025-03-25 | 19 мес | n/a | - |
-| [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/ae/app/muslim-muna-azkar-prayer-time/id1486560555?uo=4) | Sahiba Gulati (1) | ae |   1702 | 4.7 | 2024-04-24 | 30 мес | n/a | - |
-| [Facekit AI](https://apps.apple.com/sa/app/facekit-ai/id1491764607?uo=4) | KYR TEKNOLOJI LIMITED  (1) | sa |   1608 | 4.0 | 2020-03-24 | 79 мес | n/a | - |
-| [القرآن الكريم منبه الصلاة و القبلة](https://apps.apple.com/sa/app/%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85-%D9%85%D9%86%D8%A8%D9%87-%D8%A7%D9%84%D8%B5%D9%84%D8%A7%D8%A9-%D9%88-%D8%A7%D9%84%D9%82%D8%A8%D9%84%D8%A9-%D9%88-%D9%82%D8%B1%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D8%B9%D9%8A%D9%82%D9%84%D9%8A/id880012069?uo=4) | Saed Hamdan (1) | sa |   1602 | 4.5 | 2017-04-08 | 115 мес | n/a | - |
-| [Teo - לימוד תאוריה - תאו](https://apps.apple.com/il/app/teo-%D7%9C%D7%99%D7%9E%D7%95%D7%93-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%AA%D7%90%D7%95/id1352838102?uo=4) | tesla rol (1) | il |   1586 | 4.2 | 2018-11-01 | 96 мес | n/a | - |
-| [تحويل التاريخ](https://apps.apple.com/sa/app/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE/id683824799?uo=4) | Abdulmajeed Alshatri (1) | sa |   1405 | 4.7 | 2024-09-07 | 26 мес | n/a | - |
-| [识花神器-形色](https://apps.apple.com/hk/app/%E8%AF%86%E8%8A%B1%E7%A5%9E%E5%99%A8-%E5%BD%A2%E8%89%B2/id1387854964?uo=4) | 阳杰 刘 (1) | hk |   1397 | 4.5 | 2019-05-22 | 89 мес | n/a | - |
-| [اختبار الغباء ٢](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%A7%D9%84%D8%BA%D8%A8%D8%A7%D8%A1-%D9%A2/id958675100?uo=4) | Tamatem Inc. (2) | sa |   1388 | 4.3 | 2015-03-09 | 140 мес | n/a | - |
-| [Water reminder & drink tracker](https://apps.apple.com/il/app/water-reminder-drink-tracker/id1417038587?uo=4) | Wachanga LTD (6) | il |   1294 | 4.6 | 2022-05-22 | 53 мес | n/a | - |
-| [植物识别-拍照识花草树木](https://apps.apple.com/hk/app/%E6%A4%8D%E7%89%A9%E8%AF%86%E5%88%AB-%E6%8B%8D%E7%85%A7%E8%AF%86%E8%8A%B1%E8%8D%89%E6%A0%91%E6%9C%A8/id1295026074?uo=4) | 地云 王 (1) | hk |   1292 | 4.6 | 2021-04-27 | 66 мес | n/a | - |
-| [Dua & Azkar](https://apps.apple.com/sa/app/dua-azkar/id454430015?uo=4) | Ahsanul Haque (1) | sa |   1222 | 4.8 | 2025-03-12 | 20 мес | n/a | - |
-| [Sibha سبحة](https://apps.apple.com/ae/app/sibha-%D8%B3%D8%A8%D8%AD%D8%A9/id981945441?uo=4) | Sameh Salama (1) | ae |   1183 | 4.8 | 2022-01-01 | 58 мес | n/a | - |
-| [植物识别-认识花草识别植物](https://apps.apple.com/hk/app/%E6%A4%8D%E7%89%A9%E8%AF%86%E5%88%AB-%E8%AE%A4%E8%AF%86%E8%8A%B1%E8%8D%89%E8%AF%86%E5%88%AB%E6%A4%8D%E7%89%A9/id1364832773?uo=4) | Shanghai Quentin netwo (4) | hk |   1090 | 4.5 | 2022-05-11 | 54 мес | n/a | - |
-| [نظرية التعلم - תאוריה בערבית](https://apps.apple.com/il/app/%D9%86%D8%B8%D8%B1%D9%8A%D8%A9-%D8%A7%D9%84%D8%AA%D8%B9%D9%84%D9%85-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94-%D7%91%D7%A2%D7%A8%D7%91%D7%99%D7%AA/id1018875600?uo=4) | Nahoum Huri (8) | il |   1082 | 4.4 | 2017-10-19 | 109 мес | n/a | - |
-| [MuCharm ميوتشارم Home Shopping](https://apps.apple.com/sa/app/mucharm-%D9%85%D9%8A%D9%88%D8%AA%D8%B4%D8%A7%D8%B1%D9%85-home-shopping/id1322836266?uo=4) | JAVIS Holdings Limited (1) | sa |   1008 | 4.0 | 2022-05-25 | 53 мес | n/a | - |
-| [MyFatoorah   ماي فاتورة](https://apps.apple.com/ae/app/myfatoorah-%D9%85%D8%A7%D9%8A-%D9%81%D8%A7%D8%AA%D9%88%D8%B1%D8%A9/id1397541744?uo=4) | MyFatoorah (1) | ae |    851 | 4.6 | 2025-03-25 | 19 мес | n/a | - |
-| [Qibla +](https://apps.apple.com/sa/app/qibla/id1475861567?uo=4) | Abdulelah Hajjar (1) | sa |    839 | 4.5 | 2020-06-02 | 77 мес | n/a | - |
-| [健康AI：卡路里計算機和減肥增肌工具](https://apps.apple.com/hk/app/%E5%81%A5%E5%BA%B7ai-%E5%8D%A1%E8%B7%AF%E9%87%8C%E8%A8%88%E7%AE%97%E6%A9%9F%E5%92%8C%E6%B8%9B%E8%82%A5%E5%A2%9E%E8%82%8C%E5%B7%A5%E5%85%B7/id6740817413?uo=4) | XonLabs Limited (1) | hk |    830 | 4.7 | 2025-03-10 | 20 мес | n/a | - |
-| [KIA證件照製作-美顏自拍智能證件照換底色相機護照身份證件](https://apps.apple.com/hk/app/kia%E8%AD%89%E4%BB%B6%E7%85%A7%E8%A3%BD%E4%BD%9C-%E7%BE%8E%E9%A1%8F%E8%87%AA%E6%8B%8D%E6%99%BA%E8%83%BD%E8%AD%89%E4%BB%B6%E7%85%A7%E6%8F%9B%E5%BA%95%E8%89%B2%E7%9B%B8%E6%A9%9F%E8%AD%B7%E7%85%A7%E8%BA%AB%E4%BB%BD%E8%AD%89%E4%BB%B6/id1459017173?uo=4) | S Woo (1) | hk |    828 | 4.6 | 2023-12-19 | 35 мес | n/a | - |
-| [اختبار رخصة القيادة السعودي](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%B1%D8%AE%D8%B5%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A/id6474456531?uo=4) | Hadeel Aljarrah (1) | sa |    827 | 4.6 | 2024-05-20 | 30 мес | n/a | - |
-| [MagicWidgets - Photo Widgets](https://apps.apple.com/sa/app/magicwidgets-photo-widgets/id1533414094?uo=4) | DXPLORER TECHNOLOGY LI (1) | sa |    824 | 4.5 | 2024-09-25 | 25 мес | n/a | - |
-| [السبحة الإلكترونية - اذكر الله](https://apps.apple.com/sa/app/%D8%A7%D9%84%D8%B3%D8%A8%D8%AD%D8%A9-%D8%A7%D9%84%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9-%D8%A7%D8%B0%D9%83%D8%B1-%D8%A7%D9%84%D9%84%D9%87/id381854946?uo=4) | Tamer Abdel-Baset (2) | sa |    819 | 4.5 | 2024-04-09 | 31 мес | n/a | - |
-| [Convert Image To PDF tools](https://apps.apple.com/ae/app/convert-image-to-pdf-tools/id1527885081?uo=4) | Abdullah Albalawi (1) | ae |    815 | 4.5 | 2024-04-25 | 30 мес | n/a | - |
-| [Period tracker, calendar](https://apps.apple.com/sa/app/period-tracker-calendar/id1522679787?uo=4) | Marina Berezina (1) | sa |    784 | 4.3 | 2023-12-27 | 34 мес | n/a | - |
-| [+ تحويل الفيديو الى ام بي ثري](https://apps.apple.com/sa/app/%D8%AA%D8%AD%D9%88%D9%8A%D9%84-%D8%A7%D9%84%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D8%A7%D9%84%D9%89-%D8%A7%D9%85-%D8%A8%D9%8A-%D8%AB%D8%B1%D9%8A/id1071398940?uo=4) | Novix Technology Inc. (1) | sa |    783 | 4.3 | 2018-10-19 | 97 мес | n/a | - |
-| [Al-Moazin](https://apps.apple.com/sa/app/al-moazin/id637678038?uo=4) | Parfield Software, S.A (1) | sa |    721 | 4.0 | 2018-03-29 | 103 мес | n/a | - |
-| [Car Driving School Sim 2024](https://apps.apple.com/il/app/car-driving-school-sim-2024/id1612666094?uo=4) | BIMBIS SOFTWARE SRL (1) | il |    711 | 3.5 | 2025-01-13 | 22 мес | n/a | - |
-| [度量衡換算+](https://apps.apple.com/hk/app/%E5%BA%A6%E9%87%8F%E8%A1%A1%E6%8F%9B%E7%AE%97/id573539093?uo=4) | Biggo Limited (1) | hk |    709 | 4.6 | 2023-06-23 | 40 мес | n/a | - |
-| [Metronome - Rhythm & Tap Tempo](https://apps.apple.com/sa/app/metronome-rhythm-tap-tempo/id559798172?uo=4) | Gismart Ltd (5) | sa |    688 | 4.2 | 2024-06-26 | 28 мес | n/a | - |
-| [花卉识别-拍图像识别花花草草](https://apps.apple.com/hk/app/%E8%8A%B1%E5%8D%89%E8%AF%86%E5%88%AB-%E6%8B%8D%E5%9B%BE%E5%83%8F%E8%AF%86%E5%88%AB%E8%8A%B1%E8%8A%B1%E8%8D%89%E8%8D%89/id1385981273?uo=4) | Shanghai Quentin netwo (4) | hk |    679 | 4.5 | 2022-05-10 | 54 мес | n/a | - |
-| [דרך תאוריה](https://apps.apple.com/il/app/%D7%93%D7%A8%D7%9A-%D7%AA%D7%90%D7%95%D7%A8%D7%99%D7%94/id1470032905?uo=4) | Shay Barak (2) | il |    676 | 4.5 | 2025-04-07 | 19 мес | n/a | - |
-| [Photo PDF: Converter & Printer](https://apps.apple.com/sa/app/photo-pdf-converter-printer/id1555702588?uo=4) | Fitness Labs SRL (3) | sa |    657 | 4.4 | 2025-03-19 | 20 мес | n/a | - |
-| [Hadith حديث‎ - Sahih Bukhari](https://apps.apple.com/sa/app/hadith-%D8%AD%D8%AF%D9%8A%D8%AB-sahih-bukhari/id578547597?uo=4) | Pakistan Data Manageme (2) | sa |    655 | 4.5 | 2024-10-17 | 25 мес | n/a | - |
-| [Password Manager - Safe Lock](https://apps.apple.com/ae/app/password-manager-safe-lock/id1464513090?uo=4) | AppRover (4) | ae |    655 | 4.4 | 2024-08-20 | 26 мес | n/a | - |
-| [Calculator for Pad](https://apps.apple.com/sa/app/calculator-for-pad/id1494441803?uo=4) | Beijing Free Sight Tec (1) | sa |    654 | 3.9 | 2023-01-12 | 46 мес | n/a | - |
-| [吉他調音器 - 调音器 用于您的原 声吉他 和 电吉他](https://apps.apple.com/hk/app/%E5%90%89%E4%BB%96%E8%AA%BF%E9%9F%B3%E5%99%A8-%E8%B0%83%E9%9F%B3%E5%99%A8-%E7%94%A8%E4%BA%8E%E6%82%A8%E7%9A%84%E5%8E%9F-%E5%A3%B0%E5%90%89%E4%BB%96-%E5%92%8C-%E7%94%B5%E5%90%89%E4%BB%96/id662890455?uo=4) | Gismart Ltd (5) | hk |    564 | 4.5 | 2024-08-15 | 27 мес | n/a | - |
-| [Hadith حديث‎ - Sahih Bukhari](https://apps.apple.com/ae/app/hadith-%D8%AD%D8%AF%D9%8A%D8%AB-sahih-bukhari/id578547597?uo=4) | Pakistan Data Manageme (2) | ae |    522 | 4.7 | 2024-10-17 | 25 мес | n/a | - |
-| [Tuner Lite by Piascore](https://apps.apple.com/hk/app/tuner-lite-by-piascore/id635828559?uo=4) | Piascore, Inc. (2) | hk |    511 | 4.2 | 2025-04-24 | 18 мес | n/a | - |
+| [Water Time Tracker Reminder](https://apps.apple.com/ru/app/water-time-tracker-reminder/id1208916325?uo=4) | Roman Nikolaev (1) | ru |  38303 | 4.8 | 2024-09-04 | 26 мес | n/a | 2026-10-27T17:50:41+00:00 (R60 ≥ 11, выборка RSS) |
+| [Купи батон! - Список покупок](https://apps.apple.com/ru/app/%D0%BA%D1%83%D0%BF%D0%B8-%D0%B1%D0%B0%D1%82%D0%BE%D0%BD-%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BF%D0%BE%D0%BA%D1%83%D0%BF%D0%BE%D0%BA/id491297400?uo=4) | BUZZWORTHY VIBE COMPAN (1) | ru |  30407 | 4.8 | 2023-12-05 | 35 мес | n/a | 2026-10-22T01:39:09+00:00 (R60 ≥ 4, выборка RSS) |
+| [Filterra Фото Редактор Эффекты](https://apps.apple.com/ru/app/filterra-%D1%84%D0%BE%D1%82%D0%BE-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%BE%D1%80-%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82%D1%8B/id951704333?uo=4) | IRONTECH LIMITED (1) | ru |  27548 | 4.6 | 2023-04-20 | 43 мес | n/a | 2021-10-09T16:05:49+00:00 (R60 ≥ 0, выборка RSS) |
+| [Слушай аудиокниги.](https://apps.apple.com/ru/app/%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9-%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id1053906305?uo=4) | POSITEH LLC (1) | ru |  25837 | 4.8 | 2024-04-26 | 30 мес | n/a | 2026-04-22T18:46:58+00:00 (R60 ≥ 0, выборка RSS) |
+| [KyBook 2 Читалка для книг](https://apps.apple.com/ru/app/kybook-2-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BA%D0%BD%D0%B8%D0%B3/id1018584176?uo=4) | Konstantin Bukreev (3) | ru |  18668 | 4.7 | 2018-12-18 | 95 мес | n/a | 2026-09-25T12:43:44+00:00 (R60 ≥ 2, выборка RSS) |
+| [Ежедневник Твое Время заметки](https://apps.apple.com/ru/app/%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA-%D1%82%D0%B2%D0%BE%D0%B5-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D0%B7%D0%B0%D0%BC%D0%B5%D1%82%D0%BA%D0%B8/id958956475?uo=4) | Konstantin Baryshev (2) | ru |  16265 | 4.8 | 2022-08-10 | 51 мес | n/a | 2026-10-19T18:34:04+00:00 (R60 ≥ 4, выборка RSS) |
+| [Намаз в дом — namazvdom.com](https://apps.apple.com/ru/app/%D0%BD%D0%B0%D0%BC%D0%B0%D0%B7-%D0%B2-%D0%B4%D0%BE%D0%BC-namazvdom-com/id1081876482?uo=4) | Anvarbek Baimurzaev (1) | ru |  16052 | 4.9 | 2024-03-21 | 32 мес | n/a | 2026-10-19T16:36:04+00:00 (R60 ≥ 1, выборка RSS) |
+| [Переводчик: Игра для Собак](https://apps.apple.com/ru/app/%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B4%D1%87%D0%B8%D0%BA-%D0%B8%D0%B3%D1%80%D0%B0-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BE%D0%B1%D0%B0%D0%BA/id1209845479?uo=4) | Dima Komar (1) | ru |  15982 | 4.6 | 2022-03-12 | 56 мес | n/a | 2026-11-02T08:43:07+00:00 (R60 ≥ 8, выборка RSS) |
+| [Пианино - Песни без лимита](https://apps.apple.com/ru/app/%D0%BF%D0%B8%D0%B0%D0%BD%D0%B8%D0%BD%D0%BE-%D0%BF%D0%B5%D1%81%D0%BD%D0%B8-%D0%B1%D0%B5%D0%B7-%D0%BB%D0%B8%D0%BC%D0%B8%D1%82%D0%B0/id890740165?uo=4) | Yokee Music LTD (2) | ru |  15900 | 4.7 | 2024-07-22 | 27 мес | n/a | 2026-10-30T09:01:04+00:00 (R60 ≥ 1, выборка RSS) |
+| [ПДД 2020 Билеты, Экзамен ГИБДД](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-2020-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4/id1445198573?uo=4) | Mutludev L.L.C-FZ (1) | ru |  13927 | 4.8 | 2020-05-21 | 78 мес | n/a | - |
+| [Звуки Слов - слушай аудиокниги](https://apps.apple.com/ru/app/%D0%B7%D0%B2%D1%83%D0%BA%D0%B8-%D1%81%D0%BB%D0%BE%D0%B2-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9-%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id1061992624?uo=4) | Zhivaya Biblioteka OOO (2) | ru |  13067 | 4.5 | 2020-11-06 | 72 мес | n/a | 2026-05-10T16:40:32+00:00 (R60 ≥ 0, выборка RSS) |
+| [Учет калорий и воды](https://apps.apple.com/ru/app/%D1%83%D1%87%D0%B5%D1%82-%D0%BA%D0%B0%D0%BB%D0%BE%D1%80%D0%B8%D0%B9-%D0%B8-%D0%B2%D0%BE%D0%B4%D1%8B/id1383374984?uo=4) | Oleg Ponomarev (1) | ru |  12904 | 4.9 | 2018-09-25 | 97 мес | n/a | 2026-09-15T07:05:30+00:00 (R60 ≥ 1, выборка RSS) |
+| [Антирадар Стрелка](https://apps.apple.com/ru/app/%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%B4%D0%B0%D1%80-%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0/id606147643?uo=4) | Vitaly Shmuradko (2) | ru |  12826 | 4.7 | 2022-10-03 | 49 мес | n/a | - |
+| [폰테마샵 - 카톡테마메이커](https://apps.apple.com/kr/app/%ED%8F%B0%ED%85%8C%EB%A7%88%EC%83%B5-%EC%B9%B4%ED%86%A1%ED%85%8C%EB%A7%88%EB%A9%94%EC%9D%B4%EC%BB%A4/id960991407?uo=4) | jung myungwon (1) | kr |  11998 | 4.2 | 2022-05-10 | 54 мес | n/a | - |
+| [Аудиокниги - Без Интернета](https://apps.apple.com/ru/app/%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%B1%D0%B5%D0%B7-%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D0%BD%D0%B5%D1%82%D0%B0/id1440270233?uo=4) | AB PABLISHING TREID, O (1) | ru |  11955 | 4.7 | 2024-01-17 | 34 мес | n/a | - |
+| [Аудиокниги и Книги Онлайн](https://apps.apple.com/ru/app/%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%B8-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id431517703?uo=4) | Daidzhest Media, OOO (1) | ru |   9889 | 4.5 | 2024-01-18 | 34 мес | n/a | - |
+| [순산해요](https://apps.apple.com/kr/app/%EC%88%9C%EC%82%B0%ED%95%B4%EC%9A%94/id1056415219?uo=4) | AHN YOONJI (2) | kr |   9349 | 4.9 | 2025-04-05 | 19 мес | n/a | - |
+| [Creepy Neighbor: Детектор Лжи](https://apps.apple.com/ru/app/creepy-neighbor-%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%BB%D0%B6%D0%B8/id1212159586?uo=4) | Denis Batishchev (4) | ru |   8821 | 4.5 | 2024-11-05 | 24 мес | n/a | - |
+| [Открой одно фото плюс](https://apps.apple.com/ru/app/%D0%BE%D1%82%D0%BA%D1%80%D0%BE%D0%B9-%D0%BE%D0%B4%D0%BD%D0%BE-%D1%84%D0%BE%D1%82%D0%BE-%D0%BF%D0%BB%D1%8E%D1%81/id626030085?uo=4) | Maribou Inc. (3) | ru |   8414 | 4.7 | 2021-06-25 | 64 мес | n/a | - |
+| [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/%D0%B5%D0%B6%D0%B5%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA-%D0%BF%D0%BB%D0%B0%D0%BD%D0%B5%D1%80-%D0%B4%D0%B5%D0%BB-listbox/id854413387?uo=4) | Dmitriy Biserov (1) | ru |   8267 | 4.6 | 2024-09-28 | 25 мес | n/a | - |
+| [Дневник Малыша: сон ребенка](https://apps.apple.com/ru/app/%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA-%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%B0-%D1%81%D0%BE%D0%BD-%D1%80%D0%B5%D0%B1%D0%B5%D0%BD%D0%BA%D0%B0/id985523028?uo=4) | Pavel Krivushenkov (1) | ru |   8135 | 4.9 | 2023-01-26 | 45 мес | n/a | - |
+| [KyBook 3 Читалка для книг](https://apps.apple.com/ru/app/kybook-3-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BA%D0%BD%D0%B8%D0%B3/id1348198785?uo=4) | Konstantin Bukreev (3) | ru |   8125 | 4.7 | 2019-02-23 | 92 мес | n/a | - |
+| [iPad 용 계산기](https://apps.apple.com/kr/app/ipad-%EC%9A%A9-%EA%B3%84%EC%82%B0%EA%B8%B0/id443932954?uo=4) | 7th Gear (2) | kr |   7948 | 4.6 | 2020-12-09 | 71 мес | n/a | - |
+| [PhotoMix: коллаж репост сетка](https://apps.apple.com/ru/app/photomix-%D0%BA%D0%BE%D0%BB%D0%BB%D0%B0%D0%B6-%D1%80%D0%B5%D0%BF%D0%BE%D1%81%D1%82-%D1%81%D0%B5%D1%82%D0%BA%D0%B0/id1055010795?uo=4) | Vadim Gladkikh (2) | ru |   7843 | 4.8 | 2024-07-16 | 28 мес | n/a | - |
+| [Курс валют и нефти: Конвертер](https://apps.apple.com/ru/app/%D0%BA%D1%83%D1%80%D1%81-%D0%B2%D0%B0%D0%BB%D1%8E%D1%82-%D0%B8-%D0%BD%D0%B5%D1%84%D1%82%D0%B8-%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B5%D1%80/id1022760167?uo=4) | Vitalii Gryniuk (1) | ru |   7481 | 4.8 | 2024-12-16 | 23 мес | n/a | - |
+| [текст и надписи на фото](https://apps.apple.com/ru/app/%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B8-%D0%BD%D0%B0%D0%B4%D0%BF%D0%B8%D1%81%D0%B8-%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE/id1471555670?uo=4) | SCRL AB (1) | ru |   7101 | 4.8 | 2024-04-30 | 30 мес | n/a | - |
+| [Smart Driver - Антирадар ГИБДД](https://apps.apple.com/ru/app/smart-driver-%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%B4%D0%B0%D1%80-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4/id866980876?uo=4) | Reactive Phone Ltd. (3) | ru |   6815 | 4.4 | 2024-02-14 | 33 мес | n/a | - |
+| [Книги Онлайн Читать и Скачать](https://apps.apple.com/ru/app/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C-%D0%B8-%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C/id1361617771?uo=4) | OOO "Creative Job" (1) | ru |   6805 | 4.6 | 2024-01-23 | 33 мес | n/a | - |
+| [Ретро Камера: Фильтры для Фото](https://apps.apple.com/ru/app/%D1%80%D0%B5%D1%82%D1%80%D0%BE-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D0%B0-%D1%84%D0%B8%D0%BB%D1%8C%D1%82%D1%80%D1%8B-%D0%B4%D0%BB%D1%8F-%D1%84%D0%BE%D1%82%D0%BE/id298796414?uo=4) | BrainCake Inc. (1) | ru |   6780 | 4.7 | 2022-02-01 | 57 мес | n/a | - |
+| [Православная Библия + Молитвослов](https://apps.apple.com/ru/app/%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F-%D0%B1%D0%B8%D0%B1%D0%BB%D0%B8%D1%8F-%D0%BC%D0%BE%D0%BB%D0%B8%D1%82%D0%B2%D0%BE%D1%81%D0%BB%D0%BE%D0%B2/id690412477?uo=4) | ARTFOND, TOV (1) | ru |   6736 | 4.8 | 2015-02-04 | 141 мес | n/a | - |
+| [KyBook - EPub,FB2,PDF,DjVu Читалка](https://apps.apple.com/ru/app/kybook-epub-fb2-pdf-djvu-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D0%B0/id673027171?uo=4) | Konstantin Bukreev (3) | ru |   6732 | 4.6 | 2016-06-03 | 125 мес | n/a | - |
+| [Калькулятор++](https://apps.apple.com/ru/app/%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80/id443932954?uo=4) | 7th Gear (2) | ru |   6637 | 4.7 | 2020-12-09 | 71 мес | n/a | - |
+| [VENTOY - 벤토이 가계부](https://apps.apple.com/kr/app/ventoy-%EB%B2%A4%ED%86%A0%EC%9D%B4-%EA%B0%80%EA%B3%84%EB%B6%80/id1059378863?uo=4) | jiwon seo (1) | kr |   6313 | 4.8 | 2018-01-07 | 106 мес | n/a | - |
+| [ИПОТЕКА: расчет платежа](https://apps.apple.com/ru/app/%D0%B8%D0%BF%D0%BE%D1%82%D0%B5%D0%BA%D0%B0-%D1%80%D0%B0%D1%81%D1%87%D0%B5%D1%82-%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B0/id1288072079?uo=4) | IT-Effect Limited Liab (1) | ru |   6010 | 4.7 | 2023-08-29 | 38 мес | n/a | - |
+| [Возраст Сканер 2017](https://apps.apple.com/ru/app/%D0%B2%D0%BE%D0%B7%D1%80%D0%B0%D1%81%D1%82-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80-2017/id1292316109?uo=4) | Dmitry Li (1) | ru |   5434 | 4.2 | 2018-12-01 | 95 мес | n/a | - |
+| [Вода и напоминание пить воду](https://apps.apple.com/ru/app/%D0%B2%D0%BE%D0%B4%D0%B0-%D0%B8-%D0%BD%D0%B0%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B8%D1%82%D1%8C-%D0%B2%D0%BE%D0%B4%D1%83/id1417038587?uo=4) | Wachanga LTD (5) | ru |   5140 | 4.8 | 2022-05-22 | 53 мес | n/a | - |
+| [Brick Builder: Spiral Roll](https://apps.apple.com/ru/app/brick-builder-spiral-roll/id1516222637?uo=4) | TapNation (1) | ru |   4733 | 4.6 | 2025-01-14 | 22 мес | n/a | - |
+| [Темы: Скины, Виджеты Иконки 15](https://apps.apple.com/ru/app/%D1%82%D0%B5%D0%BC%D1%8B-%D1%81%D0%BA%D0%B8%D0%BD%D1%8B-%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B-%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8-15/id1533047121?uo=4) | Cardiio, Inc. (1) | ru |   4518 | 4.2 | 2022-09-09 | 50 мес | n/a | - |
+| [Психология и тренинги - Книги](https://apps.apple.com/ru/app/%D0%BF%D1%81%D0%B8%D1%85%D0%BE%D0%BB%D0%BE%D0%B3%D0%B8%D1%8F-%D0%B8-%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D0%BD%D0%B3%D0%B8-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id499200558?uo=4) | LOUDBUK, OOO (2) | ru |   4465 | 4.5 | 2025-02-24 | 20 мес | n/a | - |
+| [Прогноз клева - ТипТоп Рыбалка](https://apps.apple.com/ru/app/%D0%BF%D1%80%D0%BE%D0%B3%D0%BD%D0%BE%D0%B7-%D0%BA%D0%BB%D0%B5%D0%B2%D0%B0-%D1%82%D0%B8%D0%BF%D1%82%D0%BE%D0%BF-%D1%80%D1%8B%D0%B1%D0%B0%D0%BB%D0%BA%D0%B0/id1436864578?uo=4) | Konstantin Breysler (2) | ru |   4290 | 4.8 | 2023-02-18 | 45 мес | n/a | - |
+| [Скорочтение IQ: ePub,fb2,DjVu](https://apps.apple.com/ru/app/%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%87%D1%82%D0%B5%D0%BD%D0%B8%D0%B5-iq-epub-fb2-djvu/id829759808?uo=4) | Dmitry Zaika (1) | ru |   4230 | 4.8 | 2024-09-11 | 26 мес | n/a | - |
+| [Save The Dog - Dog Escape](https://apps.apple.com/kr/app/save-the-dog-dog-escape/id1635971989?uo=4) | Fun Space Limited (1) | kr |   3874 | 3.9 | 2024-02-08 | 33 мес | n/a | - |
+| [Имена для ребенка русские](https://apps.apple.com/ru/app/%D0%B8%D0%BC%D0%B5%D0%BD%D0%B0-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B5%D0%B1%D0%B5%D0%BD%D0%BA%D0%B0-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B5/id1371573370?uo=4) | Wachanga LTD (5) | ru |   3773 | 4.7 | 2022-03-19 | 56 мес | n/a | - |
+| [메트로놈 - 연습 리듬, 박자 및 템포](https://apps.apple.com/kr/app/%EB%A9%94%ED%8A%B8%EB%A1%9C%EB%86%88-%EC%97%B0%EC%8A%B5-%EB%A6%AC%EB%93%AC-%EB%B0%95%EC%9E%90-%EB%B0%8F-%ED%85%9C%ED%8F%AC/id559798172?uo=4) | Gismart Ltd (3) | kr |   3696 | 4.2 | 2024-06-26 | 28 мес | n/a | - |
+| [Piano Academy by Yokee Music](https://apps.apple.com/ru/app/piano-academy-by-yokee-music/id1390574671?uo=4) | Yokee Music LTD (2) | ru |   3195 | 4.8 | 2024-07-30 | 27 мес | n/a | - |
+| [Книга вслух. Аудиокниги](https://apps.apple.com/ru/app/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B0-%D0%B2%D1%81%D0%BB%D1%83%D1%85-%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id449818886?uo=4) | Everbook,OOO (3) | ru |   3024 | 4.5 | 2023-03-01 | 44 мес | n/a | - |
+| [멍멍! 초성퀴즈 : 강아지 키우기](https://apps.apple.com/kr/app/%EB%A9%8D%EB%A9%8D-%EC%B4%88%EC%84%B1%ED%80%B4%EC%A6%88-%EA%B0%95%EC%95%84%EC%A7%80-%ED%82%A4%EC%9A%B0%EA%B8%B0/id1462724936?uo=4) | BUZZ POWDER INC. (1) | kr |   2965 | 4.3 | 2023-02-09 | 45 мес | n/a | - |
+| [Аудиокниги Слушай в Loudbook](https://apps.apple.com/ru/app/%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9-%D0%B2-loudbook/id454170409?uo=4) | LOUDBUK, OOO (2) | ru |   2746 | 4.4 | 2021-03-26 | 67 мес | n/a | - |
+| [iBouquiniste](https://apps.apple.com/ru/app/ibouquiniste/id527050465?uo=4) | Andrey Snetkov (2) | ru |   2670 | 4.7 | 2022-08-22 | 50 мес | n/a | - |
+| [Антирадар еСтрелка](https://apps.apple.com/ru/app/%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%B4%D0%B0%D1%80-%D0%B5%D1%81%D1%82%D1%80%D0%B5%D0%BB%D0%BA%D0%B0/id1544057500?uo=4) | Vitaly Shmuradko (2) | ru |   2464 | 4.7 | 2022-10-06 | 49 мес | n/a | - |
+| [Темы Айфон・Иконки Виджеты Обои](https://apps.apple.com/ru/app/%D1%82%D0%B5%D0%BC%D1%8B-%D0%B0%D0%B9%D1%84%D0%BE%D0%BD-%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8-%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B-%D0%BE%D0%B1%D0%BE%D0%B8/id1631090445?uo=4) | Artur Kolesnykov (1) | ru |   2420 | 4.6 | 2024-01-11 | 34 мес | n/a | - |
+| [Вода напоминание пить воду](https://apps.apple.com/ru/app/%D0%B2%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B8%D1%82%D1%8C-%D0%B2%D0%BE%D0%B4%D1%83/id1239191110?uo=4) | Olga Voronova (1) | ru |   2349 | 4.7 | 2021-04-13 | 67 мес | n/a | - |
+| [Учи ПДД: Курс Автошколы по ПДД](https://apps.apple.com/ru/app/%D1%83%D1%87%D0%B8-%D0%BF%D0%B4%D0%B4-%D0%BA%D1%83%D1%80%D1%81-%D0%B0%D0%B2%D1%82%D0%BE%D1%88%D0%BA%D0%BE%D0%BB%D1%8B-%D0%BF%D0%BE-%D0%BF%D0%B4%D0%B4/id1209789190?uo=4) | Igor Uspalenko (1) | ru |   2248 | 4.9 | 2023-06-29 | 40 мес | n/a | - |
+| [Совместимый калькулятор любви](https://apps.apple.com/ru/app/%D1%81%D0%BE%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%B8%D0%BC%D1%8B%D0%B9-%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8/id1120278276?uo=4) | Mireia Lluch Ortola (1) | ru |   2068 | 4.5 | 2023-09-18 | 38 мес | n/a | - |
+| [Погода: Россия XL  PRO](https://apps.apple.com/ru/app/%D0%BF%D0%BE%D0%B3%D0%BE%D0%B4%D0%B0-%D1%80%D0%BE%D1%81%D1%81%D0%B8%D1%8F-xl-pro/id990822895?uo=4) | exovoid sarl (1) | ru |   2052 | 4.6 | 2024-11-05 | 24 мес | n/a | - |
+| [Антирадар от камеры ГИБДД 2019](https://apps.apple.com/ru/app/%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%B4%D0%B0%D1%80-%D0%BE%D1%82-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80%D1%8B-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4-2019/id1466464973?uo=4) | Nikolay Zakharov (1) | ru |   2009 | 4.5 | 2019-07-03 | 88 мес | n/a | - |
+| [детектор металла и магнита](https://apps.apple.com/ru/app/%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%BC%D0%B5%D1%82%D0%B0%D0%BB%D0%BB%D0%B0-%D0%B8-%D0%BC%D0%B0%D0%B3%D0%BD%D0%B8%D1%82%D0%B0/id409682366?uo=4) | Giorgia De Giorgi (1) | ru |   1920 | 4.1 | 2024-07-31 | 27 мес | n/a | - |
+| [Дневник малыша: мама и ребенок](https://apps.apple.com/ru/app/%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA-%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%B0-%D0%BC%D0%B0%D0%BC%D0%B0-%D0%B8-%D1%80%D0%B5%D0%B1%D0%B5%D0%BD%D0%BE%D0%BA/id1449743680?uo=4) | Konstantin Chuprik (1) | ru |   1874 | 4.8 | 2019-06-19 | 89 мес | n/a | - |
+| [Фото-Фраза](https://apps.apple.com/ru/app/%D1%84%D0%BE%D1%82%D0%BE-%D1%84%D1%80%D0%B0%D0%B7%D0%B0/id654768679?uo=4) | Maribou Inc. (3) | ru |   1670 | 4.8 | 2024-08-01 | 27 мес | n/a | - |
+| [Рецепты на каждый день с видео](https://apps.apple.com/ru/app/%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-%D0%BA%D0%B0%D0%B6%D0%B4%D1%8B%D0%B9-%D0%B4%D0%B5%D0%BD%D1%8C-%D1%81-%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE/id1527407653?uo=4) | Sergei Fomichev (2) | ru |   1648 | 4.6 | 2025-03-07 | 20 мес | n/a | - |
+| [Лучшие аудиокниги — золотая коллек](https://apps.apple.com/ru/app/%D0%BB%D1%83%D1%87%D1%88%D0%B8%D0%B5-%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D0%B0%D1%8F-%D0%BA%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D1%8F-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9-%D0%B8-%D1%81%D0%BA%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%B9/id449587852?uo=4) | European Business Chal (5) | ru |   1540 | 4.9 | 2016-06-15 | 125 мес | n/a | - |
+| [Угадай Фото! ~ Игра в слова](https://apps.apple.com/ru/app/%D1%83%D0%B3%D0%B0%D0%B4%D0%B0%D0%B9-%D1%84%D0%BE%D1%82%D0%BE-%D0%B8%D0%B3%D1%80%D0%B0-%D0%B2-%D1%81%D0%BB%D0%BE%D0%B2%D0%B0/id970155050?uo=4) | Adriana-Maria Halmagea (1) | ru |   1470 | 4.3 | 2017-01-09 | 118 мес | n/a | - |
+| [2 фото 1 слово: угадай слово](https://apps.apple.com/ru/app/2-%D1%84%D0%BE%D1%82%D0%BE-1-%D1%81%D0%BB%D0%BE%D0%B2%D0%BE-%D1%83%D0%B3%D0%B0%D0%B4%D0%B0%D0%B9-%D1%81%D0%BB%D0%BE%D0%B2%D0%BE/id633278399?uo=4) | Maribou Inc. (3) | ru |   1462 | 4.8 | 2014-10-01 | 145 мес | n/a | - |
+| [Elementaree: продукты, рецепты](https://apps.apple.com/ru/app/elementaree-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B-%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D1%8B/id1480217900?uo=4) | ELEMENTARI-RESERCH, OO (1) | ru |   1455 | 4.0 | 2022-06-29 | 52 мес | n/a | - |
+| [Baby's day](https://apps.apple.com/kr/app/babys-day/id999252221?uo=4) | jeongil Park (1) | kr |   1340 | 4.8 | 2025-04-13 | 19 мес | n/a | - |
+| [tiReader: читалка для книг](https://apps.apple.com/ru/app/tireader-%D1%87%D0%B8%D1%82%D0%B0%D0%BB%D0%BA%D0%B0-%D0%B4%D0%BB%D1%8F-%D0%BA%D0%BD%D0%B8%D0%B3/id1276508285?uo=4) | Stanislav Polishchuk (1) | ru |   1237 | 4.7 | 2020-11-11 | 72 мес | n/a | - |
+| [MagicWidgets - Фото Виджеты](https://apps.apple.com/ru/app/magicwidgets-%D1%84%D0%BE%D1%82%D0%BE-%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B/id1533414094?uo=4) | DXPLORER TECHNOLOGY LI (3) | ru |   1220 | 4.4 | 2024-09-25 | 25 мес | n/a | - |
+| [Рецепты для детей: еда малышам](https://apps.apple.com/ru/app/%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D1%8B-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%B5%D1%82%D0%B5%D0%B9-%D0%B5%D0%B4%D0%B0-%D0%BC%D0%B0%D0%BB%D1%8B%D1%88%D0%B0%D0%BC/id1171368248?uo=4) | Valentin Buyanov (1) | ru |   1201 | 4.8 | 2025-04-10 | 19 мес | n/a | - |
+| [Depth Wallpaper & Live Effect](https://apps.apple.com/ru/app/depth-wallpaper-live-effect/id1265751053?uo=4) | Europos IT, UAB (1) | ru |   1137 | 4.3 | 2023-08-31 | 38 мес | n/a | - |
+| [Черные плитки 3](https://apps.apple.com/ru/app/%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BB%D0%B8%D1%82%D0%BA%D0%B8-3/id1149663635?uo=4) | Zhuhai Haole Technolog (2) | ru |   1134 | 3.8 | 2022-06-30 | 52 мес | n/a | - |
+| [iBouquiniste Lite](https://apps.apple.com/ru/app/ibouquiniste-lite/id533413623?uo=4) | Andrey Snetkov (2) | ru |   1104 | 4.3 | 2022-08-23 | 50 мес | n/a | - |
+| [Аудиокниги - Слушай Книги](https://apps.apple.com/ru/app/%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D0%B9-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id1601840731?uo=4) | Alexey Artamoshin (1) | ru |   1092 | 4.7 | 2024-02-07 | 33 мес | n/a | - |
+| [Циферблаты](https://apps.apple.com/ru/app/%D1%86%D0%B8%D1%84%D0%B5%D1%80%D0%B1%D0%BB%D0%B0%D1%82%D1%8B/id1502819074?uo=4) | Wisdomlogix Solutions  (1) | ru |   1071 | 4.7 | 2024-02-16 | 33 мес | n/a | - |
+| [Бизнес литература. Скачать книги и](https://apps.apple.com/ru/app/%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81-%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%B0-%D1%81%D0%BA%D0%B0%D1%87%D0%B0%D1%82%D1%8C-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D0%B8-%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id499197805?uo=4) | Dmitry Pimkin (1) | ru |   1035 | 4.5 | 2016-04-25 | 126 мес | n/a | - |
+| [셀핏 - 운동기록, 운동일지](https://apps.apple.com/kr/app/%EC%85%80%ED%95%8F-%EC%9A%B4%EB%8F%99%EA%B8%B0%EB%A1%9D-%EC%9A%B4%EB%8F%99%EC%9D%BC%EC%A7%80/id1532158186?uo=4) | SANG HYUK NAM (1) | kr |   1024 | 4.6 | 2024-03-18 | 32 мес | n/a | - |
+| [Жития православных святых](https://apps.apple.com/ru/app/%D0%B6%D0%B8%D1%82%D0%B8%D1%8F-%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D1%81%D0%B2%D1%8F%D1%82%D1%8B%D1%85/id1210018959?uo=4) | Andrey Fetisov (4) | ru |   1003 | 4.9 | 2019-02-26 | 92 мес | n/a | - |
+| [Лунный посевной календарь](https://apps.apple.com/ru/app/%D0%BB%D1%83%D0%BD%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D1%81%D0%B5%D0%B2%D0%BD%D0%BE%D0%B9-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C/id996500688?uo=4) | Vadim Presniak (1) | ru |    935 | 4.5 | 2021-11-06 | 60 мес | n/a | - |
+| [Sorted³ - Календарь Заметки](https://apps.apple.com/ru/app/sorted-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C-%D0%B7%D0%B0%D0%BC%D0%B5%D1%82%D0%BA%D0%B8/id1306893526?uo=4) | StaySorted Limited (1) | ru |    921 | 4.6 | 2024-10-15 | 25 мес | n/a | - |
+| [BigVoicy - Текст в речь](https://apps.apple.com/ru/app/bigvoicy-%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%B2-%D1%80%D0%B5%D1%87%D1%8C/id1547082859?uo=4) | Nikita Khromov (1) | ru |    853 | 4.3 | 2023-12-22 | 34 мес | n/a | - |
+| [Фото.редактор эффекты рамки](https://apps.apple.com/ru/app/%D1%84%D0%BE%D1%82%D0%BE-%D1%80%D0%B5%D0%B4%D0%B0%D0%BA%D1%82%D0%BE%D1%80-%D1%8D%D1%84%D1%84%D0%B5%D0%BA%D1%82%D1%8B-%D1%80%D0%B0%D0%BC%D0%BA%D0%B8/id1174914570?uo=4) | Iftikher Sultan (1) | ru |    831 | 4.5 | 2025-03-05 | 20 мес | n/a | - |
+| [Детектор Лжи по Отпечатку](https://apps.apple.com/ru/app/%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%BB%D0%B6%D0%B8-%D0%BF%D0%BE-%D0%BE%D1%82%D0%BF%D0%B5%D1%87%D0%B0%D1%82%D0%BA%D1%83/id1219798065?uo=4) | Denis Batishchev (4) | ru |    813 | 3.4 | 2024-03-12 | 32 мес | n/a | - |
+| [Счетчик - Учет и Подсчет Вещей](https://apps.apple.com/ru/app/%D1%81%D1%87%D0%B5%D1%82%D1%87%D0%B8%D0%BA-%D1%83%D1%87%D0%B5%D1%82-%D0%B8-%D0%BF%D0%BE%D0%B4%D1%81%D1%87%D0%B5%D1%82-%D0%B2%D0%B5%D1%89%D0%B5%D0%B9/id1470846305?uo=4) | Aleksandr Bichurin (1) | ru |    782 | 4.3 | 2021-08-19 | 63 мес | n/a | - |
+| [Аккорды - Песенник для гитары](https://apps.apple.com/ru/app/%D0%B0%D0%BA%D0%BA%D0%BE%D1%80%D0%B4%D1%8B-%D0%BF%D0%B5%D1%81%D0%B5%D0%BD%D0%BD%D0%B8%D0%BA-%D0%B4%D0%BB%D1%8F-%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D1%8B/id1182214432?uo=4) | Ivan Orlov (1) | ru |    773 | 4.3 | 2017-11-26 | 107 мес | n/a | - |
+| [Dog Hotel  играть с собаками](https://apps.apple.com/ru/app/dog-hotel-%D0%B8%D0%B3%D1%80%D0%B0%D1%82%D1%8C-%D1%81-%D1%81%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0%D0%BC%D0%B8/id930075795?uo=4) | Trophy Games Developme (1) | ru |    769 | 4.4 | 2024-09-17 | 26 мес | n/a | - |
+| [Шеф-повар – рецепты десертов](https://apps.apple.com/ru/app/%D1%88%D0%B5%D1%84-%D0%BF%D0%BE%D0%B2%D0%B0%D1%80-%D1%80%D0%B5%D1%86%D0%B5%D0%BF%D1%82%D1%8B-%D0%B4%D0%B5%D1%81%D0%B5%D1%80%D1%82%D0%BE%D0%B2/id1446070171?uo=4) | Les Placements R.A. In (3) | ru |    758 | 4.3 | 2023-07-22 | 39 мес | n/a | - |
+| [Guitar Tuner - GuitarTunio](https://apps.apple.com/ru/app/guitar-tuner-guitartunio/id1448661287?uo=4) | APPS NEMO COMPANY LIMI (2) | ru |    752 | 4.7 | 2023-01-16 | 46 мес | n/a | - |
+| [Православный церковный календарь 2](https://apps.apple.com/ru/app/%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%81%D0%BB%D0%B0%D0%B2%D0%BD%D1%8B%D0%B9-%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C-2017-2021/id1228829028?uo=4) | Andrey Fetisov (4) | ru |    734 | 4.8 | 2017-06-02 | 113 мес | n/a | - |
+| [삼시묵상](https://apps.apple.com/kr/app/%EC%82%BC%EC%8B%9C%EB%AC%B5%EC%83%81/id1533036054?uo=4) | GILNAM PARK (1) | kr |    729 | 4.9 | 2023-08-14 | 39 мес | n/a | - |
+| [ИМТ калькулятор](https://apps.apple.com/ru/app/%D0%B8%D0%BC%D1%82-%D0%BA%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80/id653425957?uo=4) | VisualHype GmbH (1) | ru |    723 | 4.7 | 2023-05-29 | 41 мес | n/a | - |
+| [Грудное вскармливание Дневник](https://apps.apple.com/ru/app/%D0%B3%D1%80%D1%83%D0%B4%D0%BD%D0%BE%D0%B5-%D0%B2%D1%81%D0%BA%D0%B0%D1%80%D0%BC%D0%BB%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BD%D0%B5%D0%B2%D0%BD%D0%B8%D0%BA/id838762361?uo=4) | VISPER ARTS OOO (2) | ru |    661 | 4.8 | 2024-11-18 | 24 мес | n/a | - |
+| [Flipping Legend](https://apps.apple.com/ru/app/flipping-legend/id1218046599?uo=4) | Noodlecake Studios Inc (1) | ru |    654 | 4.7 | 2023-03-02 | 44 мес | n/a | - |
+| [Бискотто: мобильный](https://apps.apple.com/ru/app/%D0%B1%D0%B8%D1%81%D0%BA%D0%BE%D1%82%D1%82%D0%BE-%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9/id1473129094?uo=4) | Tatiana Oblakova (1) | ru |    649 | 4.4 | 2019-09-22 | 85 мес | n/a | - |
+| [Циферблаты и обои для часов](https://apps.apple.com/ru/app/%D1%86%D0%B8%D1%84%D0%B5%D1%80%D0%B1%D0%BB%D0%B0%D1%82%D1%8B-%D0%B8-%D0%BE%D0%B1%D0%BE%D0%B8-%D0%B4%D0%BB%D1%8F-%D1%87%D0%B0%D1%81%D0%BE%D0%B2/id1482971107?uo=4) | Stanislav Klimenko (1) | ru |    648 | 4.7 | 2023-11-20 | 36 мес | n/a | - |
+| [Вода: Напоминание. Трекер Воды](https://apps.apple.com/ru/app/%D0%B2%D0%BE%D0%B4%D0%B0-%D0%BD%D0%B0%D0%BF%D0%BE%D0%BC%D0%B8%D0%BD%D0%B0%D0%BD%D0%B8%D0%B5-%D1%82%D1%80%D0%B5%D0%BA%D0%B5%D1%80-%D0%B2%D0%BE%D0%B4%D1%8B/id1116918691?uo=4) | Denis Prokopchuk (2) | ru |    643 | 4.4 | 2020-05-13 | 78 мес | n/a | - |
+| [ПДД билеты и экзамен 2021 2020](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D0%B8-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-2021-2020/id1524166490?uo=4) | Lenar Nasibullin (1) | ru |    612 | 4.8 | 2021-02-06 | 69 мес | n/a | - |
+| [Кулинарная викторина. Еда мира](https://apps.apple.com/ru/app/%D0%BA%D1%83%D0%BB%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%B0%D1%8F-%D0%B2%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B0-%D0%B5%D0%B4%D0%B0-%D0%BC%D0%B8%D1%80%D0%B0/id843737549?uo=4) | Aliaksandr Shakur (1) | ru |    611 | 4.8 | 2020-08-15 | 75 мес | n/a | - |
+| [Симулятор гитары - обучение](https://apps.apple.com/ru/app/%D1%81%D0%B8%D0%BC%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80-%D0%B3%D0%B8%D1%82%D0%B0%D1%80%D1%8B-%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/id1496572420?uo=4) | Appenvision Ltd (3) | ru |    578 | 4.1 | 2022-09-30 | 49 мес | n/a | - |
+| [Телесуфлер: суфлер для видео](https://apps.apple.com/ru/app/%D1%82%D0%B5%D0%BB%D0%B5%D1%81%D1%83%D1%84%D0%BB%D0%B5%D1%80-%D1%81%D1%83%D1%84%D0%BB%D0%B5%D1%80-%D0%B4%D0%BB%D1%8F-%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE/id1581622140?uo=4) | Alina Babitskaya (1) | ru |    558 | 4.1 | 2023-03-08 | 44 мес | n/a | - |
+| [История кафе 2](https://apps.apple.com/ru/app/%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8F-%D0%BA%D0%B0%D1%84%D0%B5-2/id814656403?uo=4) | Storm8 Studios LLC (1) | ru |    557 | 4.2 | 2018-02-08 | 105 мес | n/a | - |
+| [어썸 캘린더 - 일정관리/체크리스트/노트패드/날씨](https://apps.apple.com/kr/app/%EC%96%B4%EC%8D%B8-%EC%BA%98%EB%A6%B0%EB%8D%94-%EC%9D%BC%EC%A0%95%EA%B4%80%EB%A6%AC-%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%85%B8%ED%8A%B8%ED%8C%A8%EB%93%9C-%EB%82%A0%EC%94%A8/id480102733?uo=4) | YunaSoft Inc. (1) | kr |    553 | 4.2 | 2022-01-24 | 57 мес | n/a | - |
+| [Виджеты и иконки. Виджет 14](https://apps.apple.com/ru/app/%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B-%D0%B8-%D0%B8%D0%BA%D0%BE%D0%BD%D0%BA%D0%B8-%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82-14/id1533388692?uo=4) | Alexandr Shustov (1) | ru |    551 | 4.0 | 2021-01-19 | 70 мес | n/a | - |
+| [Суфлер с видео: Teletoto](https://apps.apple.com/ru/app/%D1%81%D1%83%D1%84%D0%BB%D0%B5%D1%80-%D1%81-%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE-teletoto/id1564639428?uo=4) | ANDRII ZDOR (1) | ru |    549 | 4.3 | 2025-02-27 | 20 мес | n/a | - |
+| [Аудиокниги слушать - Booklis](https://apps.apple.com/ru/app/%D0%B0%D1%83%D0%B4%D0%B8%D0%BE%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C-booklis/id1476385798?uo=4) | Yauheni Kuchuk (1) | ru |    521 | 4.5 | 2023-01-08 | 46 мес | n/a | - |
+| [Детектор лжи - игра-сканер](https://apps.apple.com/ru/app/%D0%B4%D0%B5%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80-%D0%BB%D0%B6%D0%B8-%D0%B8%D0%B3%D1%80%D0%B0-%D1%81%D0%BA%D0%B0%D0%BD%D0%B5%D1%80/id1606733866?uo=4) | Webrain OU (4) | ru |    505 | 4.4 | 2024-09-20 | 25 мес | n/a | - |
+| [Skyward](https://apps.apple.com/ru/app/skyward/id943273841?uo=4) | Ketchapp (2) | ru |    500 | 4.4 | 2015-08-21 | 135 мес | n/a | - |
 
 ## Watchlist (версия 9–18 мес, наблюдаю)
 
 | Приложение | Разработчик | Гео | Оценок | Рейтинг | Версия от | Без обновл. | Vel/30д | Посл. отзыв |
 |---|---|---|---|---|---|---|---|---|
-| [Tasbih Counter Lite: Dhikr App](https://apps.apple.com/sa/app/tasbih-counter-lite-dhikr-app/id1501329079?uo=4) | Deniz Duzbasti (1) | sa |  35654 | 4.6 | 2026-02-02 | 9 мес | n/a | - |
-| [Car Driving 2026 Traffic Racer](https://apps.apple.com/sa/app/car-driving-2026-traffic-racer/id1456304437?uo=4) | Xsa Software S.R.L. (2) | sa |  20322 | 3.3 | 2026-01-26 | 9 мес | n/a | - |
-| [حاسبة بلوت](https://apps.apple.com/sa/app/%D8%AD%D8%A7%D8%B3%D8%A8%D8%A9-%D8%A8%D9%84%D9%88%D8%AA/id1269715386?uo=4) | Moayad Alrumayzan (1) | sa |  19886 | 4.3 | 2025-09-13 | 14 мес | n/a | - |
-| [Truck Simulator : Ultimate](https://apps.apple.com/il/app/truck-simulator-ultimate/id1553900372?uo=4) | Zuuks Bilisim Hizmetle (3) | il |  14736 | 3.9 | 2026-01-28 | 9 мес | n/a | - |
-| [אחראי משמרת](https://apps.apple.com/il/app/%D7%90%D7%97%D7%A8%D7%90%D7%99-%D7%9E%D7%A9%D7%9E%D7%A8%D7%AA/id1114349079?uo=4) | Maor Duani (1) | il |  14171 | 4.5 | 2025-09-15 | 14 мес | n/a | - |
-| [Tower Craft 3D - Idle Building](https://apps.apple.com/sa/app/tower-craft-3d-idle-building/id1500938520?uo=4) | AI GAMES FZ LLC (4) | sa |   7614 | 4.1 | 2026-01-21 | 9 мес | n/a | - |
-| [صلاتي حياتي-الصلاة والقبلة](https://apps.apple.com/sa/app/%D8%B5%D9%84%D8%A7%D8%AA%D9%8A-%D8%AD%D9%8A%D8%A7%D8%AA%D9%8A-%D8%A7%D9%84%D8%B5%D9%84%D8%A7%D8%A9-%D9%88%D8%A7%D9%84%D9%82%D8%A8%D9%84%D8%A9/id602516825?uo=4) | Ismail Alhmoud (2) | sa |   5573 | 4.2 | 2025-10-15 | 13 мес | n/a | - |
-| [Tasbih Counter Lite: Dhikr App](https://apps.apple.com/ae/app/tasbih-counter-lite-dhikr-app/id1501329079?uo=4) | Deniz Duzbasti (1) | ae |   5521 | 4.7 | 2026-02-02 | 9 мес | n/a | - |
-| [Drink Water Reminder N Tracker](https://apps.apple.com/sa/app/drink-water-reminder-n-tracker/id870372885?uo=4) | Phoenix Games LLP (1) | sa |   3506 | 4.5 | 2025-09-20 | 13 мес | n/a | - |
-| [Calorie Counter・Food Tracker](https://apps.apple.com/sa/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | sa |   3466 | 4.5 | 2025-10-01 | 13 мес | n/a | - |
-| [Ovulation & Fertility Tracker](https://apps.apple.com/sa/app/ovulation-fertility-tracker/id1511275528?uo=4) | KHANDAKER RAHMAN (1) | sa |   3146 | 4.2 | 2025-08-13 | 15 мес | n/a | - |
-| [Ovulation & Fertility Tracker](https://apps.apple.com/sa/app/ovulation-fertility-tracker/id1511275528?uo=4) | KHANDAKER RAHMAN (1) | sa |   3146 | 4.2 | 2025-08-13 | 15 мес | n/a | - |
-| [Gradient: You Look Like](https://apps.apple.com/ae/app/gradient-you-look-like/id1466097469?uo=4) | TICKET TO THE MOON, IN (1) | ae |   2800 | 4.5 | 2025-10-16 | 13 мес | n/a | - |
-| [Unit Converter - Best Unit App](https://apps.apple.com/hk/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | hk |   2681 | 4.6 | 2025-12-02 | 11 мес | n/a | - |
-| [منبه المياه - Water Reminder](https://apps.apple.com/sa/app/%D9%85%D9%86%D8%A8%D9%87-%D8%A7%D9%84%D9%85%D9%8A%D8%A7%D9%87-water-reminder/id1215408548?uo=4) | Romman Smart Applicati (5) | sa |   2607 | 4.2 | 2025-11-12 | 12 мес | n/a | - |
-| [Calorie Counter・Food Tracker](https://apps.apple.com/il/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | il |   2504 | 4.4 | 2025-10-01 | 13 мес | n/a | - |
-| [Calorie Counter・Food Tracker](https://apps.apple.com/il/app/calorie-counter-food-tracker/id1484327050?uo=4) | Hashtag inovatsii EOOD (2) | il |   2504 | 4.4 | 2025-10-01 | 13 мес | n/a | - |
-| [Unit Converter - Best Unit App](https://apps.apple.com/sa/app/unit-converter-best-unit-app/id623691968?uo=4) | Alan Mrvica (1) | sa |   2079 | 4.7 | 2025-12-02 | 11 мес | n/a | - |
-| [My Daily Hadith](https://apps.apple.com/sa/app/my-daily-hadith/id938736266?uo=4) | Hadi App Ltd (1) | sa |   2004 | 4.8 | 2025-10-28 | 12 мес | n/a | - |
-| [UNICORN 3D: 獨角獸 像素塗色](https://apps.apple.com/hk/app/unicorn-3d-%E7%8D%A8%E8%A7%92%E7%8D%B8-%E5%83%8F%E7%B4%A0%E5%A1%97%E8%89%B2/id1329514585?uo=4) | APPSYOULOVE LTD (2) | hk |   1939 | 4.6 | 2026-01-26 | 9 мес | n/a | - |
+| [Экзамен ПДД: билеты ГИБДД 2026](https://apps.apple.com/ru/app/%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BF%D0%B4%D0%B4-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4-2026/id407204781?uo=4) | Reactive Phone Ltd. (3) | ru | 483397 | 4.9 | 2025-12-24 | 10 мес | n/a | - |
+| [виджеты & темы на айфон](https://apps.apple.com/ru/app/%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%8B-%D1%82%D0%B5%D0%BC%D1%8B-%D0%BD%D0%B0-%D0%B0%D0%B9%D1%84%D0%BE%D0%BD/id1538543750?uo=4) | Aesthetic Apps & Widge (2) | ru |  24097 | 4.4 | 2025-10-31 | 12 мес | n/a | - |
+| [ПДД 2026 Билеты и Экзамен](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-2026-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D0%B8-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD/id1061991297?uo=4) | Andrey Fetisov (4) | ru |  23798 | 4.8 | 2025-12-26 | 10 мес | n/a | - |
+| [PicSee - Текст на фото](https://apps.apple.com/ru/app/picsee-%D1%82%D0%B5%D0%BA%D1%81%D1%82-%D0%BD%D0%B0-%D1%84%D0%BE%D1%82%D0%BE/id595086167?uo=4) | Xi'an Button Software  (1) | ru |  19574 | 4.7 | 2025-08-19 | 15 мес | n/a | - |
+| [TouchUp: удалить объект с фото](https://apps.apple.com/ru/app/touchup-%D1%83%D0%B4%D0%B0%D0%BB%D0%B8%D1%82%D1%8C-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82-%D1%81-%D1%84%D0%BE%D1%82%D0%BE/id1465264335?uo=4) | FACE & BODY TUNE PHOTO (2) | ru |   6177 | 4.7 | 2026-01-28 | 9 мес | n/a | - |
+| [Билеты ПДД 2026 категория C D](https://apps.apple.com/ru/app/%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D0%BF%D0%B4%D0%B4-2026-%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D1%8F-c-d/id1207727058?uo=4) | Sergey Dubovitsky (2) | ru |   5786 | 4.8 | 2025-12-15 | 11 мес | n/a | - |
+| [Билеты ПДД 2026 ГИБДД](https://apps.apple.com/ru/app/%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D0%BF%D0%B4%D0%B4-2026-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4/id866990710?uo=4) | MIXAR SP Z O O (3) | ru |   5509 | 4.6 | 2025-12-01 | 11 мес | n/a | - |
+| [Антирадар GPS・анти радар камер](https://apps.apple.com/ru/app/%D0%B0%D0%BD%D1%82%D0%B8%D1%80%D0%B0%D0%B4%D0%B0%D1%80-gps-%D0%B0%D0%BD%D1%82%D0%B8-%D1%80%D0%B0%D0%B4%D0%B0%D1%80-%D0%BA%D0%B0%D0%BC%D0%B5%D1%80/id1441966078?uo=4) | Ruslan Pashkov (1) | ru |   5424 | 4.7 | 2025-10-29 | 12 мес | n/a | - |
+| [오늘의목표 - 목표 습관 루틴 챌린지 관리](https://apps.apple.com/kr/app/%EC%98%A4%EB%8A%98%EC%9D%98%EB%AA%A9%ED%91%9C-%EB%AA%A9%ED%91%9C-%EC%8A%B5%EA%B4%80-%EB%A3%A8%ED%8B%B4-%EC%B1%8C%EB%A6%B0%EC%A7%80-%EA%B4%80%EB%A6%AC/id1542510906?uo=4) | Sangyun Cho (1) | kr |   5140 | 4.8 | 2025-11-26 | 11 мес | n/a | - |
+| [리딩트리](https://apps.apple.com/kr/app/%EB%A6%AC%EB%94%A9%ED%8A%B8%EB%A6%AC/id1506021475?uo=4) | byeonghoon seo (1) | kr |   4767 | 4.7 | 2025-07-10 | 16 мес | n/a | - |
+| [ПДД 2026: Билеты, экзамен в РФ](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-2026-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%B2-%D1%80%D1%84/id1566345115?uo=4) | Aleksandr Alekseev (1) | ru |   4228 | 4.8 | 2025-12-13 | 11 мес | n/a | - |
+| [Самогон](https://apps.apple.com/ru/app/%D1%81%D0%B0%D0%BC%D0%BE%D0%B3%D0%BE%D0%BD/id1532844245?uo=4) | Roman Kolesnichenko (1) | ru |   3970 | 4.5 | 2025-05-21 | 18 мес | n/a | - |
+| [Buddywatch - Watch Faces](https://apps.apple.com/kr/app/buddywatch-watch-faces/id1526992897?uo=4) | BUDDY SRLS (1) | kr |   3693 | 4.8 | 2025-10-16 | 13 мес | n/a | - |
+| [скрыть фото - Darkbox](https://apps.apple.com/ru/app/%D1%81%D0%BA%D1%80%D1%8B%D1%82%D1%8C-%D1%84%D0%BE%D1%82%D0%BE-darkbox/id1259156494?uo=4) | 璐 江 (1) | ru |   3410 | 4.8 | 2025-12-10 | 11 мес | n/a | - |
+| [WeSave 가계부](https://apps.apple.com/kr/app/wesave-%EA%B0%80%EA%B3%84%EB%B6%80/id1447494776?uo=4) | Park Hankyu (3) | kr |   3188 | 4.7 | 2025-09-20 | 13 мес | n/a | - |
+| [Buddywatch - Watch Faces](https://apps.apple.com/ru/app/buddywatch-watch-faces/id1526992897?uo=4) | BUDDY SRLS (1) | ru |   2845 | 4.6 | 2025-10-16 | 13 мес | n/a | - |
+| [ПДД 2026 с иллюстрациями](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-2026-%D1%81-%D0%B8%D0%BB%D0%BB%D1%8E%D1%81%D1%82%D1%80%D0%B0%D1%86%D0%B8%D1%8F%D0%BC%D0%B8/id732804591?uo=4) | MIXAR SP Z O O (3) | ru |   2781 | 4.8 | 2025-12-01 | 11 мес | n/a | - |
+| [ПДД 2026 Билеты экзамен ГИБДД](https://apps.apple.com/ru/app/%D0%BF%D0%B4%D0%B4-2026-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%B3%D0%B8%D0%B1%D0%B4%D0%B4/id1382112177?uo=4) | Nikita Romanov (3) | ru |   2609 | 4.8 | 2025-10-22 | 12 мес | n/a | - |
+| [Audipo ~배속 재생~](https://apps.apple.com/kr/app/audipo-%EB%B0%B0%EC%86%8D-%EC%9E%AC%EC%83%9D/id607971056?uo=4) | hidekazu seto (1) | kr |   2302 | 4.8 | 2025-12-10 | 11 мес | n/a | - |
+| [HalalGuide: Время Намаза Коран](https://apps.apple.com/ru/app/halalguide-%D0%B2%D1%80%D0%B5%D0%BC%D1%8F-%D0%BD%D0%B0%D0%BC%D0%B0%D0%B7%D0%B0-%D0%BA%D0%BE%D1%80%D0%B0%D0%BD/id533022452?uo=4) | HALALGUIDE LTD., CHK (1) | ru |   2170 | 4.8 | 2025-12-06 | 11 мес | n/a | - |
 
 ## Состав выдачи по категориям
 
@@ -104,134 +148,85 @@ fresh = версия младше 12 мес; new = впервые найденн
 
 | Категория | Гео | Видно | Fresh% | New | Зомби% | Топ-продавец |
 |---|---|---|---|---|---|---|
-| driving_ed | il | 62 | 73% | 37 | 10% | Nahoum Huri (13%) |
-| driving_ed | sa | 75 | 73% | 51 | 5% | Waheed Akhtar (4%) |
-| finance_tools | sa | 180 | 76% | 14 | 5% | EONSOFT (2%) |
-| religious | sa | 180 | 76% | 9 | 4% | Fatima Omer Apps L (3%) |
-| ai_identifiers | hk | 93 | 84% | 6 | 4% | BASAK GEDIK (5%) |
-| logistics_freight | sa | 31 | 84% | 20 | 3% | HD YAPIMCILIK VE T (6%) |
-| trades_pro | hk | 33 | 88% | 1 | 3% | Nanjing Yunxiaochu (15%) |
-| music_practice | hk | 112 | 63% | 6 | 3% | Qiaochu Zhu (4%) |
-| driving_ed | ae | 77 | 81% | 45 | 3% | Waheed Akhtar (4%) |
-| widgets_watch | sa | 92 | 82% | 31 | 2% | 翠玲 施 (3%) |
-| photo_video_utils | il | 95 | 80% | 13 | 2% | Teleprompter Apps  (5%) |
-| religious | ae | 177 | 78% | 14 | 2% | Imran Qureshi (3%) |
-| finance_tools | ae | 184 | 78% | 6 | 2% | Aleksei Neiman (2%) |
-| tax_regional | sa | 62 | 74% | 32 | 2% | Cosmic Production  (5%) |
-| parenting | sa | 127 | 89% | 11 | 2% | Aleksei Neiman (2%) |
-| religious | il | 79 | 90% | 4 | 1% | Ofir Malachi (3%) |
-| construction | sa | 80 | 81% | 0 | 1% | Vladislav Zhirnov (12%) |
-| fitness_calc | il | 80 | 91% | 36 | 1% | Wachanga LTD (2%) |
-| fitness_calc | hk | 85 | 86% | 7 | 1% | Leap Health Fitnes (4%) |
-| ai_tools | hk | 86 | 88% | 25 | 1% | SHANTANU PTE. LTD. (5%) |
-| fitness_calc | ae | 89 | 81% | 31 | 1% | Sameh Aly (2%) |
-| music_practice | sa | 91 | 73% | 20 | 1% | MWM (2%) |
-| hunting_fishing | sa | 92 | 75% | 60 | 1% | Ten Square Games S (4%) |
-| ai_tools | sa | 94 | 88% | 38 | 1% | Emanuele Floris (2%) |
-| finance_tools | hk | 120 | 74% | 5 | 1% | 良峰 侯 (3%) |
-| construction | ae | 70 | 90% | 1 | 0% | Vladislav Zhirnov (14%) |
-| construction | hk | 75 | 87% | 0 | 0% | Phuc Pham (7%) |
-| construction | il | 48 | 92% | 4 | 0% | Vladislav Zhirnov (27%) |
-| auto | sa | 79 | 97% | 6 | 0% | LEAN ASIA CO., LTD (5%) |
-| auto | ae | 77 | 97% | 3 | 0% | LEAN ASIA CO., LTD (5%) |
-| auto | hk | 134 | 80% | 6 | 0% | LEAN ASIA CO., LTD (4%) |
-| auto | il | 51 | 98% | 10 | 0% | Ferran Espuna (8%) |
-| needlework | sa | 57 | 81% | 9 | 0% | Piet Hein van Clee (4%) |
-| needlework | ae | 56 | 88% | 8 | 0% | Storax Inc. (4%) |
-| needlework | hk | 98 | 88% | 15 | 0% | BLANKZONET PTE. LT (2%) |
-| needlework | il | 26 | 100% | 0 | 0% | kota tada (4%) |
-| hunting_fishing | ae | 90 | 69% | 59 | 0% | Ten Square Games S (4%) |
-| hunting_fishing | hk | 71 | 76% | 5 | 0% | Solot Information  (4%) |
-| hunting_fishing | il | 56 | 80% | 33 | 0% | Bytwice srl (4%) |
-| music_practice | ae | 91 | 75% | 20 | 0% | MWM (2%) |
-| music_practice | il | 81 | 75% | 7 | 0% | Yousician Ltd (2%) |
-| religious | hk | 86 | 79% | 1 | 0% | Fatima Omer Apps L (2%) |
-| finance_tools | il | 134 | 88% | 13 | 0% | kota tada (7%) |
-| garden | sa | 79 | 97% | 30 | 0% | Hnat Danylevych (3%) |
-| garden | ae | 80 | 98% | 31 | 0% | Hnat Danylevych (2%) |
-| garden | hk | 74 | 97% | 6 | 0% | 帅 陈 (3%) |
-| garden | il | 64 | 98% | 22 | 0% | Phuc Pham (3%) |
-| parenting | ae | 131 | 82% | 6 | 0% | Aleksei Neiman (2%) |
-| parenting | hk | 84 | 81% | 5 | 0% | Nighp Software LLC (2%) |
-| parenting | il | 82 | 84% | 6 | 0% | VISPER ARTS OOO (2%) |
-| photo_video_utils | sa | 88 | 92% | 32 | 0% | Phuc Pham (3%) |
-| photo_video_utils | ae | 90 | 92% | 32 | 0% | Phuc Pham (3%) |
-| photo_video_utils | hk | 96 | 85% | 5 | 0% | Tasmanic Editions (3%) |
-| cooking | sa | 58 | 95% | 39 | 0% | LEAN ASIA CO., LTD (3%) |
-| cooking | ae | 55 | 95% | 36 | 0% | LEAN ASIA CO., LTD (4%) |
-| cooking | hk | 13 | 92% | 0 | 0% | Phuc Pham (15%) |
-| cooking | il | 56 | 93% | 45 | 0% | LEAN ASIA CO., LTD (5%) |
-| diy_home | sa | 78 | 86% | 1 | 0% | Phuc Pham (4%) |
-| diy_home | ae | 73 | 90% | 2 | 0% | Phuc Pham (5%) |
-| diy_home | hk | 81 | 78% | 1 | 0% | Jens Rieckhof (2%) |
-| diy_home | il | 48 | 92% | 19 | 0% | Zynga Inc. (8%) |
-| fitness_calc | sa | 90 | 86% | 39 | 0% | Sameh Aly (2%) |
-| ai_tools | ae | 92 | 84% | 36 | 0% | LYREBIRD STUDIO FZ (2%) |
-| ai_tools | il | 75 | 92% | 36 | 0% | 培 李 (3%) |
-| widgets_watch | ae | 91 | 81% | 31 | 0% | Zipo Apps Ltd. (4%) |
-| widgets_watch | hk | 96 | 88% | 17 | 0% | Xiamen ShenZhuo In (2%) |
-| widgets_watch | il | 56 | 82% | 12 | 0% | 翠玲 施 (4%) |
-| driving_ed | hk | 83 | 63% | 23 | 0% | Play With Games Lt (13%) |
-| books_media | sa | 64 | 100% | 38 | 0% | Aecio Lima (2%) |
-| books_media | ae | 64 | 100% | 37 | 0% | Muhammad Aman (2%) |
-| books_media | hk | 96 | 93% | 19 | 0% | EVERAPPZ SL (2%) |
-| books_media | il | 86 | 95% | 46 | 0% | Atech Consultancy  (7%) |
-| boardgames | sa | 90 | 94% | 40 | 0% | Hamad Almarri (2%) |
-| boardgames | ae | 87 | 92% | 42 | 0% | Keven Bauke (3%) |
-| boardgames | hk | 87 | 87% | 17 | 0% | zhenyu song (6%) |
-| boardgames | il | 50 | 100% | 15 | 0% | MOONSHOT MEDIA LIM (6%) |
-| trades_pro | sa | 57 | 86% | 24 | 0% | Vladislav Zhirnov (5%) |
-| trades_pro | ae | 55 | 89% | 21 | 0% | Vladislav Zhirnov (5%) |
-| trades_pro | il | 72 | 89% | 45 | 0% | Sergio Kirienko (3%) |
-| logistics_freight | ae | 29 | 86% | 18 | 0% | HD YAPIMCILIK VE T (7%) |
-| logistics_freight | hk | 51 | 76% | 12 | 0% | Yunnan Qiuniu Netw (4%) |
-| logistics_freight | il | 93 | 66% | 61 | 0% | Marusac Alexandru  (4%) |
-| aviation_marine | sa | 59 | 85% | 19 | 0% | Raja' Ibrahim (8%) |
-| aviation_marine | ae | 59 | 80% | 17 | 0% | Raja' Ibrahim (7%) |
-| aviation_marine | hk | 70 | 64% | 14 | 0% | kupaberu (9%) |
-| aviation_marine | il | 25 | 96% | 4 | 0% | Warin Winnicke (4%) |
-| tax_regional | ae | 59 | 75% | 29 | 0% | Cosmic Production  (5%) |
-| tax_regional | hk | 40 | 85% | 1 | 0% | YUTAKA KENJO (5%) |
-| tax_regional | il | 62 | 89% | 23 | 0% | EONSOFT (5%) |
-| ai_identifiers | sa | 86 | 98% | 34 | 0% | Glority Global Gro (2%) |
-| ai_identifiers | ae | 84 | 93% | 40 | 0% | AIBY Incorporated (2%) |
-| ai_identifiers | il | 96 | 89% | 20 | 0% | DIDEM URAS (3%) |
-| pet_care | sa | 61 | 90% | 18 | 0% | nove8 LTD (2%) |
-| pet_care | ae | 60 | 88% | 14 | 0% | Karol Jaworski (3%) |
-| pet_care | hk | 93 | 86% | 21 | 0% | Ferran Espuna (2%) |
-| pet_care | il | 65 | 80% | 25 | 0% | Star Focus, Inc. (2%) |
-| travel_utils | sa | 94 | 93% | 46 | 0% | NATIONAL INFORMATI (3%) |
-| travel_utils | ae | 88 | 90% | 48 | 0% | John Mollaghan (7%) |
-| travel_utils | hk | 95 | 86% | 22 | 0% | John Mollaghan (4%) |
-| travel_utils | il | 56 | 96% | 34 | 0% | Phuc Pham (5%) |
+| books_media | ru | 73 | 67% | 3 | 26% | European Business  (7%) |
+| cooking | ru | 45 | 76% | 4 | 18% | Mihai Ghiserel (2%) |
+| diy_home | ru | 97 | 72% | 11 | 15% | Denis Batishchev (3%) |
+| fitness_calc | ru | 50 | 76% | 4 | 14% | Glindemann, Sennou (4%) |
+| photo_video_utils | ru | 93 | 78% | 9 | 13% | Teleprompter Apps  (3%) |
+| widgets_watch | ru | 83 | 73% | 8 | 8% | Aesthetic Apps & W (2%) |
+| driving_ed | ru | 42 | 79% | 4 | 7% | MIXAR SP Z O O (7%) |
+| finance_tools | ru | 64 | 81% | 1 | 6% | Dmitry Tachkov (6%) |
+| parenting | ru | 82 | 84% | 2 | 5% | Aleksei Neiman (4%) |
+| hunting_fishing | ru | 45 | 87% | 5 | 4% | Eldar Sadykhov (7%) |
+| religious | ru | 91 | 73% | 6 | 4% | Aleksandr Pavlov (10%) |
+| music_practice | ru | 76 | 76% | 4 | 4% | ManoMaya (4%) |
+| construction | ru | 85 | 82% | 0 | 4% | Vladislav Zhirnov (5%) |
+| pet_care | ru | 91 | 90% | 3 | 2% | Ferran Espuna (2%) |
+| travel_utils | ru | 91 | 74% | 2 | 2% | John Mollaghan (4%) |
+| pet_care | kr | 96 | 88% | 57 | 2% | Les Placements R.A (2%) |
+| garden | ru | 61 | 84% | 2 | 2% | DZMITRY IVANENKA (3%) |
+| parenting | kr | 128 | 88% | 15 | 2% | Hanung Lee (2%) |
+| ai_tools | ru | 80 | 92% | 2 | 1% | Google LLC (4%) |
+| aviation_marine | kr | 82 | 89% | 21 | 1% | Seagull Lee (2%) |
+| widgets_watch | kr | 91 | 82% | 19 | 1% | 翠玲 施 (2%) |
+| tax_regional | kr | 91 | 90% | 52 | 1% | Seulki Eom (4%) |
+| fitness_calc | kr | 92 | 92% | 6 | 1% | Liviet (2%) |
+| travel_utils | kr | 96 | 92% | 47 | 1% | Park Hankyu (3%) |
+| music_practice | kr | 120 | 80% | 6 | 1% | Bijoy Thangaraj (2%) |
+| religious | kr | 123 | 92% | 5 | 1% | Mehmet rasit Arisu (2%) |
+| finance_tools | kr | 141 | 84% | 10 | 1% | Kei Suefuji (3%) |
+| construction | kr | 110 | 92% | 0 | 0% | Vladislav Zhirnov (7%) |
+| auto | kr | 145 | 91% | 4 | 0% | LEAN ASIA CO., LTD (4%) |
+| auto | ru | 44 | 84% | 3 | 0% | Ivan Obodianskyi (5%) |
+| needlework | kr | 102 | 98% | 1 | 0% | Mehdi El Moussali (2%) |
+| needlework | ru | 78 | 95% | 1 | 0% | murat ulug (3%) |
+| hunting_fishing | kr | 99 | 90% | 4 | 0% | Pocket Grove Ltd (2%) |
+| garden | kr | 52 | 87% | 5 | 0% | Glority Global Gro (4%) |
+| photo_video_utils | kr | 144 | 88% | 6 | 0% | Teleprompter Apps  (3%) |
+| cooking | kr | 23 | 100% | 0 | 0% | LIFEVEN LLC (4%) |
+| diy_home | kr | 122 | 84% | 4 | 0% | Mobile Card Games  (2%) |
+| ai_tools | kr | 91 | 96% | 15 | 0% | SNOW Corporation (7%) |
+| driving_ed | kr | 87 | 77% | 44 | 0% | Play With Games Lt (13%) |
+| books_media | kr | 99 | 92% | 41 | 0% | Apple Services Pte (2%) |
+| boardgames | kr | 87 | 89% | 29 | 0% | ANDREAROSARIO CENS (2%) |
+| boardgames | ru | 13 | 100% | 0 | 0% | Kok Keong (8%) |
+| trades_pro | kr | 53 | 87% | 35 | 0% | HD YAPIMCILIK VE T (4%) |
+| trades_pro | ru | 6 | 83% | 0 | 0% | V PUGAZHENTHI (17%) |
+| logistics_freight | kr | 52 | 60% | 41 | 0% | Litech co,. Ltd (6%) |
+| logistics_freight | ru | 2 | 100% | 0 | 0% | DUMITRU BUMBU (50%) |
+| aviation_marine | ru | 13 | 92% | 0 | 0% | Brainware LLC (15%) |
+| tax_regional | ru | 3 | 67% | 0 | 0% | WILDBOX LLC RU (33%) |
+| ai_identifiers | kr | 92 | 85% | 12 | 0% | Glority Global Gro (2%) |
+| ai_identifiers | ru | 85 | 80% | 1 | 0% | Aleksandr Bogolyub (9%) |
 
 ## Впервые найдены в API-выдаче (это не новые запуски)
 
 | Оценок | Приложение | Гео | Запрос | Версия от |
 |---|---|---|---|---|
-| 2,550 | [CalBuddy - מחשבון קלוריות](https://apps.apple.com/il/app/calbuddy-%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%95%D7%AA/id6745977666?uo=4) | il | מחשבון קלוריות | 2026-09-30 |
-| 889 | [קלוריה-מחשבון קלוריות ישראלי](https://apps.apple.com/il/app/%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%94-%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F-%D7%A7%D7%9C%D7%95%D7%A8%D7%99%D7%95%D7%AA-%D7%99%D7%A9%D7%A8%D7%90%D7%9C%D7%99/id6474908067?uo=4) | il | מחשבון קלוריות | 2026-03-03 |
-| 827 | [اختبار رخصة القيادة السعودي](https://apps.apple.com/sa/app/%D8%A7%D8%AE%D8%AA%D8%A8%D8%A7%D8%B1-%D8%B1%D8%AE%D8%B5%D8%A9-%D8%A7%D9%84%D9%82%D9%8A%D8%A7%D8%AF%D8%A9-%D8%A7%D9%84%D8%B3%D8%B9%D9%88%D8%AF%D9%8A/id6474456531?uo=4) | sa | اختبار القيادة | 2024-05-20 |
+| 3,637 | [운전면허 PLUS - 운전면허 필기시험(2026최신판)](https://apps.apple.com/kr/app/%EC%9A%B4%EC%A0%84%EB%A9%B4%ED%97%88-plus-%EC%9A%B4%EC%A0%84%EB%A9%B4%ED%97%88-%ED%95%84%EA%B8%B0%EC%8B%9C%ED%97%98-2026%EC%B5%9C%EC%8B%A0%ED%8C%90/id644223359?uo=4) | kr | 운전면허 필기 | 2026-10-28 |
+| 2,767 | [사진보정 - 사람지우기](https://apps.apple.com/kr/app/%EC%82%AC%EC%A7%84%EB%B3%B4%EC%A0%95-%EC%82%AC%EB%9E%8C%EC%A7%80%EC%9A%B0%EA%B8%B0/id1511285118?uo=4) | kr | AI 사진 보정 | 2026-11-05 |
+| 1,361 | [운전선생 - 운전면허 학원 예약 & 필기시험](https://apps.apple.com/kr/app/%EC%9A%B4%EC%A0%84%EC%84%A0%EC%83%9D-%EC%9A%B4%EC%A0%84%EB%A9%B4%ED%97%88-%ED%95%99%EC%9B%90-%EC%98%88%EC%95%BD-%ED%95%84%EA%B8%B0%EC%8B%9C%ED%97%98/id6444027313?uo=4) | kr | 운전면허 필기 | 2026-06-15 |
+| 590 | [운전면허 이지 2026 필기시험](https://apps.apple.com/kr/app/%EC%9A%B4%EC%A0%84%EB%A9%B4%ED%97%88-%EC%9D%B4%EC%A7%80-2026-%ED%95%84%EA%B8%B0%EC%8B%9C%ED%97%98/id1589738242?uo=4) | kr | 운전면허 필기 | 2026-08-02 |
 
 ## Низкий исторический рейтинг: проверить свежие жалобы
 
 | Оценок | Рейтинг | Приложение | Гео | Версия от |
 |---|---|---|---|---|
-| 2,776,953 | 3.7 | [TikTok - Videos, Music & LIVE](https://apps.apple.com/sa/app/tiktok-videos-music-live/id835599320?uo=4) | sa | 2026-11-02 |
-| 2,776,953 | 3.7 | [TikTok - Videos, Music & LIVE](https://apps.apple.com/sa/app/tiktok-videos-music-live/id835599320?uo=4) | sa | 2026-11-02 |
-| 49,139 | 3.6 | [شرطة الأطفال - لعبة اتصال وهمي](https://apps.apple.com/sa/app/%D8%B4%D8%B1%D8%B7%D8%A9-%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%88%D9%87%D9%85%D9%8A/id913148751?uo=4) | sa | 2026-09-20 |
-| 21,167 | 3.6 | [نفاذ | NAFATH](https://apps.apple.com/sa/app/%D9%86%D9%81%D8%A7%D8%B0-nafath/id1598909871?uo=4) | sa | 2026-10-18 |
-| 20,322 | 3.3 | [Car Driving 2026 Traffic Racer](https://apps.apple.com/sa/app/car-driving-2026-traffic-racer/id1456304437?uo=4) | sa | 2026-01-26 |
-| 14,736 | 3.9 | [Truck Simulator : Ultimate](https://apps.apple.com/il/app/truck-simulator-ultimate/id1553900372?uo=4) | il | 2026-01-28 |
-| 9,943 | 3.7 | [Car Parking - Driving School](https://apps.apple.com/il/app/car-parking-driving-school/id1193550697?uo=4) | il | 2026-11-03 |
-| 9,943 | 3.7 | [Car Parking - Driving School](https://apps.apple.com/il/app/car-parking-driving-school/id1193550697?uo=4) | il | 2026-11-03 |
-| 9,734 | 3.9 | [Bus Simulator : Ultimate](https://apps.apple.com/il/app/bus-simulator-ultimate/id1461749632?uo=4) | il | 2026-05-22 |
-| 8,891 | 3.9 | [شرطة الأطفال - لعبة اتصال وهمي](https://apps.apple.com/ae/app/%D8%B4%D8%B1%D8%B7%D8%A9-%D8%A7%D9%84%D8%A3%D8%B7%D9%81%D8%A7%D9%84-%D9%84%D8%B9%D8%A8%D8%A9-%D8%A7%D8%AA%D8%B5%D8%A7%D9%84-%D9%88%D9%87%D9%85%D9%8A/id913148751?uo=4) | ae | 2026-09-20 |
-| 7,806 | 3.6 | [Police Simulator: Patrol Cop](https://apps.apple.com/sa/app/police-simulator-patrol-cop/id6450002086?uo=4) | sa | 2026-10-19 |
-| 7,056 | 3.9 | [High School Driving Test 3D](https://apps.apple.com/sa/app/high-school-driving-test-3d/id966490697?uo=4) | sa | 2026-07-02 |
-| 5,185 | 3.6 | [Google 翻譯](https://apps.apple.com/hk/app/google-%E7%BF%BB%E8%AD%AF/id414706506?uo=4) | hk | 2026-11-02 |
-| 4,394 | 3.7 | [Applaydu: Talk & Play](https://apps.apple.com/il/app/applaydu-talk-play/id1476035637?uo=4) | il | 2026-11-02 |
-| 4,383 | 3.0 | [微博](https://apps.apple.com/hk/app/%E5%BE%AE%E5%8D%9A/id350962117?uo=4) | hk | 2026-10-29 |
+| 13,018 | 4.0 | [Apple Books](https://apps.apple.com/ru/app/apple-books/id364709193?uo=4) | ru | 2026-10-26 |
+| 13,018 | 4.0 | [Apple Books](https://apps.apple.com/ru/app/apple-books/id364709193?uo=4) | ru | 2026-10-26 |
+| 8,485 | 3.5 | [스푼: 오디오 라이브](https://apps.apple.com/kr/app/%EC%8A%A4%ED%91%BC-%EC%98%A4%EB%94%94%EC%98%A4-%EB%9D%BC%EC%9D%B4%EB%B8%8C/id1040047095?uo=4) | kr | 2026-10-28 |
+| 8,044 | 2.0 | [Wearfit Pro](https://apps.apple.com/ru/app/wearfit-pro/id1512947756?uo=4) | ru | 2026-11-04 |
+| 5,056 | 3.9 | [пианино плитки 2™ - игра](https://apps.apple.com/ru/app/%D0%BF%D0%B8%D0%B0%D0%BD%D0%B8%D0%BD%D0%BE-%D0%BF%D0%BB%D0%B8%D1%82%D0%BA%D0%B8-2-%D0%B8%D0%B3%D1%80%D0%B0/id1027688889?uo=4) | ru | 2026-10-24 |
+| 4,103 | 2.9 | [Поддержка Apple](https://apps.apple.com/ru/app/%D0%BF%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0-apple/id1130498044?uo=4) | ru | 2026-11-04 |
+| 3,953 | 3.5 | [Apple Store](https://apps.apple.com/kr/app/apple-store/id375380948?uo=4) | kr | 2026-07-22 |
+| 3,565 | 2.1 | [건강보험25시](https://apps.apple.com/kr/app/%EA%B1%B4%EA%B0%95%EB%B3%B4%ED%97%9825%EC%8B%9C/id375279377?uo=4) | kr | 2026-09-18 |
+| 2,319 | 3.4 | [Gismeteo lite](https://apps.apple.com/ru/app/gismeteo-lite/id419371996?uo=4) | ru | 2026-04-13 |
+| 1,832 | 1.8 | [Циферблаты - AmazFaces](https://apps.apple.com/ru/app/%D1%86%D0%B8%D1%84%D0%B5%D1%80%D0%B1%D0%BB%D0%B0%D1%82%D1%8B-amazfaces/id1462259687?uo=4) | ru | 2026-10-14 |
+| 1,752 | 3.9 | [지니어트 - 홈트, 다이어트, 혈당 기록, 만보기 앱](https://apps.apple.com/kr/app/%EC%A7%80%EB%8B%88%EC%96%B4%ED%8A%B8-%ED%99%88%ED%8A%B8-%EB%8B%A4%EC%9D%B4%EC%96%B4%ED%8A%B8-%ED%98%88%EB%8B%B9-%EA%B8%B0%EB%A1%9D-%EB%A7%8C%EB%B3%B4%EA%B8%B0-%EC%95%B1/id1535606430?uo=4) | kr | 2026-10-29 |
+| 1,576 | 3.5 | [Автошкола-Контроль](https://apps.apple.com/ru/app/%D0%B0%D0%B2%D1%82%D0%BE%D1%88%D0%BA%D0%BE%D0%BB%D0%B0-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D1%8C/id1236489558?uo=4) | ru | 2026-10-08 |
+| 1,515 | 3.7 | [Сортировка птиц по цветам](https://apps.apple.com/ru/app/%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BF%D1%82%D0%B8%D1%86-%D0%BF%D0%BE-%D1%86%D0%B2%D0%B5%D1%82%D0%B0%D0%BC/id1615015886?uo=4) | ru | 2026-10-21 |
+| 1,484 | 3.8 | [팟빵](https://apps.apple.com/kr/app/%ED%8C%9F%EB%B9%B5/id612769954?uo=4) | kr | 2026-11-02 |
+| 1,381 | 2.9 | [FitPro](https://apps.apple.com/ru/app/fitpro/id1455617149?uo=4) | ru | 2026-10-20 |
 
 ## Легенда рисков
 
