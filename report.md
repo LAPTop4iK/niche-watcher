@@ -1,6 +1,6 @@
 # Кандидаты для исследования
 
-Метод activity-v4. Дата 2026-11-05T19:31:40+00:00. Всего 1558 app×country. Это не список прибыльных ниш.
+Метод activity-v4. Дата 2026-11-05T20:05:43+00:00. Всего 1558 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
@@ -366,10 +366,10 @@
 | [Jamzone - Sing & Play Along](https://apps.apple.com/gb/app/id998972770) | gb | Версия ≥18 мес | ALIVE | — | — | 1703 | free | 8 | 0 | 2024-12-20 |
 | [Sleep Machine](https://apps.apple.com/us/app/id323061162) | us | Версия ≥18 мес | ALIVE | — | — | 3013 | 3.99 USD | 7 | 0 | 2021-02-14 |
 | [3D視力回復](https://apps.apple.com/jp/app/id453629018) | jp | Версия ≥18 мес | ALIVE | — | — | 2602 | 150.0 JPY | 7 | 0 | 2020-11-11 |
-| [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | gb | Версия ≥18 мес | ALIVE | — | — | 13099 | — | 6 | 0 | 2024-01-18 |
 | [Pokellector: Card Collector](https://apps.apple.com/gb/app/id600580227) | gb | Версия ≥18 мес | ALIVE | — | — | 670 | — | 6 | 0 | 2024-10-17 |
 | [Loopy HD: Looper](https://apps.apple.com/us/app/id467923185) | us | Версия ≥18 мес | ALIVE | — | — | 1408 | 4.99 USD | 5 | 0 | 2022-12-01 |
 | [睡眠アプリ](https://apps.apple.com/jp/app/id473917761) | jp | Версия ≥18 мес | ALIVE | — | — | 9237 | 150.0 JPY | 5 | 0 | 2021-09-13 |
+| [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | gb | Версия ≥18 мес | ALIVE | — | — | 13099 | — | 5 | 0 | 2024-01-18 |
 | [10th Step](https://apps.apple.com/us/app/id899778010) | us | Версия ≥18 мес | ALIVE | — | — | 3128 | 2.99 USD | 5 | 0 | 2020-01-06 |
 | [Speedometer∞](https://apps.apple.com/ru/app/id1114655078) | ru | Версия ≥18 мес | ALIVE | — | — | 9195 | — | 5 | 0 | 2019-01-30 |
 | [Flashlight •](https://apps.apple.com/us/app/id380248105) | us | Версия ≥18 мес | ALIVE | — | — | 4953 | — | 4 | 0 | 2022-03-31 |

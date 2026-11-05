@@ -1,6 +1,6 @@
 # Demand Report — свежая активность, не доказательство платежей
 
-Метод activity-v4. Пересчёт 2026-11-05T19:31:31Z. Кандидатов: 1532.
+Метод activity-v4. Пересчёт 2026-11-05T20:05:34Z. Кандидатов: 1532.
 
 ALIVE: 356 · WEAK: 180 · UNKNOWN: 318 · NO_RECENT_EVIDENCE: 678
 
@@ -135,7 +135,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Flashlight Ⓞ](https://apps.apple.com/us/app/id381471023) | 30,772 | — | 2026-10-29 | 6 |
 | fi | [My Love - Relationship Counter](https://apps.apple.com/fi/app/id409609608) | 3,591 | — | 2026-09-29T04:21:40+00:00 | 6 |
 | us | [Metal Detector and Spy Camera](https://apps.apple.com/us/app/id409682366) | 10,705 | — | 2026-10-11 | 6 |
-| gb | [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | 13,099 | — | 2026-09-17T09:12:58+00:00 | 6 |
 | gb | [Pokellector: Card Collector](https://apps.apple.com/gb/app/id600580227) | 670 | — | 2026-10-04 | 6 |
 | se | [Piano - Sånger och Noter](https://apps.apple.com/se/app/id890740165) | 5,787 | — | 2026-10-23T19:35:10+00:00 | 6 |
 | us | [PromptSmart Lite Teleprompter](https://apps.apple.com/us/app/id922921003) | 4,687 | — | 2026-10-11 | 6 |
@@ -157,6 +156,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Loopy HD: Looper](https://apps.apple.com/us/app/id467923185) | 1,408 | — | 2026-10-20 | 5 |
 | jp | [睡眠アプリ](https://apps.apple.com/jp/app/id473917761) | 9,237 | — | 2026-10-24T05:31:35+00:00 | 5 |
 | jp | [nana - 生演奏カラオケ・歌ってみた投稿アプリ](https://apps.apple.com/jp/app/id540360389) | 23,045 | — | 2026-10-07 | 5 |
+| gb | [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | 13,099 | — | 2026-09-17T09:12:58+00:00 | 5 |
 | us | [Date and Time Calculator](https://apps.apple.com/us/app/id552798167) | 9,869 | — | 2026-10-29T17:55:13+00:00 | 5 |
 | us | [insTuner Free - Chromatic Tuner](https://apps.apple.com/us/app/id603425027) | 5,058 | — | 2026-10-25 | 5 |
 | us | [Tuner by Piascore](https://apps.apple.com/us/app/id635644097) | 1,452 | — | 2026-10-28 | 5 |
