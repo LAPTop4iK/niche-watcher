@@ -26,7 +26,7 @@
 | diy_home | ru | 98 | 15 | 3 | 2 | 10 | 0 | 2 |
 | logistics_freight | us | 233 | 11 | 3 | 2 | 5 | 1 | 0 |
 | parenting | us | 180 | 10 | 3 | 2 | 4 | 1 | 0 |
-| cooking | us | 272 | 7 | 3 | 1 | 3 | 0 | 0 |
+| cooking | us | 272 | 8 | 3 | 1 | 3 | 1 | 0 |
 | fitness_calc | ru | 50 | 7 | 3 | 1 | 3 | 0 | 0 |
 | needlework | us | 202 | 6 | 3 | 1 | 2 | 0 | 0 |
 | pet_care | us | 213 | 12 | 3 | 1 | 8 | 0 | 1 |

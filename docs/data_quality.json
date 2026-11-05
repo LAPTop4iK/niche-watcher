@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-11-05T16:36:31.677323+00:00",
+  "computed_at": "2026-11-05T19:32:26.676478+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 102448,
@@ -18,51 +18,51 @@
   },
   "freshness_days": 14,
   "review_coverage": {
-    "metadata_fresh": 11832,
-    "rss_missing": 9638,
+    "metadata_fresh": 11833,
+    "rss_missing": 9639,
     "rss_usable": 2175,
     "rss_recent_capped": 66,
     "rss_with_review_versions": 663,
     "rss_with_review_ids": 663,
     "rss_empty": 17,
     "rss_empty_unconfirmed": 2,
-    "eligible": 11832,
+    "eligible": 11833,
     "metadata_not_fresh": 0,
-    "rss_not_usable": 9657,
+    "rss_not_usable": 9658,
     "rss_error": 0,
     "rss_stale": 0,
     "rss_unknown": 0
   },
   "collection": {
     "search_records": 102448,
-    "below_500_ratings": 90616,
+    "below_500_ratings": 90615,
     "strata": {
-      "500+|<12mo|free": 10290,
-      "0-49|<12mo|free": 56494,
-      "50-499|<12mo|free": 7916,
-      "500+|18mo+|free": 877,
-      "50-499|<12mo|paid": 234,
-      "0-49|<12mo|paid": 4269,
-      "500+|<12mo|paid": 173,
-      "500+|<12mo|unknown": 161,
-      "0-49|18mo+|free": 14032,
+      "500+|<12mo|free": 10331,
+      "0-49|<12mo|free": 56493,
+      "50-499|<12mo|free": 7921,
+      "500+|18mo+|free": 878,
+      "50-499|<12mo|paid": 238,
+      "0-49|<12mo|paid": 4271,
+      "500+|<12mo|paid": 177,
+      "0-49|18mo+|free": 14044,
       "50-499|18mo+|free": 1469,
-      "0-49|18mo+|paid": 1651,
-      "50-499|18mo+|paid": 136,
+      "0-49|18mo+|paid": 1650,
+      "50-499|18mo+|paid": 137,
       "500+|18mo+|paid": 57,
       "50-499|12-18mo|paid": 13,
       "0-49|12-18mo|paid": 383,
-      "50-499|<12mo|unknown": 91,
-      "500+|12-18mo|free": 253,
-      "0-49|12-18mo|free": 3344,
-      "0-49|18mo+|unknown": 31,
+      "500+|<12mo|unknown": 117,
+      "50-499|<12mo|unknown": 84,
+      "500+|12-18mo|free": 252,
+      "0-49|12-18mo|free": 3331,
+      "0-49|18mo+|unknown": 30,
       "50-499|12-18mo|free": 404,
-      "0-49|<12mo|unknown": 103,
-      "50-499|18mo+|unknown": 27,
+      "0-49|<12mo|unknown": 102,
       "500+|18mo+|unknown": 16,
       "500+|12-18mo|unknown": 2,
       "500+|12-18mo|paid": 3,
       "50-499|12-18mo|unknown": 2,
+      "50-499|18mo+|unknown": 26,
       "0-49|12-18mo|unknown": 3,
       "0-49|unknown|free": 9,
       "0-49|unknown|unknown": 5
@@ -85,25 +85,25 @@
   },
   "last_search_query_at": "2026-11-05T16:32:10Z",
   "recent_pain_timing": {
-    "total": 586,
-    "after_release": 179,
-    "only_before_release": 407,
+    "total": 585,
+    "after_release": 156,
+    "only_before_release": 429,
     "timing_unknown": 0,
-    "rss_before_release": 14,
-    "same_version_positive": 54,
-    "version_unknown": 341
+    "rss_before_release": 68,
+    "same_version_positive": 48,
+    "version_unknown": 340
   },
   "alive_paths": {
-    "rss": 363
+    "rss": 356
   },
   "queue_funnel": {
     "stale": {
-      "records": 1264,
-      "apps": 907
+      "records": 1531,
+      "apps": 1057
     },
     "search": {
-      "records": 949,
-      "apps": 629
+      "records": 950,
+      "apps": 630
     },
     "alive": {
       "records": 210,
