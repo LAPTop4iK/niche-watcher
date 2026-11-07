@@ -2,23 +2,20 @@
   "method": "activity-v4",
   "candidate_storefronts": 1540,
   "counts": {
-    "WEAK": 191,
-    "UNKNOWN": 316,
-    "NO_RECENT_EVIDENCE": 681,
-    "ALIVE": 352
+    "WEAK": 240,
+    "NO_RECENT_EVIDENCE": 835,
+    "ALIVE": 460,
+    "UNKNOWN": 5
   },
   "transitions": {
-    "WEAK → WEAK": 169,
-    "MISSING → UNKNOWN": 313,
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 670,
-    "ALIVE → ALIVE": 351,
-    "ALIVE → WEAK": 22,
-    "WEAK → NO_RECENT_EVIDENCE": 11,
-    "UNKNOWN → UNKNOWN": 3,
-    "UNKNOWN → ALIVE": 1
+    "WEAK → WEAK": 239,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 835,
+    "ALIVE → ALIVE": 460,
+    "UNKNOWN → UNKNOWN": 5,
+    "ALIVE → WEAK": 1
   },
-  "apps": 51381,
-  "snapshots": 487036,
+  "apps": 51426,
+  "snapshots": 487173,
   "coverage": [
     {
       "country": "ae",
@@ -58,7 +55,7 @@
     },
     {
       "country": "gb",
-      "apps": 10816
+      "apps": 10831
     },
     {
       "country": "hk",
@@ -114,14 +111,14 @@
     },
     {
       "country": "us",
-      "apps": 10904
+      "apps": 10948
     }
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-07T13:42:38Z"
+    "last": "2026-11-07T14:54:46Z"
   },
-  "histories_7d": 5016,
+  "histories_7d": 5022,
   "adjacent_counter_drops": 5334,
   "research_lanes": {
     "recent_pain": 33,
@@ -143,14 +140,14 @@
       "lost_to_stale_rss": 0
     },
     "links": {
-      "eligible": 22,
-      "rss_usable": 2,
-      "any_complaint": 2,
+      "eligible": 74,
+      "rss_usable": 4,
+      "any_complaint": 4,
       "complaint_records": 0,
       "lost_to_stale_rss": 0
     },
     "all": {
-      "eligible": 26711,
+      "eligible": 26726,
       "rss_usable": 1503,
       "any_complaint": 772,
       "complaint_records": 33,
