@@ -1,4 +1,4 @@
-# Divergence — 2026-11-07
+# Divergence — 2026-11-08
 
 Разница прироста оценок между странами — наблюдение, не доказательство свободного рынка или миграции спроса. Окна могут различаться, страны имеют разный размер. Rank — позиция в ответе iTunes API, не проверенная позиция на устройстве. Baseline одного запроса — не менее 7 дней назад.
 
@@ -6,24 +6,38 @@
 
 | Рост A/30д | Стояние B/30д | A→B | Приложение | Категория |
 |---|---|---|---|---|
-| +79353 | +4497 | us→au | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
-| +79353 | +9379 | us→gb | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
-| +21030 | +1004 | us→gb | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
-| +8463 | +280 | us→gb | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
-| +5444 | +0 | gb→us | [CamScanner - PDF Scanner App](https://apps.apple.com/gb/app/camscanner-pdf-scanner-app/id388627783?uo=4) | ai_tools |
-| +4432 | +589 | us→gb | [Flighty – Live Flight Tracker](https://apps.apple.com/us/app/flighty-live-flight-tracker/id1358823008?uo=4) | travel_utils |
-| +4245 | +617 | us→gb | [Otter Transcribe Voice Notes](https://apps.apple.com/us/app/otter-transcribe-voice-notes/id1276437113?uo=4) | ai_tools |
-| +3363 | +0 | us→au | [Calorie Counter - MyNetDiary](https://apps.apple.com/us/app/calorie-counter-mynetdiary/id287529757?uo=4) | fitness_calc |
-| +3363 | +513 | us→gb | [Calorie Counter - MyNetDiary](https://apps.apple.com/us/app/calorie-counter-mynetdiary/id287529757?uo=4) | fitness_calc |
-| +3031 | +218 | us→gb | [Summary - AI Note Taker](https://apps.apple.com/us/app/summary-ai-note-taker/id6670175056?uo=4) | ai_tools |
-| +2506 | +0 | us→gb | [MileIQ: Mileage Tracker & Log](https://apps.apple.com/us/app/mileiq-mileage-tracker-log/id578830929?uo=4) | logistics_freight |
-| +1710 | +81 | us→gb | [Smart Metronome & Tuner](https://apps.apple.com/us/app/smart-metronome-tuner/id889571826?uo=4) | music_practice |
-| +1591 | +0 | us→gb | [Bookly: Book Tracker](https://apps.apple.com/us/app/bookly-book-tracker/id1085047737?uo=4) | books_media |
-| +1577 | +0 | gb→us | [Finch: Self-Care Pet](https://apps.apple.com/gb/app/finch-self-care-pet/id1528595748?uo=4) | pet_care |
-| +1300 | +134 | us→gb | [Citrus 1 Tap Photo Enhancer AI](https://apps.apple.com/us/app/citrus-1-tap-photo-enhancer-ai/id1589210147?uo=4) | ai_tools |
+| +1040307 | +53991 | us→au | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
+| +1040307 | +93391 | us→ca | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
+| +89639 | +4911 | us→au | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
+| +89639 | +9239 | us→ca | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
+| +89639 | +10476 | us→gb | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
+| +41027 | +2756 | us→au | [CamScanner - PDF Scanner App](https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783?uo=4) | ai_tools |
+| +41027 | +6216 | us→gb | [CamScanner - PDF Scanner App](https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783?uo=4) | ai_tools |
+| +41027 | +8534 | us→ca | [CamScanner - PDF Scanner App](https://apps.apple.com/us/app/camscanner-pdf-scanner-app/id388627783?uo=4) | ai_tools |
+| +18545 | +1030 | us→gb | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
+| +18545 | +1315 | us→au | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
+| +18545 | +1321 | us→ca | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
+| +8699 | +0 | us→au | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
+| +8699 | +0 | us→ca | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
+| +8699 | +0 | us→gb | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
+| +8699 | +0 | us→ca | [Bible Widgets: Verses & Prayer](https://apps.apple.com/us/app/bible-widgets-verses-prayer/id6745089450?uo=4) | religious |
 
 ## Rank-дельты (ворвались в топ-20 выдачи)
 
 | Гео | Запрос | Было | Стало | Приложение |
 |---|---|---|---|---|
-_Нет сопоставимых пересечений топ-20: нужны успешные ответы одного запроса с интервалом ≥7 дней._
+| ca | flight distance calculator | 46 | **4** | [Flight Distance Viewer](https://apps.apple.com/ca/app/id6753686847) |
+| tw | 油耗記錄 | 44 | **4** | [记油耗-油电气能耗记录助手](https://apps.apple.com/tw/app/id1610055803) |
+| gb | lock screen widget | 48 | **9** | [Remind me: Sticky Note Widget](https://apps.apple.com/gb/app/id6757357565) |
+| gb | home screen widgets | 48 | **10** | [MoYo - Widgets & Wallpaper](https://apps.apple.com/gb/app/id6469784726) |
+| ca | insect identifier | 42 | **4** | [Bug IdentifierーIdentify Insect](https://apps.apple.com/ca/app/id6446276917) |
+| gb | voice transcriber | 46 | **9** | [Voice Memo & Transcribe](https://apps.apple.com/gb/app/id6502833561) |
+| au | conduit fill calculator | 40 | **3** | [Conduit Fill Calculator Pro](https://apps.apple.com/au/app/id6796912707) |
+| gb | marine weather | 43 | **7** | [Marine Weather Forecast: Boat8](https://apps.apple.com/gb/app/id6787649471) |
+| gb | barometer fishing | 50 | **14** | [Pascal Barometer](https://apps.apple.com/gb/app/id6759335896) |
+| gb | barometer fishing | 41 | **5** | [Barometer Assistant](https://apps.apple.com/gb/app/id6757361770) |
+| ca | moon phase hunting | 46 | **10** | [Solunar: Hunting Times](https://apps.apple.com/ca/app/id6755957164) |
+| au | voice transcriber | 43 | **7** | [Voice Memo & Transcribe](https://apps.apple.com/au/app/id6502833561) |
+| au | local ai assistant | 48 | **12** | [OnDevice: Local AI Studio](https://apps.apple.com/au/app/id6770114399) |
+| gb | travel budget tracker | 38 | **3** | [Travel Budget Tracker: Kapunka](https://apps.apple.com/gb/app/id6781332387) |
+| au | ai summary app | 44 | **9** | [AI Voice Lock App - VoiceOS](https://apps.apple.com/au/app/id6756325359) |
