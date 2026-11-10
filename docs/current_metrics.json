@@ -1,14 +1,14 @@
 {
   "method": "activity-v4",
-  "candidate_storefronts": 1520,
+  "candidate_storefronts": 1512,
   "counts": {
-    "NO_RECENT_EVIDENCE": 822,
+    "NO_RECENT_EVIDENCE": 814,
     "WEAK": 237,
     "ALIVE": 454,
     "UNKNOWN": 7
   },
   "transitions": {
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 817,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 809,
     "WEAK → WEAK": 228,
     "ALIVE → ALIVE": 450,
     "WEAK → NO_RECENT_EVIDENCE": 5,
@@ -18,8 +18,8 @@
     "WEAK → ALIVE": 3,
     "MISSING → UNKNOWN": 1
   },
-  "apps": 52466,
-  "snapshots": 593287,
+  "apps": 52907,
+  "snapshots": 616474,
   "coverage": [
     {
       "country": "ae",
@@ -47,7 +47,7 @@
     },
     {
       "country": "dk",
-      "apps": 8052
+      "apps": 8242
     },
     {
       "country": "fi",
@@ -67,7 +67,7 @@
     },
     {
       "country": "ie",
-      "apps": 5229
+      "apps": 5625
     },
     {
       "country": "il",
@@ -87,11 +87,11 @@
     },
     {
       "country": "no",
-      "apps": 8232
+      "apps": 8402
     },
     {
       "country": "nz",
-      "apps": 5470
+      "apps": 5954
     },
     {
       "country": "ru",
@@ -103,11 +103,11 @@
     },
     {
       "country": "se",
-      "apps": 8142
+      "apps": 8397
     },
     {
       "country": "sg",
-      "apps": 5257
+      "apps": 5645
     },
     {
       "country": "tw",
@@ -120,27 +120,27 @@
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-10T15:32:29Z"
+    "last": "2026-11-10T16:52:45Z"
   },
-  "histories_7d": 34449,
-  "adjacent_counter_drops": 6175,
+  "histories_7d": 52178,
+  "adjacent_counter_drops": 6225,
   "research_lanes": {
-    "recent_pain": 49,
-    "stale": 1520
+    "recent_pain": 50,
+    "stale": 1512
   },
   "recent_version_review_coverage": {
     "search": {
-      "eligible": 10619,
-      "rss_usable": 1382,
-      "any_complaint": 631,
+      "eligible": 10560,
+      "rss_usable": 1394,
+      "any_complaint": 633,
       "complaint_records": 9,
       "lost_to_stale_rss": 0
     },
     "charts": {
       "eligible": 18603,
-      "rss_usable": 553,
-      "any_complaint": 400,
-      "complaint_records": 45,
+      "rss_usable": 565,
+      "any_complaint": 407,
+      "complaint_records": 46,
       "lost_to_stale_rss": 0
     },
     "links": {
@@ -151,20 +151,20 @@
       "lost_to_stale_rss": 0
     },
     "all": {
-      "eligible": 26612,
-      "rss_usable": 1634,
-      "any_complaint": 837,
-      "complaint_records": 49,
+      "eligible": 26564,
+      "rss_usable": 1658,
+      "any_complaint": 846,
+      "complaint_records": 50,
       "lost_to_stale_rss": 0
     },
     "pain_timing": {
-      "total": 631,
-      "after_release": 200,
-      "only_before_release": 431,
+      "total": 633,
+      "after_release": 206,
+      "only_before_release": 427,
       "timing_unknown": 0,
-      "rss_before_release": 68,
-      "same_version_positive": 140,
-      "version_unknown": 180
+      "rss_before_release": 59,
+      "same_version_positive": 160,
+      "version_unknown": 105
     }
   }
 }
