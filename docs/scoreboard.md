@@ -17,7 +17,6 @@
 | construction | us | 270 | 16 | 4 | 4 | 8 | 0 | 0 |
 | garden | us | 214 | 14 | 4 | 2 | 8 | 0 | 1 |
 | logistics_freight | us | 232 | 11 | 4 | 2 | 5 | 0 | 0 |
-| religious | sa | 180 | 8 | 3 | 5 | 0 | 0 | 1 |
 | books_media | ru | 73 | 19 | 3 | 4 | 12 | 0 | 2 |
 | boardgames | us | 144 | 8 | 3 | 3 | 2 | 0 | 2 |
 | fitness_calc | us | 178 | 15 | 3 | 3 | 9 | 0 | 0 |
@@ -31,6 +30,7 @@
 | hunting_fishing | us | 152 | 8 | 3 | 1 | 4 | 0 | 1 |
 | widgets_watch | jp | 92 | 7 | 3 | 1 | 3 | 0 | 0 |
 | music_practice | de | 133 | 12 | 3 | 0 | 9 | 0 | 1 |
+| religious | sa | 179 | 8 | 2 | 5 | 1 | 0 | 2 |
 | driving_ed | us | 201 | 10 | 2 | 3 | 5 | 0 | 0 |
 | parenting | us | 178 | 10 | 2 | 3 | 5 | 0 | 0 |
 | trades_pro | us | 257 | 12 | 2 | 3 | 7 | 0 | 0 |
@@ -48,7 +48,7 @@
 | religious | fr | 249 | 3 | 2 | 0 | 1 | 0 | 0 |
 | religious | ru | 103 | 5 | 2 | 0 | 3 | 0 | 0 |
 | diy_home | ca | 257 | 14 | 1 | 3 | 8 | 2 | 1 |
-| finance_tools | sa | 180 | 9 | 1 | 2 | 6 | 0 | 1 |
+| finance_tools | sa | 183 | 9 | 1 | 2 | 6 | 0 | 1 |
 | parenting | fr | 119 | 4 | 1 | 2 | 1 | 0 | 0 |
 | parenting | ru | 91 | 4 | 1 | 2 | 1 | 0 | 0 |
 | widgets_watch | ca | 199 | 14 | 1 | 2 | 11 | 0 | 3 |
@@ -66,7 +66,7 @@
 | widgets_watch | ru | 226 | 12 | 1 | 1 | 10 | 0 | 5 |
 | ai_identifiers | gb | 321 | 3 | 1 | 0 | 2 | 0 | 0 |
 | ai_identifiers | hk | 380 | 4 | 1 | 0 | 3 | 0 | 0 |
-| ai_tools | hk | 289 | 2 | 1 | 0 | 1 | 0 | 1 |
+| ai_tools | hk | 292 | 2 | 1 | 0 | 1 | 0 | 1 |
 | ai_tools | jp | 88 | 1 | 1 | 0 | 0 | 0 | 1 |
 | ai_tools | nl | 308 | 1 | 1 | 0 | 0 | 0 | 2 |
 | ai_tools | ru | 80 | 1 | 1 | 0 | 0 | 0 | 2 |
@@ -87,14 +87,13 @@
 | boardgames | se | 214 | 1 | 1 | 0 | 0 | 0 | 0 |
 | books_media | fr | 188 | 1 | 1 | 0 | 0 | 0 | 1 |
 | books_media | se | 150 | 1 | 1 | 0 | 0 | 0 | 3 |
-| construction | sa | 80 | 1 | 1 | 0 | 0 | 0 | 0 |
 | cooking | ru | 46 | 8 | 1 | 0 | 7 | 0 | 1 |
 | cooking | tw | 54 | 2 | 1 | 0 | 1 | 0 | 0 |
 | driving_ed | at | 70 | 1 | 1 | 0 | 0 | 0 | 1 |
 | driving_ed | de | 66 | 1 | 1 | 0 | 0 | 0 | 1 |
-| driving_ed | il | 220 | 6 | 1 | 0 | 5 | 0 | 4 |
+| driving_ed | il | 224 | 6 | 1 | 0 | 5 | 0 | 4 |
 | driving_ed | jp | 250 | 1 | 1 | 0 | 0 | 0 | 1 |
-| driving_ed | sa | 231 | 4 | 1 | 0 | 3 | 0 | 6 |
+| driving_ed | sa | 234 | 7 | 1 | 0 | 6 | 0 | 5 |
 | finance_tools | au | 319 | 2 | 1 | 0 | 1 | 0 | 1 |
 | fitness_calc | fr | 241 | 2 | 1 | 0 | 1 | 0 | 0 |
 | fitness_calc | kr | 92 | 1 | 1 | 0 | 0 | 0 | 1 |
@@ -104,3 +103,4 @@
 | music_practice | se | 123 | 3 | 1 | 0 | 2 | 0 | 0 |
 | needlework | de | 98 | 1 | 1 | 0 | 0 | 0 | 0 |
 | parenting | kr | 128 | 2 | 1 | 0 | 1 | 0 | 0 |
+| parenting | no | 87 | 1 | 1 | 0 | 0 | 0 | 1 |

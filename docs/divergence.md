@@ -39,5 +39,5 @@
 | sg | pet health tracker | 50 | **13** | [PetNoter: Pet Health Tracker](https://apps.apple.com/sg/app/id1580581463) |
 | ca | moon phase hunting | 46 | **9** | [Solunar: Hunting Times](https://apps.apple.com/ca/app/id6755957164) |
 | au | coin identifier | 38 | **1** | [World Rare Coin Identifier](https://apps.apple.com/au/app/id6749077707) |
+| ae | مصاريف السيارة | 45 | **8** | [Loopkeep: Home Maintenance](https://apps.apple.com/ae/app/id6814624478) |
 | sg | stamp identifier | 44 | **8** | [Stamp Identifier Value: Stampy](https://apps.apple.com/sg/app/id6738962638) |
-| sg | cat feeding reminder | 42 | **6** | [Herbie: Cat Games & Care](https://apps.apple.com/sg/app/id6814015241) |
