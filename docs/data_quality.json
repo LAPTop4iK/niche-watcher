@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-11-12T19:52:53.768669+00:00",
+  "computed_at": "2026-11-12T20:25:55.604683+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 103026,
@@ -94,7 +94,7 @@
     "version_unknown": 38
   },
   "alive_paths": {
-    "rss": 367,
+    "rss": 366,
     "velocity": 13,
     "rss+velocity": 35
   },

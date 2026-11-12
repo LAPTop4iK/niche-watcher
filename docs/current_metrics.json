@@ -3,15 +3,15 @@
   "candidate_storefronts": 1468,
   "counts": {
     "NO_RECENT_EVIDENCE": 751,
-    "WEAK": 217,
-    "ALIVE": 415,
+    "WEAK": 218,
+    "ALIVE": 414,
     "UNKNOWN": 85
   },
   "transitions": {
     "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 743,
     "WEAK → WEAK": 203,
-    "ALIVE → ALIVE": 405,
-    "ALIVE → WEAK": 14,
+    "ALIVE → ALIVE": 404,
+    "ALIVE → WEAK": 15,
     "MISSING → UNKNOWN": 68,
     "UNKNOWN → UNKNOWN": 17,
     "WEAK → NO_RECENT_EVIDENCE": 7,

@@ -1,6 +1,6 @@
 # Кандидаты для исследования
 
-Метод activity-v4. Дата 2026-11-12T19:51:54+00:00. Всего 1500 app×country. Это не список прибыльных ниш.
+Метод activity-v4. Дата 2026-11-12T20:24:34+00:00. Всего 1500 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
@@ -386,7 +386,6 @@
 | [Bass Tuner BT1](https://apps.apple.com/us/app/id1433908656) | us | Версия ≥18 мес | ALIVE | — | — | 1683 | free | 2 | 2 | 2025-02-17 |
 | [celebrate: share photo & video](https://apps.apple.com/de/app/id1453163913) | de | Версия ≥18 мес | ALIVE | — | — | 15707 | — | 2 | 1 | 2024-10-15 |
 | [Find My Phone, Friends&Family](https://apps.apple.com/us/app/id1486315142) | us | Версия ≥18 мес | ALIVE | — | — | 1632 | free | 2 | 2 | 2023-12-07 |
-| [LiveIn - Share Your Moment](https://apps.apple.com/us/app/id1606780589) | us | Версия ≥18 мес | ALIVE | — | — | 30480 | — | 2 | 2 | 2023-12-29 |
 | [Office Word: Schreibprogramm](https://apps.apple.com/de/app/id6444708069) | de | Версия ≥18 мес | ALIVE | — | — | 749 | free | 2 | 1 | 2024-08-15 |
 | [starmatch: chat with creators](https://apps.apple.com/us/app/id6448859512) | us | Версия ≥18 мес | ALIVE | — | — | 3497 | — | 2 | 1 | 2024-04-05 |
 | [BalanceMe-Health AI&Self Care](https://apps.apple.com/sa/app/id6469513178) | sa | Версия ≥18 мес | ALIVE | — | — | 951 | free | 2 | 1 | 2025-01-03 |
@@ -619,6 +618,7 @@
 | [SofaTalk 沙發聊聊天](https://apps.apple.com/tw/app/id1480630375) | tw | Версия ≥18 мес | WEAK | — | — | 1027 | free | 1 | 1 | 2024-09-06 |
 | [toki - 你畫我猜桌遊一起玩吧](https://apps.apple.com/tw/app/id1484932363) | tw | Версия ≥18 мес | WEAK | — | — | 4641 | free | 1 | 1 | 2022-12-27 |
 | [Funny emoji - custom my emojis](https://apps.apple.com/ru/app/id1546703508) | ru | Версия ≥18 мес | WEAK | — | — | 1828 | — | 1 | 1 | 2025-04-10 |
+| [LiveIn - Share Your Moment](https://apps.apple.com/us/app/id1606780589) | us | Версия ≥18 мес | WEAK | — | — | 30480 | — | 1 | 1 | 2023-12-29 |
 | [Игры для детей и малышей 2-5](https://apps.apple.com/ru/app/id6446317584) | ru | Версия ≥18 мес | WEAK | — | — | 2277 | — | 1 | 1 | 2023-12-07 |
 | [Authenticator App ｀](https://apps.apple.com/au/app/id6448976943) | au | Версия ≥18 мес | WEAK | — | — | 2655 | free | 1 | 1 | 2024-12-04 |
 | [BalanceMe-健康AIと自己管理](https://apps.apple.com/jp/app/id6469513178) | jp | Версия ≥18 мес | WEAK | — | — | 535 | free | 1 | 1 | 2025-01-03 |
