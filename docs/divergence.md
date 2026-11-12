@@ -28,6 +28,7 @@
 |---|---|---|---|---|
 | au | travel budget tracker | 47 | **2** | [Budget - Spending Tracker](https://apps.apple.com/au/app/id6479639999) |
 | at | segeln app | 47 | **4** | [NV Charts GPS Navigation AIS](https://apps.apple.com/at/app/id659569095) |
+| kr | 아기 수면 기록 | 50 | **8** | [맘마 - 육아기록 어플, 수유·수면·AI 상담](https://apps.apple.com/kr/app/id6760751452) |
 | tw | 油耗記錄 | 44 | **4** | [记油耗-油电气能耗记录助手](https://apps.apple.com/tw/app/id1610055803) |
 | de | akkorde app | 45 | **6** | [Akkorde & Tonleitern - Pianoo](https://apps.apple.com/de/app/id6476414349) |
 | ie | stud finder | 47 | **9** | [Wall Stud Finder](https://apps.apple.com/ie/app/id6739276059) |
@@ -40,4 +41,3 @@
 | sg | pet health tracker | 50 | **13** | [PetNoter: Pet Health Tracker](https://apps.apple.com/sg/app/id1580581463) |
 | gb | car expenses tracker | 44 | **7** | [CarLog Max: Expense Tracker](https://apps.apple.com/gb/app/id6505065556) |
 | ae | مصاريف السيارة | 45 | **8** | [Loopkeep: Home Maintenance](https://apps.apple.com/ae/app/id6814624478) |
-| sg | stamp identifier | 44 | **8** | [Stamp Identifier Value: Stampy](https://apps.apple.com/sg/app/id6738962638) |
