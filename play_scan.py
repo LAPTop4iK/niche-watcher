@@ -61,6 +61,9 @@ CREATE INDEX IF NOT EXISTS idx_psnap ON play_snapshots(app_id, scanned_at);
 """
 
 
+RETRY_PAUSE=60
+
+
 def months_since(ts):
     if not ts:
         return None
@@ -120,52 +123,58 @@ def main():
         except importlib.metadata.PackageNotFoundError:
             library_version='not-installed'
         run_id=scan_state.start_run(con,jobs,{'source':'google-play','limit':args.limit,'library_version':library_version},args.run_id)
-        done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))}
-        for country,category,query in jobs:
-            if (country,category,query) in done:
-                continue
-            scan_state.begin_query(con,run_id,country,category,query)
-            lang=markets[country].get('lang','en');lang={'nb':'no'}.get(lang,lang)
-            try:
-                hits=search(query,lang=lang,country=country,n_hits=args.limit)
-                if not isinstance(hits,list) or any(not isinstance(h,dict) or not isinstance(h.get('appId'),str) or not h['appId'] for h in hits):
-                    raise RuntimeError('Malformed Play search entries; not a successful empty result')
-                resolved=[];failed=[];seen=set()
-                for hit in hits:
-                    app_id=hit['appId']
-                    if app_id in seen:
-                        continue
-                    seen.add(app_id);key=(app_id,country,lang)
-                    try:
-                        if key not in cache:
-                            cache[key]=gp_app(app_id,lang=lang,country=country);time.sleep(.7)
-                        resolved.append((app_id,cache[key]))
-                    except Exception as error:
-                        failed.append(f'{app_id}: {type(error).__name__}: {error}'[:220])
-                stored=0;new_candidates={}
-                con.execute('BEGIN')
-                for app_id,app in ([] if failed else resolved):
-                    now=sc.iso(sc.now_utc());age=months_since(app.get('updated'))
-                    updated=dt.datetime.fromtimestamp(app['updated'],dt.timezone.utc).strftime('%Y-%m-%d') if app.get('updated') else None
-                    con.execute('''INSERT INTO play_apps (app_id,title,developer,installs,price,genre,first_seen,last_seen)
-                        VALUES (?,?,?,?,?,?,?,?) ON CONFLICT(app_id) DO UPDATE SET title=excluded.title,
-                        developer=excluded.developer,installs=excluded.installs,price=excluded.price,
-                        genre=excluded.genre,last_seen=excluded.last_seen''',
-                        (app_id,app.get('title') or app_id,app.get('developer'),app.get('installs'),app.get('price'),app.get('genre'),now,now))
-                    con.execute('''INSERT INTO play_snapshots (app_id,country,category,query,scanned_at,updated_at,
-                        stale_days,rating,ratings_count,installs,run_id,currency,price_amount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)''',
-                        (app_id,country,category,query,now,updated,round(age*30.44) if age is not None else None,
-                         app.get('score'),app.get('ratings'),app.get('installs'),run_id,app.get('currency'),app.get('price')))
-                    stored+=1
-                    if age is not None and age>=args.min_stale_months and (app.get('ratings') or 0)>=args.min_rating_count:
-                        new_candidates[(app_id,country)]=app.get('title')
-                scan_state.end_query(con,run_id,country,category,query,'ERROR' if failed else 'OK',len(hits),stored,
-                                     f'{len(failed)} metadata failures: '+ '; '.join(failed[:2]) if failed else None)
-                analyzed+=stored;candidates.update(new_candidates)
-            except Exception as error:
-                con.rollback()
-                scan_state.end_query(con,run_id,country,category,query,'ERROR',error=f'{type(error).__name__}: {error}')
-            time.sleep(1.2)
+        # Play can fail one query and answer it normally minutes later (KeyError 'ds:4'
+        # on 1 of 537 queries, Nov 12 2026); one more pass keeps that from failing the week.
+        for attempt in (1,2):
+            done={(r[0],r[1],r[2]) for r in con.execute("SELECT country,category,query FROM scan_queries WHERE run_id=? AND status='OK'",(run_id,))}
+            pending=[job for job in jobs if job not in done]
+            if attempt==2 and pending:
+                errors=con.execute("SELECT country,query,error FROM scan_queries WHERE run_id=? AND status!='OK'",(run_id,)).fetchall()
+                print(f'Retrying {len(pending)} failed Play queries: '+'; '.join(f'{c} {q}: {e}' for c,q,e in errors[:3]))
+                time.sleep(RETRY_PAUSE)
+            for country,category,query in pending:
+                scan_state.begin_query(con,run_id,country,category,query)
+                lang=markets[country].get('lang','en');lang={'nb':'no'}.get(lang,lang)
+                try:
+                    hits=search(query,lang=lang,country=country,n_hits=args.limit)
+                    if not isinstance(hits,list) or any(not isinstance(h,dict) or not isinstance(h.get('appId'),str) or not h['appId'] for h in hits):
+                        raise RuntimeError('Malformed Play search entries; not a successful empty result')
+                    resolved=[];failed=[];seen=set()
+                    for hit in hits:
+                        app_id=hit['appId']
+                        if app_id in seen:
+                            continue
+                        seen.add(app_id);key=(app_id,country,lang)
+                        try:
+                            if key not in cache:
+                                cache[key]=gp_app(app_id,lang=lang,country=country);time.sleep(.7)
+                            resolved.append((app_id,cache[key]))
+                        except Exception as error:
+                            failed.append(f'{app_id}: {type(error).__name__}: {error}'[:220])
+                    stored=0;new_candidates={}
+                    con.execute('BEGIN')
+                    for app_id,app in ([] if failed else resolved):
+                        now=sc.iso(sc.now_utc());age=months_since(app.get('updated'))
+                        updated=dt.datetime.fromtimestamp(app['updated'],dt.timezone.utc).strftime('%Y-%m-%d') if app.get('updated') else None
+                        con.execute('''INSERT INTO play_apps (app_id,title,developer,installs,price,genre,first_seen,last_seen)
+                            VALUES (?,?,?,?,?,?,?,?) ON CONFLICT(app_id) DO UPDATE SET title=excluded.title,
+                            developer=excluded.developer,installs=excluded.installs,price=excluded.price,
+                            genre=excluded.genre,last_seen=excluded.last_seen''',
+                            (app_id,app.get('title') or app_id,app.get('developer'),app.get('installs'),app.get('price'),app.get('genre'),now,now))
+                        con.execute('''INSERT INTO play_snapshots (app_id,country,category,query,scanned_at,updated_at,
+                            stale_days,rating,ratings_count,installs,run_id,currency,price_amount) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)''',
+                            (app_id,country,category,query,now,updated,round(age*30.44) if age is not None else None,
+                             app.get('score'),app.get('ratings'),app.get('installs'),run_id,app.get('currency'),app.get('price')))
+                        stored+=1
+                        if age is not None and age>=args.min_stale_months and (app.get('ratings') or 0)>=args.min_rating_count:
+                            new_candidates[(app_id,country)]=app.get('title')
+                    scan_state.end_query(con,run_id,country,category,query,'ERROR' if failed else 'OK',len(hits),stored,
+                                         f'{len(failed)} metadata failures: '+ '; '.join(failed[:2]) if failed else None)
+                    analyzed+=stored;candidates.update(new_candidates)
+                except Exception as error:
+                    con.rollback()
+                    scan_state.end_query(con,run_id,country,category,query,'ERROR',error=f'{type(error).__name__}: {error}')
+                time.sleep(1.2)
         status,ok,total=scan_state.finish_run(con,run_id)
         analyzed=con.execute('SELECT COUNT(*) FROM play_snapshots WHERE run_id=?',(run_id,)).fetchone()[0]
         candidate_count=con.execute('''WITH ranked AS (SELECT *,ROW_NUMBER() OVER

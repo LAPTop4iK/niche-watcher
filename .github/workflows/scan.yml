@@ -147,6 +147,8 @@ jobs:
       - name: Play observations
         run: python3 play_scan.py --countries us,de,jp,gb,au --limit 15
       - name: Play review evidence
+        # A partial Play scan still leaves candidates in the database.
+        if: ${{ !cancelled() }}
         run: python3 play_reviews.py --from-db 5 || true
       - name: Save collected data
         if: always()

@@ -1074,12 +1074,40 @@ class SourceAndMath(unittest.TestCase):
             markets.write_text(json.dumps({'markets':{'us':{'lang':'en'}}}))
             args=['play_scan.py','--seed',str(seed),'--markets',str(markets),'--countries','us','--db',str(base/'db')]
             good=dict(title='App',developer='Dev',installs='1000+',price=0,genre='Tools',updated=1600000000,score=4,ratings=1000)
-            with patch.object(sys,'argv',args),patch.object(play_scan,'search',return_value=[{'appId':'com.one'},{'appId':'com.two'}]),patch.object(play_scan,'gp_app',side_effect=[good,RuntimeError('source failed')]),patch.object(play_scan.time,'sleep'),contextlib.redirect_stdout(io.StringIO()),self.assertRaises(SystemExit):
+            def metadata(app_id,**_):
+                if app_id=='com.two':raise RuntimeError('source failed')
+                return good
+            with patch.object(sys,'argv',args),patch.object(play_scan,'search',return_value=[{'appId':'com.one'},{'appId':'com.two'}]),patch.object(play_scan,'gp_app',side_effect=metadata),patch.object(play_scan.time,'sleep'),contextlib.redirect_stdout(io.StringIO()),self.assertRaises(SystemExit):
                 play_scan.main()
             con=sqlite3.connect(base/'db')
             self.assertEqual(con.execute('SELECT COUNT(*) FROM play_snapshots').fetchone()[0],0)
             self.assertEqual(con.execute('SELECT status,stored_count FROM scan_queries').fetchone(),('ERROR',0))
             con.close()
+
+    def test_play_query_that_fails_once_is_retried_before_the_run_ends(self):
+        with tempfile.TemporaryDirectory() as folder:
+            base=Path(folder);seed=base/'seed';markets=base/'markets'
+            seed.write_text(json.dumps({'categories':[{'id':'c','queries':{'en':['one','two']}}]}))
+            markets.write_text(json.dumps({'markets':{'us':{'lang':'en'}}}))
+            args=['play_scan.py','--seed',str(seed),'--markets',str(markets),'--countries','us','--db',str(base/'db')]
+            calls=[]
+            def search(query,**_):
+                calls.append(query)
+                if calls==['one']:raise KeyError('ds:4')
+                return []
+            out=io.StringIO()
+            with patch.object(sys,'argv',args),patch.object(play_scan,'search',side_effect=search),patch.object(play_scan.time,'sleep'),contextlib.redirect_stdout(out):
+                play_scan.main()
+            self.assertEqual(calls,['one','two','one'])
+            self.assertIn("Retrying 1 failed Play queries: us one: KeyError: 'ds:4'",out.getvalue())
+            with sqlite3.connect(base/'db') as con:
+                self.assertEqual(con.execute('SELECT status FROM scan_runs').fetchone()[0],'COMPLETE')
+                self.assertEqual(con.execute("SELECT COUNT(*) FROM scan_queries WHERE status='OK'").fetchone()[0],2)
+
+    def test_play_review_step_runs_after_a_partial_scan(self):
+        workflow=(Path(__file__).resolve().parents[1]/'.github/workflows/scan.yml').read_text()
+        step=workflow.split('- name: Play review evidence',1)[1].split('- name:',1)[0]
+        self.assertIn('!cancelled()',step)
 
     def test_play_queries_are_localized_phrases(self):
         with tempfile.TemporaryDirectory() as folder:
