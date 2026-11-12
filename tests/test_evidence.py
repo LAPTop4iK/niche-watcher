@@ -47,10 +47,26 @@ class EvidenceTests(unittest.TestCase):
         self.snap(1030,'2026-10-08T12:00:00Z')
         self.assertEqual(evidence.rating_velocity(self.con,1,'us'),(120,7.5))
 
-    def test_counter_dip_and_recovery_stays_unknown(self):
+    def test_weekly_scan_a_few_minutes_short_of_seven_days_still_measures(self):
+        self.snap(1000,'2026-11-04T16:15:00Z')
+        self.snap(1100,'2026-11-11T16:07:00Z')
+        self.assertIsNotNone(evidence.rating_velocity(self.con,1,'us')[0])
+
+    def test_counter_dip_counts_growth_only_above_the_earlier_peak(self):
         for rc,day in [(1000,'01'),(900,'04'),(1010,'10')]:
             self.snap(rc,f'2026-10-{day}T00:00:00Z')
+        # Recovery from 900 is not growth; only the 10 above the 1000 peak is.
+        self.assertAlmostEqual(evidence.rating_velocity(self.con,1,'us')[0],10/9*30)
+        self.snap(950,'2026-10-11T00:00:00Z')
         self.assertIsNone(evidence.rating_velocity(self.con,1,'us')[0])
+
+    def test_lagging_replica_in_the_last_scan_does_not_hide_growth(self):
+        for run,day,counts in [('a','01',(1000,1000)),('b','10',(1000,1060))]:
+            for i,rc in enumerate(counts):
+                app=sc.normalize(dict(trackId=1,trackName='App',userRatingCount=rc,currentVersionReleaseDate='2020-01-01T00:00:00Z'),'us','test',f'query{i}')
+                app.update(scanned_at=f'2026-10-{day}T00:00:0{i}Z',run_id=run)
+                sc.upsert_app(self.con,app);sc.insert_snapshot(self.con,app)
+        self.assertAlmostEqual(evidence.rating_velocity(self.con,1,'us')[0],60/9*30,places=3)
 
     def test_replica_noise_within_a_run_is_not_a_counter_reset(self):
         for run,day,counts in [('a','01',(260100,260008)),('b','10',(260092,260300))]:

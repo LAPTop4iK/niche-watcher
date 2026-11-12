@@ -88,6 +88,20 @@ class StorageGitTests(unittest.TestCase):
                 self.assertEqual({r[0] for r in con.execute('SELECT track_id FROM apps')},{1,3})
             self.assertEqual(self.git(upstream,'rev-parse','HEAD'),self.git(Path(folder),'--git-dir',str(origin),'rev-parse','main'))
 
+    def test_upstream_docs_or_workflow_commit_does_not_discard_collected_data(self):
+        with tempfile.TemporaryDirectory() as folder:
+            origin,(upstream,local)=self.repos(folder)
+            self.git(upstream,'config','user.name','test');self.git(upstream,'config','user.email','test@example.test')
+            (upstream/'NOTES.md').write_text('pushed while a scan ran\n')
+            self.git(upstream,'add','NOTES.md');self.git(upstream,'commit','-m','docs');self.git(upstream,'push','origin','main')
+            self.add(local,3)
+            subprocess.run(['bash','ci_save.sh','docs race'],cwd=local,env=self.env(folder),check=True,capture_output=True)
+            final=Path(folder)/'final';self.git(Path(folder),'clone',str(origin),str(final))
+            self.assertTrue((final/'NOTES.md').exists())
+            self.assertTrue(db_store.ensure(final/'niches.db'))
+            with sqlite3.connect(final/'niches.db') as con:
+                self.assertIn(3,{r[0] for r in con.execute('SELECT track_id FROM apps')})
+
     def test_git_keeps_a_pointer_instead_of_a_new_binary_blob_per_save(self):
         with tempfile.TemporaryDirectory() as folder:
             origin,(clone,_)=self.repos(folder)

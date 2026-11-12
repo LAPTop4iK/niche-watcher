@@ -49,8 +49,9 @@ def build_message(con,now=None):
                f'Активность: ≥2 записи RSS/90д ({paths.get("rss",0)}), прирост оценок сверх шума ({paths.get("velocity",0)}), оба пути ({paths.get("rss+velocity",0)}); это не оплаты, периоды сравнивать внутри пути.',
                f'Воронка: поиск {f["search"]["records"]} → активность {f["alive"]["records"]} → топ-10 {f["top10"]["records"]} → запрос в названии {f["title_match"]["records"]} ({f["title_match"]["apps"]} приложений).',
                f'\n<b>Версия &lt;18 мес + 1–2★ выше базы категории, запрос в названии</b>: {len(recent)}',
-               f'Есть жалобы по времени после обновления: {p["after_release"]}; только до него: {p["only_before_release"]}. Это не доказательство сохранения или исправления бага.',
-               f'RSS собран ещё до обновления у {p["rss_before_release"]} из них: нужна повторная проверка. Версия отзыва известна в {c["rss_with_review_versions"]} срезах.']
+               # The timing lines describe every searched recent row with a complaint, not only the queue.
+               f'Из {p["total"]} поисковых записей со свежими 1–2★: жалобы после обновления у {p["after_release"]}, только до него у {p["only_before_release"]}. Это не доказательство сохранения или исправления бага.',
+               f'RSS собран ещё до обновления у {p["rss_before_release"]} из этих {p["total"]}: нужна повторная проверка. Версия отзыва известна в {c["rss_with_review_versions"]} срезах.']
         if lost:lines.append(f'Выпали из очереди из-за устаревшего RSS: {lost}. Это потеря покрытия, а не исчезновение жалоб.')
         if old or new:lines.append('\n<b>Примеры для проверки — не рейтинг заработка</b>\nR30 — записи RSS за 30 дней, нижняя граница.')
         for r in (old[:limit]+new[:limit]):

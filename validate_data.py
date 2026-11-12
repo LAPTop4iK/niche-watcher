@@ -53,11 +53,13 @@ def validate(con,require_complete=False,required_run=None):
                 errors.append(f'{run_id}: {status}, {counts.get("OK",0)}/{expected}')
         has_run='run_id' in {r[1] for r in con.execute('PRAGMA table_info(snapshots)')}
         if has_run:
-            mismatch=con.execute('''SELECT q.run_id,q.country,q.category,q.query,q.stored_count,COUNT(s.id)
-                FROM scan_queries q LEFT JOIN snapshots s ON s.run_id=q.run_id AND s.country=q.country
-                  AND s.category=q.category AND s.query=q.query
-                JOIN scan_runs r ON r.run_id=q.run_id WHERE q.status='OK' AND r.source!='google-play' GROUP BY q.run_id,q.country,q.category,q.query
-                HAVING COALESCE(q.stored_count,0)!=COUNT(s.id) LIMIT 10''').fetchall()
+            # One grouping pass: joining each query to its run's snapshots took 64 s (Nov 12).
+            mismatch=con.execute('''WITH observed AS (SELECT run_id,country,category,query,COUNT(*) AS n FROM snapshots
+                  WHERE run_id IS NOT NULL GROUP BY run_id,country,category,query)
+                SELECT q.run_id,q.country,q.category,q.query,q.stored_count,COALESCE(o.n,0)
+                FROM scan_queries q JOIN scan_runs r ON r.run_id=q.run_id
+                LEFT JOIN observed o ON o.run_id=q.run_id AND o.country=q.country AND o.category=q.category AND o.query=q.query
+                WHERE q.status='OK' AND r.source!='google-play' AND COALESCE(q.stored_count,0)!=COALESCE(o.n,0) LIMIT 10''').fetchall()
             if mismatch:
                 errors.append('Stored query counts differ from observations: '+str([tuple(r) for r in mismatch]))
             duplicates=con.execute('''SELECT 1 FROM snapshots WHERE run_id IS NOT NULL

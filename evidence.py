@@ -3,9 +3,9 @@ from datetime import datetime, timedelta, timezone
 import json
 import re
 import sqlite3
-import statistics
+import unicodedata
 
-METHOD = 'activity-v4'
+METHOD = 'activity-v5'
 LABELS = {'ALIVE':'Есть свежая активность','WEAK':'Слабый сигнал',
           'UNKNOWN':'Недостаточно данных','NO_RECENT_EVIDENCE':'Нет свежих сигналов'}
 LANES = {'stale':'Версия ≥18 мес', 'recent_pain':'Версия <18 мес + жалобы выше базы'}
@@ -150,44 +150,49 @@ def is_candidate(row,now=None,min_stale=18,min_ratings=500):
 
 
 def counter_noise(value):
-    """API replicas disagree on one counter; only larger moves are real changes."""
-    return max(3,0.005*value)
+    """Scan maxima of one counter fell by more than max(2; 0.1%) in 4 of 5051
+    week-long tier-1 series (Nov 2026): larger moves are real changes."""
+    return max(2,0.001*value)
 
 
 def rating_series(con,track_id,country):
-    """One point per scan, newest first: an app appears once per query it matched."""
+    """One point per scan, newest first: the scan's highest count. An app appears
+    once per query it matched; replicas lag behind and never run ahead, so the
+    maximum is the freshest value of the scan."""
     scans={};columns={r[1] for r in con.execute('PRAGMA table_info(snapshots)')}
     for run_id,stamp,count in con.execute(f'''SELECT {'run_id' if 'run_id' in columns else 'NULL'},scanned_at,rating_count
             FROM snapshots WHERE track_id=? AND country=? AND rating_count IS NOT NULL''',(track_id,country)):
-        scan=scans.setdefault(run_id or stamp,dict(stamp=stamp,values=[]))
-        scan['stamp']=max(scan['stamp'],stamp);scan['values'].append(count)
-    return sorted(((parse(s['stamp']),statistics.median(s['values']),min(s['values']),max(s['values']))
-                   for s in scans.values()),reverse=True)
+        scan=scans.setdefault(run_id or stamp,dict(stamp=stamp,value=count))
+        scan['stamp']=max(scan['stamp'],stamp);scan['value']=max(scan['value'],count)
+    return sorted(((parse(s['stamp']),s['value']) for s in scans.values()),reverse=True)
 
 
-def rating_velocity(con,track_id,country,min_days=7,max_days=45):
-    """Growth per 30 days; 0.0 means within counter noise, None means unusable."""
+# A weekly scan can fire minutes short of seven days (slot 3: 6.994 days, Nov 11).
+WEEK_DAYS=6.5
+
+
+def rating_velocity(con,track_id,country,min_days=WEEK_DAYS,max_days=45):
+    """Growth per 30 days; 0.0 means within counter noise, None means unusable.
+
+    The baseline is the highest count seen up to it, so a lagging value or a
+    dip before it cannot pass for growth during recovery. A counter that ends
+    below that baseline, or drops twice, was reset or is unstable."""
     series=rating_series(con,track_id,country)
     if not series:
         return None,0.0
-    end,count=series[0][0],series[0][1]
+    end,count=series[0]
     observed=(end-series[-1][0]).total_seconds()/86400
-    floor=count;baseline=None
-    for stamp,value,low,high in series:
-        days=(end-stamp).total_seconds()/86400
-        if days>max_days:
-            break
-        # A reset just before the chosen baseline can masquerade as new ratings
-        # during recovery, so the entire recent window is inspected before growth.
-        if high-low>counter_noise(high) or value-floor>counter_noise(value):
-            return None,observed
-        floor=min(floor,value)
-        if days>=min_days and baseline is None:
-            baseline=(value,days)
-    if baseline is not None:
-        value,days=baseline
-        return ((count-value)/days*30 if count-value>counter_noise(count) else 0.0),days
-    return None,observed
+    window=[(stamp,value) for stamp,value in series if (end-stamp).total_seconds()<=max_days*86400]
+    older=[(stamp,value) for stamp,value in window if (end-stamp).total_seconds()>=min_days*86400]
+    if not older:
+        return None,observed
+    days=(end-older[0][0]).total_seconds()/86400
+    baseline=max(value for _,value in older)
+    values=[value for _,value in reversed(window)]
+    drops=sum(later<earlier-counter_noise(earlier) for earlier,later in zip(values,values[1:]))
+    if drops>1 or count<baseline-counter_noise(baseline):
+        return None,observed
+    return ((count-baseline)/days*30 if count-baseline>counter_noise(baseline) else 0.0),days
 
 
 def activity(vel,last_review,r90,fetch_status='OK',now=None):
@@ -223,6 +228,7 @@ def demand_map(con):
 
 
 def assess(con,row,cached=None,now=None):
+    from relevance import theme_word
     now=now or datetime.now(timezone.utc)
     vel,days=rating_velocity(con,row['track_id'],row['country'])
     d=cached or {}
@@ -276,7 +282,11 @@ def assess(con,row,cached=None,now=None):
                     bad_current_version=sum(scores[i]<=2 and versions[i]==row['version'] for i in recent)
                 if theme_known:
                     on_release={i for i in recent if scores[i]<=2 and (versions[i]==row.get('version') if bad_current_version is not None else True)}
-                    repeated=[(sum(i in on_release for i in reviews),word) for word,reviews in json.loads(d['review_themes_json']).items()]
+                    # Samples stored before the stop list still carry grammar words; the
+                    # app's own name ("pizza" for Domino's Pizza) describes the product.
+                    title=unicodedata.normalize('NFKC',row.get('name') or '').casefold()
+                    repeated=[(sum(i in on_release for i in reviews),word) for word,reviews in json.loads(d['review_themes_json']).items()
+                              if theme_word(word) and word not in title]
                     pain_theme=next((word for count,word in sorted(repeated,key=lambda x:(-x[0],x[1])) if count>=2),None)
         except (ValueError,TypeError,AttributeError):
             status='ERROR';r90=None

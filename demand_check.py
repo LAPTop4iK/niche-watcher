@@ -20,7 +20,7 @@ from datetime import datetime, timezone, timedelta
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
 import evidence
-from collections import Counter
+from collections import Counter, deque
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 RSS_PAGE_SIZE=50
@@ -28,6 +28,8 @@ RSS_MAX_PAGES=5  # Apple serves ten; five bound the budget, a capped sample is f
 RSS_WINDOW_DAYS=90
 EMPTY_CONFIRM_SECONDS=600
 REFRESH_AFTER_DAYS=6  # A tier-2 storefront is scanned weekly; the next pass would miss 14 days.
+THROTTLE_WINDOW=10  # Apps that had reviews; half of them empty means the feed is throttled.
+THROTTLE_PAUSE=300
 
 DEMAND_SCHEMA = """
 CREATE TABLE IF NOT EXISTS demand (
@@ -162,13 +164,71 @@ def prepare(con):
     con.commit()
 
 
+def had_reviews(con,tid,country):
+    """RSS lists the latest reviews whatever their age, so an app that once had
+    reviews does not honestly answer empty. On Nov 11-12 CI got empty feeds for
+    most such tier-1 apps while the same feeds were full from another network."""
+    row=con.execute('SELECT sample_size FROM demand WHERE track_id=? AND country=?',(tid,country)).fetchone()
+    if row and (row[0] or 0)>0:
+        return True
+    if not con.execute("SELECT 1 FROM sqlite_master WHERE name='demand_samples'").fetchone():
+        return False
+    return con.execute("""SELECT 1 FROM demand_samples WHERE track_id=? AND country=?
+        AND json_extract(payload_json,'$.fetch_status')='OK' AND json_extract(payload_json,'$.sample_size')>0 LIMIT 1""",
+        (tid,country)).fetchone() is not None
+
+
+def forget(con,keys):
+    """Drop cached answers that are not measurements. Without the cache row the
+    refresh queue measures the app again; history keeps every answer."""
+    import demand_history
+    for key in keys:
+        demand_history.preserve_current(con,*key)
+    con.executemany('DELETE FROM demand WHERE track_id=? AND country=?',keys)
+    con.commit()
+
+
+class Throttled(RuntimeError):
+    pass
+
+
+def measure(con,keys,delay,policy=lambda key:None):
+    """Fetch and store RSS samples. A throttled client gets an empty feed with
+    HTTP 200, so apps that had reviews are canaries: when half of the last ten
+    answer empty, pause once, then stop instead of spending the budget on noise.
+    Other apps' empty answers of a stopped run are dropped: half of the large
+    apps that first answered empty on Nov 11-12 do have reviews."""
+    recent=deque(maxlen=THROTTLE_WINDOW);paused=False;empties=[]
+    for i,key in enumerate(keys,1):
+        canary=had_reviews(con,*key)
+        result=fetch_demand(*key,pause=delay)
+        store_result(con,*key,result,policy=policy(key))
+        if canary:
+            recent.append(result[-1]=='EMPTY')
+        elif result[-1]=='EMPTY':
+            empties.append(key)
+        if sum(recent)>=THROTTLE_WINDOW//2:
+            if paused:
+                forget(con,empties)
+                raise Throttled(f'RSS answered empty for {sum(recent)} of the last {len(recent)} apps that had reviews; '
+                                f'stopped after {i}/{len(keys)} checks. The empty answers stay in history only.')
+            print(f'RSS: {sum(recent)} of the last {len(recent)} apps that had reviews answered empty; pausing {THROTTLE_PAUSE} s',flush=True)
+            time.sleep(THROTTLE_PAUSE);paused=True;recent.clear()
+        if i%25==0:
+            print(f'UPDATED {i}/{len(keys)}',flush=True)
+        time.sleep(delay)
+
+
 def store_result(con,tid,country,result,policy=None):
     import demand_history
     con.execute('SAVEPOINT review_measurement')
     try:
         demand_history.preserve_current(con,tid,country)
-        if keeps_valid_sample(con,tid,country,result[-1]):
-            payload=dict(track_id=tid,country=country,checked_at=sc.iso(sc.now_utc()),fetch_status=result[-1],
+        status=result[-1]
+        if status=='EMPTY' and had_reviews(con,tid,country):
+            status='EMPTY_SUSPECT'
+        if status=='EMPTY_SUSPECT' or keeps_valid_sample(con,tid,country,status):
+            payload=dict(track_id=tid,country=country,checked_at=sc.iso(sc.now_utc()),fetch_status=status,
                          fetch_error=getattr(result,'error',None),method_version=evidence.METHOD,collection_policy=policy)
         else:
             _store_result(con,tid,country,result,policy)
@@ -519,11 +579,12 @@ def main():
             broad=wide_review_sample(rows,cached,args.explore_wide,countries,now,exclude=refresh+targeted)
             keys=refresh+targeted+broad;refresh=set(refresh);targeted=set(targeted);by_key={(r['track_id'],r['country']):r for r in rows}
             print(f'DISCOVERY: {len(keys)} RSS checks, max {args.refresh_queue}+{args.explore_updated}+{args.explore_wide}/country; not a statistical control',flush=True)
-            for i,(tid,geo) in enumerate(keys,1):
-                policy='queue-refresh-v2' if (tid,geo) in refresh else 'updated-v1' if (tid,geo) in targeted else 'wide-v1:'+exploration_stratum(by_key[(tid,geo)],now)
-                store_result(con,tid,geo,fetch_demand(tid,geo,pause=args.delay),policy=policy)
-                if i%25==0:print(f'UPDATED {i}/{len(keys)}',flush=True)
-                time.sleep(args.delay)
+            policy=lambda key:'queue-refresh-v2' if key in refresh else 'updated-v1' if key in targeted else 'wide-v1:'+exploration_stratum(by_key[key],now)
+            try:
+                measure(con,keys,args.delay,policy)
+            except Throttled as error:
+                con.close()
+                raise SystemExit(str(error))
         con.close()
         return
     prepare(con)
@@ -534,18 +595,12 @@ def main():
         return
     tracks = zombie_tracks(con, limit=args.limit, track=args.track)
     print(f"зомби-треков на проверку: {len(tracks)}")
-
-    now = sc.iso(sc.now_utc())
-    results = []
-    for i, (tid, country, rc, vd, name, seller, url) in enumerate(tracks, 1):
-        vel, days_obs = velocity(con, tid, country)
-        result=fetch_demand(tid,country)
-        store_result(con,tid,country,result)
-        if i % 25 == 0:
-            con.commit()
-            print(f"  {i}/{len(tracks)}…")
-        time.sleep(args.delay)
-    con.commit()
+    try:
+        measure(con,[(tid,country) for tid,country,*_ in tracks],args.delay)
+    except Throttled as error:
+        write_cached_report(con,args.out)
+        con.close()
+        raise SystemExit(str(error))
 
     write_cached_report(con, args.out)
     con.close()

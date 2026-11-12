@@ -183,7 +183,7 @@ def insert_snapshot(con, app):
     )
 
 
-def previous_snapshot(con, track_id, country, min_age_days=7):
+def previous_snapshot(con, track_id, country, min_age_days=6.5):  # evidence.WEEK_DAYS
     """Последний снапшот ТОГО ЖЕ сторфронта старше min_age_days — база для velocity.
     rating_count в API пер-страновый: смешение стран даёт мусорную velocity."""
     if con is None:  # dry-run: velocity недоступна
@@ -314,10 +314,19 @@ def build_alert_message(new, total_zombies, print_mode=False, as_of=None):
     stamp=as_of or now_utc()
     if isinstance(stamp,str):stamp=parse_iso(stamp)
     display_time=stamp.astimezone(ZoneInfo('Europe/Warsaw')).strftime('%d.%m.%Y %H:%M')
+    from relevance import relevant
+    # 87% of first appearances on Nov 2-11 were unrelated hits of their query:
+    # apps named after the query come first, best position first, once per app.
+    titled=lambda a:relevant(a['name'],a.get('query') or '')
+    examples=[];seen=set()
+    for a in sorted(new,key=lambda a:(not titled(a),a.get('rank') or 1000)):
+        if a['track_id'] not in seen:
+            examples.append(a);seen.add(a['track_id'])
     def render(limit):
-        shown=new[:limit]
+        shown=examples[:limit]
         lines=["🔭 <b>Niche Watcher — новые наблюдения</b>",
                f"Старые версии, впервые подходящие под фильтр: <b>{len(new)}</b> app×страна.",
+               f"Со словами запроса в названии: {sum(map(titled,new))}; они показаны первыми.",
                f"Всего старых версий в этом скане: {total_zombies} app×страна.",
                f"Сбор завершён: {display_time} (Варшава).",
                f"\nПоказано {len(shown)} из {len(new)} — примеры для ручной проверки, не рейтинг доходности."]

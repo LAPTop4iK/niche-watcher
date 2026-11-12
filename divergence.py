@@ -85,7 +85,7 @@ def main():
         tid, country, rc = r["track_id"], r["country"], r["rating_count"]
         if rc is None or rc < args.min_ratings:
             continue
-        vel, days = evidence.rating_velocity(con,tid,country,min_days=max(7,args.min_days))
+        vel, days = evidence.rating_velocity(con,tid,country,min_days=max(evidence.WEEK_DAYS,args.min_days))
         if vel is None:
             continue
         by_app[tid][country] = dict(rc_first=rc-vel*days/30,rc_last=rc,days=days,

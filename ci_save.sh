@@ -28,14 +28,17 @@ git config user.name "scan-bot"
 git config user.email "scan-bot@users.noreply.github.com"
 for scan_attempt in 1 2 3; do
   git fetch origin "$scan_branch"
-  # Only generated files may differ. A code/schema change needs a fresh run,
-  # rather than silently reverting upstream code or using old loaded modules.
+  # Locally only generated files may differ. Upstream, a code/schema change needs a
+  # fresh run rather than old loaded modules; a docs or workflow commit pushed while
+  # this job ran changes nothing it computed, and used to discard its data.
   python3 - <<'PY'
 import subprocess
 allowed={'niches.db','niches.db.gz','niches.db.xz','niches.db.checkpoint.json','report.md','report_t2.md','demand_report.md','geo_gap_report.md','charts_report.md','clusters_report_us.md','clusters_report_gb.md','docs/scoreboard.md','docs/divergence.md','docs/hypotheses.json','docs/hypotheses.md','docs/current_metrics.json','docs/data_quality.json','docs/telegram_preview.txt'}
+code=lambda path:path.endswith(('.py','.sh')) or path in {'seed_queries.json','markets.json','research_hypotheses.json','requirements-play.txt'}
 def git(*args):return set(subprocess.check_output(['git',*args],text=True).splitlines())
-changed=git('diff','--name-only','HEAD','FETCH_HEAD')|git('diff','--name-only','HEAD')|git('ls-files','--others','--exclude-standard')
-if changed-allowed:
+local=git('diff','--name-only','HEAD')|git('ls-files','--others','--exclude-standard')
+upstream={path for path in git('diff','--name-only','HEAD','FETCH_HEAD') if code(path)}
+if local-allowed or upstream:
     raise SystemExit('Code changed; collected DB is retained for recovery. Rerun using the updated code.')
 PY
   # The checkpoint is outside the checkout. Decode origin anew on every retry.
@@ -70,6 +73,11 @@ PY
     git add -A
   else
     # Collected data outranks a clean history: one blob in Git until the Release recovers.
+    # GitHub refuses files over 100 MB; past that the job artifact keeps the data.
+    if (( $(wc -c < "$scan_checkpoint/niches.db.xz") > 95000000 )); then
+      echo "::error::Release unavailable and the checkpoint exceeds Git's file limit" >&2
+      exit 1
+    fi
     echo "::warning::Release unavailable; this checkpoint goes through Git"
     git rm -f --cached --ignore-unmatch niches.db niches.db.gz niches.db.checkpoint.json
     rm -f niches.db.gz niches.db.checkpoint.json

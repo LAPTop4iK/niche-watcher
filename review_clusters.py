@@ -25,23 +25,20 @@ from collections import defaultdict
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scanner as sc
-from relevance import cjk
+from relevance import CJK_RUN,REVIEW_STOP,cjk,theme_word
 
-STOP = set("""the a an and or but is are was were to of in on for with this that it its i you my me we
-they he she at as be by from has have had not no do does did can will would should could very just
-so there their about out up down when what which who all more most other some such only own same
-than too при этом для что так как это оно они его её мне тебя не и в на с по у же бы очень все
-нужно нужна нужен был была были чтобы если когда уже там вот только можно спасибо приложение
-""".split())
+STOP = REVIEW_STOP
 
 
 def tokens(text):
     found=[]
     for word in re.findall(r'[^\W\d_]+',unicodedata.normalize('NFKC',text).casefold(),re.UNICODE):
-        if cjk(word):
-            found.extend(word[i:i+2] for i in range(len(word)-1))  # No word segmentation: bigrams.
-        elif len(word)>3 and word not in STOP:
-            found.append(word)
+        # Latin and CJK run together without spaces ("app使用"): split them first.
+        for part in CJK_RUN.findall(word):
+            if cjk(part):
+                found.extend(b for b in (part[i:i+2] for i in range(len(part)-1)) if theme_word(b))  # No word segmentation: bigrams.
+            elif len(part)>3 and theme_word(part):
+                found.append(part)
     return found
 
 

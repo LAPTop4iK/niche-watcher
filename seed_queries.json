@@ -95,7 +95,7 @@
           "vin check"
         ],
         "de": [
-          "krafstoffverbrauch app",
+          "spritverbrauch app",
           "auto kosten",
           "obd2 scanner"
         ],
@@ -242,9 +242,9 @@
           "moon phase hunting"
         ],
         "de": [
-          "bisszeiten",
+          "beißzeiten",
           "angel app",
-          "solunarr"
+          "solunar"
         ],
         "ja": [
           "釣り 時間",
@@ -762,7 +762,7 @@
         "de": [
           "rezept umrechnen",
           "bratenthermometer",
-          "brotrheinaufgeher"
+          "brot backen timer"
         ],
         "fr": [
           "minuteur sous vide",
@@ -838,7 +838,7 @@
         "de": [
           "wandscanner",
           "farbrechner",
-          "wasserkrepprechner"
+          "wasserwaage"
         ],
         "ja": [
           "壁内 探知",
@@ -1109,8 +1109,7 @@
           "theory test kit",
           "road signs quiz",
           "dmv practice test",
-          "theorieprüfung",
-          "codruta"
+          "theorieprüfung"
         ],
         "de": [
           "theorieprüfung app",

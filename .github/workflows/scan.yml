@@ -92,7 +92,7 @@ jobs:
       - name: Refresh the queue, explore recent-version complaints and broader search strata
         # A partial scan or a failed Telegram delivery must not cost this step.
         if: ${{ !cancelled() }}
-        run: python3 demand_check.py --refresh-queue 30 --explore-updated 10 --explore-wide 10 --tier 2 --slot ${{ steps.slot.outputs.n }} --delay 1.5
+        run: python3 demand_check.py --refresh-queue 60 --explore-updated 10 --explore-wide 10 --tier 2 --slot ${{ steps.slot.outputs.n }} --delay 1.5
       - name: Save collected data
         if: always()
         env:
@@ -276,7 +276,7 @@ jobs:
       contents: read
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -292,4 +292,13 @@ jobs:
           path: dashboard
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v5
+      # GitHub answered "Deployment failed, try again later" on Nov 6; the uploaded artifact stays valid.
+      - name: Wait before retrying the deploy
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 90
+      - name: Retry deploy to GitHub Pages
+        id: retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5

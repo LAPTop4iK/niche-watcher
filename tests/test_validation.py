@@ -7,6 +7,7 @@ import sqlite3
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from unittest.mock import patch
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 import scanner as sc
@@ -225,12 +226,12 @@ class FreshnessAndSampling(Fixtures):
         self.assertEqual(a['r90'],1);self.assertEqual(a['bad_recent_count'],1)
         self.assertEqual(a['verdict'],'WEAK')
 
-    def test_same_timestamp_conflicting_counters_stays_unknown(self):
+    def test_same_timestamp_conflicting_counters_use_the_freshest(self):
         con=sc.open_db(':memory:')
         self.make(con,date='2026-10-01T00:00:00Z',count=1000)
         self.make(con,date='2026-10-10T00:00:00Z',count=1020)
         self.make(con,date='2026-10-10T00:00:00Z',count=1010)
-        self.assertIsNone(evidence.rating_velocity(con,1,'us')[0])
+        self.assertAlmostEqual(evidence.rating_velocity(con,1,'us')[0],20/9*30)
 
     def test_unjournaled_membership_expires_but_journaled_chart_stays(self):
         con=sc.open_db(':memory:')
@@ -270,14 +271,14 @@ class FreshnessAndSampling(Fixtures):
         self.make(con,date='2026-09-25T00:00:00Z',count=1000)
         self.make(con,date='2026-10-01T00:00:00Z',count=900)
         self.make(con,date='2026-10-15T00:00:00Z',count=1000)
-        self.assertIsNone(evidence.rating_velocity(con,1,'us')[0])
+        self.assertEqual(evidence.rating_velocity(con,1,'us')[0],0.0)
 
-    def test_conflicting_baseline_does_not_get_hidden_by_early_return(self):
+    def test_conflicting_baseline_takes_its_highest_value(self):
         con=sc.open_db(':memory:')
         self.make(con,date='2026-10-01T00:00:00Z',count=1000)
         self.make(con,date='2026-10-01T00:00:00Z',count=900)
         self.make(con,date='2026-10-10T00:00:00Z',count=1020)
-        self.assertIsNone(evidence.rating_velocity(con,1,'us')[0])
+        self.assertAlmostEqual(evidence.rating_velocity(con,1,'us')[0],20/9*30)
 
     def test_new_age_threshold_is_not_flagged_in_the_past(self):
         con=sc.open_db(':memory:')
@@ -483,6 +484,18 @@ class Presentation(Fixtures):
             message=tg_digest.build_message(con)
         self.assertIn('Recent pain',message);self.assertNotIn('Stale RSS',message)
         self.assertNotIn('Not checked',message);self.assertNotIn('No complaint',message)
+
+    def test_daily_summary_shows_apps_named_after_their_query_first_once_each(self):
+        con=sc.open_db(':memory:')
+        unrelated=[sc.analyze(con,self.make(con,tid=i,name='Instagram',count=900000),18,500) for i in range(1,8)]
+        titled=sc.analyze(con,self.make(con,tid=20,name='Concrete Calculator Pro'),18,500)
+        again=sc.analyze(con,self.make(con,tid=20,country='gb',name='Concrete Calculator Pro'),18,500)
+        for rank,a in enumerate(unrelated,1):a['rank']=rank
+        titled['rank']=again['rank']=30
+        msg=sc.build_alert_message([*unrelated,titled,again],9)
+        self.assertIn('Со словами запроса в названии: 2',msg)
+        self.assertLess(msg.index('Concrete Calculator Pro'),msg.index('Instagram'))
+        self.assertEqual(msg.count('Concrete Calculator Pro'),1)
 
     def test_alert_footer_has_one_dashboard_link_and_no_filename_domain(self):
         import tg_digest
@@ -704,7 +717,8 @@ class ReviewCollection(Fixtures):
             with patch.object(sc,'now_utc',return_value=later):dc.store_result(con,1,'us',failure)
             self.assertEqual(row(),kept)
         statuses=[json.loads(r[0]).get('fetch_status') for r in con.execute('SELECT payload_json FROM demand_samples')]
-        self.assertEqual(sorted(statuses),['EMPTY','ERROR','OK'])
+        # An app that had reviews never answers empty honestly: the answer is suspect.
+        self.assertEqual(sorted(statuses),['EMPTY_SUSPECT','ERROR','OK'])
         import validate_data
         self.assertEqual(validate_data.validate(con)[1],[])
         with patch.object(sc,'now_utc',return_value=expired):dc.store_result(con,1,'us',dc.DemandFetch((None,None,None,None,'ERROR'),error='offline'))
@@ -738,6 +752,42 @@ class ReviewCollection(Fixtures):
                 self.assertTrue((Path(folder)/'clusters_report_gb.md').exists())
             finally:
                 os.chdir(cwd)
+
+    def test_empty_feed_of_an_app_that_had_reviews_is_never_a_measurement(self):
+        import demand_check as dc
+        con=sc.open_db(':memory:');dc.prepare(con)
+        good=dc.DemandFetch(('2026-10-30T00:00:00Z',1,1,100,'OK'),['2026-10-30T00:00:00Z'],[1],ids=['a'],versions=['1'])
+        with patch.object(sc,'now_utc',return_value=datetime(2026,10,31,tzinfo=timezone.utc)):dc.store_result(con,1,'us',good)
+        # Past the 14-day window an empty answer used to replace the sample.
+        with patch.object(sc,'now_utc',return_value=datetime(2026,11,20,tzinfo=timezone.utc)):
+            dc.store_result(con,1,'us',dc.DemandFetch((None,None,None,None,'EMPTY')))
+            dc.store_result(con,2,'us',dc.DemandFetch((None,None,None,None,'EMPTY')))
+        self.assertEqual(con.execute('SELECT fetch_status FROM demand WHERE track_id=1').fetchone(),('OK',))
+        self.assertEqual(con.execute('SELECT fetch_status FROM demand WHERE track_id=2').fetchone(),('EMPTY_UNCONFIRMED',))
+        statuses=[json.loads(r[0])['fetch_status'] for r in con.execute('SELECT payload_json FROM demand_samples WHERE track_id=1 ORDER BY checked_at')]
+        self.assertEqual(statuses,['OK','EMPTY_SUSPECT'])
+
+    def test_measurement_stops_when_apps_that_had_reviews_answer_empty(self):
+        import demand_check as dc
+        con=sc.open_db(':memory:');dc.prepare(con)
+        good=dc.DemandFetch(('2026-10-30T00:00:00Z',1,1,100,'OK'),['2026-10-30T00:00:00Z'],[5],ids=['a'],versions=['1'])
+        now=datetime(2026,11,12,tzinfo=timezone.utc)
+        with patch.object(sc,'now_utc',return_value=now):
+            for tid in range(1,13):dc.store_result(con,tid,'us',good)
+            empty=lambda *a,**k:dc.DemandFetch((None,None,None,None,'EMPTY'))
+            # New apps without reviews answer empty honestly and never trip the guard.
+            with patch.object(dc,'fetch_demand',side_effect=empty) as fetched,patch.object(dc.time,'sleep') as slept:
+                dc.measure(con,[(tid,'us') for tid in range(100,120)],0)
+                self.assertEqual(fetched.call_count,20)
+                with self.assertRaises(dc.Throttled):
+                    dc.measure(con,[(1,'us'),(200,'us'),*[(tid,'us') for tid in range(2,13)]],0)
+        # Five empty canaries pause once; five more after the pause stop the lane.
+        self.assertEqual(fetched.call_count,31)
+        self.assertIn(unittest.mock.call(dc.THROTTLE_PAUSE),slept.call_args_list)
+        self.assertEqual({r[0] for r in con.execute('SELECT fetch_status FROM demand WHERE track_id<13')},{'OK'})
+        # The stopped run's other empty answers are not kept as measurements.
+        self.assertIsNone(con.execute('SELECT 1 FROM demand WHERE track_id=200').fetchone())
+        self.assertIsNotNone(con.execute('SELECT 1 FROM demand WHERE track_id=100').fetchone())
 
     def test_queue_refresh_takes_complaints_first_and_oldest_within_budget(self):
         import demand_check
