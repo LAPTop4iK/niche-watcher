@@ -6,21 +6,21 @@
 
 | Рост A/30д | Стояние B/30д | A→B | Приложение | Категория |
 |---|---|---|---|---|
-| +959016 | +55860 | us→au | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
-| +959016 | +89524 | us→ca | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
-| +132688 | +8053 | us→au | [Google](https://apps.apple.com/us/app/google/id284815942?uo=4) | finance_tools |
-| +85353 | +4786 | us→au | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
-| +85353 | +9134 | us→ca | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
-| +85353 | +10709 | us→gb | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
-| +20628 | +1185 | us→ca | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
-| +20628 | +1253 | us→gb | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
-| +20628 | +1879 | us→au | [ReciMe: Recipes & Meal Planner](https://apps.apple.com/us/app/recime-recipes-meal-planner/id1593779280?uo=4) | cooking |
-| +12363 | +0 | sg→ie | [Instagram](https://apps.apple.com/sg/app/instagram/id389801252?uo=4) | travel_utils |
-| +12363 | +0 | sg→nz | [Instagram](https://apps.apple.com/sg/app/instagram/id389801252?uo=4) | travel_utils |
-| +9749 | +0 | sg→ie | [Facebook](https://apps.apple.com/sg/app/facebook/id284882215?uo=4) | ai_identifiers |
-| +9749 | +0 | sg→nz | [Facebook](https://apps.apple.com/sg/app/facebook/id284882215?uo=4) | ai_identifiers |
-| +8993 | +0 | us→au | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
-| +8993 | +0 | us→ca | [Bible Chat: Daily Devotional](https://apps.apple.com/us/app/bible-chat-daily-devotional/id6448849666?uo=4) | religious |
+| +960866 | +55963 | us→au | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
+| +960866 | +89524 | us→ca | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
+| +960866 | +126629 | us→gb | [ChatGPT](https://apps.apple.com/us/app/chatgpt/id6448311069?uo=4) | ai_tools |
+| +132939 | +8068 | us→au | [Google](https://apps.apple.com/us/app/google/id284815942?uo=4) | finance_tools |
+| +132939 | +18545 | us→gb | [Google](https://apps.apple.com/us/app/google/id284815942?uo=4) | finance_tools |
+| +132237 | +19422 | de→ch | [ChatGPT](https://apps.apple.com/de/app/chatgpt/id6448311069?uo=4) | fitness_calc |
+| +112863 | +7135 | us→au | [Google Chrome](https://apps.apple.com/us/app/google-chrome/id535886823?uo=4) | chart:utilities |
+| +112863 | +14617 | us→gb | [Google Chrome](https://apps.apple.com/us/app/google-chrome/id535886823?uo=4) | chart:utilities |
+| +95164 | +0 | us→au | [ESPN: Live Sports & Scores](https://apps.apple.com/us/app/espn-live-sports-scores/id317469184?uo=4) | chart:sports |
+| +92003 | +4616 | us→au | [Grok](https://apps.apple.com/us/app/grok/id6670324846?uo=4) | ai_tools |
+| +92003 | +7396 | us→ca | [Grok](https://apps.apple.com/us/app/grok/id6670324846?uo=4) | ai_tools |
+| +92003 | +8124 | us→gb | [Grok](https://apps.apple.com/us/app/grok/id6670324846?uo=4) | ai_tools |
+| +85517 | +4791 | us→au | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
+| +85517 | +9134 | us→ca | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
+| +85517 | +10720 | us→gb | [Google Gemini](https://apps.apple.com/us/app/google-gemini/id6477489729?uo=4) | ai_tools |
 
 ## Rank-дельты (ворвались в топ-20 выдачи)
 
