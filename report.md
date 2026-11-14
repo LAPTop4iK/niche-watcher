@@ -1,10 +1,10 @@
 # Кандидаты для исследования
 
-Метод activity-v5. Дата 2026-11-14T14:23:05+00:00. Всего 1487 app×country. Это не список прибыльных ниш.
+Метод activity-v5. Дата 2026-11-14T15:48:49+00:00. Всего 1487 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
-Воронка старых версий: поиск 904 → активность 247 → топ-10 95 → запрос в названии 45 (39 приложений).
+Воронка старых версий: поиск 904 → активность 253 → топ-10 97 → запрос в названии 45 (39 приложений).
 
 Версии <18 мес: пригодный RSS 1794/26495 app×страна; есть 1–2★ у 922, прошли условие 22; выпали из-за устаревшего RSS 0. Это охват проверок, а не частота проблем на рынке.
 
@@ -14,57 +14,58 @@
 | [ずっしーの音感トレーニング](https://apps.apple.com/jp/app/id1453413519) | jp | Версия ≥18 мес | ALIVE | 1 | 音感 | 3346 | free | 6 | 3 | 2022-10-15 |
 | [مسبحة الكترونية](https://apps.apple.com/sa/app/id1160807236) | sa | Версия ≥18 мес | ALIVE | 1 | مسبحة إلكترونية | 2247 | free | 4 | 2 | 2021-04-26 |
 | [Knitting Chart](https://apps.apple.com/us/app/id1251317736) | us | Версия ≥18 мес | ALIVE | 1 | knitting pattern | 1305 | free | 3 | 1 | 2023-01-18 |
-| [marée.info](https://apps.apple.com/fr/app/id642338158) | fr | Версия ≥18 мес | ALIVE | 1 | horaires des marées | 11104 | free | 7 | 0 | 2024-12-02 |
+| [marée.info](https://apps.apple.com/fr/app/id642338158) | fr | Версия ≥18 мес | ALIVE | 1 | horaires des marées | 11104 | free | 8 | 0 | 2024-12-02 |
 | [순산해요](https://apps.apple.com/kr/app/id1056415219) | kr | Версия ≥18 мес | ALIVE | 1 | 진통 타이머 | 9371 | free | 7 | 0 | 2025-04-05 |
-| [Concrete Calculator Plus](https://apps.apple.com/us/app/id1494386815) | us | Версия ≥18 мес | ALIVE | 1 | concrete calculator | 26510 | free | 5 | 0 | 2024-03-15 |
+| [Concrete Calculator Plus](https://apps.apple.com/us/app/id1494386815) | us | Версия ≥18 мес | ALIVE | 1 | concrete calculator | 26510 | free | 6 | 0 | 2024-03-15 |
 | [Sporty's E6B Flight Computer](https://apps.apple.com/us/app/id371817955) | us | Версия ≥18 мес | ALIVE | 1 | e6b flight computer | 5389 | 9.99 USD | 2 | 0 | 2024-02-17 |
 | [ランナー電卓](https://apps.apple.com/jp/app/id420241404) | jp | Версия ≥18 мес | ALIVE | 1 | ペース 計算 | 1621 | free | 2 | 0 | 2017-04-11 |
 | [般若心経365〜お経入門](https://apps.apple.com/jp/app/id1273920832) | jp | Версия ≥18 мес | ALIVE | 1 | お経 アプリ | 2688 | free | 2 | 0 | 2021-01-11 |
 | [Signalisation Routière – Quiz](https://apps.apple.com/fr/app/id1495794314) | fr | Версия ≥18 мес | ALIVE | 1 | panneaux de signalisation | 1932 | free | 2 | 0 | 2024-06-09 |
 | [MetService Marine](https://apps.apple.com/nz/app/id783127076) | nz | Версия ≥18 мес | ALIVE | 1 | marine weather | 6690 | free | 1 | 0 | 2023-03-08 |
+| [Density Altitude +](https://apps.apple.com/us/app/id994402197) | us | Версия ≥18 мес | ALIVE | 1 | density altitude calculator | 1045 | 3.99 USD | 1 | 0 | 2024-08-09 |
 | [聰明貸款- 多元貸款試算](https://apps.apple.com/tw/app/id549385029) | tw | Версия ≥18 мес | ALIVE | 1 | 貸款計算 | 4490 | free | 0 | 0 | 2019-08-05 |
-| [Density Altitude +](https://apps.apple.com/us/app/id994402197) | us | Версия ≥18 мес | ALIVE | 1 | density altitude calculator | 1045 | 3.99 USD | 0 | 0 | 2024-08-09 |
 | [ИПОТЕКА: расчет платежа](https://apps.apple.com/ru/app/id1288072079) | ru | Версия ≥18 мес | ALIVE | 1 | ипотека расчет | 6017 | free | 0 | 0 | 2023-08-29 |
 | [UK Road Signs: Test and Theory](https://apps.apple.com/gb/app/id1489859363) | gb | Версия ≥18 мес | ALIVE | 1 | road signs quiz | 1629 | free | 0 | 0 | 2024-06-05 |
 | [Экзамен ПДД: билеты ГИБДД 2026](https://apps.apple.com/ru/app/id407204781) | ru | Версия <18 мес + жалобы выше базы | ALIVE | 2 | билеты пдд | 483482 | free | 33 | 17 | 2025-12-24 |
 | [Fuelly: MPG & Service Tracker](https://apps.apple.com/us/app/id295905460) | us | Версия ≥18 мес | ALIVE | 2 | fuel log | 29739 | free | 10 | 4 | 2024-06-03 |
+| [Tip Calculator‰](https://apps.apple.com/us/app/id543096939) | us | Версия ≥18 мес | ALIVE | 2 | tip calculator | 9157 | free | 7 | 5 | 2022-03-01 |
 | [Convert Any Unit Lite](https://apps.apple.com/us/app/id478222820) | us | Версия ≥18 мес | ALIVE | 2 | unit converter | 48340 | free | 6 | 4 | 2025-05-12 |
-| [Tip Calculator‰](https://apps.apple.com/us/app/id543096939) | us | Версия ≥18 мес | ALIVE | 2 | tip calculator | 9157 | free | 6 | 4 | 2022-03-01 |
 | [UK Tax Calculators 2024-2025](https://apps.apple.com/gb/app/id460977743) | gb | Версия ≥18 мес | ALIVE | 2 | capital gains tax calculator | 977 | free | 4 | 1 | 2024-01-08 |
+| [Sales Tax Canada Calculator +](https://apps.apple.com/ca/app/id467007564) | ca | Версия ≥18 мес | ALIVE | 2 | self assessment tax calculator | 6132 | free | 3 | 2 | 2025-05-02 |
 | [Прогноз клева - ТипТоп Рыбалка](https://apps.apple.com/ru/app/id1436864578) | ru | Версия ≥18 мес | ALIVE | 2 | прогноз клева | 4295 | free | 3 | 2 | 2023-02-18 |
-| [Water Time Tracker Reminder](https://apps.apple.com/ru/app/id1208916325) | ru | Версия ≥18 мес | ALIVE | 2 | напоминание пить воду | 38319 | free | 21 | 0 | 2024-09-04 |
+| [Water Time Tracker Reminder](https://apps.apple.com/ru/app/id1208916325) | ru | Версия ≥18 мес | ALIVE | 2 | напоминание пить воду | 38319 | free | 22 | 0 | 2024-09-04 |
+| [marée.info Essentiel](https://apps.apple.com/fr/app/id965288981) | fr | Версия ≥18 мес | ALIVE | 2 | horaires des marées | 1852 | free | 3 | 0 | 2025-02-12 |
 | [Prayer Beads -](https://apps.apple.com/us/app/id6444334623) | us | Версия ≥18 мес | ALIVE | 2 | rosary counter | 661 | free | 3 | 0 | 2022-11-26 |
-| [marée.info Essentiel](https://apps.apple.com/fr/app/id965288981) | fr | Версия ≥18 мес | ALIVE | 2 | horaires des marées | 1852 | free | 2 | 0 | 2025-02-12 |
 | [F-Online](https://apps.apple.com/at/app/id1119605799) | at | Версия ≥18 мес | ALIVE | 2 | führerschein test | 3620 | free | 2 | 0 | 2021-01-20 |
 | [Fuelly: MPG & Service Tracker](https://apps.apple.com/ca/app/id295905460) | ca | Версия ≥18 мес | ALIVE | 2 | fuel log | 2606 | free | 0 | 0 | 2024-06-03 |
 | [Compteur≜](https://apps.apple.com/fr/app/id1459852771) | fr | Версия ≥18 мес | ALIVE | 2 | compteur de points | 1707 | free | 0 | 0 | 2024-12-19 |
 | [Metronome: Tempo Lite 節拍器](https://apps.apple.com/tw/app/id599833596) | tw | Версия <18 мес + жалобы выше базы | ALIVE | 3 | 節拍器 | 4232 | free | 18 | 9 | 2026-10-27 |
-| [셀핏 - 운동기록, 운동일지](https://apps.apple.com/kr/app/id1532158186) | kr | Версия ≥18 мес | ALIVE | 3 | 운동 기록 | 1026 | free | 10 | 1 | 2024-03-18 |
+| [셀핏 - 운동기록, 운동일지](https://apps.apple.com/kr/app/id1532158186) | kr | Версия ≥18 мес | ALIVE | 3 | 운동 기록 | 1026 | free | 11 | 1 | 2024-03-18 |
 | [Tide Times Australia](https://apps.apple.com/au/app/id1122688228) | au | Версия ≥18 мес | ALIVE | 3 | tide chart | 12727 | free | 5 | 1 | 2025-04-25 |
 | [楽器チューナー Lite by Piascore](https://apps.apple.com/jp/app/id635828559) | jp | Версия ≥18 мес | ALIVE | 3 | チューナー ギター | 6243 | free | 4 | 1 | 2025-04-24 |
 | [Zähler≜](https://apps.apple.com/de/app/id1459852771) | de | Версия ≥18 мес | ALIVE | 3 | maschenzähler | 1325 | free | 3 | 1 | 2024-12-19 |
-| [Simply Metronome](https://apps.apple.com/ca/app/id1364398984) | ca | Версия ≥18 мес | ALIVE | 3 | metronome | 530 | free | 1 | 1 | 2024-02-22 |
-| [Pixel Pet Widget: Island Pet](https://apps.apple.com/ru/app/id6445975134) | ru | Версия ≥18 мес | ALIVE | 3 | dynamic island app | 2129 | free | 10 | 0 | 2023-12-02 |
+| [Simply Metronome](https://apps.apple.com/ca/app/id1364398984) | ca | Версия ≥18 мес | ALIVE | 3 | metronome | 530 | free | 2 | 1 | 2024-02-22 |
+| [Pixel Pet Widget: Island Pet](https://apps.apple.com/ru/app/id6445975134) | ru | Версия ≥18 мес | ALIVE | 3 | dynamic island app | 2129 | free | 11 | 0 | 2023-12-02 |
 | [ガソリン代はいくら？-燃費計算、割り勘などにも対応！](https://apps.apple.com/jp/app/id1474115189) | jp | Версия ≥18 мес | ALIVE | 3 | 車 費用 | 1609 | free | 7 | 0 | 2024-05-06 |
 | [Hours Tracker: Time Calculator](https://apps.apple.com/us/app/id1468092377) | us | Версия ≥18 мес | ALIVE | 4 | hourly paycheck calculator | 84831 | free | 61 | 9 | 2024-09-02 |
 | [PCGS CoinFacts Coin Collecting](https://apps.apple.com/us/app/id469265590) | us | Версия ≥18 мес | ALIVE | 4 | coin identifier | 67533 | free | 27 | 13 | 2024-05-07 |
-| [Rock ID - Stone Identifier](https://apps.apple.com/us/app/id6469999508) | us | Версия ≥18 мес | ALIVE | 4 | rock identifier | 3157 | free | 4 | 2 | 2024-12-06 |
+| [Rock ID - Stone Identifier](https://apps.apple.com/us/app/id6469999508) | us | Версия ≥18 мес | ALIVE | 4 | rock identifier | 3157 | free | 5 | 3 | 2024-12-06 |
 | [MOON - Current Moon Phase](https://apps.apple.com/gb/app/id660036257) | gb | Версия ≥18 мес | ALIVE | 4 | moon phase hunting | 3831 | free | 2 | 1 | 2025-04-07 |
 | [KeyTuner](https://apps.apple.com/us/app/id1328712601) | us | Версия ≥18 мес | ALIVE | 4 | piano tuner | 1813 | free | 1 | 1 | 2021-04-12 |
 | [PRO digitizing](https://apps.apple.com/us/app/id473577887) | us | Версия ≥18 мес | ALIVE | 4 | embroidery app | 1062 | free | 2 | 0 | 2017-11-28 |
 | [Water Time - Boire de l`eau](https://apps.apple.com/fr/app/id1208916325) | fr | Версия ≥18 мес | ALIVE | 4 | rappel boire de l'eau | 1356 | free | 2 | 0 | 2024-09-04 |
 | [Converter – Einheitenumrechner](https://apps.apple.com/de/app/id423521445) | de | Версия ≥18 мес | ALIVE | 4 | einheitenrechner | 1431 | free | 0 | 0 | 2025-04-03 |
 | [Guitar Tuner - GuitarTunio](https://apps.apple.com/ru/app/id1448661287) | ru | Версия ≥18 мес | ALIVE | 4 | гитарный тюнер | 756 | free | 0 | 0 | 2023-01-16 |
-| [Gravel Calculator Plus](https://apps.apple.com/us/app/id1504997190) | us | Версия ≥18 мес | ALIVE | 4 | grass seed calculator | 2079 | free | 0 | 0 | 2024-03-15 |
+| [Gravel Calculator Plus](https://apps.apple.com/us/app/id1504997190) | us | Версия ≥18 мес | ALIVE | 4 | grass seed calculator | 2078 | free | 0 | 0 | 2024-03-15 |
 | [Watch Faces & Widget Gallery](https://apps.apple.com/us/app/id1617064080) | us | Версия <18 мес + жалобы выше базы | ALIVE | 5 | watch face app | 23936 | free | 57 | 31 | 2026-10-22 |
-| [Wallpapers・Dynamic Island](https://apps.apple.com/us/app/id6472042742) | us | Версия ≥18 мес | ALIVE | 5 | dynamic island app | 1608 | free | 37 | 6 | 2024-09-02 |
+| [Wallpapers・Dynamic Island](https://apps.apple.com/us/app/id6472042742) | us | Версия ≥18 мес | ALIVE | 5 | dynamic island app | 1608 | free | 38 | 6 | 2024-09-02 |
 | [MOON - Current Moon Phase](https://apps.apple.com/ca/app/id660036257) | ca | Версия ≥18 мес | ALIVE | 5 | moon phase hunting | 3809 | free | 8 | 1 | 2025-04-07 |
 | [Simply Metronome](https://apps.apple.com/us/app/id1364398984) | us | Версия ≥18 мес | ALIVE | 5 | metronome | 835 | free | 8 | 2 | 2024-02-22 |
 | [Video Teleprompter](https://apps.apple.com/us/app/id1444106389) | us | Версия ≥18 мес | ALIVE | 5 | teleprompter | 6665 | free | 6 | 3 | 2022-07-16 |
 | [Convert Image To PDF tools](https://apps.apple.com/sa/app/id1527885081) | sa | Версия ≥18 мес | ALIVE | 5 | تحويل الوحدات | 30468 | free | 2 | 1 | 2024-04-25 |
+| [Православная Библия + Молитвослов](https://apps.apple.com/ru/app/id690412477) | ru | Версия ≥18 мес | ALIVE | 5 | молитвослов | 6748 | free | 6 | 0 | 2015-02-04 |
 | [MOON - Current Moon Phase](https://apps.apple.com/au/app/id660036257) | au | Версия ≥18 мес | ALIVE | 5 | moon phase hunting | 1402 | free | 5 | 0 | 2025-04-07 |
-| [Православная Библия + Молитвослов](https://apps.apple.com/ru/app/id690412477) | ru | Версия ≥18 мес | ALIVE | 5 | молитвослов | 6748 | free | 5 | 0 | 2015-02-04 |
-| [植物识别-拍照识花草树木](https://apps.apple.com/hk/app/id1295026074) | hk | Версия ≥18 мес | ALIVE | 5 | 植物辨識 | 1292 | free | 4 | 0 | 2021-04-27 |
+| [植物识别-拍照识花草树木](https://apps.apple.com/hk/app/id1295026074) | hk | Версия ≥18 мес | ALIVE | 5 | 植物辨識 | 1292 | free | 5 | 0 | 2021-04-27 |
 | [佛珠 - 念佛助手](https://apps.apple.com/tw/app/id6444334623) | tw | Версия ≥18 мес | ALIVE | 5 | 誦經計數器 | 1174 | free | 1 | 0 | 2022-11-26 |
 | [Sejlguide til sikker sejlads](https://apps.apple.com/dk/app/id1070753053) | dk | Версия ≥18 мес | ALIVE | 5 | sejlads | 1794 | free | 0 | 0 | 2023-01-13 |
 | [iSolunar™ Hunt & Fish Times](https://apps.apple.com/us/app/id365780014) | us | Версия ≥18 мес | ALIVE | 6 | solunar | 3629 | 5.99 USD | 3 | 1 | 2024-08-14 |
@@ -80,6 +81,7 @@
 | [לימוד תאוריה נוהג 2025](https://apps.apple.com/il/app/id794631390) | il | Версия ≥18 мес | ALIVE | 7 | תמרורים | 5666 | free | 4 | 3 | 2025-01-20 |
 | [運転免許の学科試験｜自動車免許の免許学科試験の問題集](https://apps.apple.com/jp/app/id1546356944) | jp | Версия ≥18 мес | ALIVE | 7 | 運転免許 学科 | 1083 | free | 2 | 2 | 2023-09-01 |
 | [Electrical Code-A-Day](https://apps.apple.com/us/app/id934222651) | us | Версия ≥18 мес | ALIVE | 7 | electrical code calculator | 9333 | free | 5 | 0 | 2022-05-14 |
+| [Cahoのふわふわでんたく](https://apps.apple.com/jp/app/id1454489628) | jp | Версия ≥18 мес | ALIVE | 7 | 壁紙 計算 | 741 | free | 2 | 0 | 2022-03-27 |
 | [Baby Feeding Log](https://apps.apple.com/us/app/id412360317) | us | Версия ≥18 мес | ALIVE | 7 | baby feeding tracker | 2911 | free | 1 | 0 | 2024-07-25 |
 | [Landscaping Calculator Plus](https://apps.apple.com/us/app/id1505786365) | us | Версия ≥18 мес | ALIVE | 7 | grass seed calculator | 3326 | free | 1 | 0 | 2024-03-15 |
 | [Tuner Lite by Piascore](https://apps.apple.com/us/app/id635828559) | us | Версия ≥18 мес | ALIVE | 8 | piano tuner | 10019 | free | 12 | 6 | 2025-04-24 |
@@ -93,32 +95,33 @@
 | [Class Timetable](https://apps.apple.com/gb/app/id425121147) | gb | Версия ≥18 мес | ALIVE | 8 | vaccine schedule | 6597 | free | 7 | 0 | 2024-09-23 |
 | [Piano - Sånger och Noter](https://apps.apple.com/se/app/id890740165) | se | Версия ≥18 мес | ALIVE | 8 | ackord app | 5791 | free | 6 | 0 | 2024-07-22 |
 | [Daily Holy Rosary Prayer App](https://apps.apple.com/us/app/id1085163534) | us | Версия ≥18 мес | ALIVE | 8 | rosary counter | 12536 | free | 3 | 0 | 2025-02-12 |
+| [Hours Tracker: Time Calculator](https://apps.apple.com/gb/app/id1468092377) | gb | Версия ≥18 мес | ALIVE | 8 | hourly paycheck calculator | 6336 | free | 3 | 0 | 2024-09-02 |
 | [ギターコード(ベーシック)](https://apps.apple.com/jp/app/id400172082) | jp | Версия ≥18 мес | ALIVE | 8 | コード 検索 | 783 | free | 2 | 0 | 2021-05-12 |
 | [FlightStats](https://apps.apple.com/au/app/id572700574) | au | Версия ≥18 мес | ALIVE | 8 | flight distance calculator | 4582 | free | 2 | 0 | 2024-10-30 |
 | [Währungsrechner ·](https://apps.apple.com/de/app/id628148586) | de | Версия ≥18 мес | ALIVE | 8 | reisegeld rechner | 4243 | free | 1 | 0 | 2023-11-22 |
-| [Hours Tracker: Time Calculator](https://apps.apple.com/gb/app/id1468092377) | gb | Версия ≥18 мес | ALIVE | 8 | hourly paycheck calculator | 6336 | free | 1 | 0 | 2024-09-02 |
 | [Elpy](https://apps.apple.com/se/app/id1503304218) | se | Версия <18 мес + жалобы выше базы | ALIVE | 9 | faktura app | 6507 | free | 6 | 4 | 2025-06-30 |
-| [Creepy Neighbor: Детектор Лжи](https://apps.apple.com/ru/app/id1212159586) | ru | Версия ≥18 мес | ALIVE | 9 | детектор проводки | 8858 | free | 38 | 10 | 2024-11-05 |
+| [Creepy Neighbor: Детектор Лжи](https://apps.apple.com/ru/app/id1212159586) | ru | Версия ≥18 мес | ALIVE | 9 | детектор проводки | 8858 | free | 39 | 11 | 2024-11-05 |
 | [KyBook 2 Читалка для книг](https://apps.apple.com/ru/app/id1018584176) | ru | Версия ≥18 мес | ALIVE | 9 | читалка книг | 18676 | free | 4 | 1 | 2018-12-18 |
-| [Watch Faces Gallery +](https://apps.apple.com/us/app/id1535111069) | us | Версия ≥18 мес | ALIVE | 9 | watch face app | 20981 | free | 2 | 2 | 2025-02-12 |
+| [Watch Faces Gallery +](https://apps.apple.com/us/app/id1535111069) | us | Версия ≥18 мес | ALIVE | 9 | watch face app | 20981 | free | 3 | 3 | 2025-02-12 |
 | [CA DMV Permit Test Now](https://apps.apple.com/us/app/id1092897684) | us | Версия ≥18 мес | ALIVE | 9 | dmv practice test | 1499 | free | 3 | 0 | 2019-07-15 |
 | [Water Time - My Drink Reminder](https://apps.apple.com/us/app/id1208916325) | us | Версия ≥18 мес | ALIVE | 9 | water reminder | 2369 | free | 2 | 0 | 2024-09-04 |
 | [Interactive Rosary with audio](https://apps.apple.com/us/app/id1499112817) | us | Версия ≥18 мес | ALIVE | 9 | rosary counter | 4111 | free | 2 | 0 | 2023-09-09 |
 | [Hunting Calendar, Solunar](https://apps.apple.com/us/app/id414675976) | us | Версия ≥18 мес | ALIVE | 9 | moon phase hunting | 5977 | free | 0 | 0 | 2024-01-03 |
-| [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | us | Версия ≥18 мес | ALIVE | 10 | moon phase hunting | 30028 | free | 27 | 4 | 2025-04-07 |
+| [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | us | Версия ≥18 мес | ALIVE | 10 | moon phase hunting | 30028 | free | 29 | 4 | 2025-04-07 |
 | [FlightStats](https://apps.apple.com/us/app/id572700574) | us | Версия ≥18 мес | ALIVE | 10 | flight distance calculator | 79711 | free | 3 | 1 | 2024-10-30 |
 | [UK Salary Calculator 2024-2025](https://apps.apple.com/gb/app/id366872441) | gb | Версия ≥18 мес | ALIVE | 10 | hourly paycheck calculator | 3127 | free | 7 | 0 | 2024-04-14 |
 | [카운터](https://apps.apple.com/kr/app/id986800297) | kr | Версия ≥18 мес | ALIVE | 10 | life counter | 804 | free | 2 | 0 | 2024-12-28 |
 | [Watch Faces Gallery +](https://apps.apple.com/au/app/id1535111069) | au | Версия ≥18 мес | ALIVE | 10 | watch face app | 903 | free | 0 | 0 | 2025-02-12 |
-| [Date and Time Calculator](https://apps.apple.com/us/app/id552798167) | us | Версия ≥18 мес | ALIVE | 11 | time lapse calculator | 9881 | free | 5 | 3 | 2025-04-14 |
+| [Date and Time Calculator](https://apps.apple.com/us/app/id552798167) | us | Версия ≥18 мес | ALIVE | 11 | time lapse calculator | 9881 | free | 6 | 2 | 2025-04-14 |
 | [Simply Auto: Mileage Tracker](https://apps.apple.com/us/app/id893278325) | us | Версия ≥18 мес | ALIVE | 11 | car expenses tracker | 871 | free | 3 | 2 | 2022-03-24 |
 | [Cluesheet Companion](https://apps.apple.com/gb/app/id1202159803) | gb | Версия ≥18 мес | ALIVE | 11 | board game companion | 1055 | free | 2 | 2 | 2024-01-11 |
 | [Holy Rosary - Standard Edition](https://apps.apple.com/us/app/id980806882) | us | Версия ≥18 мес | ALIVE | 11 | rosary counter | 1819 | free | 3 | 0 | 2018-03-27 |
 | [Telepromptr](https://apps.apple.com/us/app/id572401027) | us | Версия ≥18 мес | ALIVE | 12 | teleprompter | 1360 | free | 2 | 2 | 2024-12-12 |
-| [Calculator⁻](https://apps.apple.com/us/app/id1327796464) | us | Версия ≥18 мес | ALIVE | 12 | laminate calculator | 3637 | free | 1 | 1 | 2025-03-12 |
 | [Pulse - Metronome & Tap Tempo](https://apps.apple.com/us/app/id1097323003) | us | Версия ≥18 мес | ALIVE | 12 | metronome | 4581 | free | 4 | 0 | 2018-11-14 |
 | [KyBook 3 Читалка для книг](https://apps.apple.com/ru/app/id1348198785) | ru | Версия ≥18 мес | ALIVE | 12 | читалка книг | 8133 | free | 2 | 0 | 2019-02-23 |
+| [花卉识别-拍图像识别花花草草](https://apps.apple.com/hk/app/id1385981273) | hk | Версия ≥18 мес | ALIVE | 12 | 植物辨識 | 680 | free | 2 | 0 | 2022-05-10 |
 | [Guitar Tuner - GuitarTunio](https://apps.apple.com/us/app/id1448661287) | us | Версия ≥18 мес | ALIVE | 12 | guitar tuner | 4405 | free | 2 | 0 | 2023-01-16 |
+| [Calculator⁻](https://apps.apple.com/us/app/id1327796464) | us | Версия ≥18 мес | ALIVE | 12 | laminate calculator | 3637 | free | 0 | 0 | 2025-03-12 |
 | [* Calculatrice financière](https://apps.apple.com/fr/app/id1403190089) | fr | Версия ≥18 мес | ALIVE | 12 | calculateur prêt | 1743 | free | 0 | 0 | 2024-08-05 |
 | [Themes: Color Widgets, Icons](https://apps.apple.com/us/app/id1537362606) | us | Версия ≥18 мес | ALIVE | 13 | home screen widgets | 27872 | free | 7 | 7 | 2022-08-05 |
 | [PromptSmart Lite Teleprompter](https://apps.apple.com/us/app/id922921003) | us | Версия ≥18 мес | ALIVE | 13 | teleprompter | 4686 | free | 6 | 6 | 2023-08-03 |
@@ -129,13 +132,14 @@
 | [текст и надписи на фото](https://apps.apple.com/ru/app/id1471555670) | ru | Версия ≥18 мес | ALIVE | 14 | дата на фото | 7110 | free | 2 | 1 | 2024-04-30 |
 | [La Bible Louis Segond + Audio](https://apps.apple.com/fr/app/id974966252) | fr | Версия ≥18 мес | ALIVE | 14 | verset biblique du jour | 11801 | free | 4 | 0 | 2023-05-16 |
 | [World Clock. Time Widget](https://apps.apple.com/us/app/id1453369651) | us | Версия ≥18 мес | ALIVE | 14 | time lapse calculator | 4439 | free | 2 | 0 | 2022-02-16 |
-| [Pixel Pet Widget: Island Pet](https://apps.apple.com/us/app/id6445975134) | us | Версия ≥18 мес | ALIVE | 15 | dynamic island app | 3181 | free | 27 | 2 | 2023-12-02 |
+| [Pixel Pet Widget: Island Pet](https://apps.apple.com/us/app/id6445975134) | us | Версия ≥18 мес | ALIVE | 15 | dynamic island app | 3181 | free | 29 | 3 | 2023-12-02 |
 | [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/gb/app/id1474069627) | gb | Версия ≥18 мес | ALIVE | 15 | e6b flight computer | 3520 | free | 6 | 2 | 2024-10-01 |
-| [台灣駕駛-賽車競速X外送員模擬](https://apps.apple.com/tw/app/id6695750963) | tw | Версия ≥18 мес | ALIVE | 15 | 駕照筆試 | 1304 | free | 6 | 3 | 2024-10-22 |
+| [台灣駕駛-賽車競速X外送員模擬](https://apps.apple.com/tw/app/id6695750963) | tw | Версия ≥18 мес | ALIVE | 15 | 駕照筆試 | 1304 | free | 6 | 4 | 2024-10-22 |
+| [KyBook - EPub,FB2,PDF,DjVu Читалка](https://apps.apple.com/ru/app/id673027171) | ru | Версия ≥18 мес | ALIVE | 15 | читалка книг | 6737 | free | 5 | 2 | 2016-06-03 |
 | [iplant - Plant identifier](https://apps.apple.com/gb/app/id1372113110) | gb | Версия ≥18 мес | ALIVE | 15 | plant identifier | 3999 | free | 3 | 2 | 2021-08-23 |
 | [New York DMV NY - Permit test](https://apps.apple.com/us/app/id990738781) | us | Версия ≥18 мес | ALIVE | 15 | dmv practice test | 6708 | free | 1 | 0 | 2020-02-18 |
-| [My Love - Relationship Counter](https://apps.apple.com/nl/app/id409609608) | nl | Версия ≥18 мес | ALIVE | 16 | life counter | 20594 | free | 147 | 27 | 2023-05-08 |
-| [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/us/app/id1474069627) | us | Версия ≥18 мес | ALIVE | 16 | e6b flight computer | 13785 | free | 12 | 1 | 2024-10-01 |
+| [My Love - Relationship Counter](https://apps.apple.com/nl/app/id409609608) | nl | Версия ≥18 мес | ALIVE | 16 | life counter | 20594 | free | 159 | 26 | 2023-05-08 |
+| [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/us/app/id1474069627) | us | Версия ≥18 мес | ALIVE | 16 | e6b flight computer | 13785 | free | 14 | 1 | 2024-10-01 |
 | [Bubble Level Tool - Digital](https://apps.apple.com/us/app/id1662018802) | us | Версия ≥18 мес | ALIVE | 16 | level tool | 2495 | free | 2 | 2 | 2023-10-14 |
 | [Fresh Bread! Fairy Bakery](https://apps.apple.com/us/app/id1527848593) | us | Версия ≥18 мес | ALIVE | 16 | bread baking timer | 2296 | free | 4 | 0 | 2024-04-25 |
 | [Talli Baby Tracker Newborn Log](https://apps.apple.com/us/app/id1383601403) | us | Версия ≥18 мес | ALIVE | 16 | diaper tracker | 5195 | free | 1 | 0 | 2024-09-05 |
@@ -147,12 +151,12 @@
 | [Offline Music - MP3 et vidéo](https://apps.apple.com/fr/app/id1563131490) | fr | Версия ≥18 мес | ALIVE | 17 | audiobook player | 6398 | free | 46 | 9 | 2022-12-07 |
 | [WowKit - Creative Widgets](https://apps.apple.com/us/app/id1618401777) | us | Версия ≥18 мес | ALIVE | 17 | lock screen widget | 1570 | free | 7 | 5 | 2024-04-29 |
 | [日期計算機 - 時間、天數計算機](https://apps.apple.com/tw/app/id552798167) | tw | Версия ≥18 мес | ALIVE | 17 | 材積計算 | 2781 | free | 1 | 1 | 2025-04-14 |
-| [My Love - Relationship Counter](https://apps.apple.com/no/app/id409609608) | no | Версия ≥18 мес | ALIVE | 18 | life counter | 5470 | free | 28 | 2 | 2023-05-08 |
+| [My Love - Relationship Counter](https://apps.apple.com/no/app/id409609608) | no | Версия ≥18 мес | ALIVE | 18 | life counter | 5470 | free | 30 | 1 | 2023-05-08 |
 | [ScanCoin: identify & check](https://apps.apple.com/us/app/id6445847779) | us | Версия ≥18 мес | ALIVE | 18 | coin identifier | 8545 | free | 6 | 2 | 2024-10-04 |
 | [Amigurumi Today - crochet patterns and tutorials](https://apps.apple.com/us/app/id1139466041) | us | Версия ≥18 мес | ALIVE | 18 | crochet pattern app | 754 | free | 4 | 4 | 2017-07-11 |
 | [Lapse It](https://apps.apple.com/us/app/id539108382) | us | Версия ≥18 мес | ALIVE | 18 | time lapse calculator | 1115 | free | 3 | 2 | 2019-10-24 |
+| [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/ca/app/id1474069627) | ca | Версия ≥18 мес | ALIVE | 18 | e6b flight computer | 1767 | free | 2 | 1 | 2024-10-01 |
 | [Plantion - Plant Identifier](https://apps.apple.com/us/app/id1673397906) | us | Версия ≥18 мес | ALIVE | 18 | plant watering reminder | 9727 | free | 2 | 1 | 2023-09-23 |
-| [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/ca/app/id1474069627) | ca | Версия ≥18 мес | ALIVE | 18 | e6b flight computer | 1767 | free | 1 | 1 | 2024-10-01 |
 | [Ежедневник Твое Время заметки](https://apps.apple.com/ru/app/id958956475) | ru | Версия ≥18 мес | ALIVE | 18 | напоминание пить воду | 16267 | free | 5 | 0 | 2022-08-10 |
 | [Russian Translator Offline](https://apps.apple.com/us/app/id992809772) | us | Версия ≥18 мес | ALIVE | 18 | offline phrasebook | 3012 | free | 2 | 0 | 2022-12-16 |
 | [KeyTuner - 楽器チューナー](https://apps.apple.com/jp/app/id1328712601) | jp | Версия ≥18 мес | ALIVE | 18 | チューナー ギター | 1867 | free | 2 | 0 | 2021-04-12 |
@@ -170,27 +174,28 @@
 | [翻頁時鐘-無廣告](https://apps.apple.com/tw/app/id1522242289) | tw | Версия ≥18 мес | ALIVE | 20 | 舒肥計時 | 613 | free | 2 | 2 | 2025-02-19 |
 | [Совместимый калькулятор любви](https://apps.apple.com/ru/app/id1120278276) | ru | Версия ≥18 мес | ALIVE | 20 | строительный калькулятор | 2074 | free | 0 | 0 | 2023-09-18 |
 | [Baby Tracker.](https://apps.apple.com/us/app/id1151052149) | us | Версия ≥18 мес | ALIVE | 21 | baby sleep tracker | 2835 | free | 2 | 1 | 2023-10-03 |
+| [Offline Music Player-MP3&Video](https://apps.apple.com/ae/app/id1563131490) | ae | Версия ≥18 мес | ALIVE | 21 | audiobook player | 1324 | free | 2 | 1 | 2022-12-07 |
 | [Photo Enhancer - EnhanceFox AI](https://apps.apple.com/us/app/id1544212575) | us | Версия ≥18 мес | ALIVE | 21 | ai photo enhancer | 3289 | free | 1 | 1 | 2025-03-05 |
 | [Macro Tracker - Keto Diet App](https://apps.apple.com/us/app/id1318552553) | us | Версия ≥18 мес | ALIVE | 21 | macro calculator | 1797 | free | 2 | 0 | 2018-03-07 |
 | [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/hk/app/id1362989622) | hk | Версия ≥18 мес | ALIVE | 21 | 語音轉文字 | 3137 | free | 2 | 0 | 2022-11-21 |
 | [Instagram](https://apps.apple.com/tw/app/id389801252) | tw | Версия <18 мес + жалобы выше базы | ALIVE | 22 | tide chart | 1314002 | free | 250 | 179 | 2026-11-09 |
-| [My Love - Beziehungsrechner](https://apps.apple.com/ch/app/id409609608) | ch | Версия ≥18 мес | ALIVE | 22 | life counter | 27528 | free | 40 | 6 | 2023-05-08 |
+| [My Love - Beziehungsrechner](https://apps.apple.com/ch/app/id409609608) | ch | Версия ≥18 мес | ALIVE | 22 | life counter | 27528 | free | 43 | 6 | 2023-05-08 |
 | [iFraction Calculator](https://apps.apple.com/us/app/id1220830619) | us | Версия ≥18 мес | ALIVE | 22 | pallet calculator | 1730 | free | 3 | 1 | 2018-09-23 |
 | [時玉 かわいい音楽目覚まし時計と受験勉強タイマー](https://apps.apple.com/jp/app/id923821507) | jp | Версия ≥18 мес | ALIVE | 22 | ウィジェット 時計 | 1788 | free | 2 | 1 | 2016-02-04 |
 | [AI Chat : Virtual AI Assistant](https://apps.apple.com/us/app/id6446685648) | us | Версия ≥18 мес | ALIVE | 22 | local ai assistant | 2606 | free | 1 | 1 | 2025-01-21 |
 | [Menu Planner](https://apps.apple.com/us/app/id304945491) | us | Версия ≥18 мес | ALIVE | 22 | meal prep planner | 1282 | free | 3 | 0 | 2019-08-22 |
-| [Amendes.gouv](https://apps.apple.com/fr/app/id943436673) | fr | Версия ≥18 мес | ALIVE | 23 | calcul impôt | 5553 | free | 70 | 60 | 2023-09-07 |
-| [My Love - Relationship Counter](https://apps.apple.com/se/app/id409609608) | se | Версия ≥18 мес | ALIVE | 23 | life counter | 6288 | free | 19 | 5 | 2023-05-08 |
+| [Amendes.gouv](https://apps.apple.com/fr/app/id943436673) | fr | Версия ≥18 мес | ALIVE | 23 | calcul impôt | 5553 | free | 77 | 67 | 2023-09-07 |
+| [My Love - Relationship Counter](https://apps.apple.com/se/app/id409609608) | se | Версия ≥18 мес | ALIVE | 23 | life counter | 6288 | free | 20 | 5 | 2023-05-08 |
 | [insTuner Free - Chromatic Tuner](https://apps.apple.com/us/app/id603425027) | us | Версия ≥18 мес | ALIVE | 23 | guitar tuner | 5059 | free | 5 | 1 | 2015-07-07 |
 | [Arabic Translator Offline](https://apps.apple.com/us/app/id982833169) | us | Версия ≥18 мес | ALIVE | 23 | offline phrasebook | 6187 | free | 2 | 1 | 2022-12-27 |
 | [Muslim Muna: Azkar Quran Athan](https://apps.apple.com/us/app/id1486560555) | us | Версия ≥18 мес | ALIVE | 23 | prayer times | 9910 | free | 2 | 2 | 2024-04-24 |
 | [Klavier - E Piano Spiele](https://apps.apple.com/de/app/id890740165) | de | Версия ≥18 мес | ALIVE | 23 | akkorde app | 16018 | free | 4 | 0 | 2024-07-22 |
-| [My Love - Beziehungsrechner](https://apps.apple.com/at/app/id409609608) | at | Версия ≥18 мес | ALIVE | 24 | life counter | 44273 | free | 104 | 11 | 2023-05-08 |
-| [Watch Faces by MobyFox](https://apps.apple.com/us/app/id1441479443) | us | Версия ≥18 мес | ALIVE | 24 | watch face app | 12515 | free | 24 | 23 | 2024-09-02 |
+| [My Love - Beziehungsrechner](https://apps.apple.com/at/app/id409609608) | at | Версия ≥18 мес | ALIVE | 24 | life counter | 44273 | free | 119 | 10 | 2023-05-08 |
+| [Watch Faces by MobyFox](https://apps.apple.com/us/app/id1441479443) | us | Версия ≥18 мес | ALIVE | 24 | watch face app | 12515 | free | 26 | 25 | 2024-09-02 |
 | [iBouquiniste](https://apps.apple.com/ru/app/id527050465) | ru | Версия ≥18 мес | ALIVE | 24 | читалка книг | 2670 | 349.0 RUB | 3 | 1 | 2022-08-22 |
-| [Calculator ٞ  ٞ](https://apps.apple.com/us/app/id1078897142) | us | Версия ≥18 мес | ALIVE | 24 | grass seed calculator | 1397 | free | 2 | 0 | 2025-02-22 |
+| [Calculator ٞ  ٞ](https://apps.apple.com/us/app/id1078897142) | us | Версия ≥18 мес | ALIVE | 24 | grass seed calculator | 1397 | free | 3 | 0 | 2025-02-22 |
 | [Calculator%.](https://apps.apple.com/us/app/id980603448) | us | Версия ≥18 мес | ALIVE | 24 | laminate calculator | 4214 | free | 0 | 0 | 2025-01-31 |
-| [PrayWay: Western Wall Compass](https://apps.apple.com/il/app/id1141680325) | il | Версия ≥18 мес | ALIVE | 25 | זמני תפילה | 5582 | free | 64 | 1 | 2020-06-04 |
+| [PrayWay: Western Wall Compass](https://apps.apple.com/il/app/id1141680325) | il | Версия ≥18 мес | ALIVE | 25 | זמני תפילה | 5582 | free | 67 | 1 | 2020-06-04 |
 | [Packing Pro](https://apps.apple.com/us/app/id312266675) | us | Версия ≥18 мес | ALIVE | 25 | packing list | 859 | 2.99 USD | 5 | 2 | 2022-05-25 |
 | [BigVoicy - Текст в речь](https://apps.apple.com/ru/app/id1547082859) | ru | Версия ≥18 мес | ALIVE | 25 | голос в текст | 853 | free | 3 | 2 | 2023-12-22 |
 | [Имена для ребенка русские](https://apps.apple.com/ru/app/id1371573370) | ru | Версия ≥18 мес | ALIVE | 25 | счетчик схваток | 3771 | free | 2 | 0 | 2022-03-19 |
@@ -199,25 +204,25 @@
 | [Compass∞](https://apps.apple.com/au/app/id1174136875) | au | Версия ≥18 мес | ALIVE | 26 | qibla compass | 591 | free | 2 | 1 | 2020-01-25 |
 | [Lost Island: Blast Adventure](https://apps.apple.com/us/app/id1223414680) | us | Версия ≥18 мес | ALIVE | 26 | dynamic island app | 78813 | free | 2 | 2 | 2022-02-19 |
 | [Fancy Widgets & Themes](https://apps.apple.com/us/app/id1567793831) | us | Версия ≥18 мес | ALIVE | 26 | home screen widgets | 37055 | free | 2 | 1 | 2023-09-30 |
-| [Fishing Food](https://apps.apple.com/gb/app/id1462574213) | gb | Версия ≥18 мес | ALIVE | 26 | barometer fishing | 6094 | free | 15 | 0 | 2024-07-07 |
+| [Fishing Food](https://apps.apple.com/gb/app/id1462574213) | gb | Версия ≥18 мес | ALIVE | 26 | barometer fishing | 6094 | free | 19 | 0 | 2024-07-07 |
 | [Guitar Tuner＋](https://apps.apple.com/us/app/id1553432239) | us | Версия ≥18 мес | ALIVE | 26 | guitar tuner | 1952 | free | 1 | 0 | 2025-04-10 |
 | [Gestion des dépenses](https://apps.apple.com/fr/app/id1204316311) | fr | Версия ≥18 мес | ALIVE | 27 | budget voyage | 2285 | free | 4 | 1 | 2023-12-09 |
 | [Class Timetable - Schedule App](https://apps.apple.com/us/app/id425121147) | us | Версия ≥18 мес | ALIVE | 27 | vaccine schedule | 3012 | free | 3 | 1 | 2024-09-23 |
 | [RECalc Mortgage Calculator](https://apps.apple.com/us/app/id382009228) | us | Версия ≥18 мес | ALIVE | 27 | loan calculator | 2840 | free | 1 | 0 | 2021-04-27 |
 | [Amortization Loan Calculator](https://apps.apple.com/us/app/id1436857045) | us | Версия ≥18 мес | ALIVE | 28 | loan calculator | 1167 | free | 2 | 2 | 2023-02-02 |
 | [Tasbeeh Counter - Pro](https://apps.apple.com/sa/app/id6446180404) | sa | Версия ≥18 мес | ALIVE | 28 | مسبحة إلكترونية | 2962 | free | 2 | 1 | 2023-04-04 |
-| [My Love - Relationship Counter](https://apps.apple.com/fi/app/id409609608) | fi | Версия ≥18 мес | ALIVE | 28 | life counter | 3591 | free | 6 | 0 | 2023-05-08 |
+| [My Love - Relationship Counter](https://apps.apple.com/fi/app/id409609608) | fi | Версия ≥18 мес | ALIVE | 28 | life counter | 3591 | free | 7 | 0 | 2023-05-08 |
 | [AI Mirror: AI Photo Editor](https://apps.apple.com/gb/app/id6444888896) | gb | Версия <18 мес + жалобы выше базы | ALIVE | 29 | ai photo enhancer | 4609 | free | 9 | 9 | 2026-08-23 |
 | [貨幣轉換器 即時匯率 貨幣換算 貨幣匯率](https://apps.apple.com/tw/app/id1457309557) | tw | Версия <18 мес + жалобы выше базы | ALIVE | 29 | 單位換算 | 67158 | free | 7 | 4 | 2026-10-19 |
 | [Clipbox+](https://apps.apple.com/jp/app/id1385380145) | jp | Версия ≥18 мес | ALIVE | 29 | load board | 90790 | free | 11 | 7 | 2023-01-12 |
 | [The Island Castaway®](https://apps.apple.com/ca/app/id767324855) | ca | Версия ≥18 мес | ALIVE | 29 | dynamic island app | 2969 | free | 5 | 1 | 2021-10-03 |
 | [Carburant / Essence / Gazole](https://apps.apple.com/fr/app/id1638372538) | fr | Версия ≥18 мес | ALIVE | 29 | suivi carburant | 1118 | free | 1 | 1 | 2023-05-05 |
-| [FlyQ+ EFB](https://apps.apple.com/us/app/id915571252) | us | Версия ≥18 мес | ALIVE | 29 | e6b flight computer | 907 | free | 9 | 0 | 2025-01-24 |
+| [FlyQ+ EFB](https://apps.apple.com/us/app/id915571252) | us | Версия ≥18 мес | ALIVE | 29 | e6b flight computer | 907 | free | 10 | 0 | 2025-01-24 |
 | [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/tw/app/id1362989622) | tw | Версия ≥18 мес | ALIVE | 30 | 語音轉文字 | 10867 | free | 9 | 0 | 2022-11-21 |
 | [Muslim Muna: Azkar Coran Salat](https://apps.apple.com/fr/app/id1486560555) | fr | Версия ≥18 мес | ALIVE | 30 | prayer times | 4439 | free | 0 | 0 | 2024-04-24 |
-| [MyTheme - App Icons & Widgets](https://apps.apple.com/us/app/id6443498135) | us | Версия ≥18 мес | ALIVE | 31 | widget pack | 26708 | free | 5 | 2 | 2024-10-16 |
-| [Word Alert](https://apps.apple.com/us/app/id416931540) | us | Версия ≥18 мес | ALIVE | 31 | daily bible verse | 34967 | free | 23 | 0 | 2021-01-25 |
-| [My Love - Relationship Counter](https://apps.apple.com/dk/app/id409609608) | dk | Версия ≥18 мес | ALIVE | 32 | life counter | 6355 | free | 41 | 4 | 2023-05-08 |
+| [MyTheme - App Icons & Widgets](https://apps.apple.com/us/app/id6443498135) | us | Версия ≥18 мес | ALIVE | 31 | widget pack | 26708 | free | 6 | 3 | 2024-10-16 |
+| [Word Alert](https://apps.apple.com/us/app/id416931540) | us | Версия ≥18 мес | ALIVE | 31 | daily bible verse | 34967 | free | 24 | 0 | 2021-01-25 |
+| [My Love - Relationship Counter](https://apps.apple.com/dk/app/id409609608) | dk | Версия ≥18 мес | ALIVE | 32 | life counter | 6355 | free | 44 | 4 | 2023-05-08 |
 | [Farkle Scorekeeper](https://apps.apple.com/us/app/id1271269413) | us | Версия ≥18 мес | ALIVE | 32 | board game companion | 2522 | free | 3 | 1 | 2023-08-10 |
 | [My Love - Beziehungsrechner](https://apps.apple.com/de/app/id409609608) | de | Версия ≥18 мес | ALIVE | 33 | life counter | 331336 | free | 250 | 35 | 2023-05-08 |
 | [Foody - Food & Symptom Tracker](https://apps.apple.com/de/app/id1081899534) | de | Версия ≥18 мес | ALIVE | 33 | buch tracker | 518 | free | 12 | 7 | 2022-12-29 |
@@ -225,38 +230,39 @@
 | [Samsung Galaxy Watch (Gear S)](https://apps.apple.com/fr/app/id1117310635) | fr | Версия ≥18 мес | ALIVE | 33 | watch face app | 2246 | free | 4 | 3 | 2022-02-18 |
 | [文字スキャン - OCR認識画像文字起こし](https://apps.apple.com/jp/app/id1512936975) | jp | Версия ≥18 мес | ALIVE | 33 | 文字起こし アプリ | 3485 | free | 4 | 0 | 2021-08-26 |
 | [MixerBox電視第四台-新聞&電視節目（MB3團隊製作](https://apps.apple.com/tw/app/id1141797051) | tw | Версия ≥18 мес | ALIVE | 34 | 海象 | 72694 | free | 5 | 1 | 2024-05-03 |
+| [Spanish Translator Offline](https://apps.apple.com/us/app/id984498840) | us | Версия ≥18 мес | ALIVE | 34 | offline phrasebook | 20492 | free | 3 | 1 | 2022-11-22 |
 | [i新幹線予約](https://apps.apple.com/jp/app/id334637645) | jp | Версия ≥18 мес | ALIVE | 34 | 運賃 計算 | 514 | free | 2 | 2 | 2016-06-29 |
-| [Spanish Translator Offline](https://apps.apple.com/us/app/id984498840) | us | Версия ≥18 мес | ALIVE | 34 | offline phrasebook | 20492 | free | 2 | 0 | 2022-11-22 |
-| [Solv: Easy Same-Day Healthcare](https://apps.apple.com/us/app/id1464601606) | us | Версия ≥18 мес | ALIVE | 35 | vaccine schedule | 26531 | free | 9 | 4 | 2023-01-09 |
+| [Solv: Easy Same-Day Healthcare](https://apps.apple.com/us/app/id1464601606) | us | Версия ≥18 мес | ALIVE | 35 | vaccine schedule | 26531 | free | 8 | 4 | 2023-01-09 |
 | [Smart Driver - Антирадар ГИБДД](https://apps.apple.com/ru/app/id866980876) | ru | Версия ≥18 мес | ALIVE | 35 | детектор проводки | 6816 | free | 2 | 2 | 2024-02-14 |
 | [Stimmgerät by Piascore](https://apps.apple.com/de/app/id635644097) | de | Версия ≥18 мес | ALIVE | 36 | gitarrenstimmen | 584 | 5.99 EUR | 2 | 1 | 2024-08-12 |
 | [Tally Counter - Tap Tool](https://apps.apple.com/us/app/id1470846305) | us | Версия ≥18 мес | ALIVE | 36 | life counter | 563 | free | 2 | 2 | 2021-08-19 |
 | [時計 - 広告なし](https://apps.apple.com/jp/app/id1522242289) | jp | Версия ≥18 мес | ALIVE | 36 | ウィジェット 時計 | 888 | free | 2 | 2 | 2025-02-19 |
-| [Units Plus Converter](https://apps.apple.com/us/app/id593306620) | us | Версия ≥18 мес | ALIVE | 37 | unit converter | 8420 | 19.99 USD | 2 | 1 | 2018-11-19 |
-| [Cats of the Forest](https://apps.apple.com/us/app/id1149321735) | us | Версия ≥18 мес | ALIVE | 37 | cat feeding reminder | 1041 | free | 3 | 0 | 2020-10-30 |
+| [Units Plus Converter](https://apps.apple.com/us/app/id593306620) | us | Версия ≥18 мес | ALIVE | 37 | unit converter | 8420 | 19.99 USD | 3 | 2 | 2018-11-19 |
+| [Cats of the Forest](https://apps.apple.com/us/app/id1149321735) | us | Версия ≥18 мес | ALIVE | 37 | cat feeding reminder | 1041 | free | 4 | 0 | 2020-10-30 |
 | [ИМТ калькулятор](https://apps.apple.com/ru/app/id653425957) | ru | Версия ≥18 мес | ALIVE | 37 | строительный калькулятор | 728 | free | 0 | 0 | 2023-05-29 |
 | [Daily Tracker Journal & Diary](https://apps.apple.com/us/app/id306026134) | us | Версия ≥18 мес | ALIVE | 38 | expense tracker | 2211 | free | 4 | 2 | 2023-02-13 |
 | [バーコードスキャナ QRコードリーダー QRジェネレータ](https://apps.apple.com/jp/app/id1048473097) | jp | Версия ≥18 мес | ALIVE | 38 | コード 検索 | 8799 | free | 2 | 1 | 2023-02-13 |
-| [Le Baby – Carnet du nourrisson](https://apps.apple.com/fr/app/id1419753033) | fr | Версия ≥18 мес | ALIVE | 38 | sommeil bébé | 610 | free | 3 | 0 | 2023-11-13 |
+| [Le Baby – Carnet du nourrisson](https://apps.apple.com/fr/app/id1419753033) | fr | Версия ≥18 мес | ALIVE | 38 | sommeil bébé | 610 | free | 4 | 0 | 2023-11-13 |
 | [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | us | Версия ≥18 мес | ALIVE | 39 | hourly paycheck calculator | 10025 | free | 2 | 2 | 2024-09-24 |
 | [My Love - Relationship Counter](https://apps.apple.com/gb/app/id409609608) | gb | Версия ≥18 мес | ALIVE | 40 | life counter | 103883 | free | 250 | 15 | 2023-05-08 |
 | [Metal Detector and Spy Camera](https://apps.apple.com/us/app/id409682366) | us | Версия ≥18 мес | ALIVE | 40 | stud finder | 10709 | free | 5 | 4 | 2024-07-31 |
+| [Tuner by Piascore](https://apps.apple.com/us/app/id635644097) | us | Версия ≥18 мес | ALIVE | 41 | piano tuner | 1454 | 4.99 USD | 7 | 1 | 2024-08-12 |
 | [AI Coin Identifier & Checker](https://apps.apple.com/us/app/id6447589387) | us | Версия ≥18 мес | ALIVE | 41 | coin identifier | 1105 | free | 3 | 3 | 2025-03-24 |
 | [Counter+.](https://apps.apple.com/us/app/id986800297) | us | Версия ≥18 мес | ALIVE | 41 | life counter | 1459 | free | 2 | 1 | 2024-12-28 |
 | [Симулятор гитары - обучение](https://apps.apple.com/ru/app/id1496572420) | ru | Версия ≥18 мес | ALIVE | 41 | гитарный тюнер | 585 | free | 1 | 1 | 2022-09-30 |
-| [Tuner by Piascore](https://apps.apple.com/us/app/id635644097) | us | Версия ≥18 мес | ALIVE | 41 | piano tuner | 1454 | 4.99 USD | 6 | 0 | 2024-08-12 |
-| [Work Shift Calendar (Shifter)](https://apps.apple.com/gb/app/id1523513035) | gb | Версия ≥18 мес | ALIVE | 42 | jet lag app | 3574 | free | 19 | 1 | 2024-05-15 |
+| [Work Shift Calendar (Shifter)](https://apps.apple.com/gb/app/id1523513035) | gb | Версия ≥18 мес | ALIVE | 42 | jet lag app | 3574 | free | 20 | 1 | 2024-05-15 |
 | [PFCボディメイク](https://apps.apple.com/jp/app/id1274048262) | jp | Версия ≥18 мес | ALIVE | 42 | マクロ 計算 | 4846 | free | 3 | 1 | 2024-05-19 |
 | [PhotoTune: AI Photo Enhancer](https://apps.apple.com/us/app/id1614808180) | us | Версия ≥18 мес | ALIVE | 42 | ai photo enhancer | 918 | free | 2 | 1 | 2025-01-03 |
-| [Work Shift Calendar (Shifter)](https://apps.apple.com/au/app/id1523513035) | au | Версия ≥18 мес | ALIVE | 42 | jet lag app | 834 | free | 5 | 0 | 2024-05-15 |
+| [Work Shift Calendar (Shifter)](https://apps.apple.com/au/app/id1523513035) | au | Версия ≥18 мес | ALIVE | 42 | jet lag app | 834 | free | 6 | 0 | 2024-05-15 |
 | [Méditation & Musique Relaxante](https://apps.apple.com/fr/app/id448207365) | fr | Версия ≥18 мес | ALIVE | 42 | sommeil bébé | 2547 | free | 1 | 0 | 2019-01-03 |
 | [Calculator 17 - Math Solver](https://apps.apple.com/us/app/id6452015902) | us | Версия ≥18 мес | ALIVE | 42 | grass seed calculator | 993 | free | 0 | 0 | 2024-05-22 |
 | [Антирадар еСтрелка](https://apps.apple.com/ru/app/id1544057500) | ru | Версия ≥18 мес | ALIVE | 43 | детектор проводки | 2465 | free | 2 | 2 | 2022-10-06 |
 | [My Love - Relationship Counter](https://apps.apple.com/fr/app/id409609608) | fr | Версия ≥18 мес | ALIVE | 43 | life counter | 1164 | free | 5 | 0 | 2023-05-08 |
+| [AI Chat Chatbot](https://apps.apple.com/us/app/id1665560060) | us | Версия ≥18 мес | ALIVE | 43 | ai scanner | 1179 | free | 2 | 0 | 2024-07-12 |
 | [Converter-Universal Conversion](https://apps.apple.com/gb/app/id423521445) | gb | Версия ≥18 мес | ALIVE | 43 | unit converter | 1370 | free | 0 | 0 | 2025-04-03 |
 | [Widget Box Interactive Widgets](https://apps.apple.com/us/app/id1527561558) | us | Версия ≥18 мес | ALIVE | 44 | widget pack | 45910 | free | 3 | 2 | 2024-06-24 |
 | [Coloursmith by Taubmans](https://apps.apple.com/au/app/id1508594237) | au | Версия ≥18 мес | ALIVE | 44 | paint calculator | 1148 | free | 0 | 0 | 2025-04-17 |
-| [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/id854413387) | ru | Версия ≥18 мес | ALIVE | 45 | напоминание пить воду | 8273 | free | 26 | 0 | 2024-09-28 |
+| [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/id854413387) | ru | Версия ≥18 мес | ALIVE | 45 | напоминание пить воду | 8273 | free | 31 | 0 | 2024-09-28 |
 | [Mémoriser Vite / Muslim Pal](https://apps.apple.com/fr/app/id446804110) | fr | Версия ≥18 мес | ALIVE | 45 | horaires de prière | 4198 | free | 6 | 0 | 2025-03-18 |
 | [The Island Castaway®](https://apps.apple.com/au/app/id767324855) | au | Версия ≥18 мес | ALIVE | 45 | dynamic island app | 1897 | free | 6 | 0 | 2021-10-03 |
 | [Ultimate Cat Simulator](https://apps.apple.com/us/app/id1063194374) | us | Версия ≥18 мес | ALIVE | 45 | cat feeding reminder | 2459 | 0.99 USD | 6 | 0 | 2023-03-08 |
@@ -279,221 +285,247 @@
 | [Rossmann](https://apps.apple.com/de/app/id1034309353) | de | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 1051922 | free | 50 | 17 | 2026-07-05 |
 | [Logos Bible](https://apps.apple.com/us/app/id336400266) | us | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 177952 | free | 250 | 55 | 2026-10-19 |
 | [RMVgo](https://apps.apple.com/de/app/id1621720603) | de | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 39204 | free | 50 | 28 | 2026-10-13 |
-| [My Love - Relationship Counter](https://apps.apple.com/us/app/id409609608) | us | Версия ≥18 мес | ALIVE | — | — | 1079939 | free | 250 | 12 | 2023-05-08 |
-| [Musicana - Organizer & Player](https://apps.apple.com/us/app/id1434023161) | us | Версия ≥18 мес | ALIVE | — | — | 93602 | free | 250 | 49 | 2022-03-12 |
-| [近所の出会い秘密の出会い 即会い 出会い探しはリアトーク](https://apps.apple.com/jp/app/id1246056249) | jp | Версия ≥18 мес | ALIVE | — | — | 74146 | free | 207 | 70 | 2025-03-31 |
-| [Контакт - клиент для ВК](https://apps.apple.com/ru/app/id1090754155) | ru | Версия ≥18 мес | ALIVE | — | — | 7326 | — | 125 | 92 | 2021-09-13 |
-| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | sa | Версия ≥18 мес | ALIVE | — | — | 23235 | free | 103 | 73 | 2024-09-17 |
-| [FanFiction.Net](https://apps.apple.com/us/app/id1192753879) | us | Версия ≥18 мес | ALIVE | — | — | 1014 | free | 82 | 53 | 2024-09-11 |
-| [Study Bunny: Focus Timer](https://apps.apple.com/gb/app/id1478345385) | gb | Версия ≥18 мес | ALIVE | — | — | 15588 | free | 73 | 19 | 2024-12-16 |
-| [Rockbot - Request Music](https://apps.apple.com/us/app/id401347343) | us | Версия ≥18 мес | ALIVE | — | — | 67209 | free | 68 | 22 | 2025-02-13 |
-| [停車大聲公](https://apps.apple.com/tw/app/id994821169) | tw | Версия ≥18 мес | ALIVE | — | — | 34516 | free | 64 | 9 | 2024-11-05 |
-| [My Love - Relationship Counter](https://apps.apple.com/au/app/id409609608) | au | Версия ≥18 мес | ALIVE | — | — | 17556 | free | 60 | 5 | 2023-05-08 |
-| [ClassCharts Students](https://apps.apple.com/gb/app/id1018656220) | gb | Версия ≥18 мес | ALIVE | — | — | 2722 | free | 58 | 39 | 2023-11-24 |
-| [近所の出会い探しマッチングアプリ バクアイ](https://apps.apple.com/jp/app/id1095581857) | jp | Версия ≥18 мес | ALIVE | — | — | 18385 | free | 53 | 13 | 2024-11-20 |
-| [Gboard – the Google Keyboard](https://apps.apple.com/gb/app/id1091700242) | gb | Версия ≥18 мес | ALIVE | — | — | 7388 | free | 51 | 15 | 2022-05-02 |
-| [Friendships Pro](https://apps.apple.com/tw/app/id1589787910) | tw | Версия ≥18 мес | ALIVE | — | — | 3875 | free | 49 | 19 | 2023-12-30 |
+| [My Love - Relationship Counter](https://apps.apple.com/us/app/id409609608) | us | Версия ≥18 мес | ALIVE | — | — | 1079939 | free | 250 | 13 | 2023-05-08 |
+| [Musicana - Organizer & Player](https://apps.apple.com/us/app/id1434023161) | us | Версия ≥18 мес | ALIVE | — | — | 93602 | free | 250 | 47 | 2022-03-12 |
+| [近所の出会い秘密の出会い 即会い 出会い探しはリアトーク](https://apps.apple.com/jp/app/id1246056249) | jp | Версия ≥18 мес | ALIVE | — | — | 74146 | free | 221 | 75 | 2025-03-31 |
+| [Контакт - клиент для ВК](https://apps.apple.com/ru/app/id1090754155) | ru | Версия ≥18 мес | ALIVE | — | — | 7326 | — | 130 | 94 | 2021-09-13 |
+| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | sa | Версия ≥18 мес | ALIVE | — | — | 23235 | free | 109 | 78 | 2024-09-17 |
+| [FanFiction.Net](https://apps.apple.com/us/app/id1192753879) | us | Версия ≥18 мес | ALIVE | — | — | 1014 | free | 88 | 58 | 2024-09-11 |
+| [Study Bunny: Focus Timer](https://apps.apple.com/gb/app/id1478345385) | gb | Версия ≥18 мес | ALIVE | — | — | 15588 | free | 78 | 20 | 2024-12-16 |
+| [Rockbot - Request Music](https://apps.apple.com/us/app/id401347343) | us | Версия ≥18 мес | ALIVE | — | — | 67209 | free | 71 | 23 | 2025-02-13 |
+| [停車大聲公](https://apps.apple.com/tw/app/id994821169) | tw | Версия ≥18 мес | ALIVE | — | — | 34516 | free | 71 | 12 | 2024-11-05 |
+| [My Love - Relationship Counter](https://apps.apple.com/au/app/id409609608) | au | Версия ≥18 мес | ALIVE | — | — | 17556 | free | 63 | 5 | 2023-05-08 |
+| [ClassCharts Students](https://apps.apple.com/gb/app/id1018656220) | gb | Версия ≥18 мес | ALIVE | — | — | 2722 | free | 62 | 43 | 2023-11-24 |
+| [Gboard – the Google Keyboard](https://apps.apple.com/gb/app/id1091700242) | gb | Версия ≥18 мес | ALIVE | — | — | 7388 | free | 58 | 16 | 2022-05-02 |
+| [近所の出会い探しマッチングアプリ バクアイ](https://apps.apple.com/jp/app/id1095581857) | jp | Версия ≥18 мес | ALIVE | — | — | 18385 | free | 58 | 14 | 2024-11-20 |
+| [Friendships Pro](https://apps.apple.com/tw/app/id1589787910) | tw | Версия ≥18 мес | ALIVE | — | — | 3875 | free | 58 | 21 | 2023-12-30 |
+| [着信音 - 着信音メーカー · 着信音作成](https://apps.apple.com/jp/app/id1450585366) | jp | Версия ≥18 мес | ALIVE | — | — | 183692 | free | 50 | 30 | 2019-03-22 |
 | [Слово дня — толковый словарь](https://apps.apple.com/ru/app/id594187735) | ru | Версия ≥18 мес | ALIVE | — | — | 9252 | — | 47 | 43 | 2022-04-21 |
-| [漫畫集](https://apps.apple.com/tw/app/id6553977561) | tw | Версия ≥18 мес | ALIVE | — | — | 712 | free | 46 | 16 | 2025-04-23 |
-| [Gboard - Google 鍵盤](https://apps.apple.com/tw/app/id1091700242) | tw | Версия ≥18 мес | ALIVE | — | — | 10074 | free | 43 | 18 | 2022-05-02 |
-| [着信音 - 着信音メーカー · 着信音作成](https://apps.apple.com/jp/app/id1450585366) | jp | Версия ≥18 мес | ALIVE | — | — | 183692 | free | 43 | 26 | 2019-03-22 |
-| [発車オーライネット](https://apps.apple.com/jp/app/id1485356461) | jp | Версия ≥18 мес | ALIVE | — | — | 16354 | free | 41 | 8 | 2024-12-19 |
-| [Jamzone - Sing & Play Along](https://apps.apple.com/us/app/id998972770) | us | Версия ≥18 мес | ALIVE | — | — | 9774 | free | 39 | 5 | 2024-12-20 |
-| [Melodista Music Offline Player](https://apps.apple.com/us/app/id1293175325) | us | Версия ≥18 мес | ALIVE | — | — | 39795 | free | 38 | 16 | 2025-01-03 |
-| [Сказки Волшебного Леса!](https://apps.apple.com/ru/app/id787132901) | ru | Версия ≥18 мес | ALIVE | — | — | 29282 | — | 36 | 7 | 2020-04-30 |
-| [Square Go](https://apps.apple.com/us/app/id1623896123) | us | Версия ≥18 мес | ALIVE | — | — | 186674 | free | 36 | 2 | 2025-05-01 |
-| [AdBlock](https://apps.apple.com/us/app/id691121579) | us | Версия ≥18 мес | ALIVE | — | — | 34170 | 1.99 USD | 32 | 15 | 2021-07-27 |
-| [Mr. Number Lookup & Call Block](https://apps.apple.com/us/app/id1047334922) | us | Версия ≥18 мес | ALIVE | — | — | 100034 | free | 32 | 22 | 2023-07-10 |
-| [Onleihe](https://apps.apple.com/de/app/id422554835) | de | Версия ≥18 мес | ALIVE | — | — | 7647 | free | 30 | 29 | 2024-10-30 |
-| [Piano for iPhone](https://apps.apple.com/us/app/id531263194) | us | Версия ≥18 мес | ALIVE | — | — | 13633 | free | 27 | 13 | 2023-08-03 |
-| [HiTi相片立可得](https://apps.apple.com/tw/app/id584293738) | tw | Версия ≥18 мес | ALIVE | — | — | 1108 | free | 27 | 27 | 2020-07-20 |
+| [漫畫集](https://apps.apple.com/tw/app/id6553977561) | tw | Версия ≥18 мес | ALIVE | — | — | 712 | free | 47 | 17 | 2025-04-23 |
+| [Gboard - Google 鍵盤](https://apps.apple.com/tw/app/id1091700242) | tw | Версия ≥18 мес | ALIVE | — | — | 10074 | free | 45 | 18 | 2022-05-02 |
+| [発車オーライネット](https://apps.apple.com/jp/app/id1485356461) | jp | Версия ≥18 мес | ALIVE | — | — | 16354 | free | 45 | 8 | 2024-12-19 |
+| [Melodista Music Offline Player](https://apps.apple.com/us/app/id1293175325) | us | Версия ≥18 мес | ALIVE | — | — | 39795 | free | 44 | 20 | 2025-01-03 |
+| [Jamzone - Sing & Play Along](https://apps.apple.com/us/app/id998972770) | us | Версия ≥18 мес | ALIVE | — | — | 9774 | free | 41 | 4 | 2024-12-20 |
+| [Square Go](https://apps.apple.com/us/app/id1623896123) | us | Версия ≥18 мес | ALIVE | — | — | 186674 | free | 41 | 2 | 2025-05-01 |
+| [Сказки Волшебного Леса!](https://apps.apple.com/ru/app/id787132901) | ru | Версия ≥18 мес | ALIVE | — | — | 29282 | — | 39 | 8 | 2020-04-30 |
+| [Mr. Number Lookup & Call Block](https://apps.apple.com/us/app/id1047334922) | us | Версия ≥18 мес | ALIVE | — | — | 100034 | free | 35 | 23 | 2023-07-10 |
+| [AdBlock](https://apps.apple.com/us/app/id691121579) | us | Версия ≥18 мес | ALIVE | — | — | 34170 | 1.99 USD | 34 | 16 | 2021-07-27 |
+| [Onleihe](https://apps.apple.com/de/app/id422554835) | de | Версия ≥18 мес | ALIVE | — | — | 7647 | free | 32 | 30 | 2024-10-30 |
+| [HiTi相片立可得](https://apps.apple.com/tw/app/id584293738) | tw | Версия ≥18 мес | ALIVE | — | — | 1108 | free | 31 | 30 | 2020-07-20 |
+| [Piano for iPhone](https://apps.apple.com/us/app/id531263194) | us | Версия ≥18 мес | ALIVE | — | — | 13633 | free | 30 | 15 | 2023-08-03 |
+| [Dingtone: Phone Calls + Texts](https://apps.apple.com/us/app/id588937297) | us | Версия ≥18 мес | ALIVE | — | — | 30641 | free | 27 | 20 | 2021-10-23 |
 | [Koora App](https://apps.apple.com/sa/app/id1143050799) | sa | Версия ≥18 мес | ALIVE | — | — | 2283 | free | 27 | 2 | 2023-12-03 |
-| [Dingtone: Phone Calls + Texts](https://apps.apple.com/us/app/id588937297) | us | Версия ≥18 мес | ALIVE | — | — | 30641 | free | 26 | 20 | 2021-10-23 |
-| [Gboard – the Google Keyboard](https://apps.apple.com/ae/app/id1091700242) | ae | Версия ≥18 мес | ALIVE | — | — | 3174 | free | 24 | 6 | 2022-05-02 |
-| [Steam Chat](https://apps.apple.com/us/app/id1434890245) | us | Версия ≥18 мес | ALIVE | — | — | 1602 | free | 24 | 19 | 2021-01-06 |
-| [InfoMentor Hub](https://apps.apple.com/se/app/id1388965431) | se | Версия ≥18 мес | ALIVE | — | — | 1032 | free | 23 | 21 | 2022-09-10 |
+| [Steam Chat](https://apps.apple.com/us/app/id1434890245) | us | Версия ≥18 мес | ALIVE | — | — | 1602 | free | 26 | 21 | 2021-01-06 |
+| [Gboard – the Google Keyboard](https://apps.apple.com/ae/app/id1091700242) | ae | Версия ≥18 мес | ALIVE | — | — | 3174 | free | 25 | 6 | 2022-05-02 |
+| [InfoMentor Hub](https://apps.apple.com/se/app/id1388965431) | se | Версия ≥18 мес | ALIVE | — | — | 1032 | free | 24 | 22 | 2022-09-10 |
+| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/us/app/id1164088669) | us | Версия ≥18 мес | ALIVE | — | — | 10025 | free | 22 | 14 | 2024-09-17 |
 | [MensaMax](https://apps.apple.com/de/app/id1521284373) | de | Версия ≥18 мес | ALIVE | — | — | 685 | free | 22 | 19 | 2021-07-01 |
 | [Фоксфорд: Учебник и тренажер](https://apps.apple.com/ru/app/id1667476549) | ru | Версия ≥18 мес | ALIVE | — | — | 11476 | — | 22 | 3 | 2024-11-20 |
-| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/us/app/id1164088669) | us | Версия ≥18 мес | ALIVE | — | — | 10025 | free | 20 | 13 | 2024-09-17 |
-| [Scrivener](https://apps.apple.com/us/app/id972387337) | us | Версия ≥18 мес | ALIVE | — | — | 2623 | 23.99 USD | 18 | 8 | 2023-09-29 |
-| [Radio Garden Live](https://apps.apple.com/us/app/id1339670993) | us | Версия ≥18 мес | ALIVE | — | — | 2316 | free | 17 | 5 | 2023-10-21 |
+| [Scrivener](https://apps.apple.com/us/app/id972387337) | us | Версия ≥18 мес | ALIVE | — | — | 2623 | 23.99 USD | 20 | 8 | 2023-09-29 |
+| [Radio Garden Live](https://apps.apple.com/us/app/id1339670993) | us | Версия ≥18 мес | ALIVE | — | — | 2316 | free | 19 | 7 | 2023-10-21 |
+| [TalkU: Unlimited Calls + Texts](https://apps.apple.com/us/app/id863809868) | us | Версия ≥18 мес | ALIVE | — | — | 22239 | free | 16 | 14 | 2021-11-05 |
+| [ВКлючайся!](https://apps.apple.com/ru/app/id1357517067) | ru | Версия ≥18 мес | ALIVE | — | — | 698 | — | 16 | 8 | 2021-12-30 |
+| [Финансы – Расходы и Доходы](https://apps.apple.com/ru/app/id1521429599) | ru | Версия ≥18 мес | ALIVE | — | — | 821 | — | 16 | 8 | 2022-02-16 |
 | [Office Word:Edit Word Document](https://apps.apple.com/us/app/id6444708069) | us | Версия ≥18 мес | ALIVE | — | — | 9756 | free | 16 | 10 | 2024-08-15 |
-| [TalkU: Unlimited Calls + Texts](https://apps.apple.com/us/app/id863809868) | us | Версия ≥18 мес | ALIVE | — | — | 22239 | free | 15 | 14 | 2021-11-05 |
+| [POOLプール-写真・動画の保存シェアの鍵付きアルバムアプリ](https://apps.apple.com/jp/app/id963929502) | jp | Версия ≥18 мес | ALIVE | — | — | 53635 | free | 15 | 6 | 2022-10-09 |
+| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/ae/app/id1164088669) | ae | Версия ≥18 мес | ALIVE | — | — | 3697 | free | 15 | 10 | 2024-09-17 |
 | [E排客](https://apps.apple.com/tw/app/id1239652841) | tw | Версия ≥18 мес | ALIVE | — | — | 1718 | free | 15 | 15 | 2019-11-07 |
-| [ВКлючайся!](https://apps.apple.com/ru/app/id1357517067) | ru | Версия ≥18 мес | ALIVE | — | — | 698 | — | 15 | 8 | 2021-12-30 |
+| [عدنان معلم القرآن](https://apps.apple.com/sa/app/id565905501) | sa | Версия ≥18 мес | ALIVE | — | — | 9692 | free | 14 | 1 | 2024-08-15 |
 | [WireGuard](https://apps.apple.com/ru/app/id1441195209) | ru | Версия ≥18 мес | ALIVE | — | — | 1545 | — | 14 | 9 | 2023-02-16 |
 | [Вся электронная почта – myMail](https://apps.apple.com/ru/app/id722120997) | ru | Версия ≥18 мес | ALIVE | — | — | 6397 | — | 13 | 8 | 2024-11-28 |
 | [myQuran — Коран на русском](https://apps.apple.com/ru/app/id879248035) | ru | Версия ≥18 мес | ALIVE | — | — | 6968 | — | 13 | 1 | 2018-02-19 |
-| [POOLプール-写真・動画の保存シェアの鍵付きアルバムアプリ](https://apps.apple.com/jp/app/id963929502) | jp | Версия ≥18 мес | ALIVE | — | — | 53635 | free | 13 | 5 | 2022-10-09 |
-| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/ae/app/id1164088669) | ae | Версия ≥18 мес | ALIVE | — | — | 3697 | free | 13 | 9 | 2024-09-17 |
-| [Финансы – Расходы и Доходы](https://apps.apple.com/ru/app/id1521429599) | ru | Версия ≥18 мес | ALIVE | — | — | 821 | — | 13 | 7 | 2022-02-16 |
+| [QR Code & Barcode Scanner](https://apps.apple.com/de/app/id1048473097) | de | Версия ≥18 мес | ALIVE | — | — | 231900 | free | 13 | 2 | 2023-02-13 |
+| [Дни Рождения + Важные Даты](https://apps.apple.com/ru/app/id1231593938) | ru | Версия ≥18 мес | ALIVE | — | — | 3077 | — | 13 | 4 | 2024-01-16 |
+| [Melodista Music Offline Player](https://apps.apple.com/gb/app/id1293175325) | gb | Версия ≥18 мес | ALIVE | — | — | 6111 | free | 13 | 1 | 2025-01-03 |
+| [Offline Music Player-MP3&Video](https://apps.apple.com/de/app/id1563131490) | de | Версия ≥18 мес | ALIVE | — | — | 3321 | — | 13 | 10 | 2022-12-07 |
 | [еКапуста – займы на карту](https://apps.apple.com/ru/app/id1607841300) | ru | Версия ≥18 мес | ALIVE | — | — | 8238 | — | 13 | 5 | 2023-10-09 |
 | [Blitzer.de](https://apps.apple.com/de/app/id393860580) | de | Версия ≥18 мес | ALIVE | — | — | 19410 | free | 12 | 6 | 2024-06-12 |
-| [Дни Рождения + Важные Даты](https://apps.apple.com/ru/app/id1231593938) | ru | Версия ≥18 мес | ALIVE | — | — | 3077 | — | 12 | 4 | 2024-01-16 |
-| [Offline Music Player-MP3&Video](https://apps.apple.com/de/app/id1563131490) | de | Версия ≥18 мес | ALIVE | — | — | 3321 | — | 12 | 9 | 2022-12-07 |
+| [Intelli Karteikarten](https://apps.apple.com/de/app/id790237128) | de | Версия ≥18 мес | ALIVE | — | — | 1413 | free | 12 | 2 | 2021-04-04 |
+| [ChatSpace - Chat, Talk & Fun](https://apps.apple.com/us/app/id6443834097) | us | Версия ≥18 мес | ALIVE | — | — | 4102 | free | 12 | 9 | 2024-12-16 |
+| [BalanceMe-Health AI&Self Care](https://apps.apple.com/us/app/id6469513178) | us | Версия ≥18 мес | ALIVE | — | — | 6628 | free | 12 | 4 | 2025-01-03 |
 | [Piano](https://apps.apple.com/gb/app/id531263194) | gb | Версия ≥18 мес | ALIVE | — | — | 1662 | free | 11 | 2 | 2023-08-03 |
-| [عدنان معلم القرآن](https://apps.apple.com/sa/app/id565905501) | sa | Версия ≥18 мес | ALIVE | — | — | 9692 | free | 11 | 1 | 2024-08-15 |
-| [QR Code & Barcode Scanner](https://apps.apple.com/de/app/id1048473097) | de | Версия ≥18 мес | ALIVE | — | — | 231900 | free | 11 | 2 | 2023-02-13 |
+| [AdBlock](https://apps.apple.com/jp/app/id691121579) | jp | Версия ≥18 мес | ALIVE | — | — | 12975 | 300.0 JPY | 11 | 6 | 2021-07-27 |
+| [禁煙ウォッチ - 禁煙時間が一目でわかる](https://apps.apple.com/jp/app/id936600869) | jp | Версия ≥18 мес | ALIVE | — | — | 16812 | free | 11 | 3 | 2024-07-19 |
+| [AmpMe – Speaker & Music Sync](https://apps.apple.com/us/app/id986905979) | us | Версия ≥18 мес | ALIVE | — | — | 53808 | free | 11 | 11 | 2023-05-17 |
 | [Necrophonic](https://apps.apple.com/us/app/id1396698319) | us | Версия ≥18 мес | ALIVE | — | — | 557 | 9.99 USD | 11 | 3 | 2022-06-19 |
-| [ChatSpace - Chat, Talk & Fun](https://apps.apple.com/us/app/id6443834097) | us | Версия ≥18 мес | ALIVE | — | — | 4102 | free | 11 | 9 | 2024-12-16 |
-| [BalanceMe-Health AI&Self Care](https://apps.apple.com/us/app/id6469513178) | us | Версия ≥18 мес | ALIVE | — | — | 6628 | free | 11 | 3 | 2025-01-03 |
-| [CityGuide GPS-навигатор](https://apps.apple.com/ru/app/id432887661) | ru | Версия ≥18 мес | ALIVE | — | — | 986 | — | 10 | 10 | 2022-10-18 |
+| [SkyView®](https://apps.apple.com/us/app/id404990064) | us | Версия ≥18 мес | ALIVE | — | — | 7715 | 2.99 USD | 10 | 4 | 2025-05-02 |
 | [Beer With Me](https://apps.apple.com/de/app/id618435598) | de | Версия ≥18 мес | ALIVE | — | — | 3398 | free | 10 | 2 | 2024-11-18 |
-| [Intelli Karteikarten](https://apps.apple.com/de/app/id790237128) | de | Версия ≥18 мес | ALIVE | — | — | 1413 | free | 10 | 1 | 2021-04-04 |
 | [القاعدة النورانية](https://apps.apple.com/us/app/id841875549) | us | Версия ≥18 мес | ALIVE | — | — | 7019 | 5.99 USD | 10 | 3 | 2017-09-21 |
 | [Evernote Scannable](https://apps.apple.com/us/app/id883338188) | us | Версия ≥18 мес | ALIVE | — | — | 417884 | free | 10 | 9 | 2024-12-19 |
-| [禁煙ウォッチ - 禁煙時間が一目でわかる](https://apps.apple.com/jp/app/id936600869) | jp | Версия ≥18 мес | ALIVE | — | — | 16812 | free | 10 | 2 | 2024-07-19 |
-| [AmpMe – Speaker & Music Sync](https://apps.apple.com/us/app/id986905979) | us | Версия ≥18 мес | ALIVE | — | — | 53808 | free | 10 | 10 | 2023-05-17 |
-| [SkyView®](https://apps.apple.com/us/app/id404990064) | us | Версия ≥18 мес | ALIVE | — | — | 7715 | 2.99 USD | 9 | 4 | 2025-05-02 |
-| [AdBlock](https://apps.apple.com/jp/app/id691121579) | jp | Версия ≥18 мес | ALIVE | — | — | 12975 | 300.0 JPY | 9 | 5 | 2021-07-27 |
-| [LiveLib – рекомендации книг](https://apps.apple.com/ru/app/id905483030) | ru | Версия ≥18 мес | ALIVE | — | — | 13233 | — | 9 | 7 | 2022-04-18 |
+| [LiveLib – рекомендации книг](https://apps.apple.com/ru/app/id905483030) | ru | Версия ≥18 мес | ALIVE | — | — | 13233 | — | 10 | 7 | 2022-04-18 |
+| [ウラアカ](https://apps.apple.com/jp/app/id1225470581) | jp | Версия ≥18 мес | ALIVE | — | — | 4876 | free | 10 | 9 | 2025-01-20 |
+| [英語翻訳機-英文翻訳と英語勉強翻訳辞書](https://apps.apple.com/jp/app/id1455452760) | jp | Версия ≥18 мес | ALIVE | — | — | 30671 | free | 10 | 1 | 2019-03-14 |
+| [CityGuide GPS-навигатор](https://apps.apple.com/ru/app/id432887661) | ru | Версия ≥18 мес | ALIVE | — | — | 986 | — | 9 | 9 | 2022-10-18 |
+| [Rain Parrot](https://apps.apple.com/au/app/id911872373) | au | Версия ≥18 мес | ALIVE | — | — | 18104 | 5.99 AUD | 9 | 4 | 2022-09-28 |
 | [Fuel Map Australia](https://apps.apple.com/au/app/id999638192) | au | Версия ≥18 мес | ALIVE | — | — | 6879 | free | 9 | 8 | 2022-10-23 |
-| [英語翻訳機-英文翻訳と英語勉強翻訳辞書](https://apps.apple.com/jp/app/id1455452760) | jp | Версия ≥18 мес | ALIVE | — | — | 30671 | free | 9 | 1 | 2019-03-14 |
+| [バーコードスキャナ QRコードリーダー QRジェネレータ](https://apps.apple.com/ru/app/id1048473097) | ru | Версия ≥18 мес | ALIVE | — | — | 51606 | — | 9 | 1 | 2023-02-13 |
+| [Восстановление фото и видео](https://apps.apple.com/ru/app/id1554630554) | ru | Версия ≥18 мес | ALIVE | — | — | 3647 | — | 9 | 5 | 2025-02-19 |
+| [まいなす家計簿](https://apps.apple.com/jp/app/id1587548217) | jp | Версия ≥18 мес | ALIVE | — | — | 3169 | free | 9 | 3 | 2025-02-28 |
+| [Float - 影片保存](https://apps.apple.com/tw/app/id1593315967) | tw | Версия ≥18 мес | ALIVE | — | — | 1019 | free | 9 | 4 | 2024-04-03 |
+| [Amerigo Music - Offline Music](https://apps.apple.com/ae/app/id1641291989) | ae | Версия ≥18 мес | ALIVE | — | — | 1216 | free | 9 | 5 | 2024-10-17 |
 | [Progressive Alarm Clock](https://apps.apple.com/us/app/id362389803) | us | Версия ≥18 мес | ALIVE | — | — | 3078 | 0.99 USD | 8 | 1 | 2016-11-19 |
-| [Rain Parrot](https://apps.apple.com/au/app/id911872373) | au | Версия ≥18 мес | ALIVE | — | — | 18104 | 5.99 AUD | 8 | 3 | 2022-09-28 |
+| [FXAlert - 外為のアラート通知アプリ](https://apps.apple.com/jp/app/id946431789) | jp | Версия ≥18 мес | ALIVE | — | — | 2386 | free | 8 | 1 | 2023-02-27 |
 | [カウンタ](https://apps.apple.com/jp/app/id986800297) | jp | Версия ≥18 мес | ALIVE | — | — | 4024 | free | 8 | 1 | 2024-12-28 |
-| [バーコードスキャナ QRコードリーダー QRジェネレータ](https://apps.apple.com/ru/app/id1048473097) | ru | Версия ≥18 мес | ALIVE | — | — | 51606 | — | 8 | 1 | 2023-02-13 |
-| [Amerigo Music - Offline Music](https://apps.apple.com/ae/app/id1641291989) | ae | Версия ≥18 мес | ALIVE | — | — | 1216 | free | 8 | 4 | 2024-10-17 |
+| [友達さがし即会恋活にも使える出会いSNS](https://apps.apple.com/jp/app/id1227357195) | jp | Версия ≥18 мес | ALIVE | — | — | 7402 | free | 8 | 7 | 2024-05-08 |
+| [無音カメラ - むおんかめら & 高画質カメラ](https://apps.apple.com/jp/app/id1418399798) | jp | Версия ≥18 мес | ALIVE | — | — | 11696 | free | 8 | 7 | 2024-09-30 |
+| [ezETC](https://apps.apple.com/tw/app/id817489003) | tw | Версия ≥18 мес | ALIVE | — | — | 36223 | free | 7 | 5 | 2024-07-15 |
 | [Сообщения ВК (ВКонтакте)](https://apps.apple.com/ru/app/id873637150) | ru | Версия ≥18 мес | ALIVE | — | — | 540 | — | 7 | 6 | 2015-03-24 |
+| [Zepp Life(原小米運動)](https://apps.apple.com/ru/app/id938688461) | ru | Версия ≥18 мес | ALIVE | — | — | 69829 | — | 7 | 6 | 2025-03-17 |
+| [Income OK - income & expenses](https://apps.apple.com/us/app/id961048437) | us | Версия ≥18 мес | ALIVE | — | — | 1149 | 3.99 USD | 7 | 2 | 2024-11-27 |
 | [フォトスキャン by Google フォト](https://apps.apple.com/jp/app/id1165525994) | jp | Версия ≥18 мес | ALIVE | — | — | 52007 | free | 7 | 1 | 2022-11-21 |
-| [ウラアカ](https://apps.apple.com/jp/app/id1225470581) | jp | Версия ≥18 мес | ALIVE | — | — | 4876 | free | 7 | 7 | 2025-01-20 |
 | [Repost for Reels, Photo, Video](https://apps.apple.com/jp/app/id1331571544) | jp | Версия ≥18 мес | ALIVE | — | — | 41456 | free | 7 | 2 | 2024-06-10 |
-| [無音カメラ - むおんかめら & 高画質カメラ](https://apps.apple.com/jp/app/id1418399798) | jp | Версия ≥18 мес | ALIVE | — | — | 11696 | free | 7 | 6 | 2024-09-30 |
-| [Восстановление фото и видео](https://apps.apple.com/ru/app/id1554630554) | ru | Версия ≥18 мес | ALIVE | — | — | 3647 | — | 7 | 4 | 2025-02-19 |
+| [Railmap for Open Railway Map](https://apps.apple.com/de/app/id1374554550) | de | Версия ≥18 мес | ALIVE | — | — | 1411 | 2.99 EUR | 7 | 1 | 2023-10-18 |
+| [XDP](https://apps.apple.com/gb/app/id1485292140) | gb | Версия ≥18 мес | ALIVE | — | — | 1713 | free | 7 | 6 | 2024-01-05 |
+| [ゆれくるコール](https://apps.apple.com/jp/app/id1560592402) | jp | Версия ≥18 мес | ALIVE | — | — | 661 | free | 7 | 2 | 2025-03-17 |
 | [Smart Security Camera App](https://apps.apple.com/gb/app/id6740097025) | gb | Версия ≥18 мес | ALIVE | — | — | 612 | free | 7 | 7 | 2025-04-01 |
-| [ezETC](https://apps.apple.com/tw/app/id817489003) | tw | Версия ≥18 мес | ALIVE | — | — | 36223 | free | 6 | 4 | 2024-07-15 |
+| [Wörterbuch Linguee](https://apps.apple.com/de/app/id338225335) | de | Версия ≥18 мес | ALIVE | — | — | 15996 | free | 6 | 3 | 2022-09-14 |
 | [US Debt Clock .org](https://apps.apple.com/us/app/id929822826) | us | Версия ≥18 мес | ALIVE | — | — | 599 | 4.99 USD | 6 | 4 | 2020-12-14 |
 | [Pandora Pro](https://apps.apple.com/ru/app/id949493852) | ru | Версия ≥18 мес | ALIVE | — | — | 5483 | — | 6 | 2 | 2021-04-27 |
 | [Jamzone - Sing & Play Along](https://apps.apple.com/de/app/id998972770) | de | Версия ≥18 мес | ALIVE | — | — | 596 | free | 6 | 1 | 2024-12-20 |
-| [友達さがし即会恋活にも使える出会いSNS](https://apps.apple.com/jp/app/id1227357195) | jp | Версия ≥18 мес | ALIVE | — | — | 7402 | free | 6 | 5 | 2024-05-08 |
-| [Railmap for Open Railway Map](https://apps.apple.com/de/app/id1374554550) | de | Версия ≥18 мес | ALIVE | — | — | 1411 | 2.99 EUR | 6 | 1 | 2023-10-18 |
+| [JRA競馬予想情報アプリ](https://apps.apple.com/jp/app/id1235945352) | jp | Версия ≥18 мес | ALIVE | — | — | 585 | free | 6 | 6 | 2021-05-18 |
 | [Steam Chat](https://apps.apple.com/ru/app/id1434890245) | ru | Версия ≥18 мес | ALIVE | — | — | 505 | — | 6 | 6 | 2021-01-06 |
-| [ゆれくるコール](https://apps.apple.com/jp/app/id1560592402) | jp | Версия ≥18 мес | ALIVE | — | — | 661 | free | 6 | 2 | 2025-03-17 |
+| [FP3級学科試験対策問題集](https://apps.apple.com/jp/app/id1537244601) | jp | Версия ≥18 мес | ALIVE | — | — | 13429 | free | 6 | 2 | 2025-03-29 |
 | [KNY地震速報](https://apps.apple.com/tw/app/id6503194936) | tw | Версия ≥18 мес | ALIVE | — | — | 2674 | free | 6 | 3 | 2025-01-02 |
-| [Wörterbuch Linguee](https://apps.apple.com/de/app/id338225335) | de | Версия ≥18 мес | ALIVE | — | — | 15996 | free | 5 | 2 | 2022-09-14 |
 | [internavi Pocket](https://apps.apple.com/jp/app/id421818356) | jp | Версия ≥18 мес | ALIVE | — | — | 3181 | free | 5 | 1 | 2023-05-16 |
 | [4WD Maps - Offline Topo Maps](https://apps.apple.com/au/app/id465639977) | au | Версия ≥18 мес | ALIVE | — | — | 1791 | 99.99 AUD | 5 | 3 | 2022-09-07 |
 | [Awesome Calendar](https://apps.apple.com/us/app/id480102733) | us | Версия ≥18 мес | ALIVE | — | — | 3872 | 9.99 USD | 5 | 1 | 2022-01-24 |
-| [Zepp Life(原小米運動)](https://apps.apple.com/ru/app/id938688461) | ru | Версия ≥18 мес | ALIVE | — | — | 69829 | — | 5 | 4 | 2025-03-17 |
 | [Income OK - income & expenses](https://apps.apple.com/ru/app/id961048437) | ru | Версия ≥18 мес | ALIVE | — | — | 5252 | — | 5 | 1 | 2024-11-27 |
-| [Income OK - income & expenses](https://apps.apple.com/us/app/id961048437) | us | Версия ≥18 мес | ALIVE | — | — | 1149 | 3.99 USD | 5 | 2 | 2024-11-27 |
-| [JRA競馬予想情報アプリ](https://apps.apple.com/jp/app/id1235945352) | jp | Версия ≥18 мес | ALIVE | — | — | 585 | free | 5 | 5 | 2021-05-18 |
+| [記念日°](https://apps.apple.com/jp/app/id988424260) | jp | Версия ≥18 мес | ALIVE | — | — | 61556 | free | 5 | 1 | 2022-09-23 |
 | [ペットのおうち](https://apps.apple.com/jp/app/id1453486794) | jp | Версия ≥18 мес | ALIVE | — | — | 1891 | free | 5 | 3 | 2025-01-23 |
 | [Loóna: сон и расслабление](https://apps.apple.com/ru/app/id1465238901) | ru | Версия ≥18 мес | ALIVE | — | — | 8488 | — | 5 | 1 | 2025-03-21 |
 | [VPN Farm - Fast Secure Proxy](https://apps.apple.com/ru/app/id1487531706) | ru | Версия ≥18 мес | ALIVE | — | — | 630 | — | 5 | 5 | 2022-03-15 |
 | [Portrait:Make Avatar Character](https://apps.apple.com/us/app/id1494275997) | us | Версия ≥18 мес | ALIVE | — | — | 27693 | — | 5 | 3 | 2024-04-09 |
 | [Video Master Pro](https://apps.apple.com/de/app/id1500098830) | de | Версия ≥18 мес | ALIVE | — | — | 2644 | 3.99 EUR | 5 | 3 | 2024-11-25 |
-| [FP3級学科試験対策問題集](https://apps.apple.com/jp/app/id1537244601) | jp | Версия ≥18 мес | ALIVE | — | — | 13429 | free | 5 | 2 | 2025-03-29 |
 | [nana - 生演奏カラオケ・歌ってみた投稿アプリ](https://apps.apple.com/jp/app/id540360389) | jp | Версия ≥18 мес | ALIVE | — | — | 23048 | free | 4 | 2 | 2022-11-22 |
+| [Home and Dry](https://apps.apple.com/gb/app/id654608885) | gb | Версия ≥18 мес | ALIVE | — | — | 853 | 2.99 GBP | 4 | 1 | 2024-02-09 |
+| [Buddhify: Guided Meditation](https://apps.apple.com/gb/app/id687421118) | gb | Версия ≥18 мес | ALIVE | — | — | 4072 | 4.99 GBP | 4 | 1 | 2024-06-12 |
 | [القاعدة النورانية](https://apps.apple.com/gb/app/id841875549) | gb | Версия ≥18 мес | ALIVE | — | — | 2042 | 5.99 GBP | 4 | 1 | 2017-09-21 |
+| [القاعدة النورانية](https://apps.apple.com/sa/app/id841875549) | sa | Версия ≥18 мес | ALIVE | — | — | 2445 | 24.99 SAR | 4 | 1 | 2017-09-21 |
 | [Note Rush: Music Reading Game](https://apps.apple.com/us/app/id1083801827) | us | Версия ≥18 мес | ALIVE | — | — | 2451 | 8.99 USD | 4 | 1 | 2023-10-25 |
 | [Pythonista 3](https://apps.apple.com/us/app/id1085978097) | us | Версия ≥18 мес | ALIVE | — | — | 1531 | 9.99 USD | 4 | 2 | 2023-04-27 |
+| [快速學習韓語和韓文字母](https://apps.apple.com/tw/app/id1227950973) | tw | Версия ≥18 мес | ALIVE | — | — | 1625 | free | 4 | 1 | 2024-12-20 |
 | [Radio Garden Live](https://apps.apple.com/gb/app/id1339670993) | gb | Версия ≥18 мес | ALIVE | — | — | 735 | free | 4 | 1 | 2023-10-21 |
 | [LINNÉ LENS - かざすAI図鑑](https://apps.apple.com/jp/app/id1406300416) | jp | Версия ≥18 мес | ALIVE | — | — | 3698 | free | 4 | 1 | 2022-06-14 |
 | [ビデオマスタープロ](https://apps.apple.com/jp/app/id1500098830) | jp | Версия ≥18 мес | ALIVE | — | — | 3160 | 600.0 JPY | 4 | 3 | 2024-11-25 |
 | [ChatSpace - Chat, Talk & Fun](https://apps.apple.com/gb/app/id6443834097) | gb | Версия ≥18 мес | ALIVE | — | — | 708 | free | 4 | 4 | 2024-12-16 |
+| [OutDoors GB - Offline OS Maps](https://apps.apple.com/gb/app/id336150457) | gb | Версия ≥18 мес | ALIVE | — | — | 4652 | 1.99 GBP | 3 | 1 | 2023-08-30 |
 | [Stack the States®](https://apps.apple.com/us/app/id381342267) | us | Версия ≥18 мес | ALIVE | — | — | 2191 | 2.99 USD | 3 | 1 | 2024-09-25 |
 | [Flashlight Ⓞ](https://apps.apple.com/us/app/id381471023) | us | Версия ≥18 мес | ALIVE | — | — | 30771 | free | 3 | 2 | 2022-12-02 |
 | [Magic Piano: game by Smule](https://apps.apple.com/gb/app/id421254504) | gb | Версия ≥18 мес | ALIVE | — | — | 3967 | free | 3 | 1 | 2024-07-01 |
 | [Premium Bonds prize checker](https://apps.apple.com/gb/app/id474172893) | gb | Версия ≥18 мес | ALIVE | — | — | 1362 | free | 3 | 3 | 2024-11-28 |
+| [СтарЛайн](https://apps.apple.com/ru/app/id492074737) | ru | Версия ≥18 мес | ALIVE | — | — | 29621 | — | 3 | 2 | 2024-02-26 |
 | [RhymeZone](https://apps.apple.com/us/app/id493493802) | us | Версия ≥18 мес | ALIVE | — | — | 986 | 2.99 USD | 3 | 3 | 2022-10-17 |
 | [Piano](https://apps.apple.com/sa/app/id531263194) | sa | Версия ≥18 мес | ALIVE | — | — | 1113 | free | 3 | 1 | 2023-08-03 |
-| [Home and Dry](https://apps.apple.com/gb/app/id654608885) | gb | Версия ≥18 мес | ALIVE | — | — | 853 | 2.99 GBP | 3 | 1 | 2024-02-09 |
+| [叮咚 –網絡電話 & 國內國際長途](https://apps.apple.com/tw/app/id588937297) | tw | Версия ≥18 мес | ALIVE | — | — | 1005 | free | 3 | 3 | 2021-10-23 |
 | [AnyFont](https://apps.apple.com/us/app/id821560738) | us | Версия ≥18 мес | ALIVE | — | — | 26188 | 1.99 USD | 3 | 2 | 2024-07-31 |
 | [Adobe Digital Editions](https://apps.apple.com/de/app/id952977781) | de | Версия ≥18 мес | ALIVE | — | — | 1006 | free | 3 | 3 | 2020-08-31 |
 | [Radio FM Deutschland: Radios / Internetradio DE](https://apps.apple.com/de/app/id966266633) | de | Версия ≥18 мес | ALIVE | — | — | 68030 | free | 3 | 2 | 2017-08-01 |
+| [Scrivener](https://apps.apple.com/gb/app/id972387337) | gb | Версия ≥18 мес | ALIVE | — | — | 529 | 22.99 GBP | 3 | 1 | 2023-09-29 |
 | [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/de/app/id1164088669) | de | Версия ≥18 мес | ALIVE | — | — | 890 | free | 3 | 1 | 2024-09-17 |
 | [EE35 フィルムカメラ](https://apps.apple.com/jp/app/id1313164055) | jp | Версия ≥18 мес | ALIVE | — | — | 996 | 300.0 JPY | 3 | 1 | 2019-10-14 |
 | [Veee+](https://apps.apple.com/tw/app/id1325003703) | tw | Версия ≥18 мес | ALIVE | — | — | 583 | free | 3 | 3 | 2023-01-11 |
+| [Find My Phone, Friends&Family](https://apps.apple.com/us/app/id1486315142) | us | Версия ≥18 мес | ALIVE | — | — | 1632 | free | 3 | 3 | 2023-12-07 |
 | [الشفيع](https://apps.apple.com/sa/app/id1580263554) | sa | Версия ≥18 мес | ALIVE | — | — | 959 | free | 3 | 2 | 2025-02-06 |
 | [Автокликер для Игр・Приложений](https://apps.apple.com/ru/app/id6503213464) | ru | Версия ≥18 мес | ALIVE | — | — | 2365 | — | 3 | 2 | 2025-04-01 |
 | [HIYORI(ヒヨリ)](https://apps.apple.com/jp/app/id6740224152) | jp | Версия ≥18 мес | ALIVE | — | — | 1454 | free | 3 | 2 | 2025-02-18 |
 | [CityMaps2Go Pro  Offline Karte](https://apps.apple.com/ch/app/id327783342) | ch | Версия ≥18 мес | ALIVE | — | — | 816 | 10.0 CHF | 2 | 1 | 2021-07-28 |
 | [CityMaps2Go Pro  Offline Karte](https://apps.apple.com/de/app/id327783342) | de | Версия ≥18 мес | ALIVE | — | — | 2193 | 12.99 EUR | 2 | 2 | 2021-07-28 |
-| [OutDoors GB - Offline OS Maps](https://apps.apple.com/gb/app/id336150457) | gb | Версия ≥18 мес | ALIVE | — | — | 4652 | 1.99 GBP | 2 | 1 | 2023-08-30 |
+| [星座表](https://apps.apple.com/jp/app/id345542655) | jp | Версия ≥18 мес | ALIVE | — | — | 36312 | free | 2 | 1 | 2015-11-17 |
 | [تطبيق القرآن الكريم](https://apps.apple.com/sa/app/id385990290) | sa | Версия ≥18 мес | ALIVE | — | — | 9102 | free | 2 | 1 | 2025-01-25 |
 | [Face & Body Photo editor](https://apps.apple.com/us/app/id414469628) | us | Версия ≥18 мес | ALIVE | — | — | 1793 | 1.99 USD | 2 | 1 | 2023-09-23 |
+| [Magic Piano: game by Smule](https://apps.apple.com/au/app/id421254504) | au | Версия ≥18 мес | ALIVE | — | — | 1912 | free | 2 | 2 | 2024-07-01 |
 | [myDuaa: Fortress of a Muslim / حصن المسلم](https://apps.apple.com/gb/app/id509443220) | gb | Версия ≥18 мес | ALIVE | — | — | 700 | 0.99 GBP | 2 | 1 | 2017-06-06 |
+| [iMicroscope - Magnifying Glass](https://apps.apple.com/us/app/id577434784) | us | Версия ≥18 мес | ALIVE | — | — | 627 | 3.99 USD | 2 | 1 | 2023-09-21 |
+| [Dingtone: Calling & Texting](https://apps.apple.com/gb/app/id588937297) | gb | Версия ≥18 мес | ALIVE | — | — | 3026 | free | 2 | 2 | 2021-10-23 |
 | [مؤذني - Moadeni](https://apps.apple.com/sa/app/id656187292) | sa | Версия ≥18 мес | ALIVE | — | — | 4632 | 89.99 SAR | 2 | 1 | 2022-11-12 |
+| [القاعدة النورانية](https://apps.apple.com/de/app/id841875549) | de | Версия ≥18 мес | ALIVE | — | — | 719 | 6.99 EUR | 2 | 1 | 2017-09-21 |
 | [DjVu Reader - Просмотрщик для djvu и pdf форматов](https://apps.apple.com/ru/app/id972086526) | ru | Версия ≥18 мес | ALIVE | — | — | 2471 | — | 2 | 1 | 2017-07-14 |
-| [Scrivener](https://apps.apple.com/gb/app/id972387337) | gb | Версия ≥18 мес | ALIVE | — | — | 529 | 22.99 GBP | 2 | 1 | 2023-09-29 |
+| [Погода: Россия XL  PRO](https://apps.apple.com/ru/app/id990822895) | ru | Версия ≥18 мес | ALIVE | — | — | 2052 | free | 2 | 1 | 2024-11-05 |
 | [US Dept. of Justice NSOPW App](https://apps.apple.com/us/app/id991873782) | us | Версия ≥18 мес | ALIVE | — | — | 3270 | free | 2 | 2 | 2022-06-01 |
+| [雲章書法字典](https://apps.apple.com/tw/app/id992025786) | tw | Версия ≥18 мес | ALIVE | — | — | 3101 | free | 2 | 1 | 2022-08-11 |
 | [TV Cast Pro for Sony TV](https://apps.apple.com/us/app/id1198515341) | us | Версия ≥18 мес | ALIVE | — | — | 1370 | 9.99 USD | 2 | 2 | 2024-04-22 |
 | [秘密のアルバム PRO - あなたの秘密守ります](https://apps.apple.com/jp/app/id1256956196) | jp | Версия ≥18 мес | ALIVE | — | — | 872 | 300.0 JPY | 2 | 1 | 2017-09-18 |
 | [紫薇斗數-紫微斗數八字算命](https://apps.apple.com/tw/app/id1363362566) | tw | Версия ≥18 мес | ALIVE | — | — | 3685 | free | 2 | 1 | 2021-09-26 |
 | [celebrate: share photo & video](https://apps.apple.com/de/app/id1453163913) | de | Версия ≥18 мес | ALIVE | — | — | 15707 | — | 2 | 1 | 2024-10-15 |
-| [Find My Phone, Friends&Family](https://apps.apple.com/us/app/id1486315142) | us | Версия ≥18 мес | ALIVE | — | — | 1632 | free | 2 | 2 | 2023-12-07 |
+| [Funny emoji - custom my emojis](https://apps.apple.com/ru/app/id1546703508) | ru | Версия ≥18 мес | ALIVE | — | — | 1828 | — | 2 | 2 | 2025-04-10 |
 | [Reverse Lookup ®](https://apps.apple.com/sa/app/id1563853799) | sa | Версия ≥18 мес | ALIVE | — | — | 18495 | free | 2 | 2 | 2023-05-16 |
+| [LiveIn - Share Your Moment](https://apps.apple.com/us/app/id1606780589) | us | Версия ≥18 мес | ALIVE | — | — | 30480 | — | 2 | 2 | 2023-12-29 |
 | [Office Word: Schreibprogramm](https://apps.apple.com/de/app/id6444708069) | de | Версия ≥18 мес | ALIVE | — | — | 749 | free | 2 | 1 | 2024-08-15 |
 | [starmatch: chat with creators](https://apps.apple.com/us/app/id6448859512) | us | Версия ≥18 мес | ALIVE | — | — | 3497 | — | 2 | 1 | 2024-04-05 |
 | [BalanceMe-Health AI&Self Care](https://apps.apple.com/sa/app/id6469513178) | sa | Версия ≥18 мес | ALIVE | — | — | 951 | free | 2 | 1 | 2025-01-03 |
 | [Kot - Narzędzie Sieciowe](https://apps.apple.com/ru/app/id6738271363) | ru | Версия ≥18 мес | ALIVE | — | — | 7651 | — | 2 | 2 | 2025-02-21 |
-| [iMicroscope - Magnifying Glass](https://apps.apple.com/us/app/id577434784) | us | Версия ≥18 мес | ALIVE | — | — | 627 | 3.99 USD | 1 | 1 | 2023-09-21 |
+| [Opus Bilprovning](https://apps.apple.com/se/app/id889050808) | se | Версия ≥18 мес | ALIVE | — | — | 4055 | free | 1 | 1 | 2024-05-07 |
+| [Melodista Music Offline Player](https://apps.apple.com/sa/app/id1293175325) | sa | Версия ≥18 мес | ALIVE | — | — | 2843 | free | 1 | 1 | 2025-01-03 |
 | [Mine penger](https://apps.apple.com/no/app/id1437895418) | no | Версия ≥18 мес | ALIVE | — | — | 6141 | free | 1 | 1 | 2024-04-05 |
 | [Authenticator App ｀](https://apps.apple.com/au/app/id6448976943) | au | Версия ≥18 мес | ALIVE | — | — | 2655 | free | 1 | 1 | 2024-12-04 |
-| [MARU日文五十音特訓](https://apps.apple.com/tw/app/id1208009110) | tw | Версия ≥18 мес | ALIVE | — | — | 43349 | free | 87 | 0 | 2024-08-02 |
-| [ソラリ - 青空文庫から本の世界へ](https://apps.apple.com/jp/app/id1207167864) | jp | Версия ≥18 мес | ALIVE | — | — | 18215 | free | 67 | 0 | 2024-10-05 |
-| [Melodista Music Offline Player](https://apps.apple.com/gb/app/id1293175325) | gb | Версия ≥18 мес | ALIVE | — | — | 6111 | free | 11 | 0 | 2025-01-03 |
-| [Work Shift Calendar (Shifter)](https://apps.apple.com/ru/app/id1523513035) | ru | Версия ≥18 мес | ALIVE | — | — | 6172 | — | 11 | 0 | 2024-05-15 |
-| [Expenses OK - expenses tracker](https://apps.apple.com/ru/app/id932322041) | ru | Версия ≥18 мес | ALIVE | — | — | 8382 | — | 10 | 0 | 2024-11-27 |
+| [MARU日文五十音特訓](https://apps.apple.com/tw/app/id1208009110) | tw | Версия ≥18 мес | ALIVE | — | — | 43349 | free | 88 | 0 | 2024-08-02 |
+| [ソラリ - 青空文庫から本の世界へ](https://apps.apple.com/jp/app/id1207167864) | jp | Версия ≥18 мес | ALIVE | — | — | 18215 | free | 77 | 0 | 2024-10-05 |
+| [Work Shift Calendar (Shifter)](https://apps.apple.com/ru/app/id1523513035) | ru | Версия ≥18 мес | ALIVE | — | — | 6172 | — | 13 | 0 | 2024-05-15 |
+| [Expenses OK - expenses tracker](https://apps.apple.com/ru/app/id932322041) | ru | Версия ≥18 мес | ALIVE | — | — | 8382 | — | 12 | 0 | 2024-11-27 |
 | [ピアノ - ぴあの 鍵盤 リアル 曲 げーむ - Piano](https://apps.apple.com/jp/app/id890740165) | jp | Версия ≥18 мес | ALIVE | — | — | 65199 | free | 9 | 0 | 2024-07-22 |
 | [Jamzone - Sing & Play Along](https://apps.apple.com/gb/app/id998972770) | gb | Версия ≥18 мес | ALIVE | — | — | 1712 | free | 9 | 0 | 2024-12-20 |
+| [Pokellector: Card Collector](https://apps.apple.com/gb/app/id600580227) | gb | Версия ≥18 мес | ALIVE | — | — | 670 | — | 7 | 0 | 2024-10-17 |
+| [Jamzone - Sing & Play Along](https://apps.apple.com/au/app/id998972770) | au | Версия ≥18 мес | ALIVE | — | — | 1219 | free | 7 | 0 | 2024-12-20 |
+| [Sleep Machine](https://apps.apple.com/us/app/id323061162) | us | Версия ≥18 мес | ALIVE | — | — | 3015 | 3.99 USD | 6 | 0 | 2021-02-14 |
 | [3D視力回復](https://apps.apple.com/jp/app/id453629018) | jp | Версия ≥18 мес | ALIVE | — | — | 2603 | 150.0 JPY | 6 | 0 | 2020-11-11 |
-| [Pokellector: Card Collector](https://apps.apple.com/gb/app/id600580227) | gb | Версия ≥18 мес | ALIVE | — | — | 670 | — | 6 | 0 | 2024-10-17 |
-| [Jamzone - Sing & Play Along](https://apps.apple.com/au/app/id998972770) | au | Версия ≥18 мес | ALIVE | — | — | 1219 | free | 6 | 0 | 2024-12-20 |
-| [Sleep Machine](https://apps.apple.com/us/app/id323061162) | us | Версия ≥18 мес | ALIVE | — | — | 3015 | 3.99 USD | 5 | 0 | 2021-02-14 |
+| [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | gb | Версия ≥18 мес | ALIVE | — | — | 13099 | — | 6 | 0 | 2024-01-18 |
+| [Speedometer∞](https://apps.apple.com/ru/app/id1114655078) | ru | Версия ≥18 мес | ALIVE | — | — | 9195 | — | 6 | 0 | 2019-01-30 |
 | [睡眠アプリ](https://apps.apple.com/jp/app/id473917761) | jp | Версия ≥18 мес | ALIVE | — | — | 9238 | 150.0 JPY | 5 | 0 | 2021-09-13 |
+| [Huji Cam](https://apps.apple.com/gb/app/id781383622) | gb | Версия ≥18 мес | ALIVE | — | — | 1685 | — | 5 | 0 | 2024-12-11 |
 | [10th Step](https://apps.apple.com/us/app/id899778010) | us | Версия ≥18 мес | ALIVE | — | — | 3127 | 2.99 USD | 5 | 0 | 2020-01-06 |
-| [Speedometer∞](https://apps.apple.com/ru/app/id1114655078) | ru | Версия ≥18 мес | ALIVE | — | — | 9195 | — | 5 | 0 | 2019-01-30 |
 | [小說閱讀吧-小說大全閱讀軟件](https://apps.apple.com/tw/app/id1512539334) | tw | Версия ≥18 мес | ALIVE | — | — | 11157 | free | 5 | 0 | 2024-06-26 |
 | [Flashlight •](https://apps.apple.com/us/app/id380248105) | us | Версия ≥18 мес | ALIVE | — | — | 4953 | — | 4 | 0 | 2022-03-31 |
 | [Photo Measures](https://apps.apple.com/us/app/id415038787) | us | Версия ≥18 мес | ALIVE | — | — | 530 | 6.99 USD | 4 | 0 | 2024-04-19 |
-| [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | gb | Версия ≥18 мес | ALIVE | — | — | 13099 | — | 4 | 0 | 2024-01-18 |
-| [Huji Cam](https://apps.apple.com/gb/app/id781383622) | gb | Версия ≥18 мес | ALIVE | — | — | 1685 | — | 4 | 0 | 2024-12-11 |
-| [القاعدة النورانية](https://apps.apple.com/sa/app/id841875549) | sa | Версия ≥18 мес | ALIVE | — | — | 2445 | 24.99 SAR | 4 | 0 | 2017-09-21 |
+| [Thinkrolls 1: Puzzles for Kids](https://apps.apple.com/us/app/id917176209) | us | Версия ≥18 мес | ALIVE | — | — | 16185 | 5.99 USD | 4 | 0 | 2023-11-21 |
 | [Stack the States® 2](https://apps.apple.com/us/app/id1080767538) | us | Версия ≥18 мес | ALIVE | — | — | 1149 | 2.99 USD | 4 | 0 | 2024-09-25 |
+| [PhotoScan - Google 相簿推出的掃描器](https://apps.apple.com/tw/app/id1165525994) | tw | Версия ≥18 мес | ALIVE | — | — | 11610 | free | 4 | 0 | 2022-11-21 |
+| [Ислам. Викторина](https://apps.apple.com/ru/app/id1500640541) | ru | Версия ≥18 мес | ALIVE | — | — | 2828 | — | 4 | 0 | 2020-03-06 |
 | [Real英会話](https://apps.apple.com/jp/app/id373563219) | jp | Версия ≥18 мес | ALIVE | — | — | 12349 | 1300.0 JPY | 3 | 0 | 2022-04-10 |
 | [ezQuran - Easy Read Quran](https://apps.apple.com/gb/app/id451440777) | gb | Версия ≥18 мес | ALIVE | — | — | 1368 | free | 3 | 0 | 2020-06-18 |
 | [Pocket Earth PRO](https://apps.apple.com/de/app/id481679745) | de | Версия ≥18 мес | ALIVE | — | — | 2970 | 7.99 EUR | 3 | 0 | 2024-08-20 |
 | [عدنان معلم القرآن](https://apps.apple.com/ae/app/id565905501) | ae | Версия ≥18 мес | ALIVE | — | — | 1876 | free | 3 | 0 | 2024-08-15 |
 | [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | us | Версия ≥18 мес | ALIVE | — | — | 1426 | 8.99 USD | 3 | 0 | 2022-08-05 |
+| [YoWindow Weather](https://apps.apple.com/ru/app/id606193225) | ru | Версия ≥18 мес | ALIVE | — | — | 1187 | — | 3 | 0 | 2019-01-03 |
 | [YoWindow Weather](https://apps.apple.com/us/app/id606193225) | us | Версия ≥18 мес | ALIVE | — | — | 1045 | 0.99 USD | 3 | 0 | 2019-01-03 |
-| [Buddhify: Guided Meditation](https://apps.apple.com/gb/app/id687421118) | gb | Версия ≥18 мес | ALIVE | — | — | 4072 | 4.99 GBP | 3 | 0 | 2024-06-12 |
+| [Tunable – Tuner & Metronome](https://apps.apple.com/us/app/id608540795) | us | Версия ≥18 мес | ALIVE | — | — | 6871 | 7.99 USD | 3 | 0 | 2021-08-22 |
 | [Buddhify: Guided Meditation](https://apps.apple.com/us/app/id687421118) | us | Версия ≥18 мес | ALIVE | — | — | 6182 | 4.99 USD | 3 | 0 | 2024-06-12 |
 | [AdBlock](https://apps.apple.com/sa/app/id691121579) | sa | Версия ≥18 мес | ALIVE | — | — | 10944 | 9.99 SAR | 3 | 0 | 2021-07-27 |
 | [القاعدة النورانية](https://apps.apple.com/se/app/id841875549) | se | Версия ≥18 мес | ALIVE | — | — | 884 | 79.0 SEK | 3 | 0 | 2017-09-21 |
 | [Piano - Play Unlimited Songs](https://apps.apple.com/ae/app/id890740165) | ae | Версия ≥18 мес | ALIVE | — | — | 8690 | free | 3 | 0 | 2024-07-22 |
+| [Аудиосказки, музыка и книги](https://apps.apple.com/ru/app/id910113912) | ru | Версия ≥18 мес | ALIVE | — | — | 1964 | — | 3 | 0 | 2022-03-27 |
 | [QR Code & Barcode Scanner](https://apps.apple.com/ch/app/id1048473097) | ch | Версия ≥18 мес | ALIVE | — | — | 52638 | free | 3 | 0 | 2023-02-13 |
+| [QR Code & Barcode Scanner ・](https://apps.apple.com/dk/app/id1048473097) | dk | Версия ≥18 мес | ALIVE | — | — | 10644 | free | 3 | 0 | 2023-02-13 |
+| [Melodista Music Offline Player](https://apps.apple.com/ae/app/id1293175325) | ae | Версия ≥18 мес | ALIVE | — | — | 5291 | free | 3 | 0 | 2025-01-03 |
+| [Hisn – حصن](https://apps.apple.com/sa/app/id1434346841) | sa | Версия ≥18 мес | ALIVE | — | — | 8561 | free | 3 | 0 | 2023-03-15 |
 | [Я коплю](https://apps.apple.com/ru/app/id1456550827) | ru | Версия ≥18 мес | ALIVE | — | — | 1781 | — | 3 | 0 | 2025-05-06 |
-| [Ислам. Викторина](https://apps.apple.com/ru/app/id1500640541) | ru | Версия ≥18 мес | ALIVE | — | — | 2828 | — | 3 | 0 | 2020-03-06 |
 | [Cheat Codes #](https://apps.apple.com/sa/app/id1559394917) | sa | Версия ≥18 мес | ALIVE | — | — | 3189 | free | 3 | 0 | 2025-01-13 |
 | [Translate Voice - Language Translator & Dictionary](https://apps.apple.com/us/app/id323470584) | us | Версия ≥18 мес | ALIVE | — | — | 759 | 9.99 USD | 2 | 0 | 2017-04-17 |
 | [Russ Bray Darts Scorer](https://apps.apple.com/gb/app/id377453562) | gb | Версия ≥18 мес | ALIVE | — | — | 1442 | 5.99 GBP | 2 | 0 | 2021-05-04 |
 | [Best Swing - スイングチェック](https://apps.apple.com/jp/app/id396029913) | jp | Версия ≥18 мес | ALIVE | — | — | 786 | 150.0 JPY | 2 | 0 | 2024-12-04 |
 | [SkyView®](https://apps.apple.com/gb/app/id404990064) | gb | Версия ≥18 мес | ALIVE | — | — | 742 | 2.99 GBP | 2 | 0 | 2025-05-02 |
-| [YoWindow Weather](https://apps.apple.com/ru/app/id606193225) | ru | Версия ≥18 мес | ALIVE | — | — | 1187 | — | 2 | 0 | 2019-01-03 |
-| [Tunable – Tuner & Metronome](https://apps.apple.com/us/app/id608540795) | us | Версия ≥18 мес | ALIVE | — | — | 6871 | 7.99 USD | 2 | 0 | 2021-08-22 |
+| [Toca Hair Salon 2](https://apps.apple.com/us/app/id569632660) | us | Версия ≥18 мес | ALIVE | — | — | 952 | 3.99 USD | 2 | 0 | 2023-08-28 |
+| [Road to Hana Maui GyPSy Guide](https://apps.apple.com/us/app/id578451869) | us | Версия ≥18 мес | ALIVE | — | — | 4990 | 14.99 USD | 2 | 0 | 2025-01-17 |
+| [Tunable – Tuner & Metronome](https://apps.apple.com/de/app/id608540795) | de | Версия ≥18 мес | ALIVE | — | — | 586 | 8.99 EUR | 2 | 0 | 2021-08-22 |
 | [Swiss Radios](https://apps.apple.com/ch/app/id629671043) | ch | Версия ≥18 мес | ALIVE | — | — | 10867 | free | 2 | 0 | 2020-05-01 |
 | [7 Minute Workout Challenge](https://apps.apple.com/gb/app/id680170305) | gb | Версия ≥18 мес | ALIVE | — | — | 1590 | 3.99 GBP | 2 | 0 | 2020-12-11 |
 | [SkyView® Satellite Guide](https://apps.apple.com/us/app/id694309958) | us | Версия ≥18 мес | ALIVE | — | — | 597 | 3.99 USD | 2 | 0 | 2020-02-04 |
-| [Аудиосказки, музыка и книги](https://apps.apple.com/ru/app/id910113912) | ru | Версия ≥18 мес | ALIVE | — | — | 1964 | — | 2 | 0 | 2022-03-27 |
+| [SKRWT](https://apps.apple.com/us/app/id834248867) | us | Версия ≥18 мес | ALIVE | — | — | 593 | 1.99 USD | 2 | 0 | 2022-01-03 |
 | [Tao Te Ching Lao Tzu](https://apps.apple.com/us/app/id1026211399) | us | Версия ≥18 мес | ALIVE | — | — | 1911 | 4.99 USD | 2 | 0 | 2024-04-10 |
 | [QR Code & Barcode Scanner ・](https://apps.apple.com/ae/app/id1048473097) | ae | Версия ≥18 мес | ALIVE | — | — | 6789 | free | 2 | 0 | 2023-02-13 |
-| [QR Code & Barcode Scanner ・](https://apps.apple.com/dk/app/id1048473097) | dk | Версия ≥18 мес | ALIVE | — | — | 10644 | free | 2 | 0 | 2023-02-13 |
 | [QR Code & Barcode Scanner ・](https://apps.apple.com/sa/app/id1048473097) | sa | Версия ≥18 мес | ALIVE | — | — | 18224 | free | 2 | 0 | 2023-02-13 |
 | [Fotoscanner von Google Fotos](https://apps.apple.com/ch/app/id1165525994) | ch | Версия ≥18 мес | ALIVE | — | — | 3605 | free | 2 | 0 | 2022-11-21 |
-| [Melodista Music Offline Player](https://apps.apple.com/ae/app/id1293175325) | ae | Версия ≥18 мес | ALIVE | — | — | 5291 | free | 2 | 0 | 2025-01-03 |
 | [Hotspot VPN - Secure Proxy](https://apps.apple.com/ae/app/id1323486315) | ae | Версия ≥18 мес | ALIVE | — | — | 12553 | free | 2 | 0 | 2021-10-28 |
+| [الفصول الأربعة](https://apps.apple.com/sa/app/id1323763065) | sa | Версия ≥18 мес | ALIVE | — | — | 706 | free | 2 | 0 | 2022-02-24 |
 | [Box Breathe](https://apps.apple.com/us/app/id1347597121) | us | Версия ≥18 мес | ALIVE | — | — | 508 | 1.99 USD | 2 | 0 | 2021-01-04 |
-| [Hisn – حصن](https://apps.apple.com/sa/app/id1434346841) | sa | Версия ≥18 мес | ALIVE | — | — | 8561 | free | 2 | 0 | 2023-03-15 |
 | [Solfa : apprendre les notes](https://apps.apple.com/ru/app/id1436741307) | ru | Версия ≥18 мес | ALIVE | — | — | 1854 | — | 2 | 0 | 2024-07-06 |
 | [Ridmik Keyboard](https://apps.apple.com/gb/app/id1475531051) | gb | Версия ≥18 мес | ALIVE | — | — | 609 | free | 2 | 0 | 2024-08-16 |
 | [武財神-求好運免出門](https://apps.apple.com/tw/app/id1477019338) | tw | Версия ≥18 мес | ALIVE | — | — | 1676 | free | 2 | 0 | 2025-02-11 |
+| [写真 コラージュ - フォトフレーム 枠加工](https://apps.apple.com/jp/app/id1561459727) | jp | Версия ≥18 мес | ALIVE | — | — | 14584 | free | 2 | 0 | 2025-04-07 |
 | [自動スイング録画解析比較-GolfVisionゴルフビジョン](https://apps.apple.com/jp/app/id1582271201) | jp | Версия ≥18 мес | ALIVE | — | — | 2426 | free | 2 | 0 | 2023-04-25 |
+| [Onmi: Networking & API Request](https://apps.apple.com/sa/app/id6446827619) | sa | Версия ≥18 мес | ALIVE | — | — | 525 | free | 2 | 0 | 2023-04-04 |
 | [Sibley Birds 2nd Edition](https://apps.apple.com/us/app/id1236011411) | us | Версия ≥18 мес | ALIVE | — | — | 2903 | 19.99 USD | 1 | 0 | 2025-03-26 |
 | [Melodista Music Offline Player](https://apps.apple.com/de/app/id1293175325) | de | Версия ≥18 мес | ALIVE | — | — | 2946 | free | 1 | 0 | 2025-01-03 |
 | [天気予報 - 気象庁 -](https://apps.apple.com/jp/app/id1546171987) | jp | Версия ≥18 мес | ALIVE | — | — | 2413 | free | 1 | 0 | 2021-08-15 |
-| [写真 コラージュ - フォトフレーム 枠加工](https://apps.apple.com/jp/app/id1561459727) | jp | Версия ≥18 мес | ALIVE | — | — | 14584 | free | 1 | 0 | 2025-04-07 |
 | [معلم القرآن الكريم](https://apps.apple.com/sa/app/id1577798677) | sa | Версия ≥18 мес | ALIVE | — | — | 1383 | free | 1 | 0 | 2023-11-25 |
 | [Word Office:Edit Word Document](https://apps.apple.com/au/app/id6444708069) | au | Версия ≥18 мес | ALIVE | — | — | 787 | free | 1 | 0 | 2024-08-15 |
 | [Word Office:Edit Word Document](https://apps.apple.com/gb/app/id6444708069) | gb | Версия ≥18 мес | ALIVE | — | — | 2488 | free | 1 | 0 | 2024-08-15 |
@@ -503,11 +535,8 @@
 | [HazMat Reference](https://apps.apple.com/us/app/id385775821) | us | Версия ≥18 мес | ALIVE | — | — | 1775 | 4.99 USD | 0 | 0 | 2024-05-08 |
 | [mm-jp Dict](https://apps.apple.com/jp/app/id619608765) | jp | Версия ≥18 мес | ALIVE | — | — | 967 | 300.0 JPY | 0 | 0 | 2017-11-05 |
 | [Livetiming Medley Reader 2012](https://apps.apple.com/no/app/id723681023) | no | Версия ≥18 мес | ALIVE | — | — | 1321 | free | 0 | 0 | 2024-06-14 |
-| [القاعدة النورانية](https://apps.apple.com/de/app/id841875549) | de | Версия ≥18 мес | ALIVE | — | — | 719 | 6.99 EUR | 0 | 0 | 2017-09-21 |
-| [Opus Bilprovning](https://apps.apple.com/se/app/id889050808) | se | Версия ≥18 мес | ALIVE | — | — | 4055 | free | 0 | 0 | 2024-05-07 |
 | [ASA's Sailing Challenge](https://apps.apple.com/us/app/id1109489005) | us | Версия ≥18 мес | ALIVE | — | — | 2957 | 3.99 USD | 0 | 0 | 2023-01-09 |
 | [Solar Walk 2 Ads+: 宇宙観察 3D](https://apps.apple.com/jp/app/id1180311047) | jp | Версия ≥18 мес | ALIVE | — | — | 1652 | free | 0 | 0 | 2023-12-28 |
-| [Melodista Music Offline Player](https://apps.apple.com/sa/app/id1293175325) | sa | Версия ≥18 мес | ALIVE | — | — | 2843 | free | 0 | 0 | 2025-01-03 |
 | [Jotun Colourpin](https://apps.apple.com/no/app/id1475649636) | no | Версия ≥18 мес | ALIVE | — | — | 589 | free | 0 | 0 | 2024-05-14 |
 | [Wizzy-chat](https://apps.apple.com/sa/app/id1600397472) | sa | Версия ≥18 мес | ALIVE | — | — | 896 | free | 0 | 0 | 2023-02-01 |
 | [BalanceMe-健康AIと自己管理](https://apps.apple.com/jp/app/id6469513178) | jp | Версия ≥18 мес | ALIVE | — | — | 535 | free | 0 | 0 | 2025-01-03 |
@@ -520,20 +549,22 @@
 | [CANImmunize](https://apps.apple.com/ca/app/id574951915) | ca | Версия ≥18 мес | WEAK | 3 | pet vaccination record | 3484 | free | 1 | 1 | 2025-04-10 |
 | [Scores](https://apps.apple.com/fr/app/id1198765923) | fr | Версия ≥18 мес | WEAK | 3 | feuille de score | 2025 | free | 1 | 1 | 2024-10-14 |
 | [Biblio Library](https://apps.apple.com/se/app/id1286685079) | se | Версия ≥18 мес | WEAK | 3 | ljudboksspelare | 3704 | free | 1 | 1 | 2024-06-03 |
+| [小主輕斷食-懶人減肥食譜，168斷食，不禁食不節食，熱量計算](https://apps.apple.com/tw/app/id6469616735) | tw | Версия ≥18 мес | WEAK | 3 | 運費計算 | 629 | free | 1 | 1 | 2024-08-16 |
 | [Fuelly: MPG & Service Tracker](https://apps.apple.com/gb/app/id295905460) | gb | Версия ≥18 мес | WEAK | 3 | fuel log | 1080 | free | 1 | 0 | 2024-06-03 |
 | [Calculatrice à heures](https://apps.apple.com/fr/app/id956859838) | fr | Версия ≥18 мес | WEAK | 3 | time lapse calculator | 1498 | free | 1 | 0 | 2025-01-16 |
 | [Convert Any Unit Lite](https://apps.apple.com/gb/app/id478222820) | gb | Версия ≥18 мес | WEAK | 4 | unit converter | 8630 | free | 1 | 1 | 2025-05-12 |
 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/ca/app/id1533047121) | ca | Версия ≥18 мес | WEAK | 4 | widget pack | 1115 | free | 1 | 1 | 2022-09-09 |
 | [Baby Entwicklung - still+essen](https://apps.apple.com/de/app/id985523028) | de | Версия ≥18 мес | WEAK | 4 | schlafprotokoll baby | 3915 | free | 1 | 0 | 2023-01-26 |
 | [VIN Check & Decoder](https://apps.apple.com/us/app/id1524926492) | us | Версия ≥18 мес | WEAK | 4 | vin decoder | 1552 | free | 1 | 0 | 2020-09-18 |
+| [Convert Any Unit Lite](https://apps.apple.com/ca/app/id478222820) | ca | Версия ≥18 мес | WEAK | 5 | unit converter | 12812 | free | 1 | 1 | 2025-05-12 |
 | [メトロノーム - ビート, テンポ と リズム](https://apps.apple.com/jp/app/id559798172) | jp | Версия ≥18 мес | WEAK | 5 | メトロノーム | 12985 | free | 1 | 1 | 2024-06-26 |
 | [Water Time - Wasser Trinken](https://apps.apple.com/de/app/id1208916325) | de | Версия ≥18 мес | WEAK | 5 | water reminder | 1654 | free | 1 | 0 | 2024-09-04 |
+| [Video Teleprompter](https://apps.apple.com/ca/app/id1444106389) | ca | Версия ≥18 мес | WEAK | 5 | teleprompter | 965 | free | 1 | 0 | 2022-07-16 |
 | [FlightStats](https://apps.apple.com/gb/app/id572700574) | gb | Версия ≥18 мес | WEAK | 6 | flight distance calculator | 13250 | free | 1 | 1 | 2024-10-30 |
 | [Macro Calculator By Fittur](https://apps.apple.com/us/app/id1528635016) | us | Версия ≥18 мес | WEAK | 6 | macro calculator | 4119 | free | 1 | 1 | 2021-03-07 |
 | [Tuner Lite by Piascore](https://apps.apple.com/ca/app/id635828559) | ca | Версия ≥18 мес | WEAK | 7 | piano tuner | 1206 | free | 1 | 1 | 2025-04-24 |
 | [Телесуфлер: суфлер для видео](https://apps.apple.com/ru/app/id1581622140) | ru | Версия ≥18 мес | WEAK | 7 | телесуфлёр | 558 | free | 1 | 1 | 2023-03-08 |
 | [تحويل التاريخ](https://apps.apple.com/sa/app/id683824799) | sa | Версия ≥18 мес | WEAK | 7 | تحويل الوحدات | 1406 | free | 1 | 0 | 2024-09-07 |
-| [Cahoのふわふわでんたく](https://apps.apple.com/jp/app/id1454489628) | jp | Версия ≥18 мес | WEAK | 7 | 壁紙 計算 | 741 | free | 1 | 0 | 2022-03-27 |
 | [Widgets Kit Thème icône Pack](https://apps.apple.com/fr/app/id1571099447) | fr | Версия ≥18 мес | WEAK | 7 | widgets écran d'accueil | 2379 | free | 1 | 0 | 2024-09-01 |
 | [Date and Time Calculator](https://apps.apple.com/gb/app/id552798167) | gb | Версия ≥18 мес | WEAK | 8 | time lapse calculator | 831 | free | 1 | 1 | 2025-04-14 |
 | [Slanke App](https://apps.apple.com/dk/app/id628571914) | dk | Версия ≥18 мес | WEAK | 8 | kalorieberegner | 2109 | free | 1 | 1 | 2022-10-13 |
@@ -561,7 +592,7 @@
 | [MagicWidgets - Photo Widgets](https://apps.apple.com/us/app/id1533414094) | us | Версия ≥18 мес | WEAK | 14 | home screen widgets | 7350 | free | 1 | 1 | 2024-09-25 |
 | [Guitar Tuner Pro - GuitarTunio](https://apps.apple.com/ca/app/id1448661287) | ca | Версия ≥18 мес | WEAK | 14 | guitar tuner | 543 | free | 1 | 0 | 2023-01-16 |
 | [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/sa/app/id1486560555) | sa | Версия ≥18 мес | WEAK | 14 | مواقيت الصلاة | 15527 | free | 1 | 0 | 2024-04-24 |
-| [KyBook - EPub,FB2,PDF,DjVu Читалка](https://apps.apple.com/ru/app/id673027171) | ru | Версия ≥18 мес | WEAK | 15 | читалка книг | 6737 | free | 1 | 0 | 2016-06-03 |
+| [Skate Art 3D](https://apps.apple.com/au/app/id1524596005) | au | Версия ≥18 мес | WEAK | 14 | load board | 2233 | free | 1 | 0 | 2024-02-23 |
 | [深度睡眠音樂盒-放鬆減壓治療失眠催眠曲](https://apps.apple.com/tw/app/id975830425) | tw | Версия ≥18 мес | WEAK | 15 | 寶寶睡眠 | 928 | free | 1 | 0 | 2016-10-30 |
 | [Photo Enhancer AI](https://apps.apple.com/us/app/id1560533861) | us | Версия ≥18 мес | WEAK | 15 | ai photo enhancer | 1065 | free | 1 | 0 | 2022-02-28 |
 | [Дневник Малыша: сон ребенка](https://apps.apple.com/ru/app/id985523028) | ru | Версия ≥18 мес | WEAK | 16 | счетчик схваток | 8135 | free | 1 | 0 | 2023-01-26 |
@@ -577,7 +608,6 @@
 | [Väder Sverige XL  PRO](https://apps.apple.com/se/app/id990822895) | se | Версия ≥18 мес | WEAK | 20 | sjöväder | 1498 | free | 1 | 1 | 2024-11-05 |
 | [Watch Faces: custom maker live](https://apps.apple.com/us/app/id1482971107) | us | Версия ≥18 мес | WEAK | 20 | watch face app | 1918 | free | 1 | 0 | 2023-11-20 |
 | [Craft Cross Stitch: Pixel Art](https://apps.apple.com/us/app/id6443615393) | us | Версия ≥18 мес | WEAK | 20 | cross stitch | 1116 | free | 1 | 0 | 2024-10-28 |
-| [Offline Music Player-MP3&Video](https://apps.apple.com/ae/app/id1563131490) | ae | Версия ≥18 мес | WEAK | 21 | audiobook player | 1324 | free | 1 | 1 | 2022-12-07 |
 | [Учет калорий и воды](https://apps.apple.com/ru/app/id1383374984) | ru | Версия ≥18 мес | WEAK | 22 | калькулятор кредита | 12909 | free | 1 | 0 | 2018-09-25 |
 | [Wasser Trinken & Tracker PRO](https://apps.apple.com/de/app/id1457944378) | de | Версия ≥18 мес | WEAK | 22 | wasser trinken erinnerung | 1126 | free | 1 | 0 | 2025-02-17 |
 | [Moon & Sun: LunaSol](https://apps.apple.com/us/app/id1518139990) | us | Версия ≥18 мес | WEAK | 22 | moon phase hunting | 922 | free | 1 | 0 | 2024-09-04 |
@@ -588,6 +618,7 @@
 | [QRコードスキャナー-コードをスキャンして信頼性を確認します](https://apps.apple.com/jp/app/id1631503426) | jp | Версия ≥18 мес | WEAK | 23 | コード 検索 | 3291 | free | 1 | 0 | 2024-01-19 |
 | [Toolbox - Smart Meter Tools](https://apps.apple.com/ca/app/id933528345) | ca | Версия ≥18 мес | WEAK | 24 | level tool | 1642 | free | 1 | 1 | 2019-12-06 |
 | [Антирадар Стрелка](https://apps.apple.com/ru/app/id606147643) | ru | Версия ≥18 мес | WEAK | 24 | детектор проводки | 12831 | 499.0 RUB | 1 | 0 | 2022-10-03 |
+| [Widget / Countdown to birthday](https://apps.apple.com/us/app/id1545098525) | us | Версия ≥18 мес | WEAK | 24 | widget pack | 4354 | free | 1 | 0 | 2023-10-12 |
 | [Watch Faces Gallery Wallpapers](https://apps.apple.com/us/app/id1498717216) | us | Версия ≥18 мес | WEAK | 25 | watch face app | 5660 | free | 1 | 1 | 2024-09-20 |
 | [WomoSet](https://apps.apple.com/de/app/id309010388) | de | Версия ≥18 мес | WEAK | 25 | wasserwaage | 2042 | 5.99 EUR | 1 | 0 | 2024-06-06 |
 | [Lapse It Pro](https://apps.apple.com/us/app/id536495161) | us | Версия ≥18 мес | WEAK | 25 | time lapse calculator | 1192 | 2.99 USD | 1 | 0 | 2019-10-23 |
@@ -616,12 +647,14 @@
 | [Alarm Clock Sleep Sounds Plus](https://apps.apple.com/fr/app/id579625446) | fr | Версия ≥18 мес | WEAK | 35 | sommeil bébé | 625 | free | 1 | 1 | 2018-12-12 |
 | [Receipt Lens - Expense Tracker](https://apps.apple.com/us/app/id1424280764) | us | Версия ≥18 мес | WEAK | 35 | expense tracker | 4269 | free | 1 | 1 | 2024-05-15 |
 | [Машина без труда (Idle Car)](https://apps.apple.com/ru/app/id1467495112) | ru | Версия ≥18 мес | WEAK | 35 | гитарный тюнер | 1408 | free | 1 | 1 | 2023-01-18 |
+| [Kørebog](https://apps.apple.com/dk/app/id519466597) | dk | Версия ≥18 мес | WEAK | 36 | book tracker | 710 | free | 1 | 1 | 2025-03-05 |
 | [楽器チューナー by Piascore](https://apps.apple.com/jp/app/id635644097) | jp | Версия ≥18 мес | WEAK | 36 | チューナー ギター | 700 | 800.0 JPY | 1 | 0 | 2024-08-12 |
 | [Convert Any Unit](https://apps.apple.com/ca/app/id465180749) | ca | Версия ≥18 мес | WEAK | 37 | unit converter | 2034 | 12.99 CAD | 1 | 0 | 2025-05-12 |
 | [OBD2 - اكواد اعطال السيارات](https://apps.apple.com/us/app/id1303062771) | us | Версия ≥18 мес | WEAK | 37 | obd2 scanner | 2674 | free | 1 | 0 | 2017-12-15 |
 | [California DMV Test](https://apps.apple.com/us/app/id430216643) | us | Версия ≥18 мес | WEAK | 38 | dmv practice test | 2093 | free | 1 | 1 | 2019-03-05 |
 | [Скорочтение IQ: ePub,fb2,DjVu](https://apps.apple.com/ru/app/id829759808) | ru | Версия ≥18 мес | WEAK | 38 | читалка книг | 4229 | free | 1 | 1 | 2024-09-11 |
 | [Hello Neighbor](https://apps.apple.com/no/app/id1386358600) | no | Версия ≥18 мес | WEAK | 38 | baby søvn | 2758 | free | 1 | 1 | 2025-04-16 |
+| [Aesthetic wallpaper Fanart](https://apps.apple.com/us/app/id1583956600) | us | Версия ≥18 мес | WEAK | 38 | wallpaper calculator | 4361 | free | 1 | 0 | 2024-07-23 |
 | [Small World - The Board Game](https://apps.apple.com/us/app/id364165557) | us | Версия ≥18 мес | WEAK | 39 | board game companion | 737 | 4.99 USD | 1 | 1 | 2021-03-03 |
 | [Metal Detector and Spy Camera](https://apps.apple.com/ca/app/id409682366) | ca | Версия ≥18 мес | WEAK | 39 | stud finder | 1358 | free | 1 | 1 | 2024-07-31 |
 | [North Carolina DMV Permit test](https://apps.apple.com/us/app/id1006336537) | us | Версия ≥18 мес | WEAK | 39 | dmv practice test | 605 | free | 1 | 1 | 2017-10-20 |
@@ -632,30 +665,36 @@
 | [Говорящий Буба 2](https://apps.apple.com/ru/app/id1017699263) | ru | Версия ≥18 мес | WEAK | 41 | определитель птиц | 529 | free | 1 | 0 | 2016-11-23 |
 | [健身高強度間歇訓練定時器 - Tabata](https://apps.apple.com/tw/app/id1035130456) | tw | Версия ≥18 мес | WEAK | 42 | 計分器 | 1533 | free | 1 | 0 | 2023-01-05 |
 | [みんなの顔文字辞典](https://apps.apple.com/jp/app/id465250131) | jp | Версия ≥18 мес | WEAK | 43 | 文字盤 アプリ | 8334 | free | 1 | 1 | 2024-09-29 |
-| [AI Chat Chatbot](https://apps.apple.com/us/app/id1665560060) | us | Версия ≥18 мес | WEAK | 43 | ai scanner | 1179 | free | 1 | 0 | 2024-07-12 |
 | [German Translator Offline](https://apps.apple.com/us/app/id978043126) | us | Версия ≥18 мес | WEAK | 44 | offline phrasebook | 6152 | free | 1 | 0 | 2024-03-04 |
 | [Fruit Nibblers](https://apps.apple.com/tw/app/id962680846) | tw | Версия ≥18 мес | WEAK | 45 | fishing times | 601 | free | 1 | 1 | 2018-05-23 |
 | [Smash Island-Golden Islander！](https://apps.apple.com/gb/app/id1406739414) | gb | Версия ≥18 мес | WEAK | 45 | dynamic island app | 1492 | free | 1 | 1 | 2019-07-09 |
 | [咻拍-情侶、朋友、閨蜜必備的社交Widget APP](https://apps.apple.com/tw/app/id1606833799) | tw | Версия ≥18 мес | WEAK | 45 | 桌面小工具 | 1198 | free | 1 | 1 | 2022-08-31 |
 | [Tide Times Australia Plus](https://apps.apple.com/au/app/id794278731) | au | Версия ≥18 мес | WEAK | 45 | tide chart | 656 | 2.99 AUD | 1 | 0 | 2025-02-27 |
+| [Живые обои и Темы на айфон](https://apps.apple.com/ru/app/id1098805023) | ru | Версия ≥18 мес | WEAK | 46 | home screen widgets | 36989 | free | 1 | 1 | 2024-07-31 |
 | [JotNot Scanner App Pro](https://apps.apple.com/ca/app/id307868751) | ca | Версия ≥18 мес | WEAK | 46 | obd2 scanner | 1450 | 9.99 CAD | 1 | 0 | 2020-12-18 |
 | [Sleepzy - Sleep Cycle Tracker](https://apps.apple.com/au/app/id1064910141) | au | Версия ≥18 мес | WEAK | 47 | baby sleep tracker | 1723 | free | 1 | 1 | 2025-04-15 |
 | [Icon Skins  & Frames](https://apps.apple.com/us/app/id400677318) | us | Версия ≥18 мес | WEAK | 48 | lock screen widget | 1657 | free | 1 | 1 | 2023-12-04 |
 | [卡片日記 - 日記, 雜誌, 情緒日記, 照片日記](https://apps.apple.com/tw/app/id1295506659) | tw | Версия ≥18 мес | WEAK | 49 | 旅行記帳 | 5531 | free | 1 | 0 | 2023-06-30 |
 | [P.M. Planetarium - von P.M.](https://apps.apple.com/de/app/id284980812) | de | Версия ≥18 мес | WEAK | — | — | 2866 | 3.99 EUR | 1 | 1 | 2020-08-09 |
+| [PicMix](https://apps.apple.com/us/app/id324018161) | us | Версия ≥18 мес | WEAK | — | — | 1136 | 1.99 USD | 1 | 1 | 2020-08-09 |
 | [London Tube Map and Guide](https://apps.apple.com/gb/app/id336168290) | gb | Версия ≥18 мес | WEAK | — | — | 1146 | 1.99 GBP | 1 | 1 | 2022-10-16 |
+| [Wörterbuch Linguee](https://apps.apple.com/ch/app/id338225335) | ch | Версия ≥18 мес | WEAK | — | — | 2030 | free | 1 | 1 | 2022-09-14 |
 | [iSafe Pro](https://apps.apple.com/jp/app/id402012828) | jp | Версия ≥18 мес | WEAK | — | — | 12879 | 150.0 JPY | 1 | 1 | 2023-05-16 |
+| [SkyView®](https://apps.apple.com/au/app/id404990064) | au | Версия ≥18 мес | WEAK | — | — | 600 | 4.99 AUD | 1 | 1 | 2025-05-02 |
 | [حفظ القرآن - إصدارة كاملة](https://apps.apple.com/sa/app/id447112173) | sa | Версия ≥18 мес | WEAK | — | — | 908 | 24.99 SAR | 1 | 1 | 2017-09-29 |
 | [Checkbook Pro](https://apps.apple.com/us/app/id469331073) | us | Версия ≥18 мес | WEAK | — | — | 989 | 9.99 USD | 1 | 1 | 2018-08-10 |
 | [Файловый менеджер (Files)](https://apps.apple.com/ru/app/id479295290) | ru | Версия ≥18 мес | WEAK | — | — | 1936 | — | 1 | 1 | 2021-04-20 |
 | [Perfect Video  Pro](https://apps.apple.com/jp/app/id598542901) | jp | Версия ≥18 мес | WEAK | — | — | 2236 | 800.0 JPY | 1 | 1 | 2023-03-18 |
 | [YoWindow Wetter](https://apps.apple.com/de/app/id606193225) | de | Версия ≥18 мес | WEAK | — | — | 685 | 0.99 EUR | 1 | 1 | 2019-01-03 |
+| [gTasks Pro for Google Tasks](https://apps.apple.com/jp/app/id672241079) | jp | Версия ≥18 мес | WEAK | — | — | 511 | 3000.0 JPY | 1 | 1 | 2023-10-25 |
 | [FitPort](https://apps.apple.com/jp/app/id914413310) | jp | Версия ≥18 мес | WEAK | — | — | 1329 | 600.0 JPY | 1 | 1 | 2024-09-24 |
 | [二十四節気や七十二候が表示出来る「こよみ」](https://apps.apple.com/jp/app/id926113841) | jp | Версия ≥18 мес | WEAK | — | — | 648 | 300.0 JPY | 1 | 1 | 2024-03-15 |
 | [kirakira+](https://apps.apple.com/jp/app/id955687901) | jp | Версия ≥18 мес | WEAK | — | — | 2303 | 150.0 JPY | 1 | 1 | 2019-01-05 |
+| [Analog Paris](https://apps.apple.com/jp/app/id1035219562) | jp | Версия ≥18 мес | WEAK | — | — | 1408 | 150.0 JPY | 1 | 1 | 2019-10-12 |
 | [Analog Paris](https://apps.apple.com/tw/app/id1035219562) | tw | Версия ≥18 мес | WEAK | — | — | 1538 | 30.0 TWD | 1 | 1 | 2019-10-12 |
 | [掌閱iReader](https://apps.apple.com/tw/app/id1050576032) | tw | Версия ≥18 мес | WEAK | — | — | 5686 | free | 1 | 1 | 2024-09-12 |
 | [Myパチ収支表 パチンコ・パチスロ収支管理](https://apps.apple.com/jp/app/id1061147337) | jp | Версия ≥18 мес | WEAK | — | — | 1199 | free | 1 | 1 | 2024-12-15 |
+| [Keto Diät Rezepte](https://apps.apple.com/de/app/id1157455937) | de | Версия ≥18 мес | WEAK | — | — | 704 | free | 1 | 1 | 2024-07-01 |
 | [Bullet Journal Companion](https://apps.apple.com/us/app/id1201419241) | us | Версия ≥18 мес | WEAK | — | — | 2007 | 4.99 USD | 1 | 1 | 2023-11-01 |
 | [РАДИО #1 - МУЗЫКА ОНЛАЙН](https://apps.apple.com/ru/app/id1260495531) | ru | Версия ≥18 мес | WEAK | — | — | 18970 | — | 1 | 1 | 2020-06-05 |
 | [語音翻譯神器 Instant Voice Translate](https://apps.apple.com/ru/app/id1298384039) | ru | Версия ≥18 мес | WEAK | — | — | 3523 | — | 1 | 1 | 2025-02-07 |
@@ -664,9 +703,10 @@
 | [ФССП России: проверка и оплата](https://apps.apple.com/ru/app/id1467899675) | ru | Версия ≥18 мес | WEAK | — | — | 1049 | — | 1 | 1 | 2023-11-09 |
 | [SofaTalk 沙發聊聊天](https://apps.apple.com/tw/app/id1480630375) | tw | Версия ≥18 мес | WEAK | — | — | 1027 | free | 1 | 1 | 2024-09-06 |
 | [toki - 你畫我猜桌遊一起玩吧](https://apps.apple.com/tw/app/id1484932363) | tw | Версия ≥18 мес | WEAK | — | — | 4641 | free | 1 | 1 | 2022-12-27 |
-| [Funny emoji - custom my emojis](https://apps.apple.com/ru/app/id1546703508) | ru | Версия ≥18 мес | WEAK | — | — | 1828 | — | 1 | 1 | 2025-04-10 |
+| [Fitness Stats](https://apps.apple.com/us/app/id1511179040) | us | Версия ≥18 мес | WEAK | — | — | 2510 | 7.99 USD | 1 | 1 | 2023-10-12 |
+| [Bears Countdown](https://apps.apple.com/gb/app/id1536711520) | gb | Версия ≥18 мес | WEAK | — | — | 1224 | 3.99 GBP | 1 | 1 | 2024-02-18 |
 | [Prep Goethe - Deutsch Lernen](https://apps.apple.com/de/app/id1572225086) | de | Версия ≥18 мес | WEAK | — | — | 548 | free | 1 | 1 | 2021-12-12 |
-| [LiveIn - Share Your Moment](https://apps.apple.com/us/app/id1606780589) | us | Версия ≥18 мес | WEAK | — | — | 30480 | — | 1 | 1 | 2023-12-29 |
+| [Ringtone Maker & MP3 Converter](https://apps.apple.com/se/app/id1636322297) | se | Версия ≥18 мес | WEAK | — | — | 636 | free | 1 | 1 | 2023-01-28 |
 | [Игры для детей и малышей 2-5](https://apps.apple.com/ru/app/id6446317584) | ru | Версия ≥18 мес | WEAK | — | — | 2277 | — | 1 | 1 | 2023-12-07 |
 | [Umax - Become Hot](https://apps.apple.com/no/app/id6471026798) | no | Версия ≥18 мес | WEAK | — | — | 1204 | free | 1 | 1 | 2024-06-28 |
 | [P.M. Planetarium - von P.M.](https://apps.apple.com/ch/app/id284980812) | ch | Версия ≥18 мес | WEAK | — | — | 730 | 3.0 CHF | 1 | 0 | 2020-08-09 |
@@ -675,17 +715,21 @@
 | [Relax Melodies P: Sleep Sounds](https://apps.apple.com/jp/app/id331529422) | jp | Версия ≥18 мес | WEAK | — | — | 701 | 15000.0 JPY | 1 | 0 | 2018-04-26 |
 | [تطبيق القرآن الكريم](https://apps.apple.com/ae/app/id385990290) | ae | Версия ≥18 мес | WEAK | — | — | 1485 | free | 1 | 0 | 2025-01-25 |
 | [Altimeter+ (Höhenmesser)](https://apps.apple.com/ch/app/id417204570) | ch | Версия ≥18 мес | WEAK | — | — | 609 | 2.0 CHF | 1 | 0 | 2024-05-14 |
+| [Convert Any Unit](https://apps.apple.com/au/app/id465180749) | au | Версия ≥18 мес | WEAK | — | — | 1053 | 14.99 AUD | 1 | 0 | 2025-05-12 |
+| [Convert Any Unit](https://apps.apple.com/gb/app/id465180749) | gb | Версия ≥18 мес | WEAK | — | — | 792 | 9.99 GBP | 1 | 0 | 2025-05-12 |
+| [Workout Calendar - Motivation](https://apps.apple.com/us/app/id473539105) | us | Версия ≥18 мес | WEAK | — | — | 1189 | 0.99 USD | 1 | 0 | 2023-11-21 |
 | [DBT Diary Card & Skills Coach](https://apps.apple.com/us/app/id479013889) | us | Версия ≥18 мес | WEAK | — | — | 1185 | 4.99 USD | 1 | 0 | 2019-10-28 |
+| [Pocket Earth PRO](https://apps.apple.com/us/app/id481679745) | us | Версия ≥18 мес | WEAK | — | — | 1827 | 6.99 USD | 1 | 0 | 2024-08-20 |
 | [Sol: Sun Clock](https://apps.apple.com/us/app/id491537291) | us | Версия ≥18 мес | WEAK | — | — | 900 | 4.99 USD | 1 | 0 | 2025-02-05 |
-| [СтарЛайн](https://apps.apple.com/ru/app/id492074737) | ru | Версия ≥18 мес | WEAK | — | — | 29621 | — | 1 | 0 | 2024-02-26 |
 | [Piano](https://apps.apple.com/ae/app/id531263194) | ae | Версия ≥18 мес | WEAK | — | — | 1029 | free | 1 | 0 | 2023-08-03 |
 | [Direct Remote for DIRECTV](https://apps.apple.com/us/app/id550039208) | us | Версия ≥18 мес | WEAK | — | — | 1149 | 0.99 USD | 1 | 0 | 2020-05-15 |
-| [Toca Hair Salon 2](https://apps.apple.com/us/app/id569632660) | us | Версия ≥18 мес | WEAK | — | — | 952 | 3.99 USD | 1 | 0 | 2023-08-28 |
+| [CloudBeats: Cloud Music Player](https://apps.apple.com/us/app/id573192227) | us | Версия ≥18 мес | WEAK | — | — | 3435 | 9.99 USD | 1 | 0 | 2025-04-03 |
 | [Audiobooks HQ +](https://apps.apple.com/us/app/id573235547) | us | Версия ≥18 мес | WEAK | — | — | 2381 | 1.99 USD | 1 | 0 | 2021-04-25 |
-| [Road to Hana Maui GyPSy Guide](https://apps.apple.com/us/app/id578451869) | us | Версия ≥18 мес | WEAK | — | — | 4990 | 14.99 USD | 1 | 0 | 2025-01-17 |
+| [CARROT To-Do](https://apps.apple.com/us/app/id591840203) | us | Версия ≥18 мес | WEAK | — | — | 1055 | 2.99 USD | 1 | 0 | 2018-05-14 |
 | [Полиглот 16 Английский язык](https://apps.apple.com/ru/app/id631311961) | ru | Версия ≥18 мес | WEAK | — | — | 3535 | — | 1 | 0 | 2017-12-18 |
 | [Турецкий язык с Nemo](https://apps.apple.com/ru/app/id635604246) | ru | Версия ≥18 мес | WEAK | — | — | 9380 | — | 1 | 0 | 2024-11-21 |
 | [7-Minuten-Trainingseinheit](https://apps.apple.com/ch/app/id680170305) | ch | Версия ≥18 мес | WEAK | — | — | 1210 | 3.0 CHF | 1 | 0 | 2020-12-11 |
+| [AdBlock](https://apps.apple.com/au/app/id691121579) | au | Версия ≥18 мес | WEAK | — | — | 1564 | 2.99 AUD | 1 | 0 | 2021-07-27 |
 | [AdBlock](https://apps.apple.com/tw/app/id691121579) | tw | Версия ≥18 мес | WEAK | — | — | 2413 | 60.0 TWD | 1 | 0 | 2021-07-27 |
 | [Ayah - Quran App](https://apps.apple.com/ru/app/id706037876) | ru | Версия ≥18 мес | WEAK | — | — | 2779 | — | 1 | 0 | 2025-03-20 |
 | [Awesome Weather YoWindow](https://apps.apple.com/ru/app/id799653744) | ru | Версия ≥18 мес | WEAK | — | — | 3189 | — | 1 | 0 | 2019-01-03 |
@@ -697,96 +741,32 @@
 | [Höhenmesser & Präzision](https://apps.apple.com/ch/app/id956232336) | ch | Версия ≥18 мес | WEAK | — | — | 3535 | 1.0 CHF | 1 | 0 | 2022-05-19 |
 | [Höhenmesser & Präzision](https://apps.apple.com/de/app/id956232336) | de | Версия ≥18 мес | WEAK | — | — | 4281 | 0.99 EUR | 1 | 0 | 2022-05-19 |
 | [AmpMe – Speaker & Music Sync](https://apps.apple.com/gb/app/id986905979) | gb | Версия ≥18 мес | WEAK | — | — | 5984 | — | 1 | 0 | 2023-05-17 |
-| [Погода: Россия XL  PRO](https://apps.apple.com/ru/app/id990822895) | ru | Версия ≥18 мес | WEAK | — | — | 2052 | free | 1 | 0 | 2024-11-05 |
+| [Solar Walk 2 – Spacecraft 3D](https://apps.apple.com/au/app/id1031155880) | au | Версия ≥18 мес | WEAK | — | — | 557 | 4.99 AUD | 1 | 0 | 2023-12-28 |
+| [Solar Walk 2 - View Planets 3D](https://apps.apple.com/us/app/id1031155880) | us | Версия ≥18 мес | WEAK | — | — | 7316 | 2.99 USD | 1 | 0 | 2023-12-28 |
+| [CNC Machinist Calculator Pro](https://apps.apple.com/us/app/id1037668281) | us | Версия ≥18 мес | WEAK | — | — | 682 | 14.99 USD | 1 | 0 | 2024-10-05 |
 | [FERS+CSRS Retirement Estimator](https://apps.apple.com/us/app/id1062625944) | us | Версия ≥18 мес | WEAK | — | — | 1419 | 9.99 USD | 1 | 0 | 2021-05-01 |
 | [Partly Sunny](https://apps.apple.com/us/app/id1104486867) | us | Версия ≥18 мес | WEAK | — | — | 778 | 2.99 USD | 1 | 0 | 2024-07-05 |
 | [Das Kassenbuch](https://apps.apple.com/de/app/id1125952051) | de | Версия ≥18 мес | WEAK | — | — | 928 | 1.99 EUR | 1 | 0 | 2023-01-29 |
 | [PhotoScan by Google Photos](https://apps.apple.com/dk/app/id1165525994) | dk | Версия ≥18 мес | WEAK | — | — | 2823 | free | 1 | 0 | 2022-11-21 |
+| [Fotoskanner från Google Foto](https://apps.apple.com/se/app/id1165525994) | se | Версия ≥18 мес | WEAK | — | — | 2794 | free | 1 | 0 | 2022-11-21 |
 | [Учи ПДД: Курс Автошколы по ПДД](https://apps.apple.com/ru/app/id1209789190) | ru | Версия ≥18 мес | WEAK | — | — | 2248 | free | 1 | 0 | 2023-06-29 |
+| [ALL IN ONE Basic 英語全分野を制覇!](https://apps.apple.com/jp/app/id1224625873) | jp | Версия ≥18 мес | WEAK | — | — | 1660 | 480.0 JPY | 1 | 0 | 2024-12-14 |
 | [Great Lakes Boating Weather](https://apps.apple.com/us/app/id1229966319) | us | Версия ≥18 мес | WEAK | — | — | 1425 | 2.99 USD | 1 | 0 | 2023-06-14 |
 | [Antenna Finder](https://apps.apple.com/gb/app/id1278887323) | gb | Версия ≥18 мес | WEAK | — | — | 1126 | 0.99 GBP | 1 | 0 | 2022-05-01 |
 | [OudRec - عودرك](https://apps.apple.com/sa/app/id1294089058) | sa | Версия ≥18 мес | WEAK | — | — | 578 | 199.99 SAR | 1 | 0 | 2020-08-12 |
-| [الفصول الأربعة](https://apps.apple.com/sa/app/id1323763065) | sa | Версия ≥18 мес | WEAK | — | — | 706 | free | 1 | 0 | 2022-02-24 |
+| [FAR AIM](https://apps.apple.com/us/app/id1393760854) | us | Версия ≥18 мес | WEAK | — | — | 742 | 8.99 USD | 1 | 0 | 2024-04-03 |
 | [ピアノ -シンプルなピアノ- 録音機能つき 広告なし](https://apps.apple.com/jp/app/id1449066822) | jp | Версия ≥18 мес | WEAK | — | — | 787 | 150.0 JPY | 1 | 0 | 2019-08-17 |
+| [ready – fit for #teamarmee](https://apps.apple.com/ch/app/id1453160942) | ch | Версия ≥18 мес | WEAK | — | — | 508 | free | 1 | 0 | 2023-03-23 |
 | [Magic Photo Eraser](https://apps.apple.com/sa/app/id1503539731) | sa | Версия ≥18 мес | WEAK | — | — | 773 | 4.99 SAR | 1 | 0 | 2024-10-16 |
 | [GAB対策 言語](https://apps.apple.com/jp/app/id1507281523) | jp | Версия ≥18 мес | WEAK | — | — | 943 | 800.0 JPY | 1 | 0 | 2023-03-20 |
 | [ShareMe: Fast File Sharing](https://apps.apple.com/ru/app/id6503259288) | ru | Версия ≥18 мес | WEAK | — | — | 3132 | — | 1 | 0 | 2024-07-30 |
 | [Concrete Calculator Plus](https://apps.apple.com/ca/app/id1494386815) | ca | Версия ≥18 мес | UNKNOWN | 1 | concrete calculator | 1108 | free | — | — | 2024-03-15 |
-| [Sales Tax Canada Calculator +](https://apps.apple.com/ca/app/id467007564) | ca | Версия ≥18 мес | UNKNOWN | 2 | self assessment tax calculator | 6132 | free | — | — | 2025-05-02 |
-| [Convert Any Unit Lite](https://apps.apple.com/nz/app/id478222820) | nz | Версия ≥18 мес | UNKNOWN | 3 | unit converter | 1001 | free | — | — | 2025-05-12 |
-| [Écran coloré widget](https://apps.apple.com/fr/app/id1530002695) | fr | Версия ≥18 мес | UNKNOWN | 6 | wallpaper calculator | 967 | free | — | — | 2025-05-13 |
 | [Car Driving School Sim 2024](https://apps.apple.com/il/app/id1612666094) | il | Версия ≥18 мес | UNKNOWN | 31 | מד אור | 713 | free | — | — | 2025-01-13 |
 | [益智早教拼圖大全-親子啟蒙拼圖遊戲](https://apps.apple.com/tw/app/id1180874942) | tw | Версия ≥18 мес | UNKNOWN | 34 | 十字繡 | 653 | free | — | — | 2022-10-01 |
 | [Jeu de lave-auto sport](https://apps.apple.com/fr/app/id980058460) | fr | Версия ≥18 мес | UNKNOWN | 35 | entretien voiture | 685 | free | — | — | 2021-04-26 |
-| [Aesthetic wallpaper Fanart](https://apps.apple.com/us/app/id1583956600) | us | Версия ≥18 мес | UNKNOWN | 38 | wallpaper calculator | 4361 | free | — | — | 2024-07-23 |
-| [Get Running](https://apps.apple.com/us/app/id319043985) | us | Версия ≥18 мес | UNKNOWN | — | — | 2178 | 2.99 USD | — | — | 2017-08-28 |
-| [PicMix](https://apps.apple.com/us/app/id324018161) | us | Версия ≥18 мес | UNKNOWN | — | — | 1136 | 1.99 USD | — | — | 2020-08-09 |
-| [Relax Melodies P: Sleep Sounds](https://apps.apple.com/au/app/id331529422) | au | Версия ≥18 мес | UNKNOWN | — | — | 541 | 149.99 AUD | — | — | 2018-04-26 |
-| [Wörterbuch Linguee](https://apps.apple.com/ch/app/id338225335) | ch | Версия ≥18 мес | UNKNOWN | — | — | 2030 | free | — | — | 2022-09-14 |
-| [星座表](https://apps.apple.com/jp/app/id345542655) | jp | Версия ≥18 мес | UNKNOWN | — | — | 36312 | free | — | — | 2015-11-17 |
-| [Bob Books Reading Magic #1](https://apps.apple.com/us/app/id405995002) | us | Версия ≥18 мес | UNKNOWN | — | — | 603 | 2.99 USD | — | — | 2022-10-08 |
-| [Azul - Video Player for iPhone](https://apps.apple.com/us/app/id406845187) | us | Версия ≥18 мес | UNKNOWN | — | — | 501 | 1.99 USD | — | — | 2019-10-22 |
-| [Magic Piano: game by Smule](https://apps.apple.com/au/app/id421254504) | au | Версия ≥18 мес | UNKNOWN | — | — | 1912 | free | — | — | 2024-07-01 |
-| [Fitness Buddy+ Gym Workout Log](https://apps.apple.com/au/app/id443646748) | au | Версия ≥18 мес | UNKNOWN | — | — | 1451 | 5.99 AUD | — | — | 2024-05-20 |
-| [魚眼レンズ (Fisheye Lens)](https://apps.apple.com/jp/app/id462155908) | jp | Версия ≥18 мес | UNKNOWN | — | — | 2192 | 500.0 JPY | — | — | 2021-07-14 |
-| [Convert Any Unit](https://apps.apple.com/au/app/id465180749) | au | Версия ≥18 мес | UNKNOWN | — | — | 1053 | 14.99 AUD | — | — | 2025-05-12 |
-| [Convert Any Unit](https://apps.apple.com/gb/app/id465180749) | gb | Версия ≥18 мес | UNKNOWN | — | — | 792 | 9.99 GBP | — | — | 2025-05-12 |
-| [Workout Calendar - Motivation](https://apps.apple.com/us/app/id473539105) | us | Версия ≥18 мес | UNKNOWN | — | — | 1189 | 0.99 USD | — | — | 2023-11-21 |
-| [Pocket Earth PRO](https://apps.apple.com/us/app/id481679745) | us | Версия ≥18 мес | UNKNOWN | — | — | 1827 | 6.99 USD | — | — | 2024-08-20 |
-| [Meine Stadt: Wimmelbuch für Kinder.](https://apps.apple.com/ch/app/id490922806) | ch | Версия ≥18 мес | UNKNOWN | — | — | 1054 | 3.0 CHF | — | — | 2017-09-12 |
-| [Adrian James: 6 Pack Abs](https://apps.apple.com/gb/app/id493912733) | gb | Версия ≥18 мес | UNKNOWN | — | — | 1323 | 3.99 GBP | — | — | 2019-01-07 |
-| [Weather in Australia 14 days](https://apps.apple.com/au/app/id567167525) | au | Версия ≥18 мес | UNKNOWN | — | — | 1426 | free | — | — | 2021-05-07 |
-| [CloudBeats: Cloud Music Player](https://apps.apple.com/us/app/id573192227) | us | Версия ≥18 мес | UNKNOWN | — | — | 3435 | 9.99 USD | — | — | 2025-04-03 |
-| [Dingtone: Calling & Texting](https://apps.apple.com/gb/app/id588937297) | gb | Версия ≥18 мес | UNKNOWN | — | — | 3026 | free | — | — | 2021-10-23 |
-| [叮咚 –網絡電話 & 國內國際長途](https://apps.apple.com/tw/app/id588937297) | tw | Версия ≥18 мес | UNKNOWN | — | — | 1005 | free | — | — | 2021-10-23 |
-| [CARROT To-Do](https://apps.apple.com/us/app/id591840203) | us | Версия ≥18 мес | UNKNOWN | — | — | 1055 | 2.99 USD | — | — | 2018-05-14 |
-| [Tunable – Tuner & Metronome](https://apps.apple.com/de/app/id608540795) | de | Версия ≥18 мес | UNKNOWN | — | — | 586 | 8.99 EUR | — | — | 2021-08-22 |
-| [Baseball Softball Pocket Coach](https://apps.apple.com/us/app/id633644009) | us | Версия ≥18 мес | UNKNOWN | — | — | 515 | 4.99 USD | — | — | 2025-04-19 |
-| [gTasks Pro for Google Tasks](https://apps.apple.com/jp/app/id672241079) | jp | Версия ≥18 мес | UNKNOWN | — | — | 511 | 3000.0 JPY | — | — | 2023-10-25 |
-| [7 Minute Workout Challenge](https://apps.apple.com/au/app/id680170305) | au | Версия ≥18 мес | UNKNOWN | — | — | 868 | 5.99 AUD | — | — | 2020-12-11 |
-| [AdBlock](https://apps.apple.com/au/app/id691121579) | au | Версия ≥18 мес | UNKNOWN | — | — | 1564 | 2.99 AUD | — | — | 2021-07-27 |
-| [CARROT Fit](https://apps.apple.com/us/app/id769155678) | us | Версия ≥18 мес | UNKNOWN | — | — | 864 | 4.99 USD | — | — | 2021-10-26 |
-| [SKRWT](https://apps.apple.com/us/app/id834248867) | us | Версия ≥18 мес | UNKNOWN | — | — | 593 | 1.99 USD | — | — | 2022-01-03 |
-| [Thinkrolls 1: Puzzles for Kids](https://apps.apple.com/us/app/id917176209) | us | Версия ≥18 мес | UNKNOWN | — | — | 16185 | 5.99 USD | — | — | 2023-11-21 |
-| [FXAlert - 外為のアラート通知アプリ](https://apps.apple.com/jp/app/id946431789) | jp | Версия ≥18 мес | UNKNOWN | — | — | 2386 | free | — | — | 2023-02-27 |
-| [kirakira+](https://apps.apple.com/gb/app/id955687901) | gb | Версия ≥18 мес | UNKNOWN | — | — | 2291 | 0.99 GBP | — | — | 2019-01-05 |
 | [Thinkrolls 2](https://apps.apple.com/ch/app/id968707176) | ch | Версия ≥18 мес | UNKNOWN | — | — | 601 | 5.0 CHF | — | — | 2023-11-21 |
-| [Thinkrolls 2](https://apps.apple.com/se/app/id968707176) | se | Версия ≥18 мес | UNKNOWN | — | — | 1179 | 79.0 SEK | — | — | 2023-11-21 |
-| [AmpMe – Speaker & Music Sync](https://apps.apple.com/se/app/id986905979) | se | Версия ≥18 мес | UNKNOWN | — | — | 985 | free | — | — | 2023-05-17 |
-| [Scuola / Diario, Orario & Voti](https://apps.apple.com/ch/app/id987154768) | ch | Версия ≥18 мес | UNKNOWN | — | — | 521 | free | — | — | 2021-01-04 |
-| [記念日°](https://apps.apple.com/jp/app/id988424260) | jp | Версия ≥18 мес | UNKNOWN | — | — | 61556 | free | — | — | 2022-09-23 |
-| [雲章書法字典](https://apps.apple.com/tw/app/id992025786) | tw | Версия ≥18 мес | UNKNOWN | — | — | 3101 | free | — | — | 2022-08-11 |
-| [蚊子管家 - 无辐射声波防蚊驱蚊](https://apps.apple.com/tw/app/id996317077) | tw | Версия ≥18 мес | UNKNOWN | — | — | 1389 | 150.0 TWD | — | — | 2023-03-22 |
-| [WeatherPro Lite](https://apps.apple.com/ch/app/id997728895) | ch | Версия ≥18 мес | UNKNOWN | — | — | 7247 | free | — | — | 2022-10-07 |
-| [Solar Walk 2 – Spacecraft 3D](https://apps.apple.com/au/app/id1031155880) | au | Версия ≥18 мес | UNKNOWN | — | — | 557 | 4.99 AUD | — | — | 2023-12-28 |
-| [Solar Walk 2 - View Planets 3D](https://apps.apple.com/us/app/id1031155880) | us | Версия ≥18 мес | UNKNOWN | — | — | 7316 | 2.99 USD | — | — | 2023-12-28 |
-| [Analog Paris](https://apps.apple.com/jp/app/id1035219562) | jp | Версия ≥18 мес | UNKNOWN | — | — | 1408 | 150.0 JPY | — | — | 2019-10-12 |
-| [CHOMP by Christoph Niemann](https://apps.apple.com/us/app/id1061132313) | us | Версия ≥18 мес | UNKNOWN | — | — | 758 | 3.99 USD | — | — | 2018-07-24 |
-| [Kroatisch lernen – Mondly](https://apps.apple.com/de/app/id1068118596) | de | Версия ≥18 мес | UNKNOWN | — | — | 727 | free | — | — | 2018-11-21 |
-| [Kardiograph](https://apps.apple.com/de/app/id1073907652) | de | Версия ≥18 мес | UNKNOWN | — | — | 523 | 1.99 EUR | — | — | 2019-10-14 |
-| [Blueriiot - Blue Connect](https://apps.apple.com/de/app/id1109733256) | de | Версия ≥18 мес | UNKNOWN | — | — | 2509 | free | — | — | 2025-01-28 |
-| [Keto Diät Rezepte](https://apps.apple.com/de/app/id1157455937) | de | Версия ≥18 мес | UNKNOWN | — | — | 704 | free | — | — | 2024-07-01 |
-| [Fotoskanner från Google Foto](https://apps.apple.com/se/app/id1165525994) | se | Версия ≥18 мес | UNKNOWN | — | — | 2794 | free | — | — | 2022-11-21 |
-| [PhotoScan - Google 相簿推出的掃描器](https://apps.apple.com/tw/app/id1165525994) | tw | Версия ≥18 мес | UNKNOWN | — | — | 11610 | free | — | — | 2022-11-21 |
-| [ALL IN ONE Basic 英語全分野を制覇!](https://apps.apple.com/jp/app/id1224625873) | jp | Версия ≥18 мес | UNKNOWN | — | — | 1660 | 480.0 JPY | — | — | 2024-12-14 |
-| [快速學習韓語和韓文字母](https://apps.apple.com/tw/app/id1227950973) | tw | Версия ≥18 мес | UNKNOWN | — | — | 1625 | free | — | — | 2024-12-20 |
-| [Veee+](https://apps.apple.com/au/app/id1325003703) | au | Версия ≥18 мес | UNKNOWN | — | — | 542 | free | — | — | 2023-01-11 |
-| [iReader-Story, Novel & E-book](https://apps.apple.com/dk/app/id1357465979) | dk | Версия ≥18 мес | UNKNOWN | — | — | 510 | free | — | — | 2024-09-19 |
-| [FAR AIM](https://apps.apple.com/us/app/id1393760854) | us | Версия ≥18 мес | UNKNOWN | — | — | 742 | 8.99 USD | — | — | 2024-04-03 |
-| [Number Lookup: Who is calling?](https://apps.apple.com/ae/app/id1463138162) | ae | Версия ≥18 мес | UNKNOWN | — | — | 585 | free | — | — | 2023-11-01 |
-| [XDP](https://apps.apple.com/gb/app/id1485292140) | gb | Версия ≥18 мес | UNKNOWN | — | — | 1713 | free | — | — | 2024-01-05 |
-| [Fitness Stats](https://apps.apple.com/us/app/id1511179040) | us | Версия ≥18 мес | UNKNOWN | — | — | 2510 | 7.99 USD | — | — | 2023-10-12 |
-| [Bears Countdown](https://apps.apple.com/gb/app/id1536711520) | gb | Версия ≥18 мес | UNKNOWN | — | — | 1224 | 3.99 GBP | — | — | 2024-02-18 |
 | [GPS Speedometer: Speed Tracker](https://apps.apple.com/sa/app/id1542016762) | sa | Версия ≥18 мес | UNKNOWN | — | — | 592 | free | — | — | 2024-11-20 |
 | [Cheat Codes #](https://apps.apple.com/ae/app/id1559394917) | ae | Версия ≥18 мес | UNKNOWN | — | — | 719 | free | — | — | 2025-01-13 |
-| [まいなす家計簿](https://apps.apple.com/jp/app/id1587548217) | jp | Версия ≥18 мес | UNKNOWN | — | — | 3169 | free | — | — | 2025-02-28 |
-| [Float - 影片保存](https://apps.apple.com/tw/app/id1593315967) | tw | Версия ≥18 мес | UNKNOWN | — | — | 1019 | free | — | — | 2024-04-03 |
-| [QR-Reader für Handys](https://apps.apple.com/ch/app/id1631503426) | ch | Версия ≥18 мес | UNKNOWN | — | — | 567 | free | — | — | 2024-01-19 |
-| [Ringtone Maker & MP3 Converter](https://apps.apple.com/se/app/id1636322297) | se | Версия ≥18 мес | UNKNOWN | — | — | 636 | free | — | — | 2023-01-28 |
-| [Word Office:Edit Word Document](https://apps.apple.com/sa/app/id6444708069) | sa | Версия ≥18 мес | UNKNOWN | — | — | 1449 | free | — | — | 2024-08-15 |
-| [Onmi: Networking & API Request](https://apps.apple.com/sa/app/id6446827619) | sa | Версия ≥18 мес | UNKNOWN | — | — | 525 | free | — | — | 2023-04-04 |
-| [Health Planner & Tracker](https://apps.apple.com/sa/app/id6471674773) | sa | Версия ≥18 мес | UNKNOWN | — | — | 872 | free | — | — | 2024-05-15 |
-| [GTA San Andreas Cheats & Codes](https://apps.apple.com/sa/app/id6477397098) | sa | Версия ≥18 мес | UNKNOWN | — | — | 1025 | free | — | — | 2024-12-19 |
 | [Calculator!](https://apps.apple.com/au/app/id443932954) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 1 | grass seed calculator | 2994 | free | 0 | 0 | 2020-12-09 |
 | [Calculator.](https://apps.apple.com/ca/app/id443932954) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 1 | grass seed calculator | 7828 | free | 0 | 0 | 2020-12-09 |
 | [Calculator++](https://apps.apple.com/gb/app/id443932954) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 1 | grass seed calculator | 6241 | free | 0 | 0 | 2020-12-09 |
@@ -807,6 +787,7 @@
 | [اختبار رخصة القيادة السعودي](https://apps.apple.com/sa/app/id6474456531) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | 2 | اختبار القيادة | 828 | free | 0 | 0 | 2024-05-20 |
 | [Sales Tax Calculator - Tax Me](https://apps.apple.com/us/app/id403569006) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | self assessment tax calculator | 5448 | free | 0 | 0 | 2024-06-20 |
 | [детектор металла и магнита](https://apps.apple.com/ru/app/id409682366) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | детектор проводки | 1919 | free | 0 | 0 | 2024-07-31 |
+| [Convert Any Unit Lite](https://apps.apple.com/nz/app/id478222820) | nz | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | unit converter | 1001 | free | 0 | 0 | 2025-05-12 |
 | [MOON - Current Moon Phase](https://apps.apple.com/fr/app/id660036257) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | moon phase hunting | 734 | free | 0 | 0 | 2025-04-07 |
 | [Veggie Garden Planner](https://apps.apple.com/ca/app/id1329927332) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | garden planner | 576 | free | 0 | 0 | 2024-11-09 |
 | [MyFatoorah   ماي فاتورة](https://apps.apple.com/ae/app/id1397541744) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | فاتورة | 852 | free | 0 | 0 | 2025-03-25 |
@@ -814,7 +795,6 @@
 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/ae/app/id1533047121) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | widget pack | 557 | free | 0 | 0 | 2022-09-09 |
 | [App Icon Changer Widget Themer](https://apps.apple.com/fr/app/id1533047121) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | widget pack | 1966 | free | 0 | 0 | 2022-09-09 |
 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/sa/app/id1533047121) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | widget pack | 1119 | free | 0 | 0 | 2022-09-09 |
-| [小主輕斷食-懶人減肥食譜，168斷食，不禁食不節食，熱量計算](https://apps.apple.com/tw/app/id6469616735) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | 3 | 運費計算 | 629 | free | 0 | 0 | 2024-08-16 |
 | [Ретро Камера: Фильтры для Фото](https://apps.apple.com/ru/app/id298796414) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 4 | дата на фото | 6780 | free | 0 | 0 | 2022-02-01 |
 | [Tuner Lite by Piascore](https://apps.apple.com/hk/app/id635828559) | hk | Версия ≥18 мес | NO_RECENT_EVIDENCE | 4 | 調音器 | 511 | free | 0 | 0 | 2025-04-24 |
 | [Guitar Tuner - Ukulele & Bass](https://apps.apple.com/no/app/id662890455) | no | Версия ≥18 мес | NO_RECENT_EVIDENCE | 4 | gitarstemmer | 618 | free | 0 | 0 | 2024-08-15 |
@@ -829,7 +809,6 @@
 | [Calculator](https://apps.apple.com/ca/app/id432627778) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | grass seed calculator | 672 | 0.99 CAD | 0 | 0 | 2020-12-09 |
 | [Loan,Mortgage ,Tip Calculator](https://apps.apple.com/us/app/id445575722) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | capital gains tax calculator | 500 | free | 0 | 0 | 2023-02-07 |
 | [Convert Any Unit Lite](https://apps.apple.com/au/app/id478222820) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | unit converter | 5733 | free | 0 | 0 | 2025-05-12 |
-| [Convert Any Unit Lite](https://apps.apple.com/ca/app/id478222820) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | unit converter | 12812 | free | 0 | 0 | 2025-05-12 |
 | [FlightStats](https://apps.apple.com/ie/app/id572700574) | ie | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | flight distance calculator | 551 | free | 0 | 0 | 2024-10-30 |
 | [小票盒 - 認真記帳 精打細算](https://apps.apple.com/tw/app/id627878792) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | 材積計算 | 7013 | free | 0 | 0 | 2023-04-14 |
 | [Stillen App & Baby Tracker](https://apps.apple.com/de/app/id838762361) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | stillprotokoll | 909 | free | 0 | 0 | 2024-11-18 |
@@ -841,7 +820,6 @@
 | [ナンバータイル - 脳トレ、頭の体操](https://apps.apple.com/jp/app/id1239798981) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | タイル計算 | 617 | free | 0 | 0 | 2017-08-20 |
 | [Veggie Garden Planner](https://apps.apple.com/us/app/id1329927332) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | garden planner | 3878 | free | 0 | 0 | 2024-11-09 |
 | [Facture Pro](https://apps.apple.com/fr/app/id1348714072) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | facture devis | 1436 | free | 0 | 0 | 2020-12-29 |
-| [Video Teleprompter](https://apps.apple.com/ca/app/id1444106389) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | teleprompter | 965 | free | 0 | 0 | 2022-07-16 |
 | [Video Teleprompter 3](https://apps.apple.com/gb/app/id1444106389) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | teleprompter | 1175 | free | 0 | 0 | 2022-07-16 |
 | [ПДД 2020 Билеты, Экзамен ГИБДД](https://apps.apple.com/ru/app/id1445198573) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | билеты пдд | 13927 | free | 0 | 0 | 2020-05-21 |
 | [KIA證件照製作-美顏自拍智能證件照換底色相機護照身份證件](https://apps.apple.com/hk/app/id1459017173) | hk | Версия ≥18 мес | NO_RECENT_EVIDENCE | 5 | 水電計算 | 828 | free | 0 | 0 | 2023-12-19 |
@@ -856,6 +834,7 @@
 | [Dog Whistle & Clicker](https://apps.apple.com/us/app/id1362556530) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | dog training clicker | 938 | free | 0 | 0 | 2021-01-07 |
 | [Live Wallpapers Plus HD 4k](https://apps.apple.com/ca/app/id1439858086) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | wallpaper calculator | 581 | free | 0 | 0 | 2019-09-16 |
 | [Дневник малыша: мама и ребенок](https://apps.apple.com/ru/app/id1449743680) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | кормление грудью трекер | 1874 | free | 0 | 0 | 2019-06-19 |
+| [Écran coloré widget](https://apps.apple.com/fr/app/id1530002695) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | wallpaper calculator | 967 | free | 0 | 0 | 2025-05-13 |
 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/au/app/id1533047121) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | widget pack | 1167 | free | 0 | 0 | 2022-09-09 |
 | [Themes: Widget, Icons Packs 15](https://apps.apple.com/us/app/id1533047121) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | widget pack | 15201 | free | 0 | 0 | 2022-09-09 |
 | [locksmith widget - by sendit](https://apps.apple.com/au/app/id1645384373) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 6 | lock screen widget | 5941 | free | 0 | 0 | 2023-04-04 |
@@ -948,7 +927,6 @@
 | [Tunefor Ukulele tuner & chords](https://apps.apple.com/ca/app/id1153333408) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | metronome | 2104 | free | 0 | 0 | 2022-02-17 |
 | [Вода напоминание пить воду](https://apps.apple.com/ru/app/id1239191110) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | напоминание пить воду | 2348 | free | 0 | 0 | 2021-04-13 |
 | [Depth Wallpaper & Live Effect](https://apps.apple.com/gb/app/id1265751053) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | wallpaper calculator | 1022 | free | 0 | 0 | 2023-08-31 |
-| [花卉识别-拍图像识别花花草草](https://apps.apple.com/hk/app/id1385981273) | hk | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | 植物辨識 | 680 | free | 0 | 0 | 2022-05-10 |
 | [Elementaree: продукты, рецепты](https://apps.apple.com/ru/app/id1480217900) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | рецепты по ингредиентам | 1454 | free | 0 | 0 | 2022-06-29 |
 | [Muslim Muna:Azkar, Prayer Time](https://apps.apple.com/ae/app/id1486560555) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | مواقيت الصلاة | 1704 | free | 0 | 0 | 2024-04-24 |
 | [Skate Art 3D](https://apps.apple.com/gb/app/id1524596005) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 12 | load board | 5807 | free | 0 | 0 | 2024-02-23 |
@@ -975,7 +953,6 @@
 | [Depth Wallpaper & Live Effect](https://apps.apple.com/us/app/id1265751053) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | wallpaper calculator | 11724 | free | 0 | 0 | 2023-08-31 |
 | [识花神器-形色](https://apps.apple.com/hk/app/id1387854964) | hk | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | 植物辨識 | 1397 | free | 0 | 0 | 2019-05-22 |
 | [Daily Bible Verse & Motivation](https://apps.apple.com/us/app/id1455390863) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | daily bible verse | 10665 | free | 0 | 0 | 2024-11-08 |
-| [Skate Art 3D](https://apps.apple.com/au/app/id1524596005) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | load board | 2233 | free | 0 | 0 | 2024-02-23 |
 | [ウィジェット：ホーム画面をカスタマイズ](https://apps.apple.com/jp/app/id1532728121) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | ウィジェット 時計 | 1445 | free | 0 | 0 | 2024-10-30 |
 | [MagicWidgets - Фото Виджеты](https://apps.apple.com/ru/app/id1533414094) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | home screen widgets | 1222 | free | 0 | 0 | 2024-09-25 |
 | [Craft Island](https://apps.apple.com/ca/app/id1552703591) | ca | Версия ≥18 мес | NO_RECENT_EVIDENCE | 14 | dynamic island app | 3005 | free | 0 | 0 | 2023-10-18 |
@@ -1102,7 +1079,6 @@
 | [Salon de soins pour chiot](https://apps.apple.com/fr/app/id1453443419) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 24 | dressage chien | 4140 | free | 0 | 0 | 2021-06-16 |
 | [Programmer's Calculator](https://apps.apple.com/us/app/id1467603958) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 24 | electrical code calculator | 929 | free | 0 | 0 | 2020-12-02 |
 | [Аудиокниги слушать - Booklis](https://apps.apple.com/ru/app/id1476385798) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 24 | аудиокниги | 522 | free | 0 | 0 | 2023-01-08 |
-| [Widget / Countdown to birthday](https://apps.apple.com/us/app/id1545098525) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 24 | widget pack | 4354 | free | 0 | 0 | 2023-10-12 |
 | [Green Island!](https://apps.apple.com/au/app/id1596246195) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 24 | dynamic island app | 948 | free | 0 | 0 | 2022-06-07 |
 | [BizXpenseTracker](https://apps.apple.com/us/app/id353431586) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 25 | mileage tracker | 2612 | 6.99 USD | 0 | 0 | 2021-05-28 |
 | [Mobiler Mwst-Rechner](https://apps.apple.com/de/app/id375350555) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | 25 | lohnrechner | 1214 | free | 0 | 0 | 2023-11-27 |
@@ -1212,7 +1188,6 @@
 | [Qibla +](https://apps.apple.com/sa/app/id1475861567) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | 35 | اتجاه القبلة | 839 | free | 0 | 0 | 2020-06-02 |
 | [Widget Box Interactive Widgets](https://apps.apple.com/gb/app/id1527561558) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 35 | widget pack | 11214 | free | 0 | 0 | 2024-06-24 |
 | [Kappboom - Cool Wallpapers](https://apps.apple.com/se/app/id342643402) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | 36 | urtavlor | 1968 | free | 0 | 0 | 2023-02-03 |
-| [Kørebog](https://apps.apple.com/dk/app/id519466597) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | 36 | book tracker | 710 | free | 0 | 0 | 2025-03-05 |
 | [My Dolphin Show](https://apps.apple.com/se/app/id632016921) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | 36 | fiske app | 1677 | free | 0 | 0 | 2021-08-02 |
 | [Compass Heading- Magnetic Digital Direction Finder](https://apps.apple.com/us/app/id963593909) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 36 | qibla compass | 779 | free | 0 | 0 | 2016-11-02 |
 | [اختبار الغباء : الجزء الرابع](https://apps.apple.com/sa/app/id989764656) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | 36 | اختبار القيادة | 744 | free | 0 | 0 | 2015-05-15 |
@@ -1302,7 +1277,6 @@
 | [Widget Box Interactive Widgets](https://apps.apple.com/fr/app/id1527561558) | fr | Версия ≥18 мес | NO_RECENT_EVIDENCE | 45 | home screen widgets | 1113 | free | 0 | 0 | 2024-06-24 |
 | [Pixel Paint!](https://apps.apple.com/gb/app/id1573201362) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 45 | paint calculator | 1725 | free | 0 | 0 | 2022-01-25 |
 | [JotNot Scanner App Pro](https://apps.apple.com/au/app/id307868751) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | 46 | obd2 scanner | 1450 | 9.99 AUD | 0 | 0 | 2020-12-18 |
-| [Живые обои и Темы на айфон](https://apps.apple.com/ru/app/id1098805023) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | 46 | home screen widgets | 36989 | free | 0 | 0 | 2024-07-31 |
 | [Date and Time Calculator Pro](https://apps.apple.com/us/app/id582268389) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | 47 | time lapse calculator | 964 | 0.99 USD | 0 | 0 | 2025-04-16 |
 | [Converter (unit conversions)](https://apps.apple.com/gb/app/id285986066) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | 48 | unit converter | 637 | free | 0 | 0 | 2019-02-12 |
 | [Drums: Learn & Play Beat Games](https://apps.apple.com/ae/app/id1381436705) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | 48 | guitar tuner | 1335 | free | 0 | 0 | 2024-02-20 |
@@ -1316,9 +1290,11 @@
 | [Color Splash](https://apps.apple.com/de/app/id304871603) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 931 | 1.99 EUR | 0 | 0 | 2024-09-20 |
 | [Color Splash](https://apps.apple.com/gb/app/id304871603) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1724 | 1.99 GBP | 0 | 0 | 2024-09-20 |
 | [Poker Income Bankroll Tracker](https://apps.apple.com/us/app/id316520188) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1409 | 9.99 USD | 0 | 0 | 2018-03-03 |
+| [Get Running](https://apps.apple.com/us/app/id319043985) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2178 | 2.99 USD | 0 | 0 | 2017-08-28 |
 | [E Nummern app](https://apps.apple.com/ch/app/id326082487) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 676 | 2.0 CHF | 0 | 0 | 2021-04-29 |
 | [Айчиталка](https://apps.apple.com/ru/app/id329197020) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1233 | — | 0 | 0 | 2018-04-06 |
 | [LexicEN 英英辞書、オフライン対応！](https://apps.apple.com/jp/app/id330647659) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 827 | 500.0 JPY | 0 | 0 | 2018-09-22 |
+| [Relax Melodies P: Sleep Sounds](https://apps.apple.com/au/app/id331529422) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 541 | 149.99 AUD | 0 | 0 | 2018-04-26 |
 | [Find Craft Beer](https://apps.apple.com/us/app/id340206461) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 641 | 0.99 USD | 0 | 0 | 2025-01-10 |
 | [Army Ranger Handbook](https://apps.apple.com/us/app/id378163411) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 655 | 1.99 USD | 0 | 0 | 2024-11-07 |
 | [Team Shake](https://apps.apple.com/de/app/id390812953) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1349 | 1.99 EUR | 0 | 0 | 2021-11-16 |
@@ -1326,7 +1302,8 @@
 | [Blitzer.de](https://apps.apple.com/ch/app/id393860580) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 746 | free | 0 | 0 | 2024-06-12 |
 | [TV Towers USA](https://apps.apple.com/us/app/id396342822) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 791 | 1.99 USD | 0 | 0 | 2024-12-04 |
 | [Nutrients - Nutrition Facts](https://apps.apple.com/us/app/id396836856) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 833 | 4.99 USD | 0 | 0 | 2023-06-26 |
-| [SkyView®](https://apps.apple.com/au/app/id404990064) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 600 | 4.99 AUD | 0 | 0 | 2025-05-02 |
+| [Bob Books Reading Magic #1](https://apps.apple.com/us/app/id405995002) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 603 | 2.99 USD | 0 | 0 | 2022-10-08 |
+| [Azul - Video Player for iPhone](https://apps.apple.com/us/app/id406845187) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 501 | 1.99 USD | 0 | 0 | 2019-10-22 |
 | [CityMaps2Go – Offline Maps](https://apps.apple.com/ru/app/id408866084) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 555 | — | 0 | 0 | 2021-07-28 |
 | [Onleihe](https://apps.apple.com/ch/app/id422554835) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1222 | free | 0 | 0 | 2024-10-30 |
 | [Birthday Reminder Pro+](https://apps.apple.com/au/app/id427341961) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 656 | 1.99 AUD | 0 | 0 | 2022-03-17 |
@@ -1334,10 +1311,12 @@
 | [Birthday Reminder Pro+](https://apps.apple.com/us/app/id427341961) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 6323 | 0.99 USD | 0 | 0 | 2022-03-17 |
 | [Origami Geldgeschenke](https://apps.apple.com/de/app/id432771571) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 572 | 2.99 EUR | 0 | 0 | 2024-07-16 |
 | [カーディオグラフ クラシック](https://apps.apple.com/jp/app/id441079429) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 870 | 150.0 JPY | 0 | 0 | 2019-10-14 |
+| [Fitness Buddy+ Gym Workout Log](https://apps.apple.com/au/app/id443646748) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1451 | 5.99 AUD | 0 | 0 | 2024-05-20 |
 | [My Sketch - Pencil Sketches](https://apps.apple.com/sa/app/id448162988) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 747 | 17.99 SAR | 0 | 0 | 2022-09-23 |
 | [My Sketch - Pencil Sketches](https://apps.apple.com/tw/app/id448162988) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 659 | 120.0 TWD | 0 | 0 | 2022-09-23 |
 | [瞑想とリラクゼーション音楽PRO](https://apps.apple.com/jp/app/id448200679) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 502 | 500.0 JPY | 0 | 0 | 2018-12-11 |
 | [Аудиосказки и Книги на Ночь](https://apps.apple.com/ru/app/id454467894) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 3867 | — | 0 | 0 | 2024-03-07 |
+| [魚眼レンズ (Fisheye Lens)](https://apps.apple.com/jp/app/id462155908) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2192 | 500.0 JPY | 0 | 0 | 2021-07-14 |
 | [Min Geografi](https://apps.apple.com/se/app/id468706420) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 941 | 69.0 SEK | 0 | 0 | 2021-06-04 |
 | [WeatherMap+](https://apps.apple.com/us/app/id471629622) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 538 | 2.99 USD | 0 | 0 | 2018-10-17 |
 | [SPI言語 【Study Pro】](https://apps.apple.com/jp/app/id476550251) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1173 | 500.0 JPY | 0 | 0 | 2019-09-18 |
@@ -1352,6 +1331,8 @@
 | [nemo アメリカ英語](https://apps.apple.com/ru/app/id487069717) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2051 | — | 0 | 0 | 2025-01-16 |
 | [Thai by Nemo](https://apps.apple.com/de/app/id487076453) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1577 | — | 0 | 0 | 2024-11-05 |
 | [SPI非言語 【Study Pro】](https://apps.apple.com/jp/app/id490470296) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1596 | 500.0 JPY | 0 | 0 | 2019-02-07 |
+| [Meine Stadt: Wimmelbuch für Kinder.](https://apps.apple.com/ch/app/id490922806) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1054 | 3.0 CHF | 0 | 0 | 2017-09-12 |
+| [Adrian James: 6 Pack Abs](https://apps.apple.com/gb/app/id493912733) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1323 | 3.99 GBP | 0 | 0 | 2019-01-07 |
 | [mx tracks](https://apps.apple.com/de/app/id499195432) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1923 | 6.99 EUR | 0 | 0 | 2017-08-29 |
 | [myDuaa: Fortress of a Muslim / حصن المسلم](https://apps.apple.com/us/app/id509443220) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 872 | 0.99 USD | 0 | 0 | 2017-06-06 |
 | [iTranslate Voice](https://apps.apple.com/ch/app/id522626820) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 913 | free | 0 | 0 | 2025-04-04 |
@@ -1359,6 +1340,7 @@
 | [iTranslate Voice](https://apps.apple.com/gb/app/id522626820) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1693 | free | 0 | 0 | 2025-04-04 |
 | [iTranslate Voice](https://apps.apple.com/tw/app/id522626820) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 592 | free | 0 | 0 | 2025-04-04 |
 | [Weblock: adblock & proxy](https://apps.apple.com/sa/app/id558818638) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 761 | 9.99 SAR | 0 | 0 | 2021-05-17 |
+| [Weather in Australia 14 days](https://apps.apple.com/au/app/id567167525) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1426 | free | 0 | 0 | 2021-05-07 |
 | [14 days Weather](https://apps.apple.com/dk/app/id567167525) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1172 | free | 0 | 0 | 2021-05-07 |
 | [Аудиогид и Путеводитель AZBO](https://apps.apple.com/ru/app/id571636244) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1753 | — | 0 | 0 | 2024-12-23 |
 | [CloudBeats: Musik Player](https://apps.apple.com/de/app/id573192227) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 781 | 9.99 EUR | 0 | 0 | 2025-04-03 |
@@ -1368,14 +1350,17 @@
 | [Bird Song Id UK](https://apps.apple.com/gb/app/id601362210) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 741 | 2.99 GBP | 0 | 0 | 2020-06-03 |
 | [CashSync: Учет расходов](https://apps.apple.com/ru/app/id617849961) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 756 | — | 0 | 0 | 2021-05-04 |
 | [Личные Финансы и Мой Бюджет](https://apps.apple.com/ru/app/id632513433) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2391 | — | 0 | 0 | 2021-05-16 |
+| [Baseball Softball Pocket Coach](https://apps.apple.com/us/app/id633644009) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 515 | 4.99 USD | 0 | 0 | 2025-04-19 |
 | [Греческий язык с Nemo](https://apps.apple.com/ru/app/id635604239) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1232 | — | 0 | 0 | 2024-11-15 |
 | [Mapcam Info - антирадар](https://apps.apple.com/ru/app/id644832729) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 772 | — | 0 | 0 | 2020-06-29 |
 | [MOON - Current Moon Phase](https://apps.apple.com/ru/app/id660036257) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1386 | — | 0 | 0 | 2025-04-07 |
+| [7 Minute Workout Challenge](https://apps.apple.com/au/app/id680170305) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 868 | 5.99 AUD | 0 | 0 | 2020-12-11 |
 | [7 分間エクササイズ - 7 Minute Workout](https://apps.apple.com/jp/app/id680170305) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 587 | 600.0 JPY | 0 | 0 | 2020-12-11 |
 | [7 Minute Workout Challenge](https://apps.apple.com/no/app/id680170305) | no | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 634 | 49.0 NOK | 0 | 0 | 2020-12-11 |
 | [Buddhify: Guided Meditation](https://apps.apple.com/au/app/id687421118) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2140 | 7.99 AUD | 0 | 0 | 2024-06-12 |
 | [Voice Intercom for Sonos](https://apps.apple.com/gb/app/id689673100) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 689 | 2.99 GBP | 0 | 0 | 2024-02-04 |
 | [AdBlock](https://apps.apple.com/ae/app/id691121579) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1277 | 7.99 AED | 0 | 0 | 2021-07-27 |
+| [CARROT Fit](https://apps.apple.com/us/app/id769155678) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 864 | 4.99 USD | 0 | 0 | 2021-10-26 |
 | [Radio FM !](https://apps.apple.com/dk/app/id774869819) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 4156 | free | 0 | 0 | 2025-03-11 |
 | [AnyFont](https://apps.apple.com/jp/app/id821560738) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 6704 | 300.0 JPY | 0 | 0 | 2024-07-31 |
 | [القاعدة النورانية](https://apps.apple.com/ae/app/id841875549) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 653 | 22.99 AED | 0 | 0 | 2017-09-21 |
@@ -1386,19 +1371,27 @@
 | [Evernote Scannable](https://apps.apple.com/se/app/id883338188) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 10158 | free | 0 | 0 | 2024-12-19 |
 | [Thinkrolls 1: Puzzles for Kids](https://apps.apple.com/dk/app/id917176209) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 903 | 49.0 DKK | 0 | 0 | 2023-11-21 |
 | [Storm Tracker° Pro](https://apps.apple.com/us/app/id945662966) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1060 | 1.99 USD | 0 | 0 | 2021-06-23 |
+| [kirakira+](https://apps.apple.com/gb/app/id955687901) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2291 | 0.99 GBP | 0 | 0 | 2019-01-05 |
 | [kirakira+](https://apps.apple.com/tw/app/id955687901) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1712 | 30.0 TWD | 0 | 0 | 2019-01-05 |
 | [kirakira+](https://apps.apple.com/us/app/id955687901) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 10908 | 0.99 USD | 0 | 0 | 2019-01-05 |
+| [Thinkrolls 2](https://apps.apple.com/se/app/id968707176) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1179 | 79.0 SEK | 0 | 0 | 2023-11-21 |
 | [漫咖-不只有漫畫](https://apps.apple.com/tw/app/id974639132) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 18576 | free | 0 | 0 | 2025-01-03 |
 | [Browser and Documents Plus](https://apps.apple.com/ae/app/id979402624) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 664 | 7.99 AED | 0 | 0 | 2018-11-27 |
 | [Browser and Documents Plus](https://apps.apple.com/sa/app/id979402624) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 881 | 9.99 SAR | 0 | 0 | 2018-11-27 |
 | [AmpMe – Speaker & Music Sync](https://apps.apple.com/ae/app/id986905979) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 781 | free | 0 | 0 | 2023-05-17 |
+| [AmpMe – Speaker & Music Sync](https://apps.apple.com/se/app/id986905979) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 985 | free | 0 | 0 | 2023-05-17 |
+| [Scuola / Diario, Orario & Voti](https://apps.apple.com/ch/app/id987154768) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 521 | free | 0 | 0 | 2021-01-04 |
+| [蚊子管家 - 无辐射声波防蚊驱蚊](https://apps.apple.com/tw/app/id996317077) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1389 | 150.0 TWD | 0 | 0 | 2023-03-22 |
+| [WeatherPro Lite](https://apps.apple.com/ch/app/id997728895) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 7247 | free | 0 | 0 | 2022-10-07 |
 | [WeatherPro Lite](https://apps.apple.com/de/app/id997728895) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 30319 | — | 0 | 0 | 2022-10-07 |
 | [Лабиринт.ру — книжный магазин](https://apps.apple.com/ru/app/id1008650482) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 21060 | — | 0 | 0 | 2024-04-05 |
 | [GPS Diagnostic: Satellite Test](https://apps.apple.com/us/app/id1020967894) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 555 | 2.99 USD | 0 | 0 | 2020-06-25 |
-| [CNC Machinist Calculator Pro](https://apps.apple.com/us/app/id1037668281) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 682 | 14.99 USD | 0 | 0 | 2024-10-05 |
 | [My Town : Beach Picnic](https://apps.apple.com/ae/app/id1052355709) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 674 | 14.99 AED | 0 | 0 | 2024-10-08 |
 | [My Town : Beach Picnic](https://apps.apple.com/sa/app/id1052355709) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 3237 | 17.99 SAR | 0 | 0 | 2024-10-08 |
+| [CHOMP by Christoph Niemann](https://apps.apple.com/us/app/id1061132313) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 758 | 3.99 USD | 0 | 0 | 2018-07-24 |
+| [Kroatisch lernen – Mondly](https://apps.apple.com/de/app/id1068118596) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 727 | free | 0 | 0 | 2018-11-21 |
 | [Photos 365](https://apps.apple.com/jp/app/id1073336027) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 799 | 300.0 JPY | 0 | 0 | 2017-07-27 |
+| [Kardiograph](https://apps.apple.com/de/app/id1073907652) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 523 | 1.99 EUR | 0 | 0 | 2019-10-14 |
 | [Bird Song Id Australia - Automatic Recognition](https://apps.apple.com/au/app/id1079325343) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 560 | 6.99 AUD | 0 | 0 | 2016-10-17 |
 | [Golden Hour One](https://apps.apple.com/us/app/id1080118736) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 897 | 3.99 USD | 0 | 0 | 2024-06-17 |
 | [My Town : School](https://apps.apple.com/ae/app/id1084144010) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 513 | 14.99 AED | 0 | 0 | 2024-10-09 |
@@ -1408,6 +1401,7 @@
 | [My Town : Wedding Day](https://apps.apple.com/sa/app/id1098187391) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 584 | 17.99 SAR | 0 | 0 | 2024-10-09 |
 | [My Town : Hotel](https://apps.apple.com/dk/app/id1105408313) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 531 | 39.0 DKK | 0 | 0 | 2024-10-10 |
 | [My Town : Hotel](https://apps.apple.com/sa/app/id1105408313) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 922 | 17.99 SAR | 0 | 0 | 2024-10-10 |
+| [Blueriiot - Blue Connect](https://apps.apple.com/de/app/id1109733256) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2509 | free | 0 | 0 | 2025-01-28 |
 | [Blueriiot - Blue Connect](https://apps.apple.com/dk/app/id1109733256) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 740 | free | 0 | 0 | 2025-01-28 |
 | [Speedometer∞](https://apps.apple.com/au/app/id1114655078) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1684 | free | 0 | 0 | 2019-01-30 |
 | [Speedometer∞](https://apps.apple.com/dk/app/id1114655078) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 535 | free | 0 | 0 | 2019-01-30 |
@@ -1442,10 +1436,12 @@
 | [Mera Vego](https://apps.apple.com/se/app/id1276729391) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 556 | 129.0 SEK | 0 | 0 | 2024-03-05 |
 | [Grillrezepte 2](https://apps.apple.com/de/app/id1296829953) | de | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1280 | 1.99 EUR | 0 | 0 | 2023-03-22 |
 | [UDictionary 翻訳機](https://apps.apple.com/jp/app/id1319771553) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 525 | free | 0 | 0 | 2024-08-19 |
+| [Veee+](https://apps.apple.com/au/app/id1325003703) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 542 | free | 0 | 0 | 2023-01-11 |
 | [ÖVNINGSKÖR Privat](https://apps.apple.com/se/app/id1326500391) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 688 | 299.0 SEK | 0 | 0 | 2025-02-06 |
 | [Videdit - Handy Video Editor](https://apps.apple.com/sa/app/id1330314351) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 655 | 4.99 SAR | 0 | 0 | 2024-03-09 |
 | [Немецкий язык аудио книги](https://apps.apple.com/ru/app/id1347098636) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 939 | — | 0 | 0 | 2022-06-08 |
 | [My Town : ICEME Amusement Park](https://apps.apple.com/sa/app/id1351178306) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 573 | 17.99 SAR | 0 | 0 | 2024-10-18 |
+| [iReader-Story, Novel & E-book](https://apps.apple.com/dk/app/id1357465979) | dk | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 510 | free | 0 | 0 | 2024-09-19 |
 | [My Town : Street Fun](https://apps.apple.com/sa/app/id1359676698) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 531 | 17.99 SAR | 0 | 0 | 2024-10-21 |
 | [INKHUNTER PRO Tattoos try on](https://apps.apple.com/gb/app/id1365164709) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 529 | 0.99 GBP | 0 | 0 | 2020-03-10 |
 | [Сказки и Аудиосказки на Ночь](https://apps.apple.com/ru/app/id1366225729) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 4080 | — | 0 | 0 | 2021-10-29 |
@@ -1460,12 +1456,12 @@
 | [SuperFace: Машина времени](https://apps.apple.com/ru/app/id1444982293) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1622 | — | 0 | 0 | 2023-02-13 |
 | [ديوان العرب](https://apps.apple.com/sa/app/id1448037990) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 858 | free | 0 | 0 | 2020-07-24 |
 | [小說快讀-小說電子書閱讀追更軟件](https://apps.apple.com/tw/app/id1450779570) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2063 | free | 0 | 0 | 2023-06-02 |
-| [ready – fit for #teamarmee](https://apps.apple.com/ch/app/id1453160942) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 508 | free | 0 | 0 | 2023-03-23 |
 | [生理期日曆-麼麼噠 (月經，懷孕，安全期)](https://apps.apple.com/tw/app/id1456455853) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 879 | 30.0 TWD | 0 | 0 | 2019-07-13 |
 | [神奇小说](https://apps.apple.com/tw/app/id1457926474) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 4262 | free | 0 | 0 | 2024-10-10 |
 | [Wanly Online](https://apps.apple.com/sa/app/id1459501347) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1246 | free | 0 | 0 | 2021-05-05 |
 | [The Weather Forecast App](https://apps.apple.com/au/app/id1461065428) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 877 | free | 0 | 0 | 2024-12-03 |
 | [The Weather Forecast App](https://apps.apple.com/us/app/id1461065428) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 50618 | free | 0 | 0 | 2024-12-03 |
+| [Number Lookup: Who is calling?](https://apps.apple.com/ae/app/id1463138162) | ae | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 585 | free | 0 | 0 | 2023-11-01 |
 | [葡萄小說-小說連載閱讀](https://apps.apple.com/tw/app/id1467149505) | tw | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 636 | free | 0 | 0 | 2021-12-30 |
 | [Weather Perfect - BOM Radar](https://apps.apple.com/au/app/id1479831730) | au | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 728 | free | 0 | 0 | 2022-10-12 |
 | [Live Sport Channels](https://apps.apple.com/gb/app/id1483886821) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1800 | 4.99 GBP | 0 | 0 | 2019-11-13 |
@@ -1486,14 +1482,18 @@
 | [Weather Plus: Radar & Forecast](https://apps.apple.com/gb/app/id1594543444) | gb | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1176 | free | 0 | 0 | 2024-04-17 |
 | [Tryg vei til lappen](https://apps.apple.com/no/app/id1626060430) | no | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 949 | free | 0 | 0 | 2023-11-28 |
 | [linkit Q&A - by sendit](https://apps.apple.com/us/app/id1630555603) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 13588 | — | 0 | 0 | 2024-07-29 |
+| [QR-Reader für Handys](https://apps.apple.com/ch/app/id1631503426) | ch | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 567 | free | 0 | 0 | 2024-01-19 |
 | [KiddoKitchen](https://apps.apple.com/se/app/id1639168932) | se | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 589 | free | 0 | 0 | 2024-09-26 |
 | [Dog & Puppy, Vet Game for Kids](https://apps.apple.com/ru/app/id1669223306) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 4144 | — | 0 | 0 | 2024-03-27 |
 | [HeartFit - 心拍数モニター](https://apps.apple.com/jp/app/id6443872496) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 620 | free | 0 | 0 | 2022-12-21 |
 | [Дом PRO - банк недвижимости](https://apps.apple.com/ru/app/id6444526551) | ru | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 861 | — | 0 | 0 | 2024-05-28 |
+| [Word Office:Edit Word Document](https://apps.apple.com/sa/app/id6444708069) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1449 | free | 0 | 0 | 2024-08-15 |
 | [Wellbeing - メンタルヘルスとヘルスケア](https://apps.apple.com/jp/app/id6450890954) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 630 | free | 0 | 0 | 2024-08-20 |
 | [Health Care-健康的な生活と心](https://apps.apple.com/jp/app/id6451237931) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1781 | free | 0 | 0 | 2023-07-21 |
 | [Super Voice - AI Covers Maker](https://apps.apple.com/us/app/id6466155978) | us | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1626 | — | 0 | 0 | 2023-12-17 |
+| [Health Planner & Tracker](https://apps.apple.com/sa/app/id6471674773) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 872 | free | 0 | 0 | 2024-05-15 |
 | [Harmoni - 健康と睡眠](https://apps.apple.com/jp/app/id6474233032) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2097 | free | 0 | 0 | 2024-02-04 |
+| [GTA San Andreas Cheats & Codes](https://apps.apple.com/sa/app/id6477397098) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1025 | free | 0 | 0 | 2024-12-19 |
 | [Daily Health - 健康管理とルーティーン](https://apps.apple.com/jp/app/id6478650062) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 604 | free | 0 | 0 | 2024-09-12 |
 | [Easy Cleaner: 写真削除・メモリをクリーンアップ](https://apps.apple.com/jp/app/id6738570954) | jp | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 2710 | free | 0 | 0 | 2025-01-10 |
 | [Ease - Body & Mental Health](https://apps.apple.com/sa/app/id6740797755) | sa | Версия ≥18 мес | NO_RECENT_EVIDENCE | — | — | 1435 | free | 0 | 0 | 2025-02-28 |

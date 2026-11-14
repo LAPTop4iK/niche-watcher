@@ -4,8 +4,8 @@
 
 | Категория | Гео | n | Старые версии ≥500 оценок | Активность | Слабый сигнал | Нет свежих сигналов | Неизвестно | Рейтинг <4 при ≥1000 оценок |
 |---|---|---|---|---|---|---|---|---|
-| widgets_watch | us | 196 | 33 | 13 | 8 | 12 | 0 | 1 |
-| diy_home | us | 243 | 28 | 11 | 4 | 12 | 1 | 2 |
+| widgets_watch | us | 196 | 33 | 13 | 9 | 11 | 0 | 1 |
+| diy_home | us | 243 | 28 | 11 | 5 | 12 | 0 | 2 |
 | finance_tools | us | 307 | 16 | 11 | 1 | 4 | 0 | 0 |
 | music_practice | us | 165 | 16 | 9 | 2 | 5 | 0 | 0 |
 | photo_video_utils | us | 233 | 18 | 9 | 2 | 7 | 0 | 4 |
@@ -20,11 +20,11 @@
 | fitness_calc | us | 174 | 14 | 5 | 2 | 7 | 0 | 0 |
 | aviation_marine | us | 248 | 8 | 5 | 1 | 2 | 0 | 1 |
 | parenting | us | 184 | 10 | 5 | 1 | 4 | 0 | 0 |
+| books_media | ru | 71 | 19 | 4 | 3 | 12 | 0 | 1 |
+| ai_tools | us | 244 | 8 | 4 | 2 | 2 | 0 | 2 |
 | widgets_watch | jp | 94 | 10 | 4 | 2 | 4 | 0 | 0 |
 | ai_identifiers | us | 307 | 5 | 4 | 1 | 0 | 0 | 1 |
 | hunting_fishing | us | 146 | 8 | 4 | 1 | 3 | 0 | 1 |
-| books_media | ru | 71 | 19 | 3 | 4 | 12 | 0 | 1 |
-| ai_tools | us | 244 | 8 | 3 | 3 | 2 | 0 | 2 |
 | boardgames | us | 142 | 8 | 3 | 2 | 3 | 0 | 1 |
 | diy_home | ru | 97 | 14 | 3 | 2 | 9 | 0 | 2 |
 | driving_ed | us | 199 | 9 | 3 | 2 | 4 | 0 | 0 |
@@ -39,13 +39,14 @@
 | music_practice | ru | 77 | 4 | 2 | 2 | 0 | 0 | 0 |
 | pet_care | us | 206 | 8 | 2 | 2 | 4 | 0 | 0 |
 | religious | jp | 99 | 7 | 2 | 2 | 3 | 0 | 0 |
+| widgets_watch | ru | 226 | 12 | 2 | 2 | 8 | 0 | 5 |
 | aviation_marine | au | 247 | 5 | 2 | 1 | 2 | 0 | 0 |
 | cooking | us | 268 | 6 | 2 | 1 | 3 | 0 | 0 |
 | fitness_calc | jp | 135 | 6 | 2 | 1 | 3 | 0 | 0 |
 | hunting_fishing | gb | 163 | 5 | 2 | 1 | 2 | 0 | 0 |
 | parenting | fr | 119 | 4 | 2 | 1 | 1 | 0 | 0 |
 | religious | ru | 89 | 5 | 2 | 1 | 2 | 0 | 0 |
-| widgets_watch | ru | 226 | 12 | 2 | 1 | 9 | 0 | 5 |
+| ai_identifiers | hk | 380 | 4 | 2 | 0 | 2 | 0 | 0 |
 | auto | jp | 181 | 2 | 2 | 0 | 0 | 0 | 3 |
 | aviation_marine | fr | 252 | 2 | 2 | 0 | 0 | 0 | 0 |
 | boardgames | gb | 142 | 2 | 2 | 0 | 0 | 0 | 0 |
@@ -60,6 +61,7 @@
 | music_practice | fr | 101 | 4 | 2 | 0 | 2 | 0 | 0 |
 | travel_utils | au | 234 | 2 | 2 | 0 | 0 | 0 | 0 |
 | widgets_watch | au | 201 | 12 | 2 | 0 | 10 | 0 | 0 |
+| finance_tools | ca | 316 | 6 | 1 | 2 | 3 | 0 | 0 |
 | finance_tools | sa | 183 | 9 | 1 | 2 | 6 | 0 | 1 |
 | music_practice | ca | 165 | 7 | 1 | 2 | 4 | 0 | 2 |
 | parenting | ru | 83 | 4 | 1 | 2 | 1 | 0 | 0 |
@@ -70,14 +72,13 @@
 | cooking | tw | 54 | 2 | 1 | 1 | 0 | 0 | 0 |
 | diy_home | de | 74 | 3 | 1 | 1 | 1 | 0 | 0 |
 | driving_ed | fr | 253 | 4 | 1 | 1 | 2 | 0 | 1 |
-| finance_tools | ca | 316 | 6 | 1 | 1 | 4 | 0 | 0 |
 | finance_tools | de | 161 | 4 | 1 | 1 | 2 | 0 | 0 |
 | finance_tools | ru | 66 | 4 | 1 | 1 | 2 | 0 | 1 |
+| logistics_freight | tw | 269 | 4 | 1 | 1 | 2 | 0 | 1 |
 | photo_video_utils | ru | 94 | 11 | 1 | 1 | 9 | 0 | 0 |
 | travel_utils | gb | 228 | 3 | 1 | 1 | 1 | 0 | 0 |
-| widgets_watch | fr | 241 | 14 | 1 | 1 | 11 | 1 | 2 |
+| widgets_watch | fr | 241 | 14 | 1 | 1 | 12 | 0 | 2 |
 | ai_identifiers | gb | 318 | 3 | 1 | 0 | 2 | 0 | 0 |
-| ai_identifiers | hk | 380 | 4 | 1 | 0 | 3 | 0 | 0 |
 | ai_tools | hk | 292 | 2 | 1 | 0 | 1 | 0 | 1 |
 | ai_tools | jp | 91 | 1 | 1 | 0 | 0 | 0 | 1 |
 | ai_tools | nl | 308 | 1 | 1 | 0 | 0 | 0 | 2 |
@@ -99,8 +100,7 @@
 | boardgames | nl | 205 | 1 | 1 | 0 | 0 | 0 | 0 |
 | boardgames | no | 211 | 1 | 1 | 0 | 0 | 0 | 0 |
 | boardgames | se | 214 | 1 | 1 | 0 | 0 | 0 | 0 |
+| books_media | ae | 162 | 1 | 1 | 0 | 0 | 0 | 0 |
 | books_media | de | 86 | 1 | 1 | 0 | 0 | 0 | 1 |
 | books_media | fr | 188 | 1 | 1 | 0 | 0 | 0 | 1 |
 | cooking | ru | 46 | 7 | 1 | 0 | 6 | 0 | 1 |
-| diy_home | au | 259 | 9 | 1 | 0 | 8 | 0 | 0 |
-| driving_ed | at | 70 | 1 | 1 | 0 | 0 | 0 | 1 |

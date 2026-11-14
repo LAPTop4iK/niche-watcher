@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-11-14T14:24:18.130252+00:00",
+  "computed_at": "2026-11-14T15:50:02.487346+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 102728,
@@ -19,16 +19,16 @@
   "freshness_days": 14,
   "review_coverage": {
     "metadata_fresh": 11305,
-    "rss_missing": 8845,
-    "rss_usable": 2419,
+    "rss_missing": 8843,
+    "rss_usable": 2423,
     "rss_recent_capped": 37,
-    "rss_with_review_versions": 2333,
-    "rss_with_review_ids": 2333,
+    "rss_with_review_versions": 2339,
+    "rss_with_review_ids": 2339,
     "rss_empty": 18,
-    "rss_empty_unconfirmed": 23,
+    "rss_empty_unconfirmed": 21,
     "eligible": 11305,
     "metadata_not_fresh": 0,
-    "rss_not_usable": 8886,
+    "rss_not_usable": 8882,
     "rss_error": 0,
     "rss_stale": 0,
     "rss_unknown": 0
@@ -61,17 +61,17 @@
       "0-49|unknown|free": 9,
       "0-49|unknown|unknown": 2
     },
-    "checked_at_least_once": 2982,
-    "rss_usable_now": 2719,
+    "checked_at_least_once": 2984,
+    "rss_usable_now": 2723,
     "history": {
-      "samples": 8424,
-      "apps": 3015,
+      "samples": 9889,
+      "apps": 3048,
       "first": "2026-10-31T19:03:59Z",
-      "last": "2026-11-14T14:22:27Z",
+      "last": "2026-11-14T15:46:58Z",
       "origins": {
         "frozen-study": 5,
         "legacy-cache": 2322,
-        "live-fetch": 6097
+        "live-fetch": 7562
       }
     },
     "raw_capture": "Opt-in local archive only; complete HTTP bodies are not persisted by CI",
@@ -88,9 +88,9 @@
     "version_unknown": 38
   },
   "alive_paths": {
-    "rss": 271,
-    "rss+velocity": 131,
-    "velocity": 79
+    "rss": 300,
+    "rss+velocity": 137,
+    "velocity": 73
   },
   "queue_funnel": {
     "stale": {
@@ -102,12 +102,12 @@
       "apps": 605
     },
     "alive": {
-      "records": 247,
-      "apps": 201
+      "records": 253,
+      "apps": 206
     },
     "top10": {
-      "records": 95,
-      "apps": 79
+      "records": 97,
+      "apps": 81
     },
     "title_match": {
       "records": 45,
