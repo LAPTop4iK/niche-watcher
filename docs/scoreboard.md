@@ -65,6 +65,7 @@
 | auto | ca | 292 | 5 | 1 | 1 | 3 | 0 | 1 |
 | aviation_marine | ca | 247 | 3 | 1 | 1 | 1 | 0 | 0 |
 | aviation_marine | gb | 251 | 4 | 1 | 1 | 2 | 0 | 0 |
+| aviation_marine | se | 87 | 3 | 1 | 1 | 1 | 0 | 1 |
 | books_media | us | 128 | 2 | 1 | 1 | 0 | 0 | 0 |
 | diy_home | de | 68 | 3 | 1 | 1 | 1 | 0 | 0 |
 | driving_ed | fr | 82 | 4 | 1 | 1 | 2 | 0 | 0 |
@@ -81,12 +82,12 @@
 | ai_tools | hk | 86 | 1 | 1 | 0 | 0 | 0 | 1 |
 | ai_tools | jp | 93 | 1 | 1 | 0 | 0 | 0 | 1 |
 | ai_tools | ru | 80 | 1 | 1 | 0 | 0 | 0 | 1 |
+| ai_tools | sg | 230 | 1 | 1 | 0 | 0 | 0 | 1 |
 | ai_tools | tw | 91 | 2 | 1 | 0 | 1 | 0 | 1 |
 | auto | fr | 137 | 3 | 1 | 0 | 2 | 0 | 0 |
 | auto | nl | 126 | 2 | 1 | 0 | 1 | 0 | 3 |
 | auto | tw | 129 | 2 | 1 | 0 | 1 | 0 | 1 |
-| aviation_marine | dk | 56 | 1 | 1 | 0 | 0 | 0 | 0 |
-| aviation_marine | nz | 248 | 2 | 1 | 0 | 1 | 0 | 0 |
+| aviation_marine | nz | 245 | 2 | 1 | 0 | 1 | 0 | 0 |
 | aviation_marine | tw | 88 | 2 | 1 | 0 | 1 | 0 | 3 |
 | boardgames | ca | 146 | 2 | 1 | 0 | 1 | 0 | 0 |
 | boardgames | gb | 141 | 1 | 1 | 0 | 0 | 0 | 0 |
@@ -102,5 +103,4 @@
 | driving_ed | sa | 77 | 7 | 1 | 0 | 6 | 0 | 3 |
 | finance_tools | au | 320 | 2 | 1 | 0 | 1 | 0 | 1 |
 | finance_tools | fr | 142 | 4 | 1 | 0 | 3 | 0 | 0 |
-| fitness_calc | au | 176 | 1 | 1 | 0 | 0 | 0 | 0 |
-| fitness_calc | fr | 94 | 2 | 1 | 0 | 1 | 0 | 0 |
+| finance_tools | nz | 324 | 2 | 1 | 0 | 1 | 0 | 0 |
