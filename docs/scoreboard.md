@@ -34,7 +34,7 @@
 | fitness_calc | ru | 52 | 6 | 3 | 0 | 3 | 0 | 0 |
 | hunting_fishing | us | 154 | 7 | 3 | 0 | 4 | 0 | 0 |
 | parenting | us | 182 | 9 | 2 | 3 | 4 | 0 | 0 |
-| religious | sa | 179 | 8 | 2 | 3 | 3 | 0 | 2 |
+| religious | sa | 181 | 7 | 2 | 3 | 2 | 0 | 1 |
 | widgets_watch | gb | 194 | 16 | 2 | 3 | 11 | 0 | 1 |
 | boardgames | us | 143 | 7 | 2 | 2 | 3 | 0 | 1 |
 | music_practice | ru | 77 | 4 | 2 | 2 | 0 | 0 | 0 |
@@ -51,6 +51,7 @@
 | construction | ru | 83 | 3 | 2 | 0 | 1 | 0 | 0 |
 | cooking | tw | 55 | 2 | 2 | 0 | 0 | 0 | 0 |
 | driving_ed | de | 66 | 2 | 2 | 0 | 0 | 0 | 1 |
+| finance_tools | sa | 184 | 8 | 2 | 0 | 6 | 0 | 1 |
 | hunting_fishing | au | 146 | 3 | 2 | 0 | 1 | 0 | 0 |
 | hunting_fishing | fr | 66 | 2 | 2 | 0 | 0 | 0 | 0 |
 | music_practice | de | 110 | 8 | 2 | 0 | 6 | 0 | 1 |
@@ -70,7 +71,6 @@
 | driving_ed | fr | 82 | 4 | 1 | 1 | 2 | 0 | 0 |
 | finance_tools | jp | 196 | 7 | 1 | 1 | 4 | 1 | 0 |
 | finance_tools | ru | 66 | 4 | 1 | 1 | 2 | 0 | 1 |
-| finance_tools | sa | 183 | 9 | 1 | 1 | 7 | 0 | 1 |
 | logistics_freight | tw | 84 | 4 | 1 | 1 | 2 | 0 | 0 |
 | music_practice | au | 168 | 4 | 1 | 1 | 2 | 0 | 0 |
 | parenting | fr | 114 | 3 | 1 | 1 | 1 | 0 | 0 |
@@ -97,8 +97,8 @@
 | cooking | ru | 46 | 7 | 1 | 0 | 6 | 0 | 1 |
 | diy_home | jp | 106 | 2 | 1 | 0 | 1 | 0 | 1 |
 | driving_ed | at | 68 | 1 | 1 | 0 | 0 | 0 | 1 |
-| driving_ed | il | 62 | 6 | 1 | 0 | 5 | 0 | 0 |
-| driving_ed | sa | 77 | 7 | 1 | 0 | 6 | 0 | 3 |
+| driving_ed | il | 61 | 6 | 1 | 0 | 5 | 0 | 0 |
+| driving_ed | sa | 78 | 5 | 1 | 0 | 4 | 0 | 3 |
 | finance_tools | au | 324 | 2 | 1 | 0 | 1 | 0 | 1 |
 | finance_tools | fr | 142 | 4 | 1 | 0 | 3 | 0 | 0 |
 | finance_tools | nz | 324 | 2 | 1 | 0 | 1 | 0 | 0 |

@@ -32,12 +32,12 @@
 | at | segeln app | 47 | **6** | [NV Charts GPS Navigation AIS](https://apps.apple.com/at/app/id659569095) |
 | ch | maschenzähler | 47 | **7** | [Purlaine – Reihenzähler](https://apps.apple.com/ch/app/id6822807661) |
 | au | coffee ratio calculator | 47 | **7** | [Simple Coffee Ratio](https://apps.apple.com/au/app/id6448894766) |
+| ae | كروشيه | 46 | **7** | [Cozyarn: Crochet Patterns](https://apps.apple.com/ae/app/id6756036357) |
 | nz | score keeper | 49 | **11** | [Smart Score Counter](https://apps.apple.com/nz/app/id6757673361) |
 | ie | pet health tracker | 44 | **6** | [Pet Health Tracker: Cat-a-log](https://apps.apple.com/ie/app/id6792299436) |
 | au | pallet calculator | 41 | **3** | [Pallet Loading Calculator](https://apps.apple.com/au/app/id1662595725) |
 | sg | garden planner | 42 | **5** | [Garden Planner : Bedleaf](https://apps.apple.com/sg/app/id6813985665) |
 | nz | mileage tracker | 41 | **4** | [mileage logbook : car tracker](https://apps.apple.com/nz/app/id1667087622) |
 | nz | guitar tuner | 45 | **8** | [Guitar Tuner · Ukulele, Chords](https://apps.apple.com/nz/app/id6822882860) |
+| il | טלפרומפטר | 42 | **5** | [Teleprompter & Video Prompter](https://apps.apple.com/il/app/id6814874296) |
 | ie | pet health tracker | 48 | **11** | [Pet Health Tracker - Pawport](https://apps.apple.com/ie/app/id6760215207) |
-| ie | pet health tracker | 45 | **8** | [Pet Health Tracker: PetSage AI](https://apps.apple.com/ie/app/id6760587505) |
-| ie | mushroom identifier | 48 | **11** | [Mushroom Identifier: AI](https://apps.apple.com/ie/app/id6751898534) |
