@@ -1,6 +1,6 @@
 # Demand Report — свежая активность, не доказательство платежей
 
-Метод activity-v5. Пересчёт 2026-11-19T20:25:02Z. Кандидатов: 1354.
+Метод activity-v5. Пересчёт 2026-11-19T20:55:50Z. Кандидатов: 1354.
 
 ALIVE: 462 · WEAK: 173 · UNKNOWN: 61 · NO_RECENT_EVIDENCE: 658
 
@@ -402,7 +402,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ru | [Kot - Narzędzie Sieciowe](https://apps.apple.com/ru/app/id6738271363) | 7,651 | — | 2026-09-15T16:43:18+00:00 | 2 |
 | jp | [all-in メモ](https://apps.apple.com/jp/app/id302724213) | 1,658 | +8.5 | 2026-10-15T01:34:43+00:00 | 1 |
 | us | [RECalc Mortgage Calculator](https://apps.apple.com/us/app/id382009228) | 2,844 | +34.2 | 2026-10-02T14:06:43+00:00 | 1 |
-| us | [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | 10,044 | +115.4 | 2026-08-21T20:49:42+00:00 | 1 |
 | us | [Baby Feeding Log](https://apps.apple.com/us/app/id412360317) | 2,913 | +12.8 | 2026-10-07T14:24:28+00:00 | 1 |
 | tw | [日期計算機 - 時間、天數計算機](https://apps.apple.com/tw/app/id552798167) | 2,787 | +25.6 | 2026-10-22T16:22:42+00:00 | 1 |
 | de | [Währungsrechner ·](https://apps.apple.com/de/app/id628148586) | 4,254 | +50.4 | 2026-08-26T08:34:40+00:00 | 1 |
@@ -437,6 +436,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Word Office:Edit Word Document](https://apps.apple.com/gb/app/id6444708069) | 2,498 | +42.7 | 2026-10-16T22:08:41+00:00 | 1 |
 | sg | [Winkit - AI Video Enhancer](https://apps.apple.com/sg/app/id6476969086) | 2,425 | +38.3 | 2026-10-10T07:23:33+00:00 | 1 |
 | us | [Dog Whistler:Whistle & Clicker](https://apps.apple.com/us/app/id306614060) | 2,007 | +22.2 | 2026-06-07T17:19:45+00:00 | 0 |
+| us | [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | 10,044 | +115.4 | 2026-08-21T20:49:42+00:00 | 0 |
 | de | [Team Shake](https://apps.apple.com/de/app/id390812953) | 1,352 | +12.8 | 2024-12-01T13:13:34+00:00 | 0 |
 | us | [Hunting Calendar, Solunar](https://apps.apple.com/us/app/id414675976) | 5,986 | +47.0 | 2024-01-25T21:48:29+00:00 | 0 |
 | gb | [Converter-Universal Conversion](https://apps.apple.com/gb/app/id423521445) | 1,371 | +23.2 | 2025-08-14T15:13:00+00:00 | 0 |

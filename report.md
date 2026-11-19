@@ -1,6 +1,6 @@
 # Кандидаты для исследования
 
-Метод activity-v5. Дата 2026-11-19T20:25:12+00:00. Всего 1382 app×country. Это не список прибыльных ниш.
+Метод activity-v5. Дата 2026-11-19T20:56:05+00:00. Всего 1382 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
@@ -224,8 +224,8 @@
 | [癒しの猫育成ゲーム](https://apps.apple.com/jp/app/id1627845460) | jp | Версия ≥18 мес | ALIVE | 38 | 犬 しつけ | 2917 | free | 3 | 0 | 2022-08-27 |
 | [英語翻訳機-英文翻訳と英語勉強翻訳辞書](https://apps.apple.com/jp/app/id1455452760) | jp | Версия ≥18 мес | ALIVE | 39 | 単位変換 | 30680 | free | 9 | 1 | 2019-03-14 |
 | [バーコードスキャナ QRコードリーダー QRジェネレータ](https://apps.apple.com/jp/app/id1048473097) | jp | Версия ≥18 мес | ALIVE | 39 | コード 検索 | 8824 | free | 2 | 1 | 2023-02-13 |
-| [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | us | Версия ≥18 мес | ALIVE | 39 | hourly paycheck calculator | 10044 | free | 1 | 1 | 2024-09-24 |
 | [Ultimate Cat Simulator](https://apps.apple.com/us/app/id1063194374) | us | Версия ≥18 мес | ALIVE | 39 | cat feeding reminder | 2458 | 0.99 USD | 6 | 0 | 2023-03-08 |
+| [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | us | Версия ≥18 мес | ALIVE | 39 | hourly paycheck calculator | 10044 | free | 0 | 0 | 2024-09-24 |
 | [Decibel Meter Master](https://apps.apple.com/au/app/id1281344281) | au | Версия ≥18 мес | ALIVE | 39 | level tool | 710 | free | 0 | 0 | 2018-03-22 |
 | [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/hk/app/id1362989622) | hk | Версия ≥18 мес | ALIVE | 40 | 語音轉文字 | 3138 | free | 2 | 0 | 2022-11-21 |
 | [紫薇斗數-紫微斗數八字算命](https://apps.apple.com/hk/app/id1363362566) | hk | Версия ≥18 мес | ALIVE | 40 | 寶寶睡眠 | 2142 | free | 1 | — | 2021-09-26 |
