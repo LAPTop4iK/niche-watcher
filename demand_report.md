@@ -1,15 +1,15 @@
 # Demand Report — свежая активность, не доказательство платежей
 
-Метод activity-v5. Пересчёт 2026-11-19T16:36:17Z. Кандидатов: 1367.
+Метод activity-v5. Пересчёт 2026-11-19T17:31:09Z. Кандидатов: 1369.
 
-ALIVE: 485 · WEAK: 197 · UNKNOWN: 11 · NO_RECENT_EVIDENCE: 674
+ALIVE: 481 · WEAK: 197 · UNKNOWN: 12 · NO_RECENT_EVIDENCE: 679
 
 ALIVE: ≥2 свежих письменных отзыва за 90 дней либо прирост оценок сверх шума счётчика за ≥7 дней в одной стране. Пути разной чувствительности: сравнивать периоды только внутри одного. Это эвристика для исследования. NO_RECENT_EVIDENCE означает отсутствие свежего сигнала у приложения, а не смерть ниши. Ошибки и пустой RSS = UNKNOWN.
 
 RSS ограничен 5 страницами по 50 отзывов: R90 — нижняя граница; ни отзывы, ни возраст версии не подтверждают выручку, поломку продукта или возможность перехватить пользователей.
 
 
-## Есть свежая активность (485)
+## Есть свежая активность (481)
 
 | Гео | Приложение | Оценок | Vel/30д | Посл. отзыв | R90 ≥ |
 |---|---|---|---|---|---|
@@ -49,12 +49,12 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | de | [Onleihe](https://apps.apple.com/de/app/id422554835) | 7,647 | +0.0 | 2026-11-12T14:09:51+00:00 | 31 |
 | tw | [HiTi相片立可得](https://apps.apple.com/tw/app/id584293738) | 1,108 | +17.1 | 2026-11-11T00:49:11+00:00 | 31 |
 | us | [AdBlock](https://apps.apple.com/us/app/id691121579) | 34,170 | +0.0 | 2026-11-10T10:33:02+00:00 | 31 |
-| ru | [Creepy Neighbor: Детектор Лжи](https://apps.apple.com/ru/app/id1212159586) | 8,858 | +158.3 | 2026-11-11T15:59:22+00:00 | 31 |
+| ru | [Creepy Neighbor: Детектор Лжи](https://apps.apple.com/ru/app/id1212159586) | 8,892 | +145.2 | 2026-11-11T15:59:22+00:00 | 31 |
 | us | [Piano for iPhone](https://apps.apple.com/us/app/id531263194) | 13,633 | +0.0 | 2026-11-12T23:23:57+00:00 | 29 |
 | no | [My Love - Relationship Counter](https://apps.apple.com/no/app/id409609608) | 5,470 | +312.3 | 2026-11-10T21:37:14+00:00 | 28 |
 | us | [PCGS CoinFacts Coin Collecting](https://apps.apple.com/us/app/id469265590) | 67,612 | +418.8 | 2026-11-16T00:14:05+00:00 | 28 |
 | us | [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | 30,061 | +200.0 | 2026-11-09T10:35:29+00:00 | 28 |
-| ru | [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/id854413387) | 8,273 | +0.0 | 2026-11-13T05:46:16+00:00 | 28 |
+| ru | [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/id854413387) | 8,284 | +47.0 | 2026-11-13T05:46:16+00:00 | 28 |
 | us | [Dingtone: Phone Calls + Texts](https://apps.apple.com/us/app/id588937297) | 30,641 | +0.0 | 2026-11-07T04:11:33+00:00 | 27 |
 | us | [Word Alert](https://apps.apple.com/us/app/id416931540) | 34,993 | +0.0 | 2026-11-13T14:55:32+00:00 | 26 |
 | sa | [Koora App](https://apps.apple.com/sa/app/id1143050799) | 2,283 | +42.8 | 2026-11-05T21:17:12+00:00 | 26 |
@@ -63,7 +63,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Steam Chat](https://apps.apple.com/us/app/id1434890245) | 1,602 | +17.1 | 2026-11-07T14:52:38+00:00 | 24 |
 | us | [Watch Faces by MobyFox](https://apps.apple.com/us/app/id1441479443) | 12,519 | +0.0 | 2026-11-11T15:23:49+00:00 | 24 |
 | us | [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/us/app/id1164088669) | 10,025 | +94.1 | 2026-11-09T15:33:26+00:00 | 20 |
-| ru | [Water Time Tracker Reminder](https://apps.apple.com/ru/app/id1208916325) | 38,319 | +0.0 | 2026-11-12T12:37:22+00:00 | 20 |
+| ru | [Water Time Tracker Reminder](https://apps.apple.com/ru/app/id1208916325) | 38,332 | +0.0 | 2026-11-12T12:37:22+00:00 | 20 |
 | ru | [Фоксфорд: Учебник и тренажер](https://apps.apple.com/ru/app/id1667476549) | 11,476 | — | 2026-11-04T11:19:57+00:00 | 20 |
 | us | [Scrivener](https://apps.apple.com/us/app/id972387337) | 2,623 | +0.0 | 2026-11-10T23:23:19+00:00 | 19 |
 | se | [InfoMentor Hub](https://apps.apple.com/se/app/id1388965431) | 1,032 | +0.0 | 2026-11-11T16:06:06+00:00 | 18 |
@@ -102,7 +102,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | jp | [禁煙ウォッチ - 禁煙時間が一目でわかる](https://apps.apple.com/jp/app/id936600869) | 16,812 | +184.0 | 2026-11-08T23:28:40+00:00 | 10 |
 | jp | [ウラアカ](https://apps.apple.com/jp/app/id1225470581) | 4,876 | +0.0 | 2026-11-08T06:32:42+00:00 | 10 |
 | us | [Necrophonic](https://apps.apple.com/us/app/id1396698319) | 557 | +12.8 | 2026-11-05T21:26:29+00:00 | 10 |
-| kr | [셀핏 - 운동기록, 운동일지](https://apps.apple.com/kr/app/id1532158186) | 1,026 | +0.0 | 2026-11-10T06:14:55+00:00 | 10 |
+| kr | [셀핏 - 운동기록, 운동일지](https://apps.apple.com/kr/app/id1532158186) | 1,027 | +0.0 | 2026-11-10T06:14:55+00:00 | 10 |
 | us | [Fuelly: MPG & Service Tracker](https://apps.apple.com/us/app/id295905460) | 29,758 | +0.0 | 2026-10-19T02:57:03+00:00 | 9 |
 | us | [SkyView®](https://apps.apple.com/us/app/id404990064) | 7,715 | +0.0 | 2026-11-09T13:42:46+00:00 | 9 |
 | ru | [CityGuide GPS-навигатор](https://apps.apple.com/ru/app/id432887661) | 986 | — | 2026-10-28T04:45:02+00:00 | 9 |
@@ -135,6 +135,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | jp | [カウンタ](https://apps.apple.com/jp/app/id986800297) | 4,024 | +59.9 | 2026-10-23T10:54:00+00:00 | 7 |
 | au | [Jamzone - Sing & Play Along](https://apps.apple.com/au/app/id998972770) | 1,219 | +29.9 | 2026-11-11T09:08:10+00:00 | 7 |
 | fr | [Jamzone - Sing & Play Along](https://apps.apple.com/fr/app/id998972770) | 834 | — | 2026-11-05T12:18:32+00:00 | 7 |
+| kr | [주차의 달인 4](https://apps.apple.com/kr/app/id1021117809) | 3,569 | — | 2026-11-17T08:25:53+00:00 | 7 |
 | nl | [Gboard: het Google-toetsenbord](https://apps.apple.com/nl/app/id1091700242) | 1,383 | — | 2026-11-03T11:50:51+00:00 | 7 |
 | jp | [フォトスキャン by Google フォト](https://apps.apple.com/jp/app/id1165525994) | 52,007 | +0.0 | 2026-11-01T04:12:07+00:00 | 7 |
 | jp | [友達さがし即会恋活にも使える出会いSNS](https://apps.apple.com/jp/app/id1227357195) | 7,402 | +0.0 | 2026-11-06T15:47:11+00:00 | 7 |
@@ -149,11 +150,11 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Yokee Karaoke – Start Singing](https://apps.apple.com/gb/app/id547109049) | 13,099 | — | 2026-11-12T20:12:11+00:00 | 6 |
 | gb | [Pokellector: Card Collector](https://apps.apple.com/gb/app/id600580227) | 670 | — | 2026-11-08T11:30:20+00:00 | 6 |
 | de | [Beer With Me](https://apps.apple.com/de/app/id618435598) | 3,398 | +0.0 | 2026-10-31T18:30:37+00:00 | 6 |
-| ru | [Православная Библия + Молитвослов](https://apps.apple.com/ru/app/id690412477) | 6,748 | +51.3 | 2026-11-11T07:17:15+00:00 | 6 |
+| ru | [Православная Библия + Молитвослов](https://apps.apple.com/ru/app/id690412477) | 6,763 | +64.1 | 2026-11-11T07:17:15+00:00 | 6 |
 | au | [The Island Castaway®](https://apps.apple.com/au/app/id767324855) | 1,897 | +0.0 | 2026-10-19T15:07:45+00:00 | 6 |
 | se | [Piano - Sånger och Noter](https://apps.apple.com/se/app/id890740165) | 5,793 | +0.0 | 2026-10-23T19:35:10+00:00 | 6 |
 | ru | [Pandora Pro](https://apps.apple.com/ru/app/id949493852) | 5,483 | — | 2026-11-01T06:50:42+00:00 | 6 |
-| kr | [순산해요](https://apps.apple.com/kr/app/id1056415219) | 9,371 | +94.1 | 2026-10-07T01:03:11+00:00 | 6 |
+| kr | [순산해요](https://apps.apple.com/kr/app/id1056415219) | 9,393 | +94.0 | 2026-10-07T01:03:11+00:00 | 6 |
 | us | [Ultimate Cat Simulator](https://apps.apple.com/us/app/id1063194374) | 2,458 | +0.0 | 2026-10-20T04:52:47+00:00 | 6 |
 | ru | [Speedometer∞](https://apps.apple.com/ru/app/id1114655078) | 9,195 | — | 2026-11-11T14:09:46+00:00 | 6 |
 | jp | [JRA競馬予想情報アプリ](https://apps.apple.com/jp/app/id1235945352) | 585 | +38.5 | 2026-11-08T00:07:44+00:00 | 6 |
@@ -214,7 +215,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | de | [Klavier - E Piano Spiele](https://apps.apple.com/de/app/id890740165) | 16,032 | +76.9 | 2026-11-09T14:24:55+00:00 | 4 |
 | us | [10th Step](https://apps.apple.com/us/app/id899778010) | 3,127 | +0.0 | 2026-10-21T04:54:14+00:00 | 4 |
 | us | [Thinkrolls 1: Puzzles for Kids](https://apps.apple.com/us/app/id917176209) | 16,185 | — | 2026-09-10T00:32:32+00:00 | 4 |
-| ru | [Ежедневник Твое Время заметки](https://apps.apple.com/ru/app/id958956475) | 16,267 | +0.0 | 2026-10-19T18:34:04+00:00 | 4 |
+| ru | [Ежедневник Твое Время заметки](https://apps.apple.com/ru/app/id958956475) | 16,268 | +0.0 | 2026-10-19T18:34:04+00:00 | 4 |
 | de | [WINDRIVE Theorietrainer](https://apps.apple.com/de/app/id965819535) | 1,252 | +17.1 | 2026-10-21T20:12:21+00:00 | 4 |
 | fr | [La Bible Louis Segond + Audio](https://apps.apple.com/fr/app/id974966252) | 11,826 | +107.3 | 2026-10-07T20:33:44+00:00 | 4 |
 | de | [Jamzone - Sing & Play Along](https://apps.apple.com/de/app/id998972770) | 596 | +38.5 | 2026-11-04T13:06:01+00:00 | 4 |
@@ -280,7 +281,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [iplant - Plant identifier](https://apps.apple.com/gb/app/id1372113110) | 3,999 | +0.0 | 2026-09-03T08:22:32+00:00 | 3 |
 | jp | [LINNÉ LENS - かざすAI図鑑](https://apps.apple.com/jp/app/id1406300416) | 3,698 | +0.0 | 2026-09-23T10:24:38+00:00 | 3 |
 | sa | [Hisn – حصن](https://apps.apple.com/sa/app/id1434346841) | 8,561 | +47.1 | 2026-11-12T20:01:51+00:00 | 3 |
-| ru | [Прогноз клева - ТипТоп Рыбалка](https://apps.apple.com/ru/app/id1436864578) | 4,295 | +21.4 | 2026-09-19T10:43:07+00:00 | 3 |
+| ru | [Прогноз клева - ТипТоп Рыбалка](https://apps.apple.com/ru/app/id1436864578) | 4,298 | +0.0 | 2026-09-19T10:43:07+00:00 | 3 |
 | jp | [ペットのおうち](https://apps.apple.com/jp/app/id1453486794) | 1,891 | +38.5 | 2026-10-22T01:28:18+00:00 | 3 |
 | ru | [Я коплю](https://apps.apple.com/ru/app/id1456550827) | 1,781 | — | 2026-09-19T08:03:38+00:00 | 3 |
 | de | [Zähler≜](https://apps.apple.com/de/app/id1459852771) | 1,326 | +0.0 | 2026-10-18T12:33:10+00:00 | 3 |
@@ -288,7 +289,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Find My Phone, Friends&Family](https://apps.apple.com/us/app/id1486315142) | 1,632 | +0.0 | 2026-11-09T21:17:31+00:00 | 3 |
 | ru | [Ислам. Викторина](https://apps.apple.com/ru/app/id1500640541) | 2,828 | — | 2026-11-06T20:55:35+00:00 | 3 |
 | us | [Watch Faces Gallery +](https://apps.apple.com/us/app/id1535111069) | 21,014 | +188.0 | 2026-11-13T07:16:44+00:00 | 3 |
-| ru | [BigVoicy - Текст в речь](https://apps.apple.com/ru/app/id1547082859) | 853 | +0.0 | 2026-10-05T18:49:09+00:00 | 3 |
+| ru | [BigVoicy - Текст в речь](https://apps.apple.com/ru/app/id1547082859) | 852 | +0.0 | 2026-10-05T18:49:09+00:00 | 3 |
 | sa | [الشفيع](https://apps.apple.com/sa/app/id1580263554) | 959 | +0.0 | 2026-09-03T23:48:26+00:00 | 3 |
 | jp | [癒しの猫育成ゲーム](https://apps.apple.com/jp/app/id1627845460) | 2,917 | — | 2026-09-27T11:21:15+00:00 | 3 |
 | gb | [MyTheme - App Icons & Widgets](https://apps.apple.com/gb/app/id6443498135) | 4,654 | +21.4 | 2026-10-15T23:21:48+00:00 | 3 |
@@ -306,7 +307,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Russ Bray Darts Scorer](https://apps.apple.com/gb/app/id377453562) | 1,442 | +0.0 | 2026-11-01T15:43:16+00:00 | 2 |
 | us | [Stack the States®](https://apps.apple.com/us/app/id381342267) | 2,191 | +0.0 | 2026-10-20T20:16:00+00:00 | 2 |
 | sa | [تطبيق القرآن الكريم](https://apps.apple.com/sa/app/id385990290) | 9,102 | +0.0 | 2026-11-01T16:54:40+00:00 | 2 |
-| us | [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | 10,044 | +115.4 | 2026-08-21T20:49:42+00:00 | 2 |
 | jp | [Best Swing - スイングチェック](https://apps.apple.com/jp/app/id396029913) | 786 | +0.0 | 2026-10-28T04:21:38+00:00 | 2 |
 | jp | [ギターコード(ベーシック)](https://apps.apple.com/jp/app/id400172082) | 785 | +0.0 | 2026-10-23T23:20:49+00:00 | 2 |
 | us | [Face & Body Photo editor](https://apps.apple.com/us/app/id414469628) | 1,793 | +12.8 | 2026-11-03T02:36:50+00:00 | 2 |
@@ -316,7 +316,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [Simple Roster](https://apps.apple.com/au/app/id476294253) | 5,544 | +19.9 | 2026-10-30T10:08:16+00:00 | 2 |
 | us | [RhymeZone](https://apps.apple.com/us/app/id493493802) | 986 | +0.0 | 2026-09-20T14:23:25+00:00 | 2 |
 | gb | [myDuaa: Fortress of a Muslim / حصن المسلم](https://apps.apple.com/gb/app/id509443220) | 700 | +0.0 | 2026-11-01T20:07:32+00:00 | 2 |
-| ru | [iBouquiniste](https://apps.apple.com/ru/app/id527050465) | 2,670 | +0.0 | 2026-10-20T19:01:00+00:00 | 2 |
+| ru | [iBouquiniste](https://apps.apple.com/ru/app/id527050465) | 2,669 | +0.0 | 2026-10-20T19:01:00+00:00 | 2 |
 | fr | [Métronome - Tempo et Rythme](https://apps.apple.com/fr/app/id559798172) | 2,609 | +0.0 | 2026-10-18T00:30:26+00:00 | 2 |
 | us | [Toca Hair Salon 2](https://apps.apple.com/us/app/id569632660) | 952 | +0.0 | 2026-11-11T22:07:16+00:00 | 2 |
 | us | [Telepromptr](https://apps.apple.com/us/app/id572401027) | 1,361 | +0.0 | 2026-10-06T13:17:30+00:00 | 2 |
@@ -337,7 +337,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [SKRWT](https://apps.apple.com/us/app/id834248867) | 593 | — | 2026-09-13T23:51:46+00:00 | 2 |
 | de | [القاعدة النورانية](https://apps.apple.com/de/app/id841875549) | 719 | +12.8 | 2026-11-12T04:33:40+00:00 | 2 |
 | sa | [القاعدة النورانية](https://apps.apple.com/sa/app/id841875549) | 2,445 | +0.0 | 2026-11-01T04:42:46+00:00 | 2 |
-| ru | [Smart Driver - Антирадар ГИБДД](https://apps.apple.com/ru/app/id866980876) | 6,816 | +0.0 | 2026-11-03T04:17:35+00:00 | 2 |
+| ru | [Smart Driver - Антирадар ГИБДД](https://apps.apple.com/ru/app/id866980876) | 6,814 | +0.0 | 2026-11-03T04:17:35+00:00 | 2 |
 | us | [Simply Auto: Mileage Tracker](https://apps.apple.com/us/app/id893278325) | 873 | +0.0 | 2026-09-24T15:20:35+00:00 | 2 |
 | jp | [時玉 かわいい音楽目覚まし時計と受験勉強タイマー](https://apps.apple.com/jp/app/id923821507) | 1,788 | +0.0 | 2026-10-11T08:41:36+00:00 | 2 |
 | ru | [DjVu Reader - Просмотрщик для djvu и pdf форматов](https://apps.apple.com/ru/app/id972086526) | 2,471 | — | 2026-11-01T06:39:05+00:00 | 2 |
@@ -345,7 +345,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ru | [Погода: Россия XL  PRO](https://apps.apple.com/ru/app/id990822895) | 2,052 | — | 2026-11-13T06:33:53+00:00 | 2 |
 | us | [US Dept. of Justice NSOPW App](https://apps.apple.com/us/app/id991873782) | 3,270 | +59.9 | 2026-10-22T15:44:59+00:00 | 2 |
 | us | [Russian Translator Offline](https://apps.apple.com/us/app/id992809772) | 3,013 | +0.0 | 2026-10-27T23:52:08+00:00 | 2 |
-| ru | [KyBook 2 Читалка для книг](https://apps.apple.com/ru/app/id1018584176) | 18,676 | +0.0 | 2026-09-25T12:43:44+00:00 | 2 |
+| ru | [KyBook 2 Читалка для книг](https://apps.apple.com/ru/app/id1018584176) | 18,678 | +0.0 | 2026-09-25T12:43:44+00:00 | 2 |
 | us | [Tao Te Ching Lao Tzu](https://apps.apple.com/us/app/id1026211399) | 1,911 | +0.0 | 2026-10-15T13:54:17+00:00 | 2 |
 | ae | [QR Code & Barcode Scanner ・](https://apps.apple.com/ae/app/id1048473097) | 6,789 | +81.3 | 2026-10-20T05:01:13+00:00 | 2 |
 | jp | [バーコードスキャナ QRコードリーダー QRジェネレータ](https://apps.apple.com/jp/app/id1048473097) | 8,824 | +132.5 | 2026-10-28T12:01:58+00:00 | 2 |
@@ -373,11 +373,12 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | sa | [لعبة اختبار الحماقة](https://apps.apple.com/sa/app/id1324069028) | 1,923 | +34.1 | 2026-10-10T21:21:34+00:00 | 2 |
 | jp | [KeyTuner - 楽器チューナー](https://apps.apple.com/jp/app/id1328712601) | 1,876 | +38.5 | 2026-09-25T07:37:44+00:00 | 2 |
 | us | [Box Breathe](https://apps.apple.com/us/app/id1347597121) | 508 | +0.0 | 2026-09-16T18:56:03+00:00 | 2 |
-| ru | [KyBook 3 Читалка для книг](https://apps.apple.com/ru/app/id1348198785) | 8,133 | +0.0 | 2026-09-09T14:25:19+00:00 | 2 |
+| ru | [KyBook 3 Читалка для книг](https://apps.apple.com/ru/app/id1348198785) | 8,140 | +0.0 | 2026-09-09T14:25:19+00:00 | 2 |
 | hk | [全能掃描翻譯-图片转文字提取翻译器](https://apps.apple.com/hk/app/id1362989622) | 3,138 | +0.0 | 2026-10-24T10:34:32+00:00 | 2 |
 | tw | [紫薇斗數-紫微斗數八字算命](https://apps.apple.com/tw/app/id1363362566) | 3,685 | +0.0 | 2026-10-02T15:50:19+00:00 | 2 |
 | ca | [Simply Metronome](https://apps.apple.com/ca/app/id1364398984) | 532 | +17.1 | 2026-11-08T14:23:10+00:00 | 2 |
-| ru | [Имена для ребенка русские](https://apps.apple.com/ru/app/id1371573370) | 3,771 | +0.0 | 2026-10-17T14:46:48+00:00 | 2 |
+| ru | [Имена для ребенка русские](https://apps.apple.com/ru/app/id1371573370) | 3,772 | +0.0 | 2026-10-17T14:46:48+00:00 | 2 |
+| ru | [Учет калорий и воды](https://apps.apple.com/ru/app/id1383374984) | 12,912 | +0.0 | 2026-11-15T07:27:52+00:00 | 2 |
 | hk | [花卉识别-拍图像识别花花草草](https://apps.apple.com/hk/app/id1385981273) | 681 | +0.0 | 2026-11-12T06:44:04+00:00 | 2 |
 | us | [GtrLib Chords](https://apps.apple.com/us/app/id1394407011) | 1,361 | +17.1 | 2026-11-12T16:07:18+00:00 | 2 |
 | us | [Amortization Loan Calculator](https://apps.apple.com/us/app/id1436857045) | 1,169 | +0.0 | 2026-10-21T19:05:08+00:00 | 2 |
@@ -386,7 +387,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | de | [Gefahren Lernen](https://apps.apple.com/de/app/id1453526117) | 1,585 | +0.0 | 2026-09-27T19:43:59+00:00 | 2 |
 | jp | [Cahoのふわふわでんたく](https://apps.apple.com/jp/app/id1454489628) | 740 | +0.0 | 2026-11-09T09:16:04+00:00 | 2 |
 | us | [Tally Counter - Tap Tool](https://apps.apple.com/us/app/id1470846305) | 566 | +12.8 | 2026-10-24T19:51:02+00:00 | 2 |
-| ru | [текст и надписи на фото](https://apps.apple.com/ru/app/id1471555670) | 7,110 | +38.5 | 2026-09-16T18:40:30+00:00 | 2 |
+| ru | [текст и надписи на фото](https://apps.apple.com/ru/app/id1471555670) | 7,118 | +34.2 | 2026-09-16T18:40:30+00:00 | 2 |
 | ca | [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/ca/app/id1474069627) | 1,772 | +21.4 | 2026-11-10T16:13:34+00:00 | 2 |
 | gb | [Ridmik Keyboard](https://apps.apple.com/gb/app/id1475531051) | 609 | +0.0 | 2026-09-25T10:40:45+00:00 | 2 |
 | tw | [武財神-求好運免出門](https://apps.apple.com/tw/app/id1477019338) | 1,676 | +0.0 | 2026-09-15T17:27:24+00:00 | 2 |
@@ -396,7 +397,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | tw | [翻頁時鐘-無廣告](https://apps.apple.com/tw/app/id1522242289) | 615 | +0.0 | 2026-10-25T17:41:29+00:00 | 2 |
 | sa | [Convert Image To PDF tools](https://apps.apple.com/sa/app/id1527885081) | 30,478 | +0.0 | 2026-10-12T13:07:59+00:00 | 2 |
 | us | [Aesthetic Kit: Photo Widget](https://apps.apple.com/us/app/id1542205620) | 4,256 | +0.0 | 2026-10-26T05:21:46+00:00 | 2 |
-| ru | [Антирадар еСтрелка](https://apps.apple.com/ru/app/id1544057500) | 2,465 | +0.0 | 2026-10-02T07:33:24+00:00 | 2 |
+| ru | [Антирадар еСтрелка](https://apps.apple.com/ru/app/id1544057500) | 2,469 | +17.1 | 2026-10-02T07:33:24+00:00 | 2 |
 | ru | [Funny emoji - custom my emojis](https://apps.apple.com/ru/app/id1546703508) | 1,828 | — | 2026-11-06T19:05:28+00:00 | 2 |
 | sa | [Cheat Codes #](https://apps.apple.com/sa/app/id1559394917) | 3,189 | +47.0 | 2026-11-01T17:44:32+00:00 | 2 |
 | jp | [写真 コラージュ - フォトフレーム 枠加工](https://apps.apple.com/jp/app/id1561459727) | 14,584 | +325.1 | 2026-11-12T07:46:15+00:00 | 2 |
@@ -419,6 +420,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | sa | [BalanceMe-Health AI&Self Care](https://apps.apple.com/sa/app/id6469513178) | 951 | +0.0 | 2026-09-29T12:15:28+00:00 | 2 |
 | ru | [Kot - Narzędzie Sieciowe](https://apps.apple.com/ru/app/id6738271363) | 7,651 | — | 2026-09-15T16:43:18+00:00 | 2 |
 | us | [RECalc Mortgage Calculator](https://apps.apple.com/us/app/id382009228) | 2,844 | +34.2 | 2026-10-02T14:06:43+00:00 | 1 |
+| us | [SurePayroll for Employees](https://apps.apple.com/us/app/id389154416) | 10,044 | +115.4 | 2026-08-21T20:49:42+00:00 | 1 |
 | us | [Baby Feeding Log](https://apps.apple.com/us/app/id412360317) | 2,913 | +12.8 | 2026-10-07T14:24:28+00:00 | 1 |
 | tw | [日期計算機 - 時間、天數計算機](https://apps.apple.com/tw/app/id552798167) | 2,787 | +25.6 | 2026-10-22T16:22:42+00:00 | 1 |
 | de | [Währungsrechner ·](https://apps.apple.com/de/app/id628148586) | 4,254 | +51.3 | 2026-08-26T08:34:40+00:00 | 1 |
@@ -426,7 +428,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | se | [Opus Bilprovning](https://apps.apple.com/se/app/id889050808) | 4,055 | +29.9 | 2026-11-11T15:23:29+00:00 | 1 |
 | us | [Counter+.](https://apps.apple.com/us/app/id986800297) | 1,466 | +38.5 | 2026-10-07T20:27:23+00:00 | 1 |
 | us | [New York DMV NY - Permit test](https://apps.apple.com/us/app/id990738781) | 6,718 | +47.0 | 2026-10-05T23:29:10+00:00 | 1 |
-| ru | [Намаз в дом — namazvdom.com](https://apps.apple.com/ru/app/id1081876482) | 16,071 | +81.3 | 2026-10-19T16:36:04+00:00 | 1 |
 | fr | [Scores](https://apps.apple.com/fr/app/id1198765923) | 2,028 | +12.9 | 2026-09-03T18:02:29+00:00 | 1 |
 | us | [Sibley Birds 2nd Edition](https://apps.apple.com/us/app/id1236011411) | 2,903 | +22.8 | 2026-08-31T19:29:46+00:00 | 1 |
 | de | [Melodista Music Offline Player](https://apps.apple.com/de/app/id1293175325) | 2,946 | +29.9 | 2026-11-02T21:58:41+00:00 | 1 |
@@ -460,22 +461,19 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [Thai Dictionary - Dict Box](https://apps.apple.com/au/app/id492630056) | 1,359 | +7.5 | 2025-09-15T10:32:32+00:00 | 0 |
 | us | [Thai Dictionary - Dict Box](https://apps.apple.com/us/app/id492630056) | 3,562 | +21.4 | 2026-07-25T16:18:46+00:00 | 0 |
 | jp | [mm-jp Dict](https://apps.apple.com/jp/app/id619608765) | 967 | +12.8 | 2026-04-27T14:59:17+00:00 | 0 |
-| ru | [ИМТ калькулятор](https://apps.apple.com/ru/app/id653425957) | 728 | +21.4 | 2026-02-02T13:12:40+00:00 | 0 |
 | no | [Livetiming Medley Reader 2012](https://apps.apple.com/no/app/id723681023) | 1,321 | +12.8 | 2026-02-06T14:18:50+00:00 | 0 |
 | nl | [Borstvoeding Kolven Dagboek](https://apps.apple.com/nl/app/id838762361) | 974 | +12.9 | 2026-08-08T13:41:13+00:00 | 0 |
 | us | [Calculator%.](https://apps.apple.com/us/app/id980603448) | 4,220 | +25.6 | 2026-05-20T22:57:00+00:00 | 0 |
 | us | [Video Teleprompter Lite](https://apps.apple.com/us/app/id1031079244) | 2,179 | +25.6 | 2026-08-17T16:29:40+00:00 | 0 |
 | us | [ASA's Sailing Challenge](https://apps.apple.com/us/app/id1109489005) | 2,957 | +21.4 | 2026-05-23T01:45:31+00:00 | 0 |
-| ru | [Совместимый калькулятор любви](https://apps.apple.com/ru/app/id1120278276) | 2,074 | +25.7 | 2026-05-13T13:03:36+00:00 | 0 |
+| ru | [Совместимый калькулятор любви](https://apps.apple.com/ru/app/id1120278276) | 2,079 | +21.4 | 2026-05-13T13:03:36+00:00 | 0 |
 | se | [Vädret: Sverige](https://apps.apple.com/se/app/id1158929797) | 2,437 | +17.0 | 2026-03-29T09:27:18+00:00 | 0 |
 | jp | [Solar Walk 2 Ads+: 宇宙観察 3D](https://apps.apple.com/jp/app/id1180311047) | 1,652 | +38.5 | 2026-01-23T20:34:21+00:00 | 0 |
 | au | [Decibel Meter Master](https://apps.apple.com/au/app/id1281344281) | 710 | +5.6 | 2026-05-09T02:24:59+00:00 | 0 |
-| ru | [ИПОТЕКА: расчет платежа](https://apps.apple.com/ru/app/id1288072079) | 6,017 | +29.9 | 2026-08-13T11:50:30+00:00 | 0 |
 | tw | [植物识别-拍照识花草树木](https://apps.apple.com/tw/app/id1295026074) | 4,653 | +25.6 | 2026-06-20T01:43:27+00:00 | 0 |
 | us | [Shot On Watermark for Photos](https://apps.apple.com/us/app/id1345946431) | 900 | +12.8 | 2025-03-03T17:17:37+00:00 | 0 |
 | tw | [節拍器 - 高精度](https://apps.apple.com/tw/app/id1383322176) | 925 | +12.8 | 2026-01-30T21:43:22+00:00 | 0 |
 | tw | [計算機HD - 專為iPad設計的標準計算機](https://apps.apple.com/tw/app/id1415030684) | 4,727 | +25.6 | 2026-06-01T14:07:46+00:00 | 0 |
-| ru | [Guitar Tuner - GuitarTunio](https://apps.apple.com/ru/app/id1448661287) | 756 | +17.1 | 2026-06-30T09:23:04+00:00 | 0 |
 | fr | [Compteur≜](https://apps.apple.com/fr/app/id1459852771) | 1,719 | +51.5 | 2026-07-17T20:30:18+00:00 | 0 |
 | nz | [Hours Tracker: Time Calculator](https://apps.apple.com/nz/app/id1468092377) | 952 | +29.8 | 2026-06-15T19:34:27+00:00 | 0 |
 | no | [Jotun Colourpin](https://apps.apple.com/no/app/id1475649636) | 589 | +12.8 | 2025-05-22T05:59:04+00:00 | 0 |
@@ -487,11 +485,9 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Gravel Calculator Plus](https://apps.apple.com/us/app/id1504997190) | 2,083 | +42.7 | 2026-05-11T21:33:35+00:00 | 0 |
 | us | [Soil Calculator Plus](https://apps.apple.com/us/app/id1505408033) | 868 | +21.4 | 2026-05-09T17:47:52+00:00 | 0 |
 | ca | [Watch Faces Gallery +](https://apps.apple.com/ca/app/id1535111069) | 773 | +12.8 | 2025-07-20T00:49:39+00:00 | 0 |
-| ru | [Рецепты от шеф-повара](https://apps.apple.com/ru/app/id1563061767) | 1,141 | +7.6 | — | — |
 | fr | [Devis facile!](https://apps.apple.com/fr/app/id1586993321) | 1,137 | +12.9 | 2025-02-20T20:13:13+00:00 | 0 |
 | sa | [Wizzy-chat](https://apps.apple.com/sa/app/id1600397472) | 896 | +21.4 | 2023-06-28T23:54:38+00:00 | 0 |
 | jp | [MIYABI(ミヤビ)ひとりでも！友達さがし/合コンアプリ](https://apps.apple.com/jp/app/id1628617204) | 8,139 | +149.7 | — | — |
-| ru | [Темы Айфон・Иконки Виджеты Обои](https://apps.apple.com/ru/app/id1631090445) | 2,430 | +42.8 | 2026-07-10T11:06:30+00:00 | 0 |
 | jp | [ルクスメーター 照度計](https://apps.apple.com/jp/app/id1638732220) | 517 | +12.8 | 2026-05-16T08:34:27+00:00 | 0 |
 | au | [Authenticator App ｀](https://apps.apple.com/au/app/id6448976943) | 2,655 | +55.6 | 2026-08-20T00:01:04+00:00 | 0 |
 | jp | [BalanceMe-健康AIと自己管理](https://apps.apple.com/jp/app/id6469513178) | 535 | +12.8 | 2026-08-16T10:51:00+00:00 | 0 |
@@ -529,7 +525,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [California DMV Test](https://apps.apple.com/us/app/id430216643) | 2,093 | +0.0 | 2026-09-30T13:12:42+00:00 | 1 |
 | us | [Calculator for iPad!](https://apps.apple.com/us/app/id443932954) | 61,196 | +0.0 | 2026-09-02T11:54:13+00:00 | 1 |
 | fr | [Méditation & Musique Relaxante](https://apps.apple.com/fr/app/id448207365) | 2,548 | +0.0 | 2026-10-27T01:30:16+00:00 | 1 |
-| ru | [Книга вслух. Аудиокниги](https://apps.apple.com/ru/app/id449818886) | 3,024 | +0.0 | 2026-10-21T11:07:58+00:00 | 1 |
+| ru | [Книга вслух. Аудиокниги](https://apps.apple.com/ru/app/id449818886) | 3,025 | +0.0 | 2026-10-21T11:07:58+00:00 | 1 |
 | au | [Convert Any Unit](https://apps.apple.com/au/app/id465180749) | 1,053 | +0.0 | 2026-11-01T01:55:14+00:00 | 1 |
 | gb | [Convert Any Unit](https://apps.apple.com/gb/app/id465180749) | 792 | +0.0 | 2026-08-23T07:28:19+00:00 | 1 |
 | us | [Checkbook Pro](https://apps.apple.com/us/app/id469331073) | 989 | +0.0 | 2026-10-29T05:43:08+00:00 | 1 |
@@ -542,7 +538,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Pocket Earth PRO](https://apps.apple.com/us/app/id481679745) | 1,827 | — | 2026-08-31T17:42:36+00:00 | 1 |
 | us | [Sol: Sun Clock](https://apps.apple.com/us/app/id491537291) | 900 | +0.0 | 2026-09-30T22:06:41+00:00 | 1 |
 | ae | [Piano](https://apps.apple.com/ae/app/id531263194) | 1,029 | +0.0 | 2026-10-17T10:54:12+00:00 | 1 |
-| ru | [iBouquiniste Lite](https://apps.apple.com/ru/app/id533413623) | 1,104 | +0.0 | 2026-10-04T09:16:13+00:00 | 1 |
+| ru | [iBouquiniste Lite](https://apps.apple.com/ru/app/id533413623) | 1,103 | +0.0 | 2026-10-04T09:16:13+00:00 | 1 |
 | us | [Lapse It Pro](https://apps.apple.com/us/app/id536495161) | 1,192 | +0.0 | 2026-10-17T00:56:04+00:00 | 1 |
 | us | [Direct Remote for DIRECTV](https://apps.apple.com/us/app/id550039208) | 1,149 | +0.0 | 2026-10-13T23:02:07+00:00 | 1 |
 | gb | [Date and Time Calculator](https://apps.apple.com/gb/app/id552798167) | 832 | +0.0 | 2026-09-25T14:43:16+00:00 | 1 |
@@ -556,7 +552,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | sa | [Hadith حديث‎ - Sahih Bukhari](https://apps.apple.com/sa/app/id578547597) | 655 | +0.0 | 2026-09-25T10:06:23+00:00 | 1 |
 | us | [CARROT To-Do](https://apps.apple.com/us/app/id591840203) | 1,055 | — | 2026-11-01T13:29:42+00:00 | 1 |
 | jp | [Perfect Video  Pro](https://apps.apple.com/jp/app/id598542901) | 2,236 | +0.0 | 2026-10-12T13:56:07+00:00 | 1 |
-| ru | [Антирадар Стрелка](https://apps.apple.com/ru/app/id606147643) | 12,831 | +0.0 | 2026-11-01T14:54:21+00:00 | 1 |
+| ru | [Антирадар Стрелка](https://apps.apple.com/ru/app/id606147643) | 12,836 | +0.0 | 2026-11-01T14:54:21+00:00 | 1 |
 | de | [YoWindow Wetter](https://apps.apple.com/de/app/id606193225) | 685 | +0.0 | 2026-10-26T11:24:16+00:00 | 1 |
 | au | [Tunable – Tuner & Metronome](https://apps.apple.com/au/app/id608540795) | 797 | +0.0 | 2026-10-01T05:01:55+00:00 | 1 |
 | ru | [Полиглот 16 Английский язык](https://apps.apple.com/ru/app/id631311961) | 3,535 | — | 2026-09-18T12:51:35+00:00 | 1 |
@@ -571,14 +567,14 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | sa | [حساب الخصم](https://apps.apple.com/sa/app/id699689993) | 1,727 | +0.0 | 2026-10-28T14:55:50+00:00 | 1 |
 | ru | [Ayah - Quran App](https://apps.apple.com/ru/app/id706037876) | 2,779 | — | 2026-09-11T11:50:54+00:00 | 1 |
 | au | [Tide Times Australia Plus](https://apps.apple.com/au/app/id794278731) | 657 | +0.0 | 2026-10-16T03:25:12+00:00 | 1 |
-| ru | [Скорочтение IQ: ePub,fb2,DjVu](https://apps.apple.com/ru/app/id829759808) | 4,229 | +0.0 | 2026-10-16T22:34:06+00:00 | 1 |
+| ru | [Скорочтение IQ: ePub,fb2,DjVu](https://apps.apple.com/ru/app/id829759808) | 4,230 | +0.0 | 2026-10-16T22:34:06+00:00 | 1 |
 | us | [Builder's Helper MAX](https://apps.apple.com/us/app/id835030206) | 1,757 | +0.0 | 2026-10-07T03:59:47+00:00 | 1 |
 | ru | [Грудное вскармливание Дневник](https://apps.apple.com/ru/app/id838762361) | 661 | +0.0 | 2026-09-23T16:48:21+00:00 | 1 |
 | us | [Feed Baby - Breastfeeding App](https://apps.apple.com/us/app/id868611155) | 11,108 | +0.0 | 2026-10-09T00:04:48+00:00 | 1 |
 | jp | [計算機+ 式が見える電卓 Pro](https://apps.apple.com/jp/app/id875152413) | 3,463 | +0.0 | 2026-08-26T13:55:10+00:00 | 1 |
 | gb | [Evernote Scannable](https://apps.apple.com/gb/app/id883338188) | 63,905 | +0.0 | 2026-10-29T22:45:49+00:00 | 1 |
 | ca | [Carrier Landings](https://apps.apple.com/ca/app/id890389212) | 787 | +0.0 | 2026-10-03T18:30:05+00:00 | 1 |
-| ru | [Пианино - Песни без лимита](https://apps.apple.com/ru/app/id890740165) | 15,903 | +0.0 | 2026-10-30T09:01:04+00:00 | 1 |
+| ru | [Пианино - Песни без лимита](https://apps.apple.com/ru/app/id890740165) | 15,905 | +0.0 | 2026-10-30T09:01:04+00:00 | 1 |
 | gb | [Train Times UK Journey Planner](https://apps.apple.com/gb/app/id891379341) | 3,585 | +0.0 | 2026-09-27T08:39:49+00:00 | 1 |
 | jp | [FitPort](https://apps.apple.com/jp/app/id914413310) | 1,329 | +0.0 | 2026-08-23T20:08:05+00:00 | 1 |
 | gb | [PromptSmart Lite Teleprompter](https://apps.apple.com/gb/app/id922921003) | 652 | +0.0 | 2026-09-02T13:18:57+00:00 | 1 |
@@ -602,7 +598,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | se | [Väder Sverige XL  PRO](https://apps.apple.com/se/app/id990822895) | 1,498 | +0.0 | 2026-11-02T09:15:50+00:00 | 1 |
 | tw | [雲章書法字典](https://apps.apple.com/tw/app/id992025786) | 3,101 | — | 2026-09-21T13:13:25+00:00 | 1 |
 | us | [Density Altitude +](https://apps.apple.com/us/app/id994402197) | 1,045 | +0.0 | 2026-11-07T14:16:40+00:00 | 1 |
-| ru | [Говорящий Буба 2](https://apps.apple.com/ru/app/id1017699263) | 529 | — | 2026-09-27T09:27:58+00:00 | 1 |
 | au | [Solar Walk 2 – Spacecraft 3D](https://apps.apple.com/au/app/id1031155880) | 557 | — | 2026-11-02T08:25:11+00:00 | 1 |
 | us | [Solar Walk 2 - View Planets 3D](https://apps.apple.com/us/app/id1031155880) | 7,316 | — | 2026-09-16T18:39:53+00:00 | 1 |
 | jp | [まぐろ職人（通）](https://apps.apple.com/jp/app/id1032464015) | 658 | +0.0 | 2026-09-06T01:43:29+00:00 | 1 |
@@ -613,6 +608,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | jp | [Myパチ収支表 パチンコ・パチスロ収支管理](https://apps.apple.com/jp/app/id1061147337) | 1,199 | +0.0 | 2026-08-29T21:01:34+00:00 | 1 |
 | us | [FERS+CSRS Retirement Estimator](https://apps.apple.com/us/app/id1062625944) | 1,419 | +0.0 | 2026-09-19T11:15:47+00:00 | 1 |
 | gb | [Tide Times UK : British Tides](https://apps.apple.com/gb/app/id1072585547) | 6,058 | +0.0 | 2026-10-15T08:54:46+00:00 | 1 |
+| ru | [Намаз в дом — namazvdom.com](https://apps.apple.com/ru/app/id1081876482) | 16,076 | +0.0 | 2026-10-19T16:36:04+00:00 | 1 |
 | de | [BHV Hundeführerschein](https://apps.apple.com/de/app/id1094314155) | 686 | +0.0 | 2026-11-02T18:07:58+00:00 | 1 |
 | us | [Partly Sunny](https://apps.apple.com/us/app/id1104486867) | 778 | +0.0 | 2026-09-28T00:50:20+00:00 | 1 |
 | de | [Das Kassenbuch](https://apps.apple.com/de/app/id1125952051) | 928 | +0.0 | 2026-10-27T12:42:15+00:00 | 1 |
@@ -624,7 +620,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Draw Painter Drawing on Papers](https://apps.apple.com/gb/app/id1178520500) | 2,729 | +0.0 | 2026-10-26T23:29:28+00:00 | 1 |
 | de | [invoiz - Rechnung schreiben](https://apps.apple.com/de/app/id1181968938) | 1,301 | +0.0 | 2026-10-29T22:54:25+00:00 | 1 |
 | ru | [Аккорды - Песенник для гитары](https://apps.apple.com/ru/app/id1182214432) | 773 | +0.0 | 2026-10-21T18:46:51+00:00 | 1 |
-| kr | [주행의 달인 2](https://apps.apple.com/kr/app/id1189828120) | 1,463 | — | 2026-10-03T03:23:55+00:00 | 1 |
+| kr | [주행의 달인 2](https://apps.apple.com/kr/app/id1189828120) | 1,464 | +0.0 | 2026-10-03T03:23:55+00:00 | 1 |
 | us | [Bullet Journal Companion](https://apps.apple.com/us/app/id1201419241) | 2,007 | +0.0 | 2026-09-17T23:13:55+00:00 | 1 |
 | us | [Cluesheet Companion](https://apps.apple.com/us/app/id1202159803) | 7,453 | +0.0 | 2026-10-16T00:02:34+00:00 | 1 |
 | de | [Water Time - Wasser Trinken](https://apps.apple.com/de/app/id1208916325) | 1,654 | +0.0 | 2026-11-08T08:13:22+00:00 | 1 |
@@ -641,9 +637,9 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ru | [語音翻譯神器 Instant Voice Translate](https://apps.apple.com/ru/app/id1298384039) | 3,523 | — | 2026-10-13T16:16:04+00:00 | 1 |
 | us | [OBD2 - اكواد اعطال السيارات](https://apps.apple.com/us/app/id1303062771) | 2,675 | +0.0 | 2026-08-23T09:39:38+00:00 | 1 |
 | us | [KeyTuner](https://apps.apple.com/us/app/id1328712601) | 1,814 | +0.0 | 2026-09-16T01:18:10+00:00 | 1 |
+| ru | [Водопровод](https://apps.apple.com/ru/app/id1341680606) | 616 | — | 2026-11-06T03:49:48+00:00 | 1 |
 | ru | [Сборник дуа](https://apps.apple.com/ru/app/id1350908577) | 760 | +0.0 | 2026-10-28T03:14:44+00:00 | 1 |
 | us | [کاتەکانی بانگ](https://apps.apple.com/us/app/id1355479591) | 9,582 | +0.0 | 2026-08-31T10:15:21+00:00 | 1 |
-| ru | [Учет калорий и воды](https://apps.apple.com/ru/app/id1383374984) | 12,909 | +0.0 | 2026-09-15T07:05:30+00:00 | 1 |
 | us | [Talli Baby Tracker Newborn Log](https://apps.apple.com/us/app/id1383601403) | 5,200 | +0.0 | 2026-10-02T14:18:21+00:00 | 1 |
 | us | [FAR AIM](https://apps.apple.com/us/app/id1393760854) | 742 | — | 2026-09-05T19:26:58+00:00 | 1 |
 | us | [Receipt Lens - Expense Tracker](https://apps.apple.com/us/app/id1424280764) | 4,271 | +0.0 | 2026-10-19T10:27:55+00:00 | 1 |
@@ -701,7 +697,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | no | [Umax - Become Hot](https://apps.apple.com/no/app/id6471026798) | 1,204 | +0.0 | 2026-10-10T09:17:25+00:00 | 1 |
 | ru | [ShareMe: Fast File Sharing](https://apps.apple.com/ru/app/id6503259288) | 3,132 | — | 2026-09-04T09:38:13+00:00 | 1 |
 
-## Недостаточно данных (11)
+## Недостаточно данных (12)
 
 | Гео | Приложение | Оценок | Vel/30д | Посл. отзыв | R90 ≥ |
 |---|---|---|---|---|---|
@@ -715,9 +711,10 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | tw | [注音學習卡 PRO](https://apps.apple.com/tw/app/id1528339444) | 1,555 | +0.0 | — | — |
 | sa | [GPS Speedometer: Speed Tracker](https://apps.apple.com/sa/app/id1542016762) | 592 | — | — | — |
 | ae | [Cheat Codes #](https://apps.apple.com/ae/app/id1559394917) | 719 | — | — | — |
+| ru | [Рецепты от шеф-повара](https://apps.apple.com/ru/app/id1563061767) | 1,143 | +0.0 | — | — |
 | il | [Car Driving School Sim 2024](https://apps.apple.com/il/app/id1612666094) | 712 | +0.0 | — | — |
 
-## Нет свежих сигналов (674)
+## Нет свежих сигналов (679)
 
 | Гео | Приложение | Оценок | Vel/30д | Посл. отзыв | R90 ≥ |
 |---|---|---|---|---|---|
@@ -790,14 +787,14 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ca | [Fitness Buddy+ Gym Workout Log](https://apps.apple.com/ca/app/id443646748) | 919 | +0.0 | 2024-12-03T18:16:11+00:00 | 0 |
 | ca | [Calculator.](https://apps.apple.com/ca/app/id443932954) | 7,829 | +0.0 | 2026-03-02T20:20:12+00:00 | 0 |
 | gb | [Calculator++](https://apps.apple.com/gb/app/id443932954) | 6,240 | +0.0 | 2026-04-05T09:56:02+00:00 | 0 |
-| kr | [iPad 용 계산기](https://apps.apple.com/kr/app/id443932954) | 7,948 | +0.0 | 2026-03-15T17:18:53+00:00 | 0 |
-| ru | [Калькулятор++](https://apps.apple.com/ru/app/id443932954) | 6,637 | +0.0 | 2026-03-29T22:06:11+00:00 | 0 |
+| kr | [iPad 용 계산기](https://apps.apple.com/kr/app/id443932954) | 7,951 | +0.0 | 2026-03-15T17:18:53+00:00 | 0 |
+| ru | [Калькулятор++](https://apps.apple.com/ru/app/id443932954) | 6,639 | +0.0 | 2026-03-29T22:06:11+00:00 | 0 |
 | us | [Loan,Mortgage ,Tip Calculator](https://apps.apple.com/us/app/id445575722) | 500 | +0.0 | 2021-04-10T15:06:14+00:00 | 0 |
 | sa | [حفظ القرآن - إصدارة كاملة](https://apps.apple.com/sa/app/id447112173) | 908 | +0.0 | 2026-08-20T18:26:22+00:00 | 0 |
 | sa | [My Sketch - Pencil Sketches](https://apps.apple.com/sa/app/id448162988) | 747 | +0.0 | 2022-02-22T12:13:31+00:00 | 0 |
 | tw | [My Sketch - Pencil Sketches](https://apps.apple.com/tw/app/id448162988) | 659 | +0.0 | 2021-11-29T02:51:53+00:00 | 0 |
 | jp | [瞑想とリラクゼーション音楽PRO](https://apps.apple.com/jp/app/id448200679) | 502 | +0.0 | 2019-10-19T21:52:46+00:00 | 0 |
-| ru | [Лучшие аудиокниги — золотая коллекция: слушай и скачивай аудио книги от Patephone](https://apps.apple.com/ru/app/id449587852) | 1,539 | +0.0 | 2022-03-12T14:14:01+00:00 | 0 |
+| ru | [Лучшие аудиокниги — золотая коллекция: слушай и скачивай аудио книги от Patephone](https://apps.apple.com/ru/app/id449587852) | 1,537 | — | 2022-03-12T14:14:01+00:00 | 0 |
 | ru | [Аудиокниги Слушай в Loudbook](https://apps.apple.com/ru/app/id454170409) | 2,746 | +0.0 | 2026-02-20T18:23:55+00:00 | 0 |
 | ru | [Аудиосказки и Книги на Ночь](https://apps.apple.com/ru/app/id454467894) | 3,867 | — | 2026-05-06T17:41:49+00:00 | 0 |
 | jp | [魚眼レンズ (Fisheye Lens)](https://apps.apple.com/jp/app/id462155908) | 2,192 | — | 2022-06-25T05:10:48+00:00 | 0 |
@@ -812,7 +809,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [Convert Any Unit Lite](https://apps.apple.com/au/app/id478222820) | 5,736 | +0.0 | 2025-12-30T03:41:41+00:00 | 0 |
 | nz | [Convert Any Unit Lite](https://apps.apple.com/nz/app/id478222820) | 1,001 | +0.0 | 2026-03-23T00:22:25+00:00 | 0 |
 | tw | [iMMIG 記帳小秘書](https://apps.apple.com/tw/app/id478289911) | 516 | +0.0 | 2026-07-31T03:47:46+00:00 | 0 |
-| kr | [어썸 캘린더 - 일정관리/체크리스트/노트패드/날씨](https://apps.apple.com/kr/app/id480102733) | 553 | +0.0 | 2026-01-01T05:49:19+00:00 | 0 |
 | au | [Pocket Earth PRO](https://apps.apple.com/au/app/id481679745) | 860 | +0.0 | 2026-05-02T11:18:39+00:00 | 0 |
 | gb | [Pocket Earth PRO](https://apps.apple.com/gb/app/id481679745) | 703 | +0.0 | 2026-07-18T15:22:35+00:00 | 0 |
 | gb | [Next Bus Times London](https://apps.apple.com/gb/app/id482609867) | 950 | +0.0 | 2024-01-31T10:37:36+00:00 | 0 |
@@ -849,7 +845,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | de | [Metronom - Tempo Zähler](https://apps.apple.com/de/app/id559798172) | 1,464 | +0.0 | 2025-11-17T17:10:26+00:00 | 0 |
 | gb | [Metronome - Rhythm & Tap Tempo](https://apps.apple.com/gb/app/id559798172) | 1,567 | +0.0 | 2024-11-26T21:52:31+00:00 | 0 |
 | hk | [節拍器 - 節奏 樂器](https://apps.apple.com/hk/app/id559798172) | 1,910 | +0.0 | 2024-07-08T06:39:45+00:00 | 0 |
-| kr | [메트로놈 - 연습 리듬, 박자 및 템포](https://apps.apple.com/kr/app/id559798172) | 3,696 | +0.0 | 2026-06-20T22:52:29+00:00 | 0 |
+| kr | [메트로놈 - 연습 리듬, 박자 및 템포](https://apps.apple.com/kr/app/id559798172) | 3,694 | +0.0 | 2026-06-20T22:52:29+00:00 | 0 |
 | nl | [Metronoom - Ritme og Tempo](https://apps.apple.com/nl/app/id559798172) | 876 | +0.0 | 2024-04-10T12:45:50+00:00 | 0 |
 | sa | [Metronome - Rhythm & Tap Tempo](https://apps.apple.com/sa/app/id559798172) | 688 | +0.0 | 2021-03-25T09:23:06+00:00 | 0 |
 | tw | [節拍器 - 節奏 樂器](https://apps.apple.com/tw/app/id559798172) | 2,679 | +0.0 | 2023-10-05T11:02:29+00:00 | 0 |
@@ -880,7 +876,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ca | [Converter: Units & Currencies](https://apps.apple.com/ca/app/id611682160) | 2,529 | +0.0 | 2026-05-06T19:36:52+00:00 | 0 |
 | fr | [Convertisseur Lite.](https://apps.apple.com/fr/app/id611682160) | 2,304 | +0.0 | 2026-08-13T11:00:24+00:00 | 0 |
 | ru | [CashSync: Учет расходов](https://apps.apple.com/ru/app/id617849961) | 756 | — | 2025-12-16T08:34:52+00:00 | 0 |
-| ru | [Открой одно фото плюс](https://apps.apple.com/ru/app/id626030085) | 8,412 | +0.0 | 2026-07-29T12:51:03+00:00 | 0 |
+| ru | [Открой одно фото плюс](https://apps.apple.com/ru/app/id626030085) | 8,406 | +0.0 | 2026-07-29T12:51:03+00:00 | 0 |
 | tw | [小票盒 - 認真記帳 精打細算](https://apps.apple.com/tw/app/id627878792) | 7,015 | +0.0 | 2026-08-07T13:36:11+00:00 | 0 |
 | dk | [Slanke App](https://apps.apple.com/dk/app/id628571914) | 2,109 | +0.0 | 2026-08-19T04:25:07+00:00 | 0 |
 | sa | [كلمة في اربع صور](https://apps.apple.com/sa/app/id631528847) | 1,718 | +0.0 | 2026-05-15T00:55:31+00:00 | 0 |
@@ -889,15 +885,16 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ca | [Audiobooks HQ - audio books](https://apps.apple.com/ca/app/id632306630) | 919 | +0.0 | 2025-01-02T23:57:47+00:00 | 0 |
 | gb | [Audiobooks HQ - audio books](https://apps.apple.com/gb/app/id632306630) | 784 | +0.0 | 2024-03-10T06:01:47+00:00 | 0 |
 | ru | [Личные Финансы и Мой Бюджет](https://apps.apple.com/ru/app/id632513433) | 2,391 | — | 2026-07-07T09:27:23+00:00 | 0 |
+| ru | [2 фото 1 слово: угадай слово](https://apps.apple.com/ru/app/id633278399) | 1,461 | +0.0 | 2024-08-11T15:48:29+00:00 | 0 |
 | us | [Baseball Softball Pocket Coach](https://apps.apple.com/us/app/id633644009) | 515 | — | 2026-03-07T15:35:53+00:00 | 0 |
-| ru | [Нумерология и значение фамилии. Твоя дата рождения и совместимость партнеров.](https://apps.apple.com/ru/app/id634380497) | 1,632 | — | 2026-06-07T17:14:14+00:00 | 0 |
 | ru | [Греческий язык с Nemo](https://apps.apple.com/ru/app/id635604239) | 1,232 | — | 2022-01-02T17:02:52+00:00 | 0 |
 | de | [Stimmgerät Lite by Piascore](https://apps.apple.com/de/app/id635828559) | 2,093 | +0.0 | 2026-03-17T19:42:13+00:00 | 0 |
 | hk | [Tuner Lite by Piascore](https://apps.apple.com/hk/app/id635828559) | 512 | +0.0 | 2026-08-02T02:02:09+00:00 | 0 |
 | tw | [Tuner Lite by Piascore](https://apps.apple.com/tw/app/id635828559) | 500 | +0.0 | 2026-05-16T06:11:26+00:00 | 0 |
 | ru | [Mapcam Info - антирадар](https://apps.apple.com/ru/app/id644832729) | 772 | — | 2025-07-01T14:23:26+00:00 | 0 |
 | fr | [Code de la route 2020!](https://apps.apple.com/fr/app/id648812163) | 3,331 | +0.0 | 2023-09-26T19:38:51+00:00 | 0 |
-| ru | [Фото-Фраза](https://apps.apple.com/ru/app/id654768679) | 1,670 | +0.0 | 2025-09-21T15:41:50+00:00 | 0 |
+| ru | [ИМТ калькулятор](https://apps.apple.com/ru/app/id653425957) | 730 | +0.0 | 2026-02-02T13:12:40+00:00 | 0 |
+| ru | [Фото-Фраза](https://apps.apple.com/ru/app/id654768679) | 1,669 | +0.0 | 2025-09-21T15:41:50+00:00 | 0 |
 | fr | [MOON - Current Moon Phase](https://apps.apple.com/fr/app/id660036257) | 735 | +0.0 | 2026-01-18T15:55:42+00:00 | 0 |
 | ru | [MOON - Current Moon Phase](https://apps.apple.com/ru/app/id660036257) | 1,386 | — | 2026-05-02T13:38:11+00:00 | 0 |
 | sa | [MOON - Current Moon Phase](https://apps.apple.com/sa/app/id660036257) | 769 | +0.0 | 2026-07-06T19:38:09+00:00 | 0 |
@@ -936,10 +933,10 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | fr | [Dirt Xtreme](https://apps.apple.com/fr/app/id783588366) | 696 | +0.0 | 2021-05-12T06:40:31+00:00 | 0 |
 | au | [Tide Times QLD Plus](https://apps.apple.com/au/app/id797477241) | 752 | +0.0 | 2025-06-06T23:01:12+00:00 | 0 |
 | ru | [Awesome Weather YoWindow](https://apps.apple.com/ru/app/id799653744) | 3,189 | — | 2026-08-19T11:06:55+00:00 | 0 |
+| ru | [1 Фото: Что за зверь?](https://apps.apple.com/ru/app/id803364308) | 926 | — | 2026-01-13T16:26:37+00:00 | 0 |
 | jp | [タイド＆ウェザー SurfTide7](https://apps.apple.com/jp/app/id804623368) | 4,647 | +0.0 | 2025-10-06T03:27:40+00:00 | 0 |
 | jp | [特殊文字記号 - 半角カナ入力・キーボード](https://apps.apple.com/jp/app/id811850284) | 1,101 | +0.0 | 2024-12-23T22:39:43+00:00 | 0 |
 | us | [Daily Prayer Guide Bible Verse](https://apps.apple.com/us/app/id813142446) | 1,565 | — | 2025-07-07T05:39:00+00:00 | 0 |
-| ru | [История кафе 2](https://apps.apple.com/ru/app/id814656403) | 557 | +0.0 | 2024-12-24T23:23:26+00:00 | 0 |
 | jp | [AnyFont](https://apps.apple.com/jp/app/id821560738) | 6,704 | +0.0 | 2026-06-21T14:29:31+00:00 | 0 |
 | dk | [SvampeGuide](https://apps.apple.com/dk/app/id833888116) | 571 | +0.0 | 2022-10-25T17:03:01+00:00 | 0 |
 | ch | [Stillen App & Baby Tracker](https://apps.apple.com/ch/app/id838762361) | 603 | +0.0 | 2026-06-06T10:58:19+00:00 | 0 |
@@ -975,7 +972,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [Toolbox - Measure Tool Box](https://apps.apple.com/au/app/id933528345) | 1,781 | +0.0 | 2023-12-16T08:50:40+00:00 | 0 |
 | jp | [Pitch - 絶対音感プレイグラウンド](https://apps.apple.com/jp/app/id942373213) | 562 | +0.0 | 2026-08-16T04:46:39+00:00 | 0 |
 | sa | [اختبار الغباء / أثبت أنك عبقري](https://apps.apple.com/sa/app/id942404315) | 1,810 | +0.0 | 2023-11-22T15:08:22+00:00 | 0 |
-| ru | [Skyward](https://apps.apple.com/ru/app/id943273841) | 500 | +0.0 | 2022-08-17T09:46:59+00:00 | 0 |
 | us | [Storm Tracker° Pro](https://apps.apple.com/us/app/id945662966) | 1,060 | +0.0 | 2026-07-10T02:25:16+00:00 | 0 |
 | au | [FishTrack - Charts & Forecasts](https://apps.apple.com/au/app/id952022603) | 1,560 | +0.0 | 2026-07-26T20:38:06+00:00 | 0 |
 | nz | [FishTrack - Charts & Forecasts](https://apps.apple.com/nz/app/id952022603) | 947 | +0.0 | 2025-01-05T02:22:45+00:00 | 0 |
@@ -989,6 +985,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Visibook Appointment Scheduler](https://apps.apple.com/us/app/id961171461) | 852 | +0.0 | 2026-07-16T20:10:03+00:00 | 0 |
 | us | [Compass Heading- Magnetic Digital Direction Finder](https://apps.apple.com/us/app/id963593909) | 779 | +0.0 | 2023-03-12T11:10:21+00:00 | 0 |
 | se | [Thinkrolls 2](https://apps.apple.com/se/app/id968707176) | 1,179 | — | 2026-05-10T06:44:31+00:00 | 0 |
+| ru | [Похудеть! Счетчик калорий](https://apps.apple.com/ru/app/id969787389) | 1,373 | — | 2026-08-14T06:17:09+00:00 | 0 |
 | ru | [Угадай Фото! ~ Игра в слова](https://apps.apple.com/ru/app/id970155050) | 1,472 | +0.0 | 2025-01-03T12:37:32+00:00 | 0 |
 | tw | [漫咖-不只有漫畫](https://apps.apple.com/tw/app/id974639132) | 18,576 | +0.0 | 2026-08-09T13:39:41+00:00 | 0 |
 | us | [Holy Rosary-Scriptural Edition](https://apps.apple.com/us/app/id976855379) | 599 | +0.0 | 2026-04-17T12:22:14+00:00 | 0 |
@@ -1013,16 +1010,16 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [My Puppy Love](https://apps.apple.com/au/app/id992879171) | 1,533 | +0.0 | 2024-12-29T03:58:20+00:00 | 0 |
 | tw | [Phonics foundation - ABC Sound](https://apps.apple.com/tw/app/id994024179) | 693 | +0.0 | 2021-07-12T12:34:11+00:00 | 0 |
 | tw | [蚊子管家 - 无辐射声波防蚊驱蚊](https://apps.apple.com/tw/app/id996317077) | 1,389 | — | 2025-06-01T00:10:31+00:00 | 0 |
-| ru | [Лунный посевной календарь](https://apps.apple.com/ru/app/id996500688) | 935 | +0.0 | 2026-07-07T12:39:45+00:00 | 0 |
+| ru | [Лунный посевной календарь](https://apps.apple.com/ru/app/id996500688) | 934 | +0.0 | 2026-07-07T12:39:45+00:00 | 0 |
 | ch | [WeatherPro Lite](https://apps.apple.com/ch/app/id997728895) | 7,247 | — | 2025-09-05T17:18:28+00:00 | 0 |
 | de | [WeatherPro Lite](https://apps.apple.com/de/app/id997728895) | 30,319 | — | 2026-07-16T20:16:30+00:00 | 0 |
-| kr | [Baby's day](https://apps.apple.com/kr/app/id999252221) | 1,340 | +0.0 | 2024-11-25T22:03:40+00:00 | 0 |
+| kr | [Baby's day](https://apps.apple.com/kr/app/id999252221) | 1,341 | +0.0 | 2024-11-25T22:03:40+00:00 | 0 |
 | ru | [Лабиринт.ру — книжный магазин](https://apps.apple.com/ru/app/id1008650482) | 21,060 | — | 2025-05-19T11:38:47+00:00 | 0 |
 | us | [Wallpaper Fix - Fit your Home & Lock.screen Images with Filters, Frames, Stickers & Many More!](https://apps.apple.com/us/app/id1016302379) | 1,358 | +0.0 | 2023-09-27T06:03:20+00:00 | 0 |
 | il | [نظرية التعلم - תאוריה בערבית](https://apps.apple.com/il/app/id1018875600) | 1,083 | +0.0 | 2025-12-28T14:54:37+00:00 | 0 |
 | us | [GPS Diagnostic: Satellite Test](https://apps.apple.com/us/app/id1020967894) | 555 | +0.0 | 2026-06-20T22:23:26+00:00 | 0 |
 | jp | [社畜してやる！！【放置×シナリオ】](https://apps.apple.com/jp/app/id1022698950) | 1,947 | +0.0 | 2026-06-10T13:08:14+00:00 | 0 |
-| ru | [Курс валют и нефти: Конвертер](https://apps.apple.com/ru/app/id1022760167) | 7,487 | +0.0 | 2025-12-26T14:38:54+00:00 | 0 |
+| ru | [Курс валют и нефти: Конвертер](https://apps.apple.com/ru/app/id1022760167) | 7,488 | +0.0 | 2025-12-26T14:38:54+00:00 | 0 |
 | gb | [Video Teleprompter Lite](https://apps.apple.com/gb/app/id1031079244) | 520 | +0.0 | 2025-04-28T01:46:25+00:00 | 0 |
 | au | [Trade Island](https://apps.apple.com/au/app/id1031509294) | 703 | +0.0 | 2026-01-18T10:16:04+00:00 | 0 |
 | ca | [Trade Island](https://apps.apple.com/ca/app/id1031509294) | 1,844 | +0.0 | 2026-02-04T05:11:43+00:00 | 0 |
@@ -1030,11 +1027,11 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | sa | [Euro Truck Evolution (Sim)](https://apps.apple.com/sa/app/id1049690694) | 1,115 | +0.0 | 2025-10-20T06:22:40+00:00 | 0 |
 | ae | [My Town : Beach Picnic](https://apps.apple.com/ae/app/id1052355709) | 674 | +0.0 | 2020-08-22T17:24:22+00:00 | 0 |
 | sa | [My Town : Beach Picnic](https://apps.apple.com/sa/app/id1052355709) | 3,237 | +0.0 | 2020-04-30T01:00:56+00:00 | 0 |
-| ru | [Слушай аудиокниги.](https://apps.apple.com/ru/app/id1053906305) | 25,837 | +0.0 | 2026-04-22T18:46:58+00:00 | 0 |
-| ru | [PhotoMix: коллаж репост сетка](https://apps.apple.com/ru/app/id1055010795) | 7,843 | +0.0 | 2025-08-11T18:40:16+00:00 | 0 |
+| ru | [Слушай аудиокниги.](https://apps.apple.com/ru/app/id1053906305) | 25,836 | +0.0 | 2026-04-22T18:46:58+00:00 | 0 |
+| ru | [PhotoMix: коллаж репост сетка](https://apps.apple.com/ru/app/id1055010795) | 7,839 | +0.0 | 2025-08-11T18:40:16+00:00 | 0 |
 | us | [Cupify](https://apps.apple.com/us/app/id1060658600) | 824 | +0.0 | 2026-02-04T09:53:23+00:00 | 0 |
 | us | [CHOMP by Christoph Niemann](https://apps.apple.com/us/app/id1061132313) | 758 | — | 2026-07-15T15:51:31+00:00 | 0 |
-| ru | [Звуки Слов - слушай аудиокниги](https://apps.apple.com/ru/app/id1061992624) | 13,066 | +0.0 | 2026-05-10T16:40:32+00:00 | 0 |
+| ru | [Звуки Слов - слушай аудиокниги](https://apps.apple.com/ru/app/id1061992624) | 13,065 | +0.0 | 2026-05-10T16:40:32+00:00 | 0 |
 | tw | [To:Day - 倒數日，任務清單，事件計畫 及 日曆提醒](https://apps.apple.com/tw/app/id1062349598) | 1,420 | +0.0 | 2026-07-30T00:04:00+00:00 | 0 |
 | de | [Kroatisch lernen – Mondly](https://apps.apple.com/de/app/id1068118596) | 727 | — | 2026-08-04T19:00:10+00:00 | 0 |
 | dk | [Sejlguide til sikker sejlads](https://apps.apple.com/dk/app/id1070753053) | 1,793 | +0.0 | 2024-09-01T21:05:06+00:00 | 0 |
@@ -1077,7 +1074,8 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [OBD2 Expert](https://apps.apple.com/us/app/id1142156521) | 736 | +0.0 | 2024-11-12T23:10:59+00:00 | 0 |
 | de | [Krautkopf](https://apps.apple.com/de/app/id1144412117) | 828 | +0.0 | 2026-01-08T18:27:04+00:00 | 0 |
 | us | [Evolution Calculator for Pokemon GO - XP & CP](https://apps.apple.com/us/app/id1144990223) | 843 | +0.0 | 2021-03-03T13:35:53+00:00 | 0 |
-| ru | [Черные плитки 3](https://apps.apple.com/ru/app/id1149663635) | 1,134 | +0.0 | 2025-07-01T16:36:20+00:00 | 0 |
+| ru | [Книги хиты: популярное всегда](https://apps.apple.com/ru/app/id1146410603) | 752 | — | 2022-01-10T09:10:34+00:00 | 0 |
+| ru | [Черные плитки 3](https://apps.apple.com/ru/app/id1149663635) | 1,133 | +0.0 | 2025-07-01T16:36:20+00:00 | 0 |
 | jp | [Tasks: 簡単なタスク管理・やることリスト](https://apps.apple.com/jp/app/id1150900229) | 537 | +0.0 | 2021-06-29T12:28:35+00:00 | 0 |
 | fi | [Suomen linnut](https://apps.apple.com/fi/app/id1151714444) | 1,090 | +0.0 | 2026-01-07T15:47:09+00:00 | 0 |
 | ca | [Tunefor Ukulele tuner & chords](https://apps.apple.com/ca/app/id1153333408) | 2,103 | +0.0 | 2025-12-15T22:54:49+00:00 | 0 |
@@ -1100,7 +1098,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ru | [Диета EASY: правильное питание](https://apps.apple.com/ru/app/id1166155114) | 844 | — | 2025-05-18T16:33:40+00:00 | 0 |
 | ru | [Рецепты для детей: еда малышам](https://apps.apple.com/ru/app/id1171368248) | 1,201 | +0.0 | 2026-06-14T18:34:44+00:00 | 0 |
 | ru | [Звуки Слов для детей - сказки](https://apps.apple.com/ru/app/id1171794648) | 1,023 | — | 2022-11-07T16:16:53+00:00 | 0 |
-| ru | [Фото.редактор эффекты рамки](https://apps.apple.com/ru/app/id1174914570) | 831 | +0.0 | 2024-07-10T06:44:13+00:00 | 0 |
 | fr | [Code de la Route 2019!](https://apps.apple.com/fr/app/id1183880463) | 932 | +0.0 | 2023-04-01T09:03:19+00:00 | 0 |
 | jp | [-Lorraine- 『ロレイン』〜栄養計算アプリ〜](https://apps.apple.com/jp/app/id1185924092) | 648 | +0.0 | 2026-05-30T04:56:52+00:00 | 0 |
 | us | [Tip Calculator & Bill Split](https://apps.apple.com/us/app/id1190244008) | 1,026 | +0.0 | 2023-05-25T23:19:21+00:00 | 0 |
@@ -1119,19 +1116,18 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Plant Light Meter](https://apps.apple.com/us/app/id1213431133) | 1,082 | +0.0 | 2025-03-06T23:40:50+00:00 | 0 |
 | sa | [حياتي](https://apps.apple.com/sa/app/id1214862130) | 681 | +0.0 | 2026-04-01T18:06:34+00:00 | 0 |
 | gb | [Piano With Songs- Learn to Play Piano Keyboard App](https://apps.apple.com/gb/app/id1217278134) | 883 | +0.0 | 2025-08-27T12:15:47+00:00 | 0 |
-| ru | [Flipping Legend](https://apps.apple.com/ru/app/id1218046599) | 654 | +0.0 | 2023-06-21T20:46:55+00:00 | 0 |
-| ru | [Детектор Лжи по Отпечатку](https://apps.apple.com/ru/app/id1219798065) | 813 | +0.0 | 2026-05-07T17:51:55+00:00 | 0 |
+| ru | [Детектор Лжи по Отпечатку](https://apps.apple.com/ru/app/id1219798065) | 812 | +0.0 | 2026-05-07T17:51:55+00:00 | 0 |
 | ca | [Lost Island: Blast Adventure](https://apps.apple.com/ca/app/id1223414680) | 8,491 | +0.0 | 2026-01-04T01:27:22+00:00 | 0 |
 | dk | [My Town : Airport](https://apps.apple.com/dk/app/id1226352898) | 959 | +0.0 | 2019-02-26T18:36:37+00:00 | 0 |
 | no | [My Town : Airport](https://apps.apple.com/no/app/id1226352898) | 677 | +0.0 | 2025-12-13T15:49:07+00:00 | 0 |
 | sa | [My Town : Airport](https://apps.apple.com/sa/app/id1226352898) | 1,055 | +0.0 | 2020-10-15T16:40:59+00:00 | 0 |
 | sa | [My Little Princess : Wizard](https://apps.apple.com/sa/app/id1226366961) | 1,110 | +0.0 | 2019-12-27T15:09:00+00:00 | 0 |
 | no | [Trafikkskilt Quiz Lite](https://apps.apple.com/no/app/id1228516008) | 599 | +0.0 | 2026-07-13T21:26:28+00:00 | 0 |
-| ru | [Православный церковный календарь 2017-2021](https://apps.apple.com/ru/app/id1228829028) | 734 | +0.0 | 2023-02-02T11:11:09+00:00 | 0 |
+| ru | [Православный церковный календарь 2017-2021](https://apps.apple.com/ru/app/id1228829028) | 733 | +0.0 | 2023-02-02T11:11:09+00:00 | 0 |
 | us | [Adult Emoji Pro for Lovers](https://apps.apple.com/us/app/id1229448491) | 1,331 | +0.0 | 2026-04-18T17:36:16+00:00 | 0 |
 | us | [Florida Boating Weather](https://apps.apple.com/us/app/id1231321595) | 616 | +0.0 | 2025-09-29T14:39:47+00:00 | 0 |
 | gb | [WiFi Blocker](https://apps.apple.com/gb/app/id1236583707) | 942 | +0.0 | 2026-06-21T11:30:09+00:00 | 0 |
-| ru | [Вода напоминание пить воду](https://apps.apple.com/ru/app/id1239191110) | 2,348 | +0.0 | 2026-04-10T11:48:42+00:00 | 0 |
+| ru | [Вода напоминание пить воду](https://apps.apple.com/ru/app/id1239191110) | 2,347 | +0.0 | 2026-04-10T11:48:42+00:00 | 0 |
 | jp | [ナンバータイル - 脳トレ、頭の体操](https://apps.apple.com/jp/app/id1239798981) | 617 | +0.0 | 2021-02-20T14:04:21+00:00 | 0 |
 | jp | [勇者のマンション 人気の育成RPGドット勇者の経営放置ゲーム](https://apps.apple.com/jp/app/id1241255519) | 2,710 | +0.0 | 2025-11-18T12:01:21+00:00 | 0 |
 | de | [iTranslate Converse Übersetzer](https://apps.apple.com/de/app/id1241264761) | 951 | +0.0 | 2025-12-08T17:10:10+00:00 | 0 |
@@ -1146,7 +1142,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Depth Wallpaper & Live Effect](https://apps.apple.com/gb/app/id1265751053) | 1,022 | +0.0 | 2024-11-30T16:15:31+00:00 | 0 |
 | ru | [Depth Wallpaper & Live Effect](https://apps.apple.com/ru/app/id1265751053) | 1,137 | +0.0 | 2025-03-29T07:51:36+00:00 | 0 |
 | us | [Depth Wallpaper & Live Effect](https://apps.apple.com/us/app/id1265751053) | 11,721 | +0.0 | 2025-11-21T19:04:10+00:00 | 0 |
-| ru | [SnapCalc - Фото-калькулятор](https://apps.apple.com/ru/app/id1267331464) | 1,688 | +0.0 | 2022-02-28T15:41:08+00:00 | 0 |
 | us | [Temi - Recorder & Transcriber](https://apps.apple.com/us/app/id1269856195) | 631 | +0.0 | 2026-01-22T19:57:38+00:00 | 0 |
 | jp | [LIBRARY - 筋トレ記録＆SNS](https://apps.apple.com/jp/app/id1271132004) | 3,711 | +0.0 | 2026-06-14T11:47:34+00:00 | 0 |
 | us | [1-RM](https://apps.apple.com/us/app/id1274191954) | 1,056 | +0.0 | 2026-06-12T08:52:25+00:00 | 0 |
@@ -1154,11 +1149,13 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | se | [Mera Vego](https://apps.apple.com/se/app/id1276729391) | 556 | +0.0 | 2026-01-03T06:31:20+00:00 | 0 |
 | tw | [桌面小管家 - 主题壁纸美化](https://apps.apple.com/tw/app/id1280848178) | 1,511 | +0.0 | 2026-05-23T22:57:36+00:00 | 0 |
 | ca | [Decibel Meter Master](https://apps.apple.com/ca/app/id1281344281) | 1,045 | +0.0 | 2026-04-18T12:14:55+00:00 | 0 |
+| ru | [ИПОТЕКА: расчет платежа](https://apps.apple.com/ru/app/id1288072079) | 6,020 | +0.0 | 2026-08-13T11:50:30+00:00 | 0 |
 | de | [Grillrezepte 2](https://apps.apple.com/de/app/id1296829953) | 1,280 | +0.0 | 2026-05-12T16:27:01+00:00 | 0 |
 | il | [תאוריה - تيئوريا - Theory 2024](https://apps.apple.com/il/app/id1317534953) | 3,851 | — | 2024-06-11T10:07:13+00:00 | 0 |
 | jp | [UDictionary 翻訳機](https://apps.apple.com/jp/app/id1319771553) | 525 | +0.0 | 2023-02-27T04:57:58+00:00 | 0 |
 | tw | [空氣品質-空氣污染AQI&霧霾PM2.5](https://apps.apple.com/tw/app/id1324417729) | 2,842 | +0.0 | 2025-10-29T07:33:52+00:00 | 0 |
 | au | [Veee+](https://apps.apple.com/au/app/id1325003703) | 542 | — | 2026-03-25T17:53:04+00:00 | 0 |
+| ru | [Nonstop Balls](https://apps.apple.com/ru/app/id1327435891) | 1,090 | — | 2025-06-08T21:02:29+00:00 | 0 |
 | tw | [Nonstop Balls](https://apps.apple.com/tw/app/id1327435891) | 1,589 | +0.0 | 2025-04-23T20:30:38+00:00 | 0 |
 | gb | [Calculator⁻](https://apps.apple.com/gb/app/id1327796464) | 889 | +0.0 | 2026-01-05T21:20:43+00:00 | 0 |
 | us | [Calculator⁻](https://apps.apple.com/us/app/id1327796464) | 3,639 | +0.0 | 2026-08-16T14:44:38+00:00 | 0 |
@@ -1193,7 +1190,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | tw | [花卉识别-拍图像识别花花草草](https://apps.apple.com/tw/app/id1385981273) | 1,996 | +0.0 | 2026-05-31T03:35:07+00:00 | 0 |
 | hk | [识花神器-形色](https://apps.apple.com/hk/app/id1387854964) | 1,397 | +0.0 | 2025-10-27T14:20:15+00:00 | 0 |
 | tw | [识花神器-形色](https://apps.apple.com/tw/app/id1387854964) | 862 | +0.0 | 2024-04-12T07:45:28+00:00 | 0 |
-| ru | [Piano Academy by Yokee Music](https://apps.apple.com/ru/app/id1390574671) | 3,196 | +0.0 | 2026-06-20T07:23:08+00:00 | 0 |
+| ru | [Piano Academy by Yokee Music](https://apps.apple.com/ru/app/id1390574671) | 3,199 | +0.0 | 2026-06-20T07:23:08+00:00 | 0 |
 | de | [Piano Crush - Klavier Spiele](https://apps.apple.com/de/app/id1392338617) | 653 | +0.0 | 2024-01-11T06:45:38+00:00 | 0 |
 | us | [My Water - Daily Water Tracker](https://apps.apple.com/us/app/id1395390713) | 4,837 | +0.0 | 2026-02-24T01:20:39+00:00 | 0 |
 | ae | [MyFatoorah   ماي فاتورة](https://apps.apple.com/ae/app/id1397541744) | 852 | +0.0 | 2025-05-26T12:06:42+00:00 | 0 |
@@ -1208,7 +1205,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | jp | [サーフィンや釣りにタイドと波情報 SurfTideΔ](https://apps.apple.com/jp/app/id1420388139) | 3,153 | +0.0 | 2026-08-12T18:12:39+00:00 | 0 |
 | us | [Fishing Forecast - TipTop App](https://apps.apple.com/us/app/id1436864578) | 1,356 | +0.0 | 2026-07-13T18:49:50+00:00 | 0 |
 | jp | [脱出ゲーム Steakhouse](https://apps.apple.com/jp/app/id1438380787) | 6,623 | — | 2026-05-29T11:19:23+00:00 | 0 |
-| ru | [Аудиокниги - Без Интернета](https://apps.apple.com/ru/app/id1440270233) | 11,955 | +0.0 | 2026-04-19T05:35:27+00:00 | 0 |
+| ru | [Аудиокниги - Без Интернета](https://apps.apple.com/ru/app/id1440270233) | 11,954 | +0.0 | 2026-04-19T05:35:27+00:00 | 0 |
 | jp | [翻訳王 - 英語韓国語中国語多言語翻訳機](https://apps.apple.com/jp/app/id1441868768) | 14,115 | +0.0 | 2026-07-11T06:41:04+00:00 | 0 |
 | se | [Cowboy!](https://apps.apple.com/se/app/id1442035289) | 3,299 | +0.0 | 2025-06-06T21:37:53+00:00 | 0 |
 | au | [Video Teleprompter 3](https://apps.apple.com/au/app/id1444106389) | 571 | +0.0 | 2026-01-17T05:49:26+00:00 | 0 |
@@ -1217,12 +1214,13 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ru | [Просрочка](https://apps.apple.com/ru/app/id1444764810) | 2,458 | — | 2026-01-18T06:23:49+00:00 | 0 |
 | ru | [SuperFace: Машина времени](https://apps.apple.com/ru/app/id1444982293) | 1,622 | — | 2024-01-28T17:41:13+00:00 | 0 |
 | au | [Color by Number – Hey Colour](https://apps.apple.com/au/app/id1445135380) | 8,300 | +0.0 | 2025-09-27T03:53:14+00:00 | 0 |
-| ru | [ПДД 2020 Билеты, Экзамен ГИБДД](https://apps.apple.com/ru/app/id1445198573) | 13,927 | +0.0 | 2026-07-24T13:41:24+00:00 | 0 |
+| ru | [ПДД 2020 Билеты, Экзамен ГИБДД](https://apps.apple.com/ru/app/id1445198573) | 13,924 | +0.0 | 2026-07-24T13:41:24+00:00 | 0 |
 | jp | [ZUU online -金融ニュースアプリ](https://apps.apple.com/jp/app/id1445981605) | 2,606 | — | 2023-02-23T01:15:52+00:00 | 0 |
-| ru | [Шеф-повар – рецепты десертов](https://apps.apple.com/ru/app/id1446070171) | 758 | +0.0 | 2025-12-20T11:38:14+00:00 | 0 |
+| ru | [Шеф-повар – рецепты десертов](https://apps.apple.com/ru/app/id1446070171) | 760 | +0.0 | 2025-12-20T11:38:14+00:00 | 0 |
 | sa | [ديوان العرب](https://apps.apple.com/sa/app/id1448037990) | 858 | +0.0 | 2025-08-03T21:28:39+00:00 | 0 |
+| ru | [Guitar Tuner - GuitarTunio](https://apps.apple.com/ru/app/id1448661287) | 756 | +0.0 | 2026-06-30T09:23:04+00:00 | 0 |
 | jp | [ピアノ -シンプルなピアノ- 録音機能つき 広告なし](https://apps.apple.com/jp/app/id1449066822) | 787 | +0.0 | 2026-08-17T14:24:11+00:00 | 0 |
-| ru | [Дневник малыша: мама и ребенок](https://apps.apple.com/ru/app/id1449743680) | 1,874 | +0.0 | 2025-09-28T21:45:39+00:00 | 0 |
+| ru | [Дневник малыша: мама и ребенок](https://apps.apple.com/ru/app/id1449743680) | 1,873 | +0.0 | 2025-09-28T21:45:39+00:00 | 0 |
 | gb | [Weeder Match](https://apps.apple.com/gb/app/id1450463494) | 695 | +0.0 | 2019-07-04T17:57:08+00:00 | 0 |
 | us | [Weeder Match](https://apps.apple.com/us/app/id1450463494) | 4,066 | +0.0 | 2022-06-11T02:53:34+00:00 | 0 |
 | tw | [小說快讀-小說電子書閱讀追更軟件](https://apps.apple.com/tw/app/id1450779570) | 2,063 | +0.0 | 2026-08-01T04:46:14+00:00 | 0 |
@@ -1246,15 +1244,16 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | au | [The Weather Forecast App](https://apps.apple.com/au/app/id1461065428) | 877 | +0.0 | 2022-01-10T00:04:44+00:00 | 0 |
 | us | [The Weather Forecast App](https://apps.apple.com/us/app/id1461065428) | 50,618 | +0.0 | 2026-03-27T17:12:54+00:00 | 0 |
 | ae | [Number Lookup: Who is calling?](https://apps.apple.com/ae/app/id1463138162) | 585 | — | 2025-11-11T18:17:56+00:00 | 0 |
+| ru | [Voyage: Фото & Видео Редактор](https://apps.apple.com/ru/app/id1464291580) | 1,059 | — | 2026-08-17T15:09:22+00:00 | 0 |
 | ae | [Password Manager - Safe Lock](https://apps.apple.com/ae/app/id1464513090) | 655 | +0.0 | 2022-05-06T20:13:41+00:00 | 0 |
-| ru | [Антирадар от камеры ГИБДД 2019](https://apps.apple.com/ru/app/id1466464973) | 2,009 | +0.0 | 2025-12-07T20:11:19+00:00 | 0 |
+| ru | [Антирадар от камеры ГИБДД 2019](https://apps.apple.com/ru/app/id1466464973) | 2,008 | +0.0 | 2025-12-07T20:11:19+00:00 | 0 |
 | tw | [葡萄小說-小說連載閱讀](https://apps.apple.com/tw/app/id1467149505) | 636 | +0.0 | 2024-11-29T13:44:06+00:00 | 0 |
 | us | [Cross-Stitch Masters](https://apps.apple.com/us/app/id1467166931) | 804 | +0.0 | 2026-07-27T14:17:39+00:00 | 0 |
 | ru | [Машина без труда (Idle Car)](https://apps.apple.com/ru/app/id1467495112) | 1,408 | +0.0 | 2026-08-21T05:33:17+00:00 | 0 |
 | us | [Programmer's Calculator](https://apps.apple.com/us/app/id1467603958) | 929 | +0.0 | 2025-10-17T16:48:48+00:00 | 0 |
 | il | [דרך תאוריה](https://apps.apple.com/il/app/id1470032905) | 677 | +0.0 | 2022-12-22T09:38:24+00:00 | 0 |
-| ru | [Счетчик - Учет и Подсчет Вещей](https://apps.apple.com/ru/app/id1470846305) | 782 | +0.0 | 2026-05-10T07:29:28+00:00 | 0 |
-| ru | [Бискотто: мобильный](https://apps.apple.com/ru/app/id1473129094) | 649 | +0.0 | 2023-04-15T15:00:51+00:00 | 0 |
+| ru | [Счетчик - Учет и Подсчет Вещей](https://apps.apple.com/ru/app/id1470846305) | 783 | +0.0 | 2026-05-10T07:29:28+00:00 | 0 |
+| ru | [Бискотто: мобильный](https://apps.apple.com/ru/app/id1473129094) | 648 | +0.0 | 2023-04-15T15:00:51+00:00 | 0 |
 | au | [AFPS Airplane Flight Pilot Sim](https://apps.apple.com/au/app/id1474069627) | 847 | +0.0 | 2026-07-11T08:07:52+00:00 | 0 |
 | sa | [Qibla +](https://apps.apple.com/sa/app/id1475861567) | 839 | +0.0 | 2026-08-13T17:15:00+00:00 | 0 |
 | ru | [Аудиокниги слушать - Booklis](https://apps.apple.com/ru/app/id1476385798) | 522 | +0.0 | 2026-03-31T08:13:58+00:00 | 0 |
@@ -1293,6 +1292,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | ca | [Widget Box Interactive Widgets](https://apps.apple.com/ca/app/id1527561558) | 4,225 | +0.0 | 2025-12-03T01:40:37+00:00 | 0 |
 | gb | [Widget Box Interactive Widgets](https://apps.apple.com/gb/app/id1527561558) | 11,212 | +0.0 | 2026-05-11T20:18:18+00:00 | 0 |
 | ae | [Convert Image To PDF tools](https://apps.apple.com/ae/app/id1527885081) | 819 | +0.0 | 2025-12-04T01:36:28+00:00 | 0 |
+| kr | [멤버십 : 홈화면 위젯](https://apps.apple.com/kr/app/id1528124789) | 573 | — | 2025-05-21T13:54:22+00:00 | 0 |
 | nl | [Auto spelletjes auto-stunts](https://apps.apple.com/nl/app/id1529078373) | 2,911 | +0.0 | 2026-07-24T12:52:13+00:00 | 0 |
 | se | [Bilar spel & bilstunts Muscle](https://apps.apple.com/se/app/id1529078373) | 507 | — | 2025-12-18T18:26:33+00:00 | 0 |
 | us | [Battery Widget & Color Widgets](https://apps.apple.com/us/app/id1532637143) | 1,771 | +0.0 | 2026-01-04T00:58:14+00:00 | 0 |
@@ -1323,6 +1323,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [OptionStrat: Options Toolkit](https://apps.apple.com/us/app/id1541714905) | 1,925 | +0.0 | 2026-07-18T04:42:13+00:00 | 0 |
 | us | [GPS Speedometer: Speed Tracker](https://apps.apple.com/us/app/id1542016762) | 5,552 | +0.0 | 2026-02-19T00:49:59+00:00 | 0 |
 | sa | [Math Solver Homework helper](https://apps.apple.com/sa/app/id1542525934) | 4,210 | +0.0 | 2024-02-19T00:24:07+00:00 | 0 |
+| ru | [Water Connect Puzzle](https://apps.apple.com/ru/app/id1544706956) | 647 | — | 2022-03-25T15:17:46+00:00 | 0 |
 | ae | [TikSave - Save TikTok Video](https://apps.apple.com/ae/app/id1548135477) | 3,367 | +0.0 | 2025-06-01T18:23:57+00:00 | 0 |
 | gb | [TikSave - Save TikTok Video](https://apps.apple.com/gb/app/id1548135477) | 5,045 | +0.0 | 2026-06-26T07:15:59+00:00 | 0 |
 | us | [Easy Life - Everything at once](https://apps.apple.com/us/app/id1550514123) | 10,443 | — | 2026-05-27T23:08:16+00:00 | 0 |
@@ -1354,7 +1355,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | gb | [Weather Plus: Radar & Forecast](https://apps.apple.com/gb/app/id1594543444) | 1,176 | +0.0 | 2025-07-14T16:55:07+00:00 | 0 |
 | us | [AI Wallpapers & Widgets - Flex](https://apps.apple.com/us/app/id1595615783) | 7,824 | +0.0 | 2024-06-06T08:25:00+00:00 | 0 |
 | tw | [360防護 - 酒店網路Wi-Fi設備掃描儀](https://apps.apple.com/tw/app/id1595852470) | 573 | +0.0 | 2024-09-13T23:20:37+00:00 | 0 |
-| ru | [Аудиокниги - Слушай Книги](https://apps.apple.com/ru/app/id1601840731) | 1,092 | +0.0 | 2026-04-27T16:52:39+00:00 | 0 |
+| ru | [Аудиокниги - Слушай Книги](https://apps.apple.com/ru/app/id1601840731) | 1,091 | +0.0 | 2026-04-27T16:52:39+00:00 | 0 |
 | ru | [Детектор лжи - игра-сканер](https://apps.apple.com/ru/app/id1606733866) | 505 | +0.0 | 2025-02-10T15:26:47+00:00 | 0 |
 | us | [Sharp AI: Photo Enhancer](https://apps.apple.com/us/app/id1622362309) | 2,615 | +0.0 | 2025-12-26T15:31:02+00:00 | 0 |
 | no | [Tryg vei til lappen](https://apps.apple.com/no/app/id1626060430) | 949 | +0.0 | 2025-12-14T15:05:37+00:00 | 0 |
@@ -1362,6 +1363,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Dog Training Sounds: Dogs Game](https://apps.apple.com/us/app/id1626301400) | 821 | +0.0 | 2025-05-16T23:58:21+00:00 | 0 |
 | us | [DMV Practice Test : All States](https://apps.apple.com/us/app/id1630459204) | 1,296 | +0.0 | 2025-07-24T04:05:54+00:00 | 0 |
 | us | [linkit Q&A - by sendit](https://apps.apple.com/us/app/id1630555603) | 13,588 | — | 2025-08-30T00:37:18+00:00 | 0 |
+| ru | [Темы Айфон・Иконки Виджеты Обои](https://apps.apple.com/ru/app/id1631090445) | 2,431 | +0.0 | 2026-07-10T11:06:30+00:00 | 0 |
 | ch | [QR-Reader für Handys](https://apps.apple.com/ch/app/id1631503426) | 567 | — | 2026-04-07T21:30:27+00:00 | 0 |
 | se | [KiddoKitchen](https://apps.apple.com/se/app/id1639168932) | 589 | +0.0 | 2024-11-05T07:08:09+00:00 | 0 |
 | jp | [ロック画面ウィジェット: ランチャー 専用アプリ](https://apps.apple.com/jp/app/id1641703590) | 754 | +0.0 | 2026-01-06T14:50:50+00:00 | 0 |

@@ -28,7 +28,6 @@
 |---|---|---|---|---|
 | gb | crochet pattern app | 47 | **2** | [Yarniby: crochet and patterns](https://apps.apple.com/gb/app/id6755068624) |
 | us | transcribe voice memo | 46 | **4** | [Voice Notes - Transcribe Voice](https://apps.apple.com/us/app/id1664343769) |
-| kr | 아기 수면 기록 | 50 | **8** | [맘마 - 육아기록 어플, 수유·수면·AI 상담](https://apps.apple.com/kr/app/id6760751452) |
 | ca | dog training clicker | 46 | **4** | [Dog Translator: Puppy Training](https://apps.apple.com/ca/app/id1209845479) |
 | au | pallet calculator | 42 | **1** | [Pallet Loading Calculator](https://apps.apple.com/au/app/id1662595725) |
 | at | segeln app | 47 | **6** | [NV Charts GPS Navigation AIS](https://apps.apple.com/at/app/id659569095) |
@@ -41,3 +40,4 @@
 | ie | pet health tracker | 44 | **6** | [Pet Health Tracker: Cat-a-log](https://apps.apple.com/ie/app/id6792299436) |
 | ca | score keeper | 49 | **11** | [ScoreKeeper – Match Scoring](https://apps.apple.com/ca/app/id6749815050) |
 | au | puppy potty training | 43 | **5** | [Puppy Potty Trainer](https://apps.apple.com/au/app/id6755253203) |
+| sg | garden planner | 42 | **5** | [Garden Planner : Bedleaf](https://apps.apple.com/sg/app/id6813985665) |
