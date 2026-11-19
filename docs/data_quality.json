@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-11-19T17:32:39.773730+00:00",
+  "computed_at": "2026-11-19T20:26:18.081278+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 68902,
@@ -78,23 +78,23 @@
   },
   "last_search_query_at": "2026-11-19T17:26:58Z",
   "recent_pain_timing": {
-    "total": 602,
-    "after_release": 207,
-    "only_before_release": 395,
+    "total": 600,
+    "after_release": 203,
+    "only_before_release": 397,
     "timing_unknown": 0,
-    "rss_before_release": 51,
-    "same_version_positive": 204,
+    "rss_before_release": 66,
+    "same_version_positive": 200,
     "version_unknown": 0
   },
   "alive_paths": {
-    "rss": 268,
-    "rss+velocity": 138,
+    "rss": 252,
+    "rss+velocity": 135,
     "velocity": 75
   },
   "queue_funnel": {
     "stale": {
-      "records": 1369,
-      "apps": 987
+      "records": 1354,
+      "apps": 970
     },
     "search": {
       "records": 796,

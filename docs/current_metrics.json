@@ -1,34 +1,35 @@
 {
   "method": "activity-v5",
-  "candidate_storefronts": 1369,
+  "candidate_storefronts": 1354,
   "counts": {
-    "NO_RECENT_EVIDENCE": 679,
-    "WEAK": 197,
-    "ALIVE": 481,
-    "UNKNOWN": 12
+    "NO_RECENT_EVIDENCE": 658,
+    "WEAK": 173,
+    "ALIVE": 462,
+    "UNKNOWN": 61
   },
   "transitions": {
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 654,
-    "WEAK → WEAK": 184,
-    "ALIVE → NO_RECENT_EVIDENCE": 16,
-    "ALIVE → ALIVE": 459,
-    "MISSING → UNKNOWN": 4,
-    "ALIVE → WEAK": 13,
-    "NO_RECENT_EVIDENCE → ALIVE": 13,
-    "WEAK → NO_RECENT_EVIDENCE": 9,
-    "UNKNOWN → UNKNOWN": 6,
-    "WEAK → ALIVE": 7,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 627,
+    "WEAK → WEAK": 158,
+    "ALIVE → NO_RECENT_EVIDENCE": 23,
+    "ALIVE → ALIVE": 428,
+    "WEAK → ALIVE": 14,
+    "MISSING → UNKNOWN": 51,
+    "ALIVE → WEAK": 15,
+    "NO_RECENT_EVIDENCE → ALIVE": 17,
+    "NO_RECENT_EVIDENCE → UNKNOWN": 2,
+    "WEAK → NO_RECENT_EVIDENCE": 8,
+    "ALIVE → UNKNOWN": 2,
+    "UNKNOWN → UNKNOWN": 5,
     "WEAK → UNKNOWN": 1,
     "UNKNOWN → ALIVE": 1,
-    "ALIVE → UNKNOWN": 1,
-    "MISSING → ALIVE": 1
+    "MISSING → ALIVE": 2
   },
-  "apps": 60114,
-  "snapshots": 1022787,
+  "apps": 63473,
+  "snapshots": 1079996,
   "coverage": [
     {
       "country": "ae",
-      "apps": 10453
+      "apps": 11040
     },
     {
       "country": "at",
@@ -36,7 +37,7 @@
     },
     {
       "country": "au",
-      "apps": 12388
+      "apps": 13096
     },
     {
       "country": "ca",
@@ -44,15 +45,15 @@
     },
     {
       "country": "ch",
-      "apps": 7839
+      "apps": 8611
     },
     {
       "country": "de",
-      "apps": 9122
+      "apps": 9812
     },
     {
       "country": "dk",
-      "apps": 9165
+      "apps": 9800
     },
     {
       "country": "fi",
@@ -64,7 +65,7 @@
     },
     {
       "country": "gb",
-      "apps": 12800
+      "apps": 13426
     },
     {
       "country": "hk",
@@ -80,7 +81,7 @@
     },
     {
       "country": "jp",
-      "apps": 9808
+      "apps": 10354
     },
     {
       "country": "kr",
@@ -92,7 +93,7 @@
     },
     {
       "country": "no",
-      "apps": 9387
+      "apps": 10010
     },
     {
       "country": "nz",
@@ -104,11 +105,11 @@
     },
     {
       "country": "sa",
-      "apps": 10352
+      "apps": 10932
     },
     {
       "country": "se",
-      "apps": 9418
+      "apps": 10072
     },
     {
       "country": "sg",
@@ -116,36 +117,36 @@
     },
     {
       "country": "tw",
-      "apps": 10272
+      "apps": 10863
     },
     {
       "country": "us",
-      "apps": 12776
+      "apps": 13378
     }
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-19T17:26:58Z"
+    "last": "2026-11-19T20:24:35Z"
   },
-  "histories_7d": 108760,
-  "adjacent_counter_drops": 10044,
+  "histories_7d": 114061,
+  "adjacent_counter_drops": 10768,
   "research_lanes": {
-    "recent_pain": 33,
-    "stale": 1369
+    "recent_pain": 28,
+    "stale": 1354
   },
   "recent_version_review_coverage": {
     "search": {
       "eligible": 7844,
       "rss_usable": 1350,
-      "any_complaint": 602,
+      "any_complaint": 600,
       "complaint_records": 7,
       "lost_to_stale_rss": 11
     },
     "charts": {
-      "eligible": 18699,
-      "rss_usable": 656,
-      "any_complaint": 469,
-      "complaint_records": 30,
+      "eligible": 18728,
+      "rss_usable": 657,
+      "any_complaint": 473,
+      "complaint_records": 25,
       "lost_to_stale_rss": 58
     },
     "links": {
@@ -156,19 +157,19 @@
       "lost_to_stale_rss": 0
     },
     "all": {
-      "eligible": 24686,
-      "rss_usable": 1730,
-      "any_complaint": 894,
-      "complaint_records": 33,
+      "eligible": 24707,
+      "rss_usable": 1729,
+      "any_complaint": 896,
+      "complaint_records": 28,
       "lost_to_stale_rss": 65
     },
     "pain_timing": {
-      "total": 602,
-      "after_release": 207,
-      "only_before_release": 395,
+      "total": 600,
+      "after_release": 203,
+      "only_before_release": 397,
       "timing_unknown": 0,
-      "rss_before_release": 51,
-      "same_version_positive": 204,
+      "rss_before_release": 66,
+      "same_version_positive": 200,
       "version_unknown": 0
     }
   }
