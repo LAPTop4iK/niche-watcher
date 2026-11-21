@@ -1,31 +1,22 @@
 {
   "method": "activity-v5",
-  "candidate_storefronts": 1353,
+  "candidate_storefronts": 1356,
   "counts": {
-    "NO_RECENT_EVIDENCE": 641,
-    "WEAK": 180,
-    "ALIVE": 454,
-    "UNKNOWN": 78
+    "NO_RECENT_EVIDENCE": 676,
+    "WEAK": 187,
+    "ALIVE": 487,
+    "UNKNOWN": 6
   },
   "transitions": {
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 608,
-    "WEAK → WEAK": 163,
-    "ALIVE → ALIVE": 425,
-    "WEAK → ALIVE": 14,
-    "MISSING → UNKNOWN": 52,
-    "ALIVE → NO_RECENT_EVIDENCE": 22,
-    "ALIVE → WEAK": 17,
-    "NO_RECENT_EVIDENCE → UNKNOWN": 15,
-    "NO_RECENT_EVIDENCE → ALIVE": 12,
-    "WEAK → NO_RECENT_EVIDENCE": 11,
-    "ALIVE → UNKNOWN": 4,
-    "WEAK → UNKNOWN": 2,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 675,
+    "WEAK → WEAK": 187,
+    "ALIVE → ALIVE": 487,
+    "ALIVE → NO_RECENT_EVIDENCE": 1,
     "UNKNOWN → UNKNOWN": 5,
-    "UNKNOWN → ALIVE": 1,
-    "MISSING → ALIVE": 2
+    "WEAK → UNKNOWN": 1
   },
-  "apps": 63681,
-  "snapshots": 1144485,
+  "apps": 63699,
+  "snapshots": 1144580,
   "coverage": [
     {
       "country": "ae",
@@ -121,18 +112,18 @@
     },
     {
       "country": "us",
-      "apps": 13470
+      "apps": 13495
     }
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-21T15:17:47Z"
+    "last": "2026-11-21T16:08:58Z"
   },
-  "histories_7d": 114760,
-  "adjacent_counter_drops": 11603,
+  "histories_7d": 114761,
+  "adjacent_counter_drops": 11605,
   "research_lanes": {
     "recent_pain": 36,
-    "stale": 1353
+    "stale": 1356
   },
   "recent_version_review_coverage": {
     "search": {
@@ -150,14 +141,14 @@
       "lost_to_stale_rss": 73
     },
     "links": {
-      "eligible": 91,
+      "eligible": 106,
       "rss_usable": 11,
       "any_complaint": 7,
       "complaint_records": 0,
       "lost_to_stale_rss": 0
     },
     "all": {
-      "eligible": 24818,
+      "eligible": 24827,
       "rss_usable": 1794,
       "any_complaint": 930,
       "complaint_records": 36,
@@ -168,7 +159,7 @@
       "after_release": 219,
       "only_before_release": 415,
       "timing_unknown": 0,
-      "rss_before_release": 64,
+      "rss_before_release": 65,
       "same_version_positive": 217,
       "version_unknown": 0
     }
