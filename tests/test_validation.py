@@ -182,13 +182,17 @@ class FreshnessAndSampling(Fixtures):
     def test_historical_study_is_not_rewritten_by_future_reviews(self):
         import demand_check,study_sample,hypotheses
         con=sc.open_db(':memory:');job=('us','construction','q')
-        run=scan_state.start_run(con,[job],{},'frozen')
-        scan_state.begin_query(con,run,*job);self.make(con,query='q',run_id=run)
-        scan_state.end_query(con,run,*job,'OK',1,1);scan_state.finish_run(con,run)
-        demand_check.prepare(con)
-        demand_check.store_result(con,1,'us',demand_check.DemandFetch(('2026-10-30',None,2,0,'OK'),['2026-10-29','2026-10-30'],[5,5]))
-        study_sample.freeze(con,run);study_sample.freeze_reviews(con,run)
-        first=hypotheses.build(con)
+        # The review dates are fixed, so the study is frozen on a fixed clock: on the real
+        # one they leave the 90-day window at the end of January 2027.
+        frozen_at=datetime(2026,11,1,tzinfo=timezone.utc)
+        with patch.object(sc,'now_utc',return_value=frozen_at),patch.object(scan_state,'now',return_value='2026-11-01T00:00:00Z'):
+            run=scan_state.start_run(con,[job],{},'frozen')
+            scan_state.begin_query(con,run,*job);self.make(con,query='q',run_id=run)
+            scan_state.end_query(con,run,*job,'OK',1,1);scan_state.finish_run(con,run)
+            demand_check.prepare(con)
+            demand_check.store_result(con,1,'us',demand_check.DemandFetch(('2026-10-30',None,2,0,'OK'),['2026-10-29','2026-10-30'],[5,5]))
+            study_sample.freeze(con,run);study_sample.freeze_reviews(con,run)
+        first=hypotheses.build(con,frozen_at)
         con.execute("UPDATE demand SET review_dates_json='[\"2020-01-01\"]',r90=0,last_review='2020-01-01'")
         self.make(con,query='q',date='2027-01-01T00:00:00Z',version='2026-12-31T00:00:00Z')
         second=hypotheses.build(con,datetime(2027,1,2,tzinfo=timezone.utc))
@@ -303,7 +307,8 @@ class DigestScope(Fixtures):
         self.make(con,country='gb',date='2026-10-30T00:00:00Z',count=100,name='GB name')
         self.make(con,tid=2,date='2026-10-01T00:00:00Z',count=2000,name='Fresh app',version='2026-10-01T00:00:00Z')
         self.make(con,tid=2,date='2026-10-30T00:00:00Z',count=4000,name='Fresh app',version='2026-10-01T00:00:00Z')
-        msg=tg_digest.build_message(con)
+        # The fixtures are dated; the real clock left them outside the freshness window on Nov 22.
+        msg=tg_digest.build_message(con,datetime(2026,10,31,tzinfo=timezone.utc))
         self.assertIn('US name',msg)
         self.assertNotIn('GB name',msg)
         self.assertNotIn('Fresh app',msg)
@@ -901,6 +906,27 @@ class SourceAndMath(unittest.TestCase):
         self.assertEqual(similar_crawl.extract_ids(text,1),['2','3'])
         self.assertEqual(similar_crawl.report_seeds(text,'us',5),['1','3'])
         self.assertEqual(similar_crawl.extract_ids('/app/id3 /app/title/id1 /app/id3',1),['3'])
+
+    def test_page_link_fetch_waits_out_a_rate_limit_but_not_other_errors(self):
+        import similar_crawl,urllib.error
+        class Page:
+            def __enter__(self): return self
+            def __exit__(self,*args): pass
+            def read(self): return b'/app/id2 /app/id3'
+        limited=urllib.error.HTTPError('u',429,'Too Many Requests',{},None)
+        with patch.object(similar_crawl.urllib.request,'urlopen',side_effect=[limited,Page()]),patch.object(similar_crawl.time,'sleep') as sleep:
+            self.assertEqual(similar_crawl.page_ids(1,'us'),['2','3'])
+        self.assertEqual(sleep.call_count,1)
+        missing=urllib.error.HTTPError('u',404,'Not Found',{},None)
+        with patch.object(similar_crawl.urllib.request,'urlopen',side_effect=[missing,Page()]) as urlopen,patch.object(similar_crawl.time,'sleep'):
+            with self.assertRaises(urllib.error.HTTPError):similar_crawl.page_ids(1,'us')
+        self.assertEqual(urlopen.call_count,1)
+
+    def test_english_queries_contain_no_letters_of_other_languages(self):
+        # "theorieprüfung" sat in the English list and ran in seven English storefronts.
+        seed=json.loads((Path(__file__).resolve().parents[1]/'seed_queries.json').read_text(encoding='utf-8'))
+        english=[q for c in seed['categories'] if isinstance(c['queries'],dict) for q in c['queries'].get('en',[])]
+        self.assertEqual([q for q in english if not q.isascii()],[])
 
     def test_review_window_uses_timestamp_instead_of_midnight(self):
         import demand_check

@@ -5,11 +5,13 @@ Public pages can mix recommendations, a seller's portfolio and other links.
 Version age among these links does not measure niche weakness or buyer demand.
 """
 import argparse
+import os
 from pathlib import Path
 import re
 import statistics
 import sys
 import time
+import urllib.error
 import urllib.request
 import scanner as sc
 import scan_state
@@ -21,10 +23,18 @@ def extract_ids(html,exclude=None):
     return list(dict.fromkeys(tid for tid in PAGE_RE.findall(html) if tid!=str(exclude)))
 
 
-def page_ids(track_id,country='us'):
+def page_ids(track_id,country='us',attempts=3):
+    """A page answered 429 for one of five seeds in us and gb (Nov 21 2026); the
+    lookup API already waits out that limit, the page fetch now does too."""
     req=urllib.request.Request(f'https://apps.apple.com/{country}/app/id{track_id}',headers={'User-Agent':'Mozilla/5.0'})
-    with urllib.request.urlopen(req,timeout=25) as response:
-        return extract_ids(response.read().decode('utf-8','replace'),track_id)
+    for attempt in range(1,attempts+1):
+        try:
+            with urllib.request.urlopen(req,timeout=25) as response:
+                return extract_ids(response.read().decode('utf-8','replace'),track_id)
+        except urllib.error.HTTPError as error:
+            if error.code!=429 or attempt==attempts:
+                raise
+            time.sleep(int(os.environ.get('RATE_429_WAIT','45'))*attempt)
 
 
 def report_seeds(text,country,limit):
