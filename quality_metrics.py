@@ -11,6 +11,49 @@ import scanner as sc
 
 ROOT=Path(__file__).resolve().parent
 TRUNCATED_SHARE=0.7  # At limit=200 every sampled query with 35+ of 50 rows returned more than 50.
+RUN_GAP_SECONDS=1800  # An RSS lane fetches seconds apart and pauses 300 s; scheduled runs are hours apart.
+EMPTY_STATUSES=('EMPTY','EMPTY_UNCONFIRMED','EMPTY_SUSPECT')
+
+
+def rss_throttle_stops(con,now,days=7):
+    """UTC days in the last `days` on which the RSS guard stopped a run.
+
+    demand_check only prints the stop, so its rule is replayed on stored answers:
+    within one run, half of THROTTLE_WINDOW consecutive answers from apps that had
+    reviews came back empty, then again after the pause. On Nov 5-22 2026 this
+    finds the known throttled days Nov 11, 12 and 18 (CI logged both Nov 18 stops)
+    and no other day. A daily share of EMPTY_SUSPECT finds Nov 18 only: on Nov 11-12
+    throttling began mid-run, and that status was introduced on Nov 13."""
+    from collections import deque
+    from datetime import timedelta
+    from demand_check import THROTTLE_WINDOW
+    empty=dict(window_days=days,days=0,stop_days=[],
+               method='Replay of the demand_check guard on stored live RSS answers; the stop itself is only logged')
+    if 'demand_samples' not in evidence.tables(con):
+        return empty
+    start=(now-timedelta(days=days-1)).strftime('%Y-%m-%dT00:00:00Z')
+    rows=con.execute("""SELECT s.checked_at,json_extract(s.payload_json,'$.fetch_status') status,
+            EXISTS(SELECT 1 FROM demand_samples p WHERE p.track_id=s.track_id AND p.country=s.country
+                AND p.checked_at<s.checked_at AND json_extract(p.payload_json,'$.fetch_status')='OK'
+                AND json_extract(p.payload_json,'$.sample_size')>0) had_reviews
+        FROM demand_samples s WHERE s.origin='live-fetch' AND s.checked_at>=? AND s.checked_at<=?
+        ORDER BY s.checked_at""",(start,sc.iso(now))).fetchall()
+    stops=set();recent=deque(maxlen=THROTTLE_WINDOW);paused=False;previous=None
+    for stamp,status,had_reviews in rows:
+        moment=evidence.parse(stamp)
+        if previous is None or (moment-previous).total_seconds()>RUN_GAP_SECONDS:
+            recent.clear();paused=False
+        previous=moment
+        if not (had_reviews or status=='EMPTY_SUSPECT'):
+            continue  # Apps without reviews answer empty honestly; the guard ignores them.
+        recent.append(status in EMPTY_STATUSES)
+        if sum(recent)>=THROTTLE_WINDOW//2:
+            if paused:
+                stops.add(stamp[:10]);paused=False
+            else:
+                paused=True
+            recent.clear()
+    return dict(empty,days=len(stops),stop_days=sorted(stops))
 
 
 def queue_funnel(queue):
@@ -95,6 +138,7 @@ def build(con,now=None,rows=None,queue=None,coverage=None):
     return dict(computed_at=now.isoformat(),scope='Current keyword-search memberships; counts before the optional title filter',
         unit='app×storefront, not independent users',search_records=len(base),search_unique_apps=len({r['track_id'] for r in base}),
         queries=dict(query_counts),freshness_days=evidence.MAX_AGE_DAYS,review_coverage=dict(counts),
+        rss_throttling=rss_throttle_stops(con,now),
         collection=dict(search_records=len(base),below_500_ratings=sum((r.get('rating_count') or 0)<500 for r in base),
             strata=dict(strata),**dict(broad_counts),history=demand_history.stats(con),
             raw_capture='Opt-in local archive only; complete HTTP bodies are not persisted by CI',

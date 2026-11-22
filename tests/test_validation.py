@@ -313,6 +313,83 @@ class DigestScope(Fixtures):
         self.assertNotIn('GB name',msg)
         self.assertNotIn('Fresh app',msg)
 
+    def test_growth_line_shows_the_fastest_growth_for_its_size_with_the_absolute_number(self):
+        import tg_digest
+        con=sc.open_db(':memory:')
+        for date,big,small,fresh in (('2026-10-01T00:00:00Z',100000,1000,600),('2026-10-30T00:00:00Z',101000,1050,900)):
+            self.make(con,tid=1,date=date,count=big,name='Big app')
+            self.make(con,tid=3,date=date,count=small,name='Small app')
+            # Faster still, but a recent version is not a candidate of the old-version lane.
+            self.make(con,tid=2,date=date,count=fresh,name='Fresh app',version='2026-10-01T00:00:00Z')
+        msg=tg_digest.build_message(con,datetime(2026,10,31,tzinfo=timezone.utc))
+        # +1034/30d is 1.0% of the big app; +52/30d is 4.9% of the small one.
+        self.assertIn('Надёжный положительный прирост оценок найден у 2 записей',msg)
+        self.assertIn('• Small app 🇺🇸: +52/30д при 1050 оценках (+4.9%), окно 29.0 дн.',msg)
+        self.assertNotIn('Big app',msg)
+        self.assertNotIn('Fresh app',msg)
+
+    def complaints(self,con,tid,name,days_ago,now):
+        """An old version with fresh-enough 1–2★ reviews: an example of the stale lane."""
+        import demand_check as dc
+        from datetime import timedelta
+        self.make(con,tid=tid,name=name,date='2026-10-30T00:00:00Z')
+        dates=[sc.iso(now-timedelta(days=d)) for d in days_ago]
+        with patch.object(sc,'now_utc',return_value=now):
+            dc.prepare(con)
+            dc.store_result(con,tid,'us',dc.DemandFetch((dates[0],len(dates),len(dates),0,'OK'),dates,[1]*len(dates),
+                ids=[f'{tid}-{i}' for i in range(len(dates))],versions=['1.0']*len(dates)))
+
+    def test_examples_skip_last_weeks_apps_and_quiet_ones_unless_nothing_else_qualifies(self):
+        import tg_digest
+        now=datetime(2026,10,31,tzinfo=timezone.utc)
+        def message(apps,sent):
+            con=sc.open_db(':memory:')
+            for tid,name,days_ago in apps:
+                self.complaints(con,tid,name,days_ago,now)
+            notifications.enqueue(con,'weekly:2026-43',sent)
+            con.execute("UPDATE notification_outbox SET status='SENT'")
+            # Not delivered, so the reader has not seen it.
+            notifications.enqueue(con,'weekly:2026-44','<a href="https://apps.apple.com/us/app/id13">x</a>')
+            con.commit()
+            msg=tg_digest.build_message(con,now)
+            return msg.split('Примеры для проверки')[1].split('Надёжный')[0].split('Прироста')[0]
+        repeat=(11,'Repeat app',[3,5]);quiet=(12,'Quiet app',[40,50]);fresh=[(13,'Fresh one',[3,5]),(14,'Fresh two',[3,5])]
+        last_week='<a href="https://apps.apple.com/gb/app/id11">Repeat app</a>'
+        # Queue order is 11, 12, 13, 14; the previous message linked 11 and 12 has R30 = 0.
+        shown=message([repeat,quiet,*fresh],last_week)
+        self.assertIn('Fresh one',shown);self.assertIn('Fresh two',shown)
+        self.assertNotIn('Repeat app',shown);self.assertNotIn('Quiet app',shown)
+        # Nothing else qualifies: the repeat with fresh reviews, then the quiet one.
+        shown=message([repeat,quiet],last_week)
+        self.assertLess(shown.index('Repeat app'),shown.index('Quiet app'))
+        self.assertIn('R30 ≥ 0',shown)
+
+    def test_days_with_an_rss_throttling_stop_reach_the_digest_and_quality(self):
+        import demand_check as dc
+        import demand_history
+        import quality_metrics
+        import tg_digest
+        con=sc.open_db(':memory:');dc.prepare(con)
+        self.make(con,date='2026-11-12T00:00:00Z')
+        good=dc.DemandFetch(('2026-10-30T00:00:00Z',1,1,100,'OK'),['2026-10-30T00:00:00Z'],[5],ids=['a'],versions=['1'])
+        with patch.object(sc,'now_utc',return_value=datetime(2026,11,11,tzinfo=timezone.utc)):
+            for tid in range(1,13):dc.store_result(con,tid,'us',good)
+        empty=lambda *a,**k:dc.DemandFetch((None,None,None,None,'EMPTY'))
+        with patch.object(sc,'now_utc',return_value=datetime(2026,11,12,16,tzinfo=timezone.utc)),patch.object(dc,'fetch_demand',side_effect=empty),patch.object(dc.time,'sleep'):
+            with self.assertRaises(dc.Throttled):
+                dc.measure(con,[(tid,'us') for tid in range(1,13)],0)
+        # A run that paused once and recovered was not stopped.
+        answer=lambda tid,minute,status:demand_history.append(con,dict(track_id=tid,country='us',fetch_status=status,
+            checked_at=f'2026-11-14T16:{minute:02d}:00Z',sample_size=1 if status=='OK' else None),'live-fetch')
+        for i,tid in enumerate(range(1,13)):answer(tid,i,'EMPTY_SUSPECT' if i<5 else 'OK')
+        con.commit()
+        throttling=lambda day:quality_metrics.rss_throttle_stops(con,datetime(2026,11,day,20,tzinfo=timezone.utc))
+        self.assertEqual(throttling(15)['stop_days'],['2026-11-12'])
+        # Seven calendar days: Nov 12 has left the window by Nov 19.
+        self.assertEqual(throttling(18)['days'],1);self.assertEqual(throttling(19)['days'],0)
+        msg=tg_digest.build_message(con,datetime(2026,11,15,tzinfo=timezone.utc))
+        self.assertIn('Остановки RSS из-за пустых ответов (троттлинг): 1 из 7 дней (12.11); в эти дни отзывы проверены не все.',msg)
+
 
 class Durability(Fixtures):
     def test_requested_report_sends_only_its_event_once_and_records_message_id(self):
