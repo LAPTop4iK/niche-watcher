@@ -121,23 +121,46 @@ def store(con,records,source,stamp,cents=False):
     return len(seen)
 
 
+KEYCHAIN_SERVICE='trustmrr-api'
+
+
+def api_key():
+    """The owner's key from TRUSTMRR_API_KEY or the macOS Keychain item 'trustmrr-api'.
+    It is passed to TrustMRR only and never printed."""
+    key=os.environ.get('TRUSTMRR_API_KEY')
+    if key:
+        return key.strip()
+    if sys.platform!='darwin':
+        return None
+    import subprocess
+    found=subprocess.run(['security','find-generic-password','-s',KEYCHAIN_SERVICE,'-w'],capture_output=True,text=True,check=False)
+    if found.returncode!=0:
+        return None
+    return found.stdout.strip() or None
+
+
 def collect(con,api_pages=0):
     stamp=iso(now());total=0
     for path,groups in PUBLIC_ENDPOINTS.items():
         data=get_json(f'https://trustmrr.com/{path}')
         for group in groups:
             total+=store(con,data.get(group) or [],f'public:{group}',stamp)
-    key=os.environ.get('TRUSTMRR_API_KEY')
-    if key and api_pages:
+    key=api_key() if api_pages else None
+    pages=0
+    if key:
         # Standard keys allow 10 requests a minute and 10 startups a page.
         for page in range(1,api_pages+1):
             query=urllib.parse.urlencode({'category':'mobile-apps','page':page,'limit':10,'sort':'revenue-desc'})
-            data=get_json(f'{API}?{query}',{'Authorization':f'Bearer {key}'})
-            total+=store(con,data.get('data') or [],'api:mobile-apps',stamp,cents=True)
+            try:
+                data=get_json(f'{API}?{query}',{'Authorization':f'Bearer {key}'})
+            except urllib.error.HTTPError as error:
+                print(f'TrustMRR API answered {error.code} on page {page}; public snapshot kept'+(' (key rejected)' if error.code in (401,403) else ''))
+                break
+            total+=store(con,data.get('data') or [],'api:mobile-apps',stamp,cents=True);pages+=1
             if not (data.get('meta') or {}).get('hasMore'):
                 break
             time.sleep(6.5)
-    print(f'TrustMRR: {total} records stored at {stamp}')
+    print(f'TrustMRR: {total} records stored at {stamp}; '+(f'API pages: {pages}' if key else 'public snapshot only, no API key'))
     return stamp
 
 
@@ -188,7 +211,23 @@ def complaints(leaders,country,fetch,limit=3):
                 themes=[dict(word=word,count=len(members),example=members[0]['text'][:160]) for word,members in clusters[:4]])
 
 
-def enrich(con,niches_db=None,max_age_days=ENRICH_MAX_AGE_DAYS):
+def due(con,overrides,today,max_age_days=ENRICH_MAX_AGE_DAYS,limit=None):
+    """Apps whose niche is missing, older than a week or has a new search phrase,
+    highest verified revenue first: about nine App Store requests each."""
+    rows=con.execute('''SELECT s.* FROM startups s LEFT JOIN observations o ON o.slug=s.slug
+        AND o.observed_at=(SELECT MAX(observed_at) FROM observations WHERE slug=s.slug)
+        WHERE s.app_store_id IS NOT NULL GROUP BY s.slug ORDER BY MAX(coalesce(o.revenue_30d,0)) DESC,s.slug''').fetchall()
+    out=[]
+    for row in rows:
+        old=con.execute('SELECT checked_at,term FROM niches WHERE slug=?',(row['slug'],)).fetchone()
+        wanted=overrides.get(row['slug'])
+        if old and (today-datetime.fromisoformat(old['checked_at'].replace('Z','+00:00'))).days<max_age_days and (not wanted or wanted==old['term']):
+            continue
+        out.append(row)
+    return out[:limit] if limit else out
+
+
+def enrich(con,niches_db=None,max_age_days=ENRICH_MAX_AGE_DAYS,limit=40):
     import scanner as sc
     import review_clusters
     overrides_path=PRIVATE_DIR/'terms.json'
@@ -197,12 +236,12 @@ def enrich(con,niches_db=None,max_age_days=ENRICH_MAX_AGE_DAYS):
     if niches_db and Path(niches_db).exists():
         known=sqlite3.connect(Path(niches_db).resolve().as_uri()+'?mode=ro',uri=True)
     today=now();done=0
-    rows=con.execute('SELECT * FROM startups WHERE app_store_id IS NOT NULL').fetchall()
+    rows=due(con,overrides,today,max_age_days)
+    if limit and len(rows)>limit:
+        print(f'{len(rows)} niches are due; checking the {limit} with the highest revenue now, the rest on the next run')
+        rows=rows[:limit]
     for row in rows:
-        old=con.execute('SELECT checked_at,term FROM niches WHERE slug=?',(row['slug'],)).fetchone()
         wanted=overrides.get(row['slug'])
-        if old and (today-datetime.fromisoformat(old['checked_at'].replace('Z','+00:00'))).days<max_age_days and (not wanted or wanted==old['term']):
-            continue
         country=row['app_store_country'] or 'us'
         found=sc.fetch_json(f'https://itunes.apple.com/lookup?id={row["app_store_id"]}&country={country}').get('results') or []
         if not found:
@@ -343,13 +382,14 @@ def main():
     ap.add_argument('--db',default=str(PRIVATE_DIR/'trustmrr.db'))
     ap.add_argument('--out',default=str(PRIVATE_DIR/'trustmrr_report.html'))
     ap.add_argument('--niches-db',default=str(HERE/'niches.db'),help='read-only: which apps our scanner already sees')
-    ap.add_argument('--api-pages',type=int,default=20,help='pages of the mobile-apps category when TRUSTMRR_API_KEY is set')
+    ap.add_argument('--api-pages',type=int,default=20,help='pages of the mobile-apps category when an API key is available')
+    ap.add_argument('--enrich-limit',type=int,default=40,help='App Store niches checked per run, highest revenue first')
     args=ap.parse_args()
     con=open_db(args.db)
     if args.step in ('all','collect'):
         collect(con,args.api_pages)
     if args.step in ('all','enrich'):
-        enrich(con,args.niches_db)
+        enrich(con,args.niches_db,limit=args.enrich_limit)
     if args.step in ('all','report'):
         report(con,args.out)
 

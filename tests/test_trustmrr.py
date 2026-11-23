@@ -46,14 +46,47 @@ class Collection(unittest.TestCase):
         con=tw.open_db(Path(tempfile.mkdtemp())/'t.db');calls=[]
         def fake(url,headers=None,attempts=3):
             calls.append((url,headers));return {}
-        with patch.object(tw,'get_json',side_effect=fake),patch.dict('os.environ',{},clear=True):
+        with patch.object(tw,'get_json',side_effect=fake),patch.object(tw,'api_key',return_value=None):
             tw.collect(con,api_pages=3)
         self.assertEqual([u for u,_ in calls],['https://trustmrr.com/api/ai/discovery','https://trustmrr.com/api/ai'])
         calls.clear()
-        with patch.object(tw,'get_json',side_effect=fake),patch.dict('os.environ',{'TRUSTMRR_API_KEY':'tmrr_test'}),patch.object(tw.time,'sleep'):
+        with patch.object(tw,'get_json',side_effect=fake),patch.object(tw,'api_key',return_value='tmrr_test'),patch.object(tw.time,'sleep'):
             tw.collect(con,api_pages=3)
         self.assertEqual(calls[-1][1],{'Authorization':'Bearer tmrr_test'})
         self.assertIn('category=mobile-apps',calls[-1][0])
+
+    def test_rejected_key_keeps_the_public_snapshot(self):
+        import urllib.error
+        con=tw.open_db(Path(tempfile.mkdtemp())/'t.db')
+        def fake(url,headers=None,attempts=3):
+            if headers:raise urllib.error.HTTPError(url,401,'Unauthorized',{},None)
+            return {'recentlyAddedStartups':[record('a')]}
+        with patch.object(tw,'get_json',side_effect=fake),patch.object(tw,'api_key',return_value='tmrr_bad'):
+            tw.collect(con,api_pages=3)
+        self.assertEqual(con.execute('SELECT COUNT(*) FROM startups').fetchone()[0],1)
+
+    def test_key_comes_from_the_environment_first_then_the_keychain(self):
+        class Found:
+            def __init__(self,code,out):self.returncode,self.stdout=code,out
+        with patch.dict('os.environ',{'TRUSTMRR_API_KEY':' tmrr_env\n'}):
+            self.assertEqual(tw.api_key(),'tmrr_env')
+        with patch.dict('os.environ',{},clear=True),patch.object(tw.sys,'platform','darwin'),patch('subprocess.run',return_value=Found(0,'tmrr_kc\n')) as run:
+            self.assertEqual(tw.api_key(),'tmrr_kc')
+        self.assertEqual(run.call_args.args[0][:4],['security','find-generic-password','-s','trustmrr-api'])
+        with patch.dict('os.environ',{},clear=True),patch.object(tw.sys,'platform','darwin'),patch('subprocess.run',return_value=Found(44,'')):
+            self.assertIsNone(tw.api_key())
+        with patch.dict('os.environ',{},clear=True),patch.object(tw.sys,'platform','linux'):
+            self.assertIsNone(tw.api_key())
+
+    def test_niche_checks_go_by_revenue_and_skip_fresh_ones(self):
+        con=tw.open_db(Path(tempfile.mkdtemp())/'t.db')
+        tw.store(con,[record('small',mrr=10,url='https://apps.apple.com/us/app/id1'),record('big',mrr=900,url='https://apps.apple.com/us/app/id2'),
+                      record('fresh',mrr=5000,url='https://apps.apple.com/us/app/id3')],'public:x','2026-11-23T00:00:00Z')
+        con.execute("INSERT INTO niches VALUES ('fresh','2026-11-22T00:00:00Z','t','us','{}')")
+        today=datetime(2026,11,23,tzinfo=timezone.utc)
+        self.assertEqual([r['slug'] for r in tw.due(con,{},today)],['big','small'])
+        self.assertEqual([r['slug'] for r in tw.due(con,{},today,limit=1)],['big'])
+        self.assertEqual([r['slug'] for r in tw.due(con,{'fresh':'new phrase'},today)],['fresh','big','small'])
 
 
 class Niche(unittest.TestCase):
