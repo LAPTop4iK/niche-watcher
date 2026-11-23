@@ -37,10 +37,12 @@ class Collection(unittest.TestCase):
         self.assertEqual(tuple(obs),(100.5,120.6,40))
         self.assertIsNone(con.execute('SELECT app_store_id FROM startups WHERE slug="web"').fetchone()[0])
 
-    def test_api_snapshot_converts_cents(self):
+    def test_api_and_public_snapshots_share_dollar_units(self):
+        # Nov 23 2026: one startup came back with MRR 1840.63 from both, despite the API docs saying cents.
         con=tw.open_db(Path(tempfile.mkdtemp())/'t.db')
-        tw.store(con,[record('paid',mrr=18000)],'api:mobile-apps','2026-11-23T00:00:00Z',cents=True)
-        self.assertEqual(con.execute('SELECT mrr FROM observations').fetchone()[0],180.0)
+        tw.store(con,[record('both',mrr=1840.63)],'public:x','2026-11-23T00:00:00Z')
+        tw.store(con,[record('both',mrr=1840.63)],'api:mobile-apps','2026-11-23T00:00:00Z')
+        self.assertEqual({r[0] for r in con.execute('SELECT mrr FROM observations')},{1840.63})
 
     def test_api_is_used_only_with_the_owners_key(self):
         con=tw.open_db(Path(tempfile.mkdtemp())/'t.db');calls=[]

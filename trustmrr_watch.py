@@ -94,12 +94,13 @@ def app_store_id(record):
     return (int(match.group(1)),store.get('country') or 'us',store.get('ratingCount')) if match else (None,None,None)
 
 
-def money(value,cents):
-    return None if value is None else (value/100 if cents else float(value))
+def money(value):
+    return None if value is None else float(value)
 
 
-def store(con,records,source,stamp,cents=False):
-    """Public discovery reports dollars (MRR 1003.91); the v1 API documents cents."""
+def store(con,records,source,stamp):
+    """Both endpoints report dollars. The v1 API documents cents, but on Nov 23 2026
+    the same startup came back with MRR 1840.63 from the public snapshot and the API."""
     seen=set()
     for r in records:
         slug=r.get('slug')
@@ -115,8 +116,8 @@ def store(con,records,source,stamp,cents=False):
             (slug,r.get('name'),r.get('category'),r.get('description'),r.get('website'),r.get('paymentProvider'),
              int(bool(r.get('isMobileApp') or app_id)),app_id,country,stamp,stamp))
         con.execute('INSERT OR REPLACE INTO observations VALUES (?,?,?,?,?,?,?,?,?,?)',
-            (slug,stamp,source,money(revenue.get('last30Days'),cents),money(revenue.get('mrr'),cents),r.get('growth30d'),
-             r.get('customers'),int(bool(r.get('onSale'))),money(r.get('askingPrice'),cents),ratings))
+            (slug,stamp,source,money(revenue.get('last30Days')),money(revenue.get('mrr')),r.get('growth30d'),
+             r.get('customers'),int(bool(r.get('onSale'))),money(r.get('askingPrice')),ratings))
     con.commit()
     return len(seen)
 
@@ -156,7 +157,7 @@ def collect(con,api_pages=0):
             except urllib.error.HTTPError as error:
                 print(f'TrustMRR API answered {error.code} on page {page}; public snapshot kept'+(' (key rejected)' if error.code in (401,403) else ''))
                 break
-            total+=store(con,data.get('data') or [],'api:mobile-apps',stamp,cents=True);pages+=1
+            total+=store(con,data.get('data') or [],'api:mobile-apps',stamp);pages+=1
             if not (data.get('meta') or {}).get('hasMore'):
                 break
             time.sleep(6.5)
