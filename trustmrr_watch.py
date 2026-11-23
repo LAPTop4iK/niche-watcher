@@ -195,6 +195,29 @@ def competition(results,today):
                          for r in top[:5]])
 
 
+def ios_reviews(track_id,country,n=100,pages=2):
+    """Recent 1-3 star App Store reviews. A missing feed answers 404 for good, so
+    it is not retried (the shared fetcher spent about a minute on each, Nov 23)."""
+    out=[]
+    for page in range(1,pages+1):
+        url=f'https://itunes.apple.com/{country}/rss/customerreviews/id={track_id}/sortby=mostrecent/page={page}/json'
+        try:
+            data=get_json(url)
+        except urllib.error.HTTPError as error:
+            if error.code in (400,404):
+                break
+            raise
+        entries=(data.get('feed') or {}).get('entry') or []
+        entries=[entries] if isinstance(entries,dict) else entries
+        rated=[e for e in entries if 'im:rating' in e]
+        out+=[dict(text=e.get('content',{}).get('label',''),score=int(e['im:rating']['label'])) for e in rated
+              if int(e['im:rating']['label'])<=3]
+        if not rated or len(out)>=n:
+            break
+        time.sleep(1)
+    return out[:n]
+
+
 def complaints(leaders,country,fetch,limit=3):
     """1-3 star themes across the niche leaders' recent App Store reviews."""
     import review_clusters
@@ -229,7 +252,6 @@ def due(con,overrides,today,max_age_days=ENRICH_MAX_AGE_DAYS,limit=None):
 
 def enrich(con,niches_db=None,max_age_days=ENRICH_MAX_AGE_DAYS,limit=40):
     import scanner as sc
-    import review_clusters
     overrides_path=PRIVATE_DIR/'terms.json'
     overrides=json.loads(overrides_path.read_text()) if overrides_path.exists() else {}
     known=None
@@ -258,7 +280,7 @@ def enrich(con,niches_db=None,max_age_days=ENRICH_MAX_AGE_DAYS,limit=40):
         payload=dict(app=dict(name=app.get('trackName'),genre=app.get('primaryGenreName'),price=app.get('price'),
                               ratings=app.get('userRatingCount') or 0,released=app.get('releaseDate'),
                               updated=app.get('currentVersionReleaseDate'),url=app.get('trackViewUrl')),
-                     competition=profile,complaints=complaints(profile['leaders'],country,review_clusters.fetch_ios))
+                     competition=profile,complaints=complaints(profile['leaders'],country,ios_reviews))
         if known:
             seen=known.execute('SELECT COUNT(*),MAX(rating_count) FROM snapshots WHERE track_id=?',(row['app_store_id'],)).fetchone()
             payload['our_scanner']=dict(snapshots=seen[0],max_ratings=seen[1])

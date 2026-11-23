@@ -117,6 +117,23 @@ class Niche(unittest.TestCase):
         self.assertEqual(out['themes'][0]['word'],'crashes')
 
 
+class Reviews(unittest.TestCase):
+    def test_missing_review_feed_is_not_retried(self):
+        import urllib.error
+        calls=[]
+        def fake(url,headers=None,attempts=3):
+            calls.append(url);raise urllib.error.HTTPError(url,404,'Not Found',{},None)
+        with patch.object(tw,'get_json',side_effect=fake):
+            self.assertEqual(tw.ios_reviews(1,'us'),[])
+        self.assertEqual(len(calls),1)
+
+    def test_review_feed_keeps_low_scores_and_stops_on_an_empty_page(self):
+        page={'feed':{'entry':[{'im:rating':{'label':'1'},'content':{'label':'crashes'}},
+                               {'im:rating':{'label':'5'},'content':{'label':'great'}},{'title':'app entry'}]}}
+        with patch.object(tw,'get_json',side_effect=[page,{'feed':{}}]),patch.object(tw.time,'sleep'):
+            self.assertEqual(tw.ios_reviews(1,'us'),[dict(text='crashes',score=1)])
+
+
 class Report(unittest.TestCase):
     def test_report_escapes_text_and_shows_revenue_per_rating(self):
         folder=Path(tempfile.mkdtemp());con=tw.open_db(folder/'t.db')
