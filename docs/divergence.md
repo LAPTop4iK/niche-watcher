@@ -30,8 +30,6 @@
 | jp | コード 検索 | 47 | **5** | [ピアノコード判定](https://apps.apple.com/jp/app/id1396636271) |
 | tw | 油耗記錄 | 44 | **3** | [记油耗-油电气能耗记录助手](https://apps.apple.com/tw/app/id1610055803) |
 | ca | dog training clicker | 45 | **4** | [Dog Translator: Puppy Training](https://apps.apple.com/ca/app/id1209845479) |
-| at | segeln app | 47 | **6** | [NV Charts GPS Navigation AIS](https://apps.apple.com/at/app/id659569095) |
-| ch | maschenzähler | 47 | **7** | [Purlaine – Reihenzähler](https://apps.apple.com/ch/app/id6822807661) |
 | au | puppy potty training | 46 | **6** | [Puppy Potty Trainer](https://apps.apple.com/au/app/id6755253203) |
 | gb | local ai assistant | 47 | **8** | [Peanut – Local AI Assistant](https://apps.apple.com/gb/app/id6753363449) |
 | ca | vin decoder | 46 | **7** | [Car VIN: Check & Decode](https://apps.apple.com/ca/app/id6772998366) |
@@ -41,3 +39,5 @@
 | nz | score keeper | 49 | **11** | [Smart Score Counter](https://apps.apple.com/nz/app/id6757673361) |
 | ie | pet health tracker | 44 | **6** | [Pet Health Tracker: Cat-a-log](https://apps.apple.com/ie/app/id6792299436) |
 | au | companion planting | 43 | **5** | [grove. The Bed Planner.](https://apps.apple.com/au/app/id6757819650) |
+| sg | garden planner | 42 | **5** | [Garden Planner : Bedleaf](https://apps.apple.com/sg/app/id6813985665) |
+| nz | mileage tracker | 41 | **4** | [mileage logbook : car tracker](https://apps.apple.com/nz/app/id1667087622) |
