@@ -387,7 +387,15 @@
           "prayer times",
           "qibla compass",
           "rosary counter",
-          "daily bible verse"
+          "daily bible verse",
+          "bible widget",
+          "quran widget",
+          "scroll the bible",
+          "scroll quran",
+          "tasbih counter",
+          "couples devotional",
+          "pray together",
+          "bible charades"
         ],
         "de": [
           "gebetszeiten",
@@ -416,7 +424,10 @@
           "مواقيت الصلاة",
           "اتجاه القبلة",
           "مسبحة إلكترونية",
-          "الحديث اليومي"
+          "الحديث اليومي",
+          "ودجت القرآن",
+          "ختمة القرآن",
+          "أذكار"
         ],
         "he": [
           "זמני תפילה",
