@@ -42,6 +42,7 @@
 | ai_identifiers | hk | 93 | 4 | 2 | 0 | 2 | 0 | 0 |
 | auto | jp | 184 | 2 | 2 | 0 | 0 | 0 | 3 |
 | aviation_marine | fr | 73 | 2 | 2 | 0 | 0 | 0 | 0 |
+| aviation_marine | nz | 244 | 3 | 2 | 0 | 1 | 0 | 0 |
 | boardgames | jp | 94 | 3 | 2 | 0 | 1 | 0 | 1 |
 | cooking | tw | 59 | 2 | 2 | 0 | 0 | 0 | 0 |
 | driving_ed | de | 68 | 2 | 2 | 0 | 0 | 0 | 1 |
@@ -87,7 +88,6 @@
 | auto | nl | 128 | 2 | 1 | 0 | 1 | 0 | 2 |
 | auto | tw | 133 | 1 | 1 | 0 | 0 | 0 | 0 |
 | aviation_marine | au | 250 | 5 | 1 | 0 | 4 | 0 | 0 |
-| aviation_marine | nz | 245 | 2 | 1 | 0 | 1 | 0 | 0 |
 | aviation_marine | tw | 87 | 2 | 1 | 0 | 1 | 0 | 3 |
 | boardgames | gb | 142 | 1 | 1 | 0 | 0 | 0 | 0 |
 | construction | ca | 235 | 3 | 1 | 0 | 2 | 0 | 0 |
@@ -97,10 +97,10 @@
 | driving_ed | at | 70 | 1 | 1 | 0 | 0 | 0 | 1 |
 | driving_ed | il | 61 | 6 | 1 | 0 | 5 | 0 | 0 |
 | driving_ed | sa | 78 | 5 | 1 | 0 | 4 | 0 | 3 |
+| driving_ed | se | 66 | 2 | 1 | 0 | 1 | 0 | 0 |
 | finance_tools | au | 320 | 2 | 1 | 0 | 1 | 0 | 1 |
-| finance_tools | nz | 324 | 2 | 1 | 0 | 1 | 0 | 0 |
+| finance_tools | nz | 322 | 2 | 1 | 0 | 1 | 0 | 0 |
 | fitness_calc | fr | 96 | 2 | 1 | 0 | 1 | 0 | 0 |
 | fitness_calc | kr | 92 | 1 | 1 | 0 | 0 | 0 | 1 |
 | garden | ca | 213 | 4 | 1 | 0 | 3 | 0 | 0 |
 | hunting_fishing | ca | 148 | 2 | 1 | 0 | 1 | 0 | 0 |
-| hunting_fishing | ru | 46 | 1 | 1 | 0 | 0 | 0 | 1 |
