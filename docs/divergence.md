@@ -28,11 +28,11 @@
 |---|---|---|---|---|
 | se | tal till text | 45 | **1** | [Tal till text: Transcribe](https://apps.apple.com/se/app/id1625460169) |
 | tw | 油耗記錄 | 46 | **3** | [记油耗-油电气能耗记录助手](https://apps.apple.com/tw/app/id1610055803) |
+| ae | عداد نقاط | 48 | **5** | [Scoring - Score Tracker](https://apps.apple.com/ae/app/id6753653295) |
 | ca | flight distance calculator | 47 | **7** | [Flight Distance Viewer](https://apps.apple.com/ca/app/id6753686847) |
 | jp | 電気工事 計算 | 46 | **7** | [Conduit – 電気工事計算機](https://apps.apple.com/jp/app/id6763911546) |
-| ae | كروشيه | 46 | **7** | [Cozyarn: Crochet Patterns](https://apps.apple.com/ae/app/id6756036357) |
+| hk | 油耗記錄 | 42 | **3** | [汽車投屏 手機互聯 無線高畫質鏡射投影 車用大螢幕智慧助手](https://apps.apple.com/hk/app/id6751777754) |
 | sg | loan calculator | 44 | **6** | [Rupee Loan - Instant Cash Calc](https://apps.apple.com/sg/app/id6820120769) |
-| il | טלפרומפטר | 42 | **5** | [Teleprompter & Video Prompter](https://apps.apple.com/il/app/id6814874296) |
 | ca | vat calculator invoice | 38 | **1** | [VAT Calculator UK – HMRC Tax](https://apps.apple.com/ca/app/id6754226686) |
 | au | mushroom identifier | 46 | **9** | [Mushroom identificator Fungi](https://apps.apple.com/au/app/id1561107001) |
 | at | tier impfpass | 46 | **9** | [Tiergesundheitspass PupPlan](https://apps.apple.com/at/app/id6770948237) |
