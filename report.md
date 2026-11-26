@@ -1,6 +1,6 @@
 # Кандидаты для исследования
 
-Метод activity-v5. Дата 2026-11-26T21:03:12+00:00. Всего 1394 app×country. Это не список прибыльных ниш.
+Метод activity-v5. Дата 2026-11-26T22:01:56+00:00. Всего 1394 app×country. Это не список прибыльных ниш.
 
 Два направления: версии ≥18 мес и версии <18 мес, где на текущем выпуске ≥3 разных отзыва 1–2★, их доля выше базы категории×страны и повторяется тема. Это ещё не подтверждённая боль: отзывы нужно прочитать. Порядок: сигнал, лучшая позиция в поиске, превышение базы. Это не рейтинг заработка. R90 — нижняя граница выборки RSS. Платежи неизвестны.
 
@@ -80,7 +80,7 @@
 | [Video Teleprompter](https://apps.apple.com/us/app/id1444106389) | us | Версия ≥18 мес | ALIVE | 6 | teleprompter | 6687 | free | 3 | 0 | 2022-07-16 |
 | [Cahoのふわふわでんたく](https://apps.apple.com/jp/app/id1454489628) | jp | Версия ≥18 мес | ALIVE | 6 | 壁紙 計算 | 739 | free | 2 | 0 | 2022-03-27 |
 | [Hours Tracker: Time Calculator](https://apps.apple.com/nz/app/id1468092377) | nz | Версия ≥18 мес | ALIVE | 6 | hourly paycheck calculator | 959 | free | 0 | 0 | 2024-09-02 |
-| [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | us | Версия ≥18 мес | ALIVE | 7 | moon phase hunting | 30155 | free | 27 | 4 | 2025-04-07 |
+| [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | us | Версия ≥18 мес | ALIVE | 7 | moon phase hunting | 30155 | free | 26 | 4 | 2025-04-07 |
 | [Hours Tracker: Time Calculator](https://apps.apple.com/ca/app/id1468092377) | ca | Версия ≥18 мес | ALIVE | 7 | hourly paycheck calculator | 9811 | free | 8 | 1 | 2024-09-02 |
 | [Expenses OK - expenses tracker](https://apps.apple.com/us/app/id932322041) | us | Версия ≥18 мес | ALIVE | 7 | expense tracker | 5011 | free | 6 | 1 | 2024-11-27 |
 | [Bound - Audiobook Player](https://apps.apple.com/us/app/id1041727137) | us | Версия ≥18 мес | ALIVE | 7 | audiobook player | 2045 | 4.99 USD | 5 | 1 | 2025-02-25 |
@@ -125,7 +125,7 @@
 | [Wallpaper Maker- Icon Changer](https://apps.apple.com/gb/app/id1164466761) | gb | Версия ≥18 мес | ALIVE | 11 | wallpaper calculator | 2558 | free | 1 | 0 | 2023-02-10 |
 | [Master Electrician Ref. Lite](https://apps.apple.com/us/app/id889449126) | us | Версия ≥18 мес | ALIVE | 11 | electrical code calculator | 2532 | free | 0 | 0 | 2020-09-14 |
 | [Wallive: 4K Wallpaper & Widget](https://apps.apple.com/us/app/id6449699978) | us | Версия ≥18 мес | ALIVE | 11 | wallpaper calculator | 2316 | free | 0 | 0 | 2025-04-16 |
-| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | sa | Версия ≥18 мес | ALIVE | 12 | ختمة القرآن | 23324 | free | 103 | 72 | 2024-09-17 |
+| [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | sa | Версия ≥18 мес | ALIVE | 12 | ختمة القرآن | 23324 | free | 102 | 72 | 2024-09-17 |
 | [Simply Auto: Mileage Tracker](https://apps.apple.com/us/app/id893278325) | us | Версия ≥18 мес | ALIVE | 12 | car expenses tracker | 874 | free | 4 | 1 | 2022-03-24 |
 | [PromptSmart Lite Teleprompter](https://apps.apple.com/us/app/id922921003) | us | Версия ≥18 мес | ALIVE | 12 | teleprompter | 4689 | free | 4 | 4 | 2023-08-03 |
 | [La Bible Louis Segond + Audio](https://apps.apple.com/fr/app/id974966252) | fr | Версия ≥18 мес | ALIVE | 12 | verset biblique du jour | 11845 | free | 4 | 0 | 2023-05-16 |
@@ -288,7 +288,7 @@
 | [爭鮮TW](https://apps.apple.com/tw/app/id1610526467) | tw | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 589 | free | 8 | 8 | 2025-12-01 |
 | [Sage Sole Trader - MTD Ready](https://apps.apple.com/gb/app/id1641307408) | gb | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 779 | free | 6 | 4 | 2026-08-12 |
 | [Microsoft Authenticator](https://apps.apple.com/us/app/id983156458) | us | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 816944 | free | 250 | 206 | 2026-11-11 |
-| [Amazon Kindle](https://apps.apple.com/de/app/id302584613) | de | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 324232 | free | 89 | 40 | 2026-11-11 |
+| [Amazon Kindle](https://apps.apple.com/de/app/id302584613) | de | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 324232 | free | 88 | 40 | 2026-11-11 |
 | [Dr. Berg’s Junk Food Meter®](https://apps.apple.com/us/app/id6738574318) | us | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 9172 | free | 6 | 3 | 2026-08-27 |
 | [Chipotle](https://apps.apple.com/us/app/id327228455) | us | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 1965871 | free | 250 | 130 | 2026-11-10 |
 | [DINOPAY - Sinclair Oil](https://apps.apple.com/us/app/id445248886) | us | Версия <18 мес + жалобы выше базы | ALIVE | — | — | 50404 | free | 69 | 36 | 2026-09-24 |
@@ -464,7 +464,6 @@
 | [Ислам. Викторина](https://apps.apple.com/ru/app/id1500640541) | ru | Версия ≥18 мес | ALIVE | — | — | 2828 | — | 4 | 0 | 2020-03-06 |
 | [Photo Measures](https://apps.apple.com/us/app/id415038787) | us | Версия ≥18 мес | ALIVE | — | — | 531 | 6.99 USD | 3 | 0 | 2024-04-19 |
 | [Pocket Earth PRO](https://apps.apple.com/de/app/id481679745) | de | Версия ≥18 мес | ALIVE | — | — | 2970 | 7.99 EUR | 3 | 0 | 2024-08-20 |
-| [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | us | Версия ≥18 мес | ALIVE | — | — | 1429 | 8.99 USD | 3 | 0 | 2022-08-05 |
 | [القاعدة النورانية](https://apps.apple.com/sa/app/id841875549) | sa | Версия ≥18 мес | ALIVE | — | — | 2445 | 24.99 SAR | 3 | 0 | 2017-09-21 |
 | [القاعدة النورانية](https://apps.apple.com/se/app/id841875549) | se | Версия ≥18 мес | ALIVE | — | — | 888 | 79.0 SEK | 3 | 0 | 2017-09-21 |
 | [Аудиосказки, музыка и книги](https://apps.apple.com/ru/app/id910113912) | ru | Версия ≥18 мес | ALIVE | — | — | 1964 | — | 3 | 0 | 2022-03-27 |
@@ -481,6 +480,7 @@
 | [Mega Photo Pro](https://apps.apple.com/us/app/id529170920) | us | Версия ≥18 мес | ALIVE | — | — | 804 | 2.99 USD | 2 | — | 2025-03-04 |
 | [Yokee Karaoke – Start Singing](https://apps.apple.com/dk/app/id547109049) | dk | Версия ≥18 мес | ALIVE | — | — | 992 | free | 2 | 0 | 2024-01-18 |
 | [Road to Hana Maui GyPSy Guide](https://apps.apple.com/us/app/id578451869) | us | Версия ≥18 мес | ALIVE | — | — | 4993 | 14.99 USD | 2 | 0 | 2025-01-17 |
+| [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | us | Версия ≥18 мес | ALIVE | — | — | 1429 | 8.99 USD | 2 | 0 | 2022-08-05 |
 | [YoWindow Weather](https://apps.apple.com/ru/app/id606193225) | ru | Версия ≥18 мес | ALIVE | — | — | 1187 | — | 2 | 0 | 2019-01-03 |
 | [YoWindow Weather](https://apps.apple.com/us/app/id606193225) | us | Версия ≥18 мес | ALIVE | — | — | 1044 | 0.99 USD | 2 | 0 | 2019-01-03 |
 | [Swiss Radios](https://apps.apple.com/ch/app/id629671043) | ch | Версия ≥18 мес | ALIVE | — | — | 10894 | free | 2 | 0 | 2020-05-01 |

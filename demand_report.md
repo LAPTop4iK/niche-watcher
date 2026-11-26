@@ -1,6 +1,6 @@
 # Demand Report — свежая активность, не доказательство платежей
 
-Метод activity-v5. Пересчёт 2026-11-26T21:02:55Z. Кандидатов: 1353.
+Метод activity-v5. Пересчёт 2026-11-26T22:01:42Z. Кандидатов: 1353.
 
 ALIVE: 480 · WEAK: 183 · UNKNOWN: 51 · NO_RECENT_EVIDENCE: 639
 
@@ -19,7 +19,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Musicana - Organizer & Player](https://apps.apple.com/us/app/id1434023161) | 95,909 | +5003.7 | 2026-11-19T10:42:07+00:00 | 250 |
 | jp | [近所の出会い秘密の出会い 即会い 出会い探しはリアトーク](https://apps.apple.com/jp/app/id1246056249) | 74,239 | +0.0 | 2026-11-19T10:06:28+00:00 | 197 |
 | ru | [Контакт - клиент для ВК](https://apps.apple.com/ru/app/id1090754155) | 7,326 | — | 2026-11-18T18:56:46+00:00 | 121 |
-| sa | [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | 23,324 | +158.0 | 2026-11-23T07:41:21+00:00 | 103 |
+| sa | [القرآن الكريم كاملا دون انترنت](https://apps.apple.com/sa/app/id1164088669) | 23,324 | +158.0 | 2026-11-23T07:41:21+00:00 | 102 |
 | us | [FanFiction.Net](https://apps.apple.com/us/app/id1192753879) | 1,014 | — | 2026-11-19T17:33:53+00:00 | 87 |
 | tw | [MARU日文五十音特訓](https://apps.apple.com/tw/app/id1208009110) | 43,539 | +388.5 | 2026-11-19T13:16:21+00:00 | 84 |
 | gb | [Study Bunny: Focus Timer](https://apps.apple.com/gb/app/id1478345385) | 15,829 | +418.4 | 2026-11-20T04:26:39+00:00 | 76 |
@@ -52,11 +52,11 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | tw | [HiTi相片立可得](https://apps.apple.com/tw/app/id584293738) | 1,114 | +12.8 | 2026-11-11T00:49:11+00:00 | 29 |
 | ru | [Ежедневник, Планер дел・ListBox](https://apps.apple.com/ru/app/id854413387) | 8,293 | +38.3 | 2026-11-17T04:19:13+00:00 | 28 |
 | us | [Dingtone: Phone Calls + Texts](https://apps.apple.com/us/app/id588937297) | 30,640 | +0.0 | 2026-11-14T12:39:08+00:00 | 27 |
-| us | [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | 30,155 | +401.3 | 2026-11-13T23:39:04+00:00 | 27 |
 | us | [Watch Faces by MobyFox](https://apps.apple.com/us/app/id1441479443) | 12,521 | +0.0 | 2026-11-19T12:03:01+00:00 | 27 |
 | us | [Pixel Pet Widget: Island Pet](https://apps.apple.com/us/app/id6445975134) | 3,200 | +46.8 | 2026-11-16T23:03:51+00:00 | 27 |
 | us | [Word Alert](https://apps.apple.com/us/app/id416931540) | 35,022 | +0.0 | 2026-11-21T15:14:17+00:00 | 26 |
 | us | [Piano for iPhone](https://apps.apple.com/us/app/id531263194) | 13,667 | +72.6 | 2026-11-18T14:25:47+00:00 | 26 |
+| us | [MOON - Current Moon Phase](https://apps.apple.com/us/app/id660036257) | 30,155 | +401.3 | 2026-11-13T23:39:04+00:00 | 26 |
 | us | [Steam Chat](https://apps.apple.com/us/app/id1434890245) | 1,606 | +8.5 | 2026-11-15T18:00:48+00:00 | 25 |
 | ae | [Gboard – the Google Keyboard](https://apps.apple.com/ae/app/id1091700242) | 3,199 | +55.5 | 2026-11-15T12:09:34+00:00 | 24 |
 | sa | [Koora App](https://apps.apple.com/sa/app/id1143050799) | 2,287 | +0.0 | 2026-11-13T18:34:49+00:00 | 22 |
@@ -241,7 +241,6 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [Prayer Notebook](https://apps.apple.com/us/app/id522373829) | 6,236 | — | 2026-11-12T12:50:50+00:00 | 3 |
 | sa | [Piano](https://apps.apple.com/sa/app/id531263194) | 1,116 | +12.8 | 2026-09-29T07:31:25+00:00 | 3 |
 | us | [Lapse It](https://apps.apple.com/us/app/id539108382) | 1,116 | +0.0 | 2026-10-18T00:35:25+00:00 | 3 |
-| us | [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | 1,429 | +12.8 | 2026-09-30T13:04:43+00:00 | 3 |
 | us | [Units Plus Converter](https://apps.apple.com/us/app/id593306620) | 8,425 | +0.0 | 2026-11-06T19:57:41+00:00 | 3 |
 | us | [Tunable – Tuner & Metronome](https://apps.apple.com/us/app/id608540795) | 6,881 | +0.0 | 2026-11-10T02:48:25+00:00 | 3 |
 | gb | [Home and Dry](https://apps.apple.com/gb/app/id654608885) | 853 | +0.0 | 2026-11-08T15:21:03+00:00 | 3 |
@@ -316,6 +315,7 @@ RSS ограничен 5 страницами по 50 отзывов: R90 — н
 | us | [iMicroscope - Magnifying Glass](https://apps.apple.com/us/app/id577434784) | 627 | +0.0 | 2026-11-07T13:59:23+00:00 | 2 |
 | us | [Road to Hana Maui GyPSy Guide](https://apps.apple.com/us/app/id578451869) | 4,993 | +0.0 | 2026-11-12T01:35:40+00:00 | 2 |
 | gb | [Dingtone: Calling & Texting](https://apps.apple.com/gb/app/id588937297) | 3,025 | +0.0 | 2026-10-12T01:20:46+00:00 | 2 |
+| us | [Endless Alphabet](https://apps.apple.com/us/app/id591626572) | 1,429 | +12.8 | 2026-09-30T13:04:43+00:00 | 2 |
 | ru | [YoWindow Weather](https://apps.apple.com/ru/app/id606193225) | 1,187 | — | 2026-11-09T18:12:49+00:00 | 2 |
 | us | [YoWindow Weather](https://apps.apple.com/us/app/id606193225) | 1,044 | +0.0 | 2026-10-29T17:56:24+00:00 | 2 |
 | de | [Tunable – Tuner & Metronome](https://apps.apple.com/de/app/id608540795) | 586 | +0.0 | 2026-09-27T10:20:22+00:00 | 2 |
