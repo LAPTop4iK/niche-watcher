@@ -6,21 +6,21 @@
 
 | Рост A/30д | Стояние B/30д | A→B | Приложение | Категория |
 |---|---|---|---|---|
-| +528439 | +83496 | us→gb | [Spotify: Music and Podcasts](https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580?uo=4) | chart:music |
-| +439497 | +22553 | us→au | [YouTube](https://apps.apple.com/us/app/youtube/id544007664?uo=4) | chart:photo & video |
-| +439497 | +51216 | us→gb | [YouTube](https://apps.apple.com/us/app/youtube/id544007664?uo=4) | chart:photo & video |
-| +387745 | +21627 | us→au | [Facebook](https://apps.apple.com/us/app/facebook/id284882215?uo=4) | chart:social networking |
-| +387745 | +43359 | us→gb | [Facebook](https://apps.apple.com/us/app/facebook/id284882215?uo=4) | chart:social networking |
-| +253693 | +0 | us→gb | [Messenger](https://apps.apple.com/us/app/messenger/id454638411?uo=4) | chart:social networking |
-| +232968 | +149 | us→gb | [DoorDash: Food, Grocery, More](https://apps.apple.com/us/app/doordash-food-grocery-more/id719972451?uo=4) | chart:food & drink |
-| +253693 | +22267 | us→au | [Messenger](https://apps.apple.com/us/app/messenger/id454638411?uo=4) | chart:social networking |
-| +232968 | +6776 | us→au | [DoorDash: Food, Grocery, More](https://apps.apple.com/us/app/doordash-food-grocery-more/id719972451?uo=4) | chart:food & drink |
-| +207705 | +33629 | us→gb | [Uber - Rides, Eats, Hotels](https://apps.apple.com/us/app/uber-rides-eats-hotels/id368677368?uo=4) | chart:travel |
-| +170373 | +33975 | us→gb | [WhatsApp](https://apps.apple.com/us/app/whatsapp/id310633997?uo=4) | chart:social networking |
-| +120044 | +7471 | gb→nz | [ChatGPT](https://apps.apple.com/gb/app/chatgpt/id6448311069?uo=4) | ai_tools |
-| +120044 | +8089 | gb→ie | [ChatGPT](https://apps.apple.com/gb/app/chatgpt/id6448311069?uo=4) | ai_tools |
-| +108654 | +30 | us→au | [ADP Mobile Solutions](https://apps.apple.com/us/app/adp-mobile-solutions/id444553167?uo=4) | finance_tools |
-| +115693 | +7132 | us→au | [Google](https://apps.apple.com/us/app/google/id284815942?uo=4) | finance_tools |
+| +550474 | +46260 | us→au | [Spotify: Music and Podcasts](https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580?uo=4) | chart:music |
+| +550474 | +84512 | us→gb | [Spotify: Music and Podcasts](https://apps.apple.com/us/app/spotify-music-and-podcasts/id324684580?uo=4) | chart:music |
+| +488688 | +23465 | us→au | [YouTube](https://apps.apple.com/us/app/youtube/id544007664?uo=4) | chart:photo & video |
+| +488688 | +55702 | us→gb | [YouTube](https://apps.apple.com/us/app/youtube/id544007664?uo=4) | chart:photo & video |
+| +450545 | +35368 | us→au | [Muse from Meta](https://apps.apple.com/us/app/muse-from-meta/id6760173601?uo=4) | chart:productivity |
+| +432661 | +26125 | us→au | [Facebook](https://apps.apple.com/us/app/facebook/id284882215?uo=4) | chart:social networking |
+| +432661 | +47168 | us→gb | [Facebook](https://apps.apple.com/us/app/facebook/id284882215?uo=4) | chart:social networking |
+| +375882 | +32717 | us→au | [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458?uo=4) | chart:productivity |
+| +375882 | +68698 | us→gb | [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458?uo=4) | chart:productivity |
+| +260370 | +0 | us→gb | [Messenger](https://apps.apple.com/us/app/messenger/id454638411?uo=4) | chart:social networking |
+| +250989 | +107 | us→gb | [DoorDash: Food, Grocery, More](https://apps.apple.com/us/app/doordash-food-grocery-more/id719972451?uo=4) | chart:food & drink |
+| +250989 | +6596 | us→au | [DoorDash: Food, Grocery, More](https://apps.apple.com/us/app/doordash-food-grocery-more/id719972451?uo=4) | chart:food & drink |
+| +260370 | +21723 | us→au | [Messenger](https://apps.apple.com/us/app/messenger/id454638411?uo=4) | chart:social networking |
+| +203271 | +17582 | us→au | [Uber - Rides, Eats, Hotels](https://apps.apple.com/us/app/uber-rides-eats-hotels/id368677368?uo=4) | chart:travel |
+| +203271 | +34825 | us→gb | [Uber - Rides, Eats, Hotels](https://apps.apple.com/us/app/uber-rides-eats-hotels/id368677368?uo=4) | chart:travel |
 
 ## Rank-дельты (ворвались в топ-20 выдачи)
 
