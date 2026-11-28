@@ -1,5 +1,5 @@
 {
-  "computed_at": "2026-11-28T16:27:25.033895+00:00",
+  "computed_at": "2026-11-28T17:42:59.151225+00:00",
   "scope": "Current keyword-search memberships; counts before the optional title filter",
   "unit": "app×storefront, not independent users",
   "search_records": 71909,
@@ -19,17 +19,17 @@
   "freshness_days": 14,
   "review_coverage": {
     "metadata_fresh": 9235,
-    "rss_missing": 6663,
-    "rss_usable": 2546,
+    "rss_missing": 6661,
+    "rss_usable": 2549,
     "rss_recent_capped": 21,
-    "rss_with_review_versions": 2546,
-    "rss_with_review_ids": 2546,
-    "rss_stale": 13,
+    "rss_with_review_versions": 2549,
+    "rss_with_review_ids": 2549,
+    "rss_stale": 12,
     "rss_empty_unconfirmed": 4,
     "rss_empty": 9,
     "eligible": 9235,
     "metadata_not_fresh": 0,
-    "rss_not_usable": 6689,
+    "rss_not_usable": 6686,
     "rss_error": 0,
     "rss_unknown": 0
   },
@@ -52,11 +52,11 @@
       "0-49|18mo+|free": 8879,
       "50-499|18mo+|free": 1277,
       "500+|18mo+|free": 779,
-      "0-49|18mo+|paid": 927,
+      "0-49|18mo+|paid": 934,
       "50-499|18mo+|paid": 124,
       "500+|18mo+|paid": 47,
       "50-499|12-18mo|paid": 16,
-      "0-49|12-18mo|paid": 199,
+      "0-49|12-18mo|paid": 192,
       "0-49|12-18mo|free": 2080,
       "500+|12-18mo|free": 226,
       "50-499|12-18mo|free": 313,
@@ -67,17 +67,17 @@
       "0-49|unknown|unknown": 6,
       "0-49|<12mo|unknown": 1
     },
-    "checked_at_least_once": 3410,
-    "rss_usable_now": 3020,
+    "checked_at_least_once": 3412,
+    "rss_usable_now": 3023,
     "history": {
-      "samples": 17169,
-      "apps": 3945,
+      "samples": 18537,
+      "apps": 3972,
       "first": "2026-10-31T19:03:59Z",
-      "last": "2026-11-28T16:24:38Z",
+      "last": "2026-11-28T17:37:59Z",
       "origins": {
         "frozen-study": 5,
         "legacy-cache": 2322,
-        "live-fetch": 14842
+        "live-fetch": 16210
       }
     },
     "raw_capture": "Opt-in local archive only; complete HTTP bodies are not persisted by CI",
@@ -94,9 +94,9 @@
     "version_unknown": 0
   },
   "alive_paths": {
-    "rss": 253,
-    "rss+velocity": 128,
-    "velocity": 98
+    "rss": 271,
+    "rss+velocity": 145,
+    "velocity": 81
   },
   "queue_funnel": {
     "stale": {
@@ -108,12 +108,12 @@
       "apps": 594
     },
     "alive": {
-      "records": 239,
-      "apps": 205
+      "records": 243,
+      "apps": 209
     },
     "top10": {
-      "records": 99,
-      "apps": 80
+      "records": 101,
+      "apps": 82
     },
     "title_match": {
       "records": 45,

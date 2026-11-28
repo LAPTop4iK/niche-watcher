@@ -2,29 +2,23 @@
   "method": "activity-v5",
   "candidate_storefronts": 1368,
   "counts": {
-    "NO_RECENT_EVIDENCE": 638,
-    "WEAK": 177,
-    "ALIVE": 479,
-    "UNKNOWN": 74
+    "NO_RECENT_EVIDENCE": 672,
+    "WEAK": 192,
+    "ALIVE": 497,
+    "UNKNOWN": 7
   },
   "transitions": {
-    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 620,
-    "WEAK → WEAK": 161,
-    "ALIVE → ALIVE": 445,
-    "NO_RECENT_EVIDENCE → UNKNOWN": 17,
-    "ALIVE → NO_RECENT_EVIDENCE": 12,
+    "NO_RECENT_EVIDENCE → NO_RECENT_EVIDENCE": 671,
+    "WEAK → WEAK": 191,
+    "ALIVE → ALIVE": 496,
+    "ALIVE → NO_RECENT_EVIDENCE": 1,
     "UNKNOWN → UNKNOWN": 5,
-    "MISSING → UNKNOWN": 41,
-    "WEAK → NO_RECENT_EVIDENCE": 6,
-    "NO_RECENT_EVIDENCE → ALIVE": 17,
-    "ALIVE → WEAK": 16,
-    "WEAK → UNKNOWN": 5,
-    "MISSING → ALIVE": 5,
-    "ALIVE → UNKNOWN": 6,
-    "WEAK → ALIVE": 12
+    "WEAK → UNKNOWN": 2,
+    "ALIVE → WEAK": 1,
+    "NO_RECENT_EVIDENCE → ALIVE": 1
   },
-  "apps": 69306,
-  "snapshots": 1484589,
+  "apps": 69307,
+  "snapshots": 1484701,
   "coverage": [
     {
       "country": "ae",
@@ -64,7 +58,7 @@
     },
     {
       "country": "gb",
-      "apps": 15122
+      "apps": 15125
     },
     {
       "country": "hk",
@@ -125,12 +119,12 @@
   ],
   "history": {
     "first": "2026-10-30T16:40:07Z",
-    "last": "2026-11-28T16:12:51Z"
+    "last": "2026-11-28T16:56:57Z"
   },
-  "histories_7d": 125024,
-  "adjacent_counter_drops": 14942,
+  "histories_7d": 125036,
+  "adjacent_counter_drops": 14947,
   "research_lanes": {
-    "recent_pain": 47,
+    "recent_pain": 46,
     "stale": 1368
   },
   "recent_version_review_coverage": {
@@ -149,17 +143,17 @@
       "lost_to_stale_rss": 138
     },
     "links": {
-      "eligible": 106,
-      "rss_usable": 17,
-      "any_complaint": 10,
-      "complaint_records": 1,
+      "eligible": 110,
+      "rss_usable": 21,
+      "any_complaint": 14,
+      "complaint_records": 0,
       "lost_to_stale_rss": 3
     },
     "all": {
-      "eligible": 25275,
+      "eligible": 25274,
       "rss_usable": 2116,
       "any_complaint": 1087,
-      "complaint_records": 47,
+      "complaint_records": 46,
       "lost_to_stale_rss": 142
     },
     "pain_timing": {
